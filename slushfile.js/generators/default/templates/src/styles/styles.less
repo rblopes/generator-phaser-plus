@@ -1,0 +1,25 @@
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  &, &:before, &:after {
+    box-sizing: inherit;
+  }
+}
+
+html, body {
+  background: #000;
+  overflow: hidden;
+  touch-action: none;
+}
+
+canvas {
+  touch-action-delay: none;
+  touch-action: none;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}

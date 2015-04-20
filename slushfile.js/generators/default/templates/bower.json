@@ -1,0 +1,15 @@
+{
+  "name": "{{{ packageName }}}",
+  "dependencies": {
+    "phaser": "~2.3.0",
+    "almond": "~0.3.0"
+  },
+  {{# customBuild }}
+  "overrides": {
+    "phaser": {
+      "main": "build/custom/phaser-{{{ customBuild }}}.js"
+    }
+  },
+  {{/ customBuild }}
+  "private": true
+}
