@@ -1,8 +1,8 @@
 [`slush-phaser-plus`][npm.]
 ===============================================================================
 
->   **HIGHLY EXPERIMENTAL!** A Slush generator for Phaser web game projects,
->   packed with lots of good features.
+>   **HIGHLY EXPERIMENTAL!** A Slush generator for [Phaser][phsr] web game 
+>   projects, packed with lots of good features.
 
 
 Batteries included
