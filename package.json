@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "gulp": "^3.8.11",
-    "gulp-conflict": "^0.3.0",
+    "gulp-conflict": "^0.4.0",
     "gulp-if": "^1.2.5",
     "gulp-install": "^0.4.0",
     "gulp-load-plugins": "^0.10.0",
