@@ -1,9 +1,14 @@
+/*
+ * Development tasks.
+ * ============================================================================
+ */
+
 'use strict';
 
 
 module.exports = function (gulp, $, config) {
 
-  var browserSync    = require('browser-sync');
+  var browserSync    = require('browser-sync').create();
   var autoprefixer   = require('autoprefixer-core');
   var handleErrors   = require('../lib/handleErrors');
   var mainBowerFiles = require('main-bower-files');
@@ -33,7 +38,7 @@ module.exports = function (gulp, $, config) {
       }))
       .pipe($.rename({ extname: '.html' }))
       .pipe(gulp.dest(dirs['build']))
-      .pipe(browserSync.reload({ stream: true }));
+      .pipe(browserSync.stream());
   });
 
   // Compile style sheet templates, prefix proposed and non-standard rules.
@@ -47,7 +52,7 @@ module.exports = function (gulp, $, config) {
       ]))
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest(dirs['build']))
-      .pipe(browserSync.reload({ stream: true }));
+      .pipe(browserSync.stream({ match: '**/*.css' }));
   });
 
   // Compile script files as AMD, bundle them as a single file.
@@ -61,7 +66,7 @@ module.exports = function (gulp, $, config) {
       .pipe($.concat('game.js'))
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest(dirs['build']))
-      .pipe(browserSync.reload({ stream: true }));
+      .pipe(browserSync.stream());
   });
 
   // Concatenates Bower script libraries in a single file.
@@ -75,13 +80,13 @@ module.exports = function (gulp, $, config) {
       .pipe($.concat('bundle.js'))
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest(dirs['build']))
-      .pipe(browserSync.reload({ stream: true }));
+      .pipe(browserSync.stream());
   });
 
   // Instantiate a live web development server for cross-browser, cross-device
   // testing.
   gulp.task('dev:server', [ 'dev:build' ], function () {
-    browserSync({
+    browserSync.init({
       server: {
         baseDir: [
           dirs['static'],

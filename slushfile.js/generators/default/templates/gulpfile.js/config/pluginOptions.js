@@ -1,8 +1,18 @@
+/*
+ * Task Plugin Options
+ * ============================================================================
+ */
+
+'use strict';
+
+
 module.exports = {
+
   'dist:styles': {
     'keepSpecialComments': false,
     'removeEmpty': true
   },
+
   'dist:appcache': {
     'filename': 'offline.appcache',
     'cache': [
@@ -20,4 +30,5 @@ module.exports = {
       '. index.html'
     ]
   }
+
 };
