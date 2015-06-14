@@ -1,4 +1,4 @@
 {
-  "title": {{# escapeJSON }}{{{ title }}}{{/ escapeJSON }},
-  "description": {{# escapeJSON }}{{{ description }}}{{/ escapeJSON }}
+  "title": {{{ json title }}},
+  "description": {{{ json description }}}
 }

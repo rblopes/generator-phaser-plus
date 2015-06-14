@@ -54,4 +54,10 @@ describe('helpers', function () {
       assert.strictEqual(helpers.classify(c5), 'SomeWeirdClassName');
     });
   });
+
+  describe('json', function () {
+    it('escapes unsafe JSON strings', function () {
+      assert.strictEqual(helpers.json('"Test"'), '"\\"Test\\""');
+    });
+  });
 });

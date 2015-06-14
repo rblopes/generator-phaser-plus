@@ -1,5 +1,5 @@
 {
-  "name": "{{{ title }}}",
+  "name": {{{ json title }}},
   "icons": [
     {
       "src": "icons\/android-chrome-36x36.png",

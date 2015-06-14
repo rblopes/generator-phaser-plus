@@ -2,7 +2,7 @@
   "name": "{{{ packageName }}}",
   "version": "0.0.0",
   "private": true,
-  "description": {{# escapeJSON }}{{{ description }}}{{/ escapeJSON }},
+  "description": {{{ json description }}},
   "devDependencies": {
     "autoprefixer-core": "^5.0.0",
     "babel-core": "^5.0.0",
