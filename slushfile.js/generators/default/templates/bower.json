@@ -1,5 +1,5 @@
 {
-  "name": "{{{ packageName }}}",
+  "name": "{{{ kebab packageName }}}",
   "dependencies": {
     "phaser": "~2.3.0",
     "almond": "~0.3.0"

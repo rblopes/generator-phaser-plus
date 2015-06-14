@@ -11,3 +11,7 @@ module.exports.classify = compose(_s.trim, _s.capitalize, _s.camelCase);
 module.exports.json = function (input) {
   return JSON.stringify(input);
 };
+
+module.exports.kebab = function (input) {
+  return _s.kebabCase(input);
+};

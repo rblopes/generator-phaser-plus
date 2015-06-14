@@ -2,10 +2,7 @@
 
 
 module.exports.packageName = function packageName (answers) {
-  var path      = require('path');
-  var kebabCase = require('lodash/string/kebabCase');
-
-  answers.packageName = kebabCase(path.basename(process.cwd()));
+  answers.packageName = require('path').basename(process.cwd());
   return answers;
 };
 
