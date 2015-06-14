@@ -20,7 +20,7 @@
   "main": "slushfile.js",
   "scripts": {
     "lint": "gulp lint",
-    "test": "echo \"It's working, but there is no test suite for this project yet...\" && exit 1"
+    "test": "NODE_ENV=test mocha test/test-*.js --reporter spec"
   },
   "preferGlobal": true,
   "engines": {
