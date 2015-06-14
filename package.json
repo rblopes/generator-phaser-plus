@@ -40,7 +40,8 @@
   },
   "devDependencies": {
     "gulp-jshint": "^1.10.0",
-    "jshint-stylish": "^1.0.1"
+    "jshint-stylish": "^1.0.1",
+    "mocha": "^2.2.5"
   },
   "license": "MIT"
 }
