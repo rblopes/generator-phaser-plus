@@ -19,7 +19,8 @@
   ],
   "main": "slushfile.js",
   "scripts": {
-    "lint": "gulp lint"
+    "lint": "gulp lint",
+    "test": "echo \"It's working, but there is no test suite for this project yet...\" && exit 1"
   },
   "preferGlobal": true,
   "engines": {
