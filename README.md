@@ -1,6 +1,10 @@
 [`slush-phaser-plus`][npm.]
 ===============================================================================
 
+[![npm version][fury]][npm.]
+[![Dependencies][ddmb]][ddm.]
+[![Travis CI Build Status][tcib]][tci.]
+
 >   **HIGHLY EXPERIMENTAL!** A Slush generator for [Phaser][phsr] web game 
 >   projects, packed with lots of good features.
 
@@ -121,5 +125,10 @@ To find out more about Slush, check out the [documentation][slus].
 [feat]: http://babeljs.io/docs/learn-es6/
 [lift]: https://www.npmjs.com/package/liftoff
 [gsdt]: https://github.com/greypants/gulp-starter/
+[ddm.]: https://david-dm.org/rblopes/slush-phaser-plus
+[fury]: https://badge.fury.io/js/slush-phaser-plus.svg
 [npm.]: https://www.npmjs.com/package/slush-phaser-plus
+[tci.]: https://travis-ci.org/rblopes/slush-phaser-plus
+[ddmb]: https://david-dm.org/rblopes/slush-phaser-plus.svg
+[tcib]: https://travis-ci.org/rblopes/slush-phaser-plus.svg
 [lcnc]: https://github.com/rblopes/slush-phaser-plus/blob/master/LICENSE
