@@ -8,6 +8,7 @@ var $    = require('gulp-load-plugins')();
 gulp.task('lint', function () {
   return gulp.src([
     'gulpfile.js',
+    'test/**/*.js',
     'slushfile.js/**/*.js'
   ])
     .pipe($.jshint('.jshintrc'))
