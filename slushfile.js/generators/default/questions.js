@@ -29,8 +29,8 @@ module.exports = [
     choices: [
       { name: 'Arcade only (recommended)', value: 'arcade-physics' },
       { name: 'P2 with Arcade (standard)', value: null             },
-      { name: 'Minimum'                  , value: 'minimum'        },
-      { name: 'No Physics'               , value: 'no-physics'     }
+      { name: 'No Physics'               , value: 'no-physics'     },
+      { name: 'Minimum'                  , value: 'minimum'        }
     ],
     default: 0
   },
