@@ -6,7 +6,7 @@ var assert = require('assert');
 
 module.exports = function (gulp, defineTestTask, task) {
 
-  describe('object generator', function () {
+  describe('default generator', function () {
     var mockDest;
 
     before(function () {
