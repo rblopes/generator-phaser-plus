@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var defineTestTask = require('./helpers/defineTestTask');
 
 
-[ 'plugin', 'state' ]
+[ 'object', 'plugin', 'state' ]
   .forEach(function (generator) {
     require('./generators/' + generator + '-generator')(
       gulp,
