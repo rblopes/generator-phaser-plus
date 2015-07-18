@@ -19,7 +19,7 @@
   ],
   "main": "slushfile.js",
   "scripts": {
-    "lint": "gulp lint",
+    "lint": "eslint slushfile.js/ test/",
     "test": "NODE_ENV=test mocha test/test-*.js --reporter spec"
   },
   "preferGlobal": true,
@@ -39,8 +39,7 @@
     "promise": "^7.0.0"
   },
   "devDependencies": {
-    "gulp-jshint": "^1.10.0",
-    "jshint-stylish": "^1.0.1",
+    "eslint": "^0.24.1",
     "mocha": "^2.2.5",
     "mock-gulp-dest": "^0.1.1"
   },
