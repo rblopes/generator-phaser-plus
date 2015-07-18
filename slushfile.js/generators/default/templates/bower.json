@@ -1,15 +1,15 @@
 {
-  "name": "{{{ packageName }}}",
+  "name": "{{{ kebab packageName }}}",
   "dependencies": {
     "phaser": "~2.3.0",
     "almond": "~0.3.0"
   },
-  {{# customBuild }}
+  {{#if customBuild}}
   "overrides": {
     "phaser": {
       "main": "build/custom/phaser-{{{ customBuild }}}.js"
     }
   },
-  {{/ customBuild }}
+  {{/if}}
   "private": true
 }

@@ -1,11 +1,12 @@
 /*
  * {{{ name }}} state
-{{# description }}
+{{#if description}}
  * ===========================================================================
  *
  * {{{ description }}}
-{{/ description }}
+{{/if}}
  */
+
 
 export default class {{{ name }}} extends Phaser.State {
 

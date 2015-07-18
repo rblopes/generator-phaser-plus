@@ -1,10 +1,10 @@
 /*
  * {{{ name }}} plugin
-{{# description }}
+{{#if description}}
  * ===========================================================================
  *
  * {{{ description }}}
-{{/ description }}
+{{/if}}
  */
 
 class {{{ name }}} extends Phaser.Plugin {

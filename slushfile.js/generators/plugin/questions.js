@@ -4,8 +4,8 @@
 var validations = require('../../lib/validations');
 var isNotBlank  = validations.isNotBlank;
 
-var trim     = require('../../lib/filters').trim;
-var classify = require('../../lib/filters').classify;
+var trim     = require('../../lib/helpers').trim;
+var classify = require('../../lib/helpers').classify;
 
 
 module.exports = [
