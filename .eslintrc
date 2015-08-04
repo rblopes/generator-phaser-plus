@@ -38,10 +38,9 @@ rules:
     - named: always
       anonymous: always
 
-  space-in-brackets:                  # Always use spaces inside brackets
-    - 2
-    - always
-    - propertyName: false
+  object-curly-spacing: [ 2, always ]     # Use spaces inside object literals.
+  array-bracket-spacing: [ 2, always ]    # Use spaces inside array literals.
+  computed-property-spacing: [ 2, never ] # No spaces in computed properties.
 
   ### Node.js #################################################################
   no-path-concat: 0                   # Ignore path string concatenation
