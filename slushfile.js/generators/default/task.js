@@ -12,11 +12,12 @@ var helpers = require('../../lib/helpers');
 
 
 module.exports = function (variables) {
+  var filter = $.filter('**/*.{md,json}', { restore: true });
+
   return gulp.src(__dirname + '/templates/**')
-    .pipe($.if('**/*.{md,json}', $.hb({
-      data: variables,
-      helpers: helpers
-    })))
+    .pipe(filter)
+    .pipe($.hb({ data: variables, helpers: helpers }))
+    .pipe(filter.restore)
     .pipe($.rename(function (file) {
       if (file.basename[0] === '_') {
         file.basename = '.' + file.basename.slice(1);
