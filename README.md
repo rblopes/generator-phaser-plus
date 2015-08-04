@@ -23,7 +23,7 @@ Every project created with this generator includes the following tool-set:
     collaborators — [check if EditorConfig is available for your code
     editor][ecpl].
 
-*   [JSHint][jsht] for code quality check.
+*   [ESLint][eslt] for code style and quality check.
 
 *   [Bower][bowr] for easy component management.
 
@@ -113,8 +113,8 @@ To find out more about Slush, check out the [documentation][slus].
 
 [bowr]: http://bower.io/
 [phsr]: http://phaser.io/
+[eslt]: http://eslint.org/
 [gulp]: http://gulpjs.com/
-[jsht]: http://jshint.com/
 [babl]: https://babeljs.io/
 [less]: http://lesscss.org/
 [hbs.]: http://handlebarsjs.com/
