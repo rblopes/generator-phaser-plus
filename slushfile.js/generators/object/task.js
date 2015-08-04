@@ -8,7 +8,7 @@
 var gulp = require('gulp');
 var $    = require('gulp-load-plugins')();
 
-var helpers = require('../../lib/helpers.js');
+var helpers = require('../../lib/helpers');
 
 
 module.exports = function (variables) {
