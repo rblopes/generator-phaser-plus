@@ -1,6 +1,9 @@
 Changelog
 ===============================================================================
 
+## v0.0.3
+-  Replaced `gulp-if` with `gulp-filter`.
+
 ## v0.0.2
 -  Dev: Added integration to Travis CI.
 -  Dev: Added test suite.
