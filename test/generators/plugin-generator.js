@@ -14,9 +14,9 @@ module.exports = function (gulp, defineTestTask, task) {
 
     it('creates a test plugin', function (done) {
       var mockDest = defineTestTask(task, {
-        'name'   : 'TestPlugin',
-        'description': 'A Test Plugin',
-        'destDir': '.'
+        name: 'TestPlugin',
+        description: 'A Test Plugin',
+        destDir: '.'
       });
 
       gulp.start('test').once('stop', function () {
@@ -27,9 +27,9 @@ module.exports = function (gulp, defineTestTask, task) {
 
     it('creates another test plugin', function (done) {
       var mockDest = defineTestTask(task, {
-        'name'   : 'AnotherTestPlugin',
-        'description': 'Another Test Plugin',
-        'destDir': '.'
+        name: 'AnotherTestPlugin',
+        description: 'Another Test Plugin',
+        destDir: '.'
       });
 
       gulp.start('test').once('stop', function () {

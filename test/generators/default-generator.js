@@ -15,10 +15,10 @@ module.exports = function (gulp, defineTestTask, task) {
 
     beforeEach(function () {
       mockDest = defineTestTask(task, {
-        'title'      : 'A game title',
-        'description': 'A game description',
-        'customBuild': 'arcade-physics',
-        'packageName': 'a-test-game'
+        title: 'A game title',
+        description: 'A game description',
+        customBuild: 'arcade-physics',
+        packageName: 'a-test-game'
       });
     });
 
