@@ -46,7 +46,7 @@ module.exports = function (gulp, defineTestTask, task) {
             '.editorconfig',
             '.gitattributes',
             '.gitignore',
-            '.jshintrc'
+            '.eslintrc'
           ]);
 
           done();

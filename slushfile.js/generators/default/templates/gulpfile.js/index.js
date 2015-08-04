@@ -17,6 +17,6 @@ var config  = require('./config');
 
 
 Object.keys(tasks)
-  .map(function (key) { return tasks[key] })
-  .filter(function (obj) { return typeof obj === 'function' })
-  .forEach(function (task) { task(gulp, plugins, config) });
+  .map(function (key) { return tasks[key]; })
+  .filter(function (obj) { return typeof obj === 'function'; })
+  .forEach(function (task) { task(gulp, plugins, config); });

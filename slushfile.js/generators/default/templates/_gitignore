@@ -10,5 +10,5 @@ bower_components
 !.git*
 !.babelrc
 !.bowerrc
-!.jshintrc
+!.eslintrc
 !.editorconfig

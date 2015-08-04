@@ -19,18 +19,18 @@ module.exports = {
   // and description. Then, there are partials, which are smaller and reusable
   // chunks of HTML markup. Lastly, the main templates, that join the former
   // pieces together to compose fully featured HTML documents.
-  'views': {
-    get data      () { return dirs.views + '/data/*.json'     },
-    get partials  () { return dirs.views + '/partials/*.hbs'  },
-    get templates () { return dirs.views + '/templates/*.hbs' }
+  views: {
+    get data () { return dirs.views + '/data/*.json'; },
+    get partials () { return dirs.views + '/partials/*.hbs'; },
+    get templates () { return dirs.views + '/templates/*.hbs'; }
   },
 
   // LESS scripts become compatible cross-browser style sheets.
-  get styles  () { return dirs.styles  + '/*.less'  },
+  get styles () { return dirs.styles  + '/*.less'; },
 
   // Finds this project static assets to be copied for distribution.
-  get assets  () { return dirs.static  + '/**'      },
+  get assets () { return dirs.static  + '/**'; },
 
   // Finds the scripts to be compiled.
-  get scripts () { return dirs.scripts + '/**/*.js' }
+  get scripts () { return dirs.scripts + '/**/*.js'; }
 };

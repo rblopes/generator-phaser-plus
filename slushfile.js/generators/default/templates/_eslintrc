@@ -1,0 +1,57 @@
+settings:
+  ecmascript: 6
+
+env:
+  es6: true
+  browser: true
+
+globals:
+  PIXI: false
+  Phaser: false
+
+ecmaFeatures:
+  modules: true
+
+rules:
+  ### Best Practices ##########################################################
+  dot-location: [ 2, property ]       # Dots must precede property names
+  no-floating-decimal: 2              # Forbid floating decimals
+
+  ### Stylistic Issues ########################################################
+  brace-style:                        # Favor 'Stroustrup' brace-style
+    - 2
+    - stroustrup
+    - allowSingleLine: true
+
+  comma-style: [ 2, last ]            # Commas before line breaks
+  indent: [ 2, 2 ]                    # Indent code with 2 spaces
+
+  linebreak-style: [ 2, unix ]        # Favor Unix-style line endings
+  no-lonely-if: 2                     # No 'lonely `if`s' inside else clauses
+
+  no-multiple-empty-lines:            # Allow at most 2 empty lines
+    - 1
+    - max: 2
+
+  no-multi-spaces: 0                  # Allow multiple spaces
+  object-curly-spacing: [ 2, always ] # Ensure spaces inside object literals
+  operator-linebreak: [ 2, after ]    # No line breaks before binary operators
+  padded-blocks: [ 2, never ]         # No padded statement blocks
+  quote-props: [ 2, as-needed ]       # Quote properties as needed
+  quotes: [ 2, single ]               # Favor single quotes for strings
+  semi: [ 2, always ]                 # Always end statements in semicolons
+  space-after-keywords: [ 2, always ] # Surround keywords with spaces
+  space-before-blocks: [ 2, always ]  # Leave a space before blocks
+
+  space-before-function-paren:        # Require a space after `function`
+    - 2
+    - named: always
+      anonymous: always
+
+  object-curly-spacing: [ 2, always ]     # Use spaces inside object literals.
+  array-bracket-spacing: [ 2, always ]    # Use spaces inside array literals.
+  computed-property-spacing: [ 2, never ] # No spaces in computed properties.
+
+  ### ECMAScript 2015 #########################################################
+  generator-star-spacing: [ 2, both ] # Require spaces between generator `*`
+  object-shorthand: [ 2, always ]     # Favor object shorthands

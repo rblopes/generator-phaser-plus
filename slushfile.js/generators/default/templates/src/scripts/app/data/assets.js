@@ -16,7 +16,7 @@
 export default {
 
   // - Boot Assets ------------------------------------------------------------
-  'boot': [
+  boot: [
     {
       key: 'splash-screen',
       type: 'image',
@@ -31,7 +31,7 @@ export default {
   ],
 
   // - Game assets ------------------------------------------------------------
-  'game': [
+  game: [
     {
       key: 'phaser',
       type: 'image',
@@ -40,7 +40,7 @@ export default {
   ],
 
   // - Music and Sound effects ------------------------------------------------
-  'audio': [
+  audio: [
     // // Example
     // {
     //   key: 'pow',

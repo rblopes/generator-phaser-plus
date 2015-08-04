@@ -43,8 +43,8 @@ export default class Preload extends Phaser.State {
   // --------------------------------------------------------------------------
 
   getAudioToDecode () {
-    if ('audio' in assets) {
-      return assets['audio'].map(({ key }) => key);
+    if (assets.audio) {
+      return assets.audio.map(({ key }) => key);
     }
 
     return [];
