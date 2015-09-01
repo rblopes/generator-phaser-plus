@@ -1,7 +1,7 @@
 {
   "name": "slush-phaser-plus",
   "description": "A Slush generator for Phaser web game projects, packed with lots of good features.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/rblopes/slush-phaser-plus#readme",
   "author": "Rafael Barbosa Lopes <rafael.barbosalopes@gmail.com>",
   "contributors": [],
