@@ -1,5 +1,5 @@
 /*
- * Task Plugin Options
+ * Browserify bundle configuration.
  * ============================================================================
  */
 
@@ -8,9 +8,8 @@
 
 module.exports = {
 
-  'dist:styles': {
-    keepSpecialComments: false,
-    removeEmpty: true
-  }
+  debug: true,
+  standalone: 'app',
+  entries: [ 'src/scripts/index' ]
 
 };

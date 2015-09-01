@@ -14,19 +14,27 @@ import assets from '../data/assets';
 // displaying the decorated splash screen graphic, and the progress bar.
 import SplashScreen from '../objects/SplashScreen';
 
+// A helper function to extract how many sound effects need to be decoded
+// before loading the next game state.
+function getSoundsToDecode (packName) {
+  return assets[packName]
+    .filter(({ type }) => type === 'audio' || type === 'audiosprite')
+    .map(({ key }) => key);
+}
+
 
 export default class Preload extends Phaser.State {
 
-  init () {
+  init (packName = 'game') {
+    this.packName = packName;
+
     this.assetsReady    = false;
-    this.soundsToDecode = this.getAudioToDecode();
+    this.soundsToDecode = getSoundsToDecode(packName);
   }
 
   preload () {
     this.showSplashScreen();
-
-    this.loadGraphics();
-    this.loadAudio();
+    this.loadAssets();
   }
 
   create () {
@@ -42,32 +50,21 @@ export default class Preload extends Phaser.State {
 
   // --------------------------------------------------------------------------
 
-  getAudioToDecode () {
-    if (assets.audio) {
-      return assets.audio.map(({ key }) => key);
-    }
-
-    return [];
-  }
-
   showSplashScreen () {
-    let { progressBar } = new SplashScreen(this.game);
+    const { progressBar } = new SplashScreen(this.game);
     this.load.setPreloadSprite(progressBar);
   }
 
-  loadGraphics () {
-    this.load.pack('game', null, assets);
-  }
+  loadAssets () {
+    this.load.pack(this.packName, null, assets);
 
-  loadAudio () {
-    if ('audio' in assets) {
-      this.load.pack('audio', null, assets);
+    if (!this.allSoundsDecoded) {
       this.sound.onSoundDecode.add((key) => this.dequeueDecodedSound(key));
     }
   }
 
   dequeueDecodedSound (key) {
-    let position = this.soundsToDecode.indexOf(key);
+    const position = this.soundsToDecode.indexOf(key);
 
     if (position > -1) {
       this.soundsToDecode.splice(position, 1);

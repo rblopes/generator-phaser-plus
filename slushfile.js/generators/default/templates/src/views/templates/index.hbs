@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<!-- build:[manifest] offline.appcache -->
 <html>
-<!-- /build -->
 
   <head>
     <meta charset="utf-8">
@@ -22,10 +20,10 @@
 
   <body>
     <!-- build:js game.min.js -->
-    <script src="bundle.js"></script>
+    <script src="phaser.js"></script>
     <script src="game.js"></script>
     <!-- /build -->
-    <script>require('app')()</script>
+    <script>window.app()</script>
   </body>
 
 </html>

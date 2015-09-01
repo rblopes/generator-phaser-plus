@@ -1,5 +1,8 @@
 Changelog
-===============================================================================
+=========
+
+## v0.0.4
+-  Updated template project to `phaser-plus-template@0.6.0`.
 
 ## v0.0.3
 -  Replaced `gulp-if` with `gulp-filter`.

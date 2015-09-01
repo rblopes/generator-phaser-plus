@@ -10,12 +10,10 @@ import * as states from './app/states';
 
 
 export default function () {
-  let game = new Phaser.Game(640, 480, Phaser.AUTO);
+  const game = new Phaser.Game(640, 480, Phaser.AUTO);
 
   // Dynamically add all required game states.
-  Object.keys(states)
-    .map((key) => [ key, states[key] ])
-    .forEach((args) => game.state.add(... args));
+  Object.keys(states).forEach((key) => game.state.add(key, states[key]));
 
   game.state.start('Boot');
 

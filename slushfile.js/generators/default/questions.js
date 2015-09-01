@@ -27,10 +27,10 @@ module.exports = [
     name: 'customBuild',
     message: 'Which Phaser build will you use?',
     choices: [
-      { name: 'Arcade only (recommended)', value: 'arcade-physics' },
-      { name: 'P2 with Arcade (standard)', value: null             },
-      { name: 'No Physics'               , value: 'no-physics'     },
-      { name: 'Minimum'                  , value: 'minimum'        }
+      { name: 'Arcade only (recommended)', value: 'custom/phaser-arcade-physics' },
+      { name: 'P2 with Arcade (standard)', value: 'phaser'                       },
+      { name: 'No Physics'               , value: 'custom/phaser-no-physics'     },
+      { name: 'Minimum'                  , value: 'custom/phaser-minimum'        }
     ],
     default: 0
   },

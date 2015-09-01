@@ -1,9 +1,5 @@
 /*
- * This file structuring was inspired on earlier efforts by Daniel Tello in his
- * 'gulp-starter' project. Find out more in
- * <https://github.com/greypants/gulp-starter/>.
- *
- * Here, instead of declaring several tasks in a single file at once, tasks are
+ * Instead of declaring several tasks in a single file at once, tasks are
  * categorized and spread in modules under the 'tasks' directory.
  */
 

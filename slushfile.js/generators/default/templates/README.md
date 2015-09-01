@@ -1,9 +1,9 @@
 {{{ title }}}
 ===============================================================================
-{{# description }}
+{{#if description }}
 
 >   {{{ description }}}
-{{/ description }}
+{{/if}}
 
 
 Development Instructions 
@@ -18,8 +18,8 @@ npm run dist  # Prepare the game release for distribution. Also `gulp dist`.
 npm run clean # Delete temporary and distribution build files.
 ```
 
-<small>Also, you may want to install Gulp and Bower globally, but you are not
-required to do so.</small>
+(Also, you may want to install Gulp globally, but you are not required to do
+so.)
 
 Should you consider distributing your game as an open source project, please
 [include a LICENSE file][lcnc] in your project root.
