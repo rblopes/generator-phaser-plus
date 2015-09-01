@@ -7,6 +7,8 @@ var assert = require('assert');
 module.exports = function (gulp, defineTestTask, task) {
 
   describe('default generator', function () {
+    this.timeout(4000);
+
     var mockDest;
 
     before(function () {
@@ -42,7 +44,6 @@ module.exports = function (gulp, defineTestTask, task) {
         .once('stop', function () {
           mockDest.assertDestContains([
             '.babelrc',
-            '.bowerrc',
             '.editorconfig',
             '.gitattributes',
             '.gitignore',
@@ -57,11 +58,7 @@ module.exports = function (gulp, defineTestTask, task) {
       gulp
         .start('test')
         .once('stop', function () {
-          mockDest.assertDestContains([
-            'package.json',
-            'bower.json'
-          ]);
-
+          mockDest.assertDestContains([ 'package.json' ]);
           done();
         });
     });
@@ -72,14 +69,16 @@ module.exports = function (gulp, defineTestTask, task) {
         .once('stop', function () {
           mockDest.assertDestContains([
             'gulpfile.js',
-            'gulpfile.js/index.js',
+            'gulpfile.js/config/bundle.js',
             'gulpfile.js/config/dirs.js',
             'gulpfile.js/config/globs.js',
             'gulpfile.js/config/index.js',
+            'gulpfile.js/config/phaser.js',
             'gulpfile.js/config/pluginOptions.js',
-            'gulpfile.js/lib/handleErrors.js',
+            'gulpfile.js/index.js',
             'gulpfile.js/tasks/dev.js',
-            'gulpfile.js/tasks/dist.js'
+            'gulpfile.js/tasks/dist.js',
+            'gulpfile.js/tasks/helpers/bundler.js'
           ]);
 
           done();
