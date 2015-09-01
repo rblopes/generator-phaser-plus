@@ -1,5 +1,5 @@
 [`slush-phaser-plus`][npm.]
-===============================================================================
+===========================
 
 [![npm version][fury]][npm.]
 [![Dependencies][ddmb]][ddm.]
@@ -10,12 +10,15 @@
 
 
 Batteries included
--------------------------------------------------------------------------------
+------------------
 
 Every project created with this generator includes the following tool-set:
 
 *   [Gulp][gulp], a popular task manager and build streaming, to handle
     development and distribution tasks.
+
+*   [Browserify][brsy] support for easier management of components and
+    dependency tracking.
 
 *   [BrowserSync][bsnc] development server, for cross-device testing.
 
@@ -25,17 +28,15 @@ Every project created with this generator includes the following tool-set:
 
 *   [ESLint][eslt] for code style and quality check.
 
-*   [Bower][bowr] for easy component management.
-
 *   [Babel][babl] to translate from ES6 to ES5 syntax.
     See which [language features][feat] are currently supported.
 
-*   Support for [Handlebars][hbs.] templates, [LESS][less] style sheets, source
-    maps output, offline cache manifest creation and much more!
+*   [Handlebars][hbs.] templates, [LESS][less] style sheets, source maps and
+    more!
 
 
 Installation Instructions
--------------------------------------------------------------------------------
+-------------------------
 
 Firstly, you need a development environment compatible with `Node.js` properly
 installed and configured in your system to use with this generator. After that,
@@ -52,7 +53,6 @@ later:
 
 ```sh
 npm install --global gulp   # A task manager and streaming build system.
-npm install --global bower  # A popular front-end package manager.
 ```
 
 
@@ -93,13 +93,13 @@ The following sub-generators are available, performing the tasks as described:
 
 
 License
--------------------------------------------------------------------------------
+-------
 
 Source code distributed under the terms of the [MIT License][lcnc].
 
 
 Did you know?
--------------------------------------------------------------------------------
+-------------
 
 [Slush][slus] is a tool that uses Gulp for project scaffolding.
 
@@ -111,20 +111,19 @@ To find out more about Slush, check out the [documentation][slus].
 
 <!-- Links ---------------------------------------------------------------- -->
 
-[bowr]: http://bower.io/
 [phsr]: http://phaser.io/
 [eslt]: http://eslint.org/
 [gulp]: http://gulpjs.com/
 [babl]: https://babeljs.io/
 [less]: http://lesscss.org/
+[brsy]: http://browserify.org/
 [hbs.]: http://handlebarsjs.com/
 [edcf]: http://editorconfig.org/
 [bsnc]: http://www.browsersync.io/
 [slus]: https://github.com/slushjs/slush
 [ecpl]: http://editorconfig.org/#download
-[feat]: http://babeljs.io/docs/learn-es6/
+[feat]: http://babeljs.io/docs/learn-es2015/
 [lift]: https://www.npmjs.com/package/liftoff
-[gsdt]: https://github.com/greypants/gulp-starter/
 [ddm.]: https://david-dm.org/rblopes/slush-phaser-plus
 [fury]: https://badge.fury.io/js/slush-phaser-plus.svg
 [npm.]: https://www.npmjs.com/package/slush-phaser-plus
