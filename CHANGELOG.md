@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## v0.0.5
+-  Updated template project to match `phaser-plus-template@0.6.2`.
+
 ## v0.0.4
 -  Updated template project to `phaser-plus-template@0.6.0`.
 -  Removed the Phaser 'minimum' custom build option.

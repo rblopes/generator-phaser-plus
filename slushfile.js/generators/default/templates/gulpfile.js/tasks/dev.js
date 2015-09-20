@@ -14,7 +14,7 @@ module.exports = function (gulp, $, config) {
   var buffer       = require('vinyl-buffer');
   var source       = require('vinyl-source-stream');
   var browserSync  = require('browser-sync').create();
-  var autoprefixer = require('autoprefixer-core');
+  var autoprefixer = require('autoprefixer');
 
   var handleErrors = $.notify.onError('<%= error.message %>');
 
