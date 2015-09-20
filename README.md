@@ -95,7 +95,7 @@ The following sub-generators are available, performing the tasks as described:
 License
 -------
 
-Source code distributed under the terms of the [MIT License][lcnc].
+Source code distributed under the terms of the [MIT License](LICENSE).
 
 
 Did you know?
@@ -130,4 +130,3 @@ To find out more about Slush, check out the [documentation][slus].
 [tci.]: https://travis-ci.org/rblopes/slush-phaser-plus
 [ddmb]: https://david-dm.org/rblopes/slush-phaser-plus.svg
 [tcib]: https://travis-ci.org/rblopes/slush-phaser-plus.svg
-[lcnc]: https://github.com/rblopes/slush-phaser-plus/blob/master/LICENSE
