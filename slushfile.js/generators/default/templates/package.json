@@ -1,8 +1,5 @@
 {
-  "name": "{{{ kebab packageName }}}",
-  "version": "0.0.0",
   "private": true,
-  "description": {{{ json description }}},
   "dependencies": {
     "phaser": "^2.4.2"
   },
@@ -48,6 +45,5 @@
     "start": "gulp default",
     "audiosprite": "audiosprite -e m4a -f jukebox -g 3",
     "audiosprite:sfx": "npm run audiosprite -- -o static/assets/sfx resources/sfx/*.wav"
-  },
-  "license": ""
+  }
 }

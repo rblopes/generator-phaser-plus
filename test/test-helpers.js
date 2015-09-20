@@ -60,27 +60,4 @@ describe('helpers', function () {
       assert.strictEqual(helpers.json('"Test"'), '"\\"Test\\""');
     });
   });
-
-  describe('kebab', function () {
-    var p1 = 'package';
-    var p2 = 'package name';
-    var p3 = '  package name  ';
-    var p4 = 'package_name';
-
-    it('ignores single word names', function () {
-      assert.strictEqual(helpers.kebab(p1), 'package');
-    });
-
-    it('joins words with hyphens', function () {
-      assert.strictEqual(helpers.kebab(p2), 'package-name');
-    });
-
-    it('trims strings', function () {
-      assert.strictEqual(helpers.kebab(p3), 'package-name');
-    });
-
-    it('replaces non letter characters', function () {
-      assert.strictEqual(helpers.kebab(p4), 'package-name');
-    });
-  });
 });
