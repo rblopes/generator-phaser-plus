@@ -34,6 +34,13 @@ Every project created with this generator includes the following tool-set:
 *   [Handlebars][hbs.] templates, [LESS][less] style sheets, source maps and
     more!
 
+The generated sample project is based on my [`phaser-plus-template`][p+tp] and,
+using this generator, you always get a working project similar to that. In
+fact, that project began before `slush-phaser-plus`, and it is regularly
+updated with improvements and bug fixes. If you have questions regarding the
+sample project or want to contribute with suggestions or bug fixes, feel free
+to ask there.
+
 
 Installation Instructions
 -------------------------
@@ -127,6 +134,7 @@ To find out more about Slush, check out the [documentation][slus].
 [ddm.]: https://david-dm.org/rblopes/slush-phaser-plus
 [fury]: https://badge.fury.io/js/slush-phaser-plus.svg
 [npm.]: https://www.npmjs.com/package/slush-phaser-plus
+[p+tp]: https://github.com/rblopes/phaser-plus-template
 [tci.]: https://travis-ci.org/rblopes/slush-phaser-plus
 [ddmb]: https://david-dm.org/rblopes/slush-phaser-plus.svg
 [tcib]: https://travis-ci.org/rblopes/slush-phaser-plus.svg
