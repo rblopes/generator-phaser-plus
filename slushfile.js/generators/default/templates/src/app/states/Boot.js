@@ -11,6 +11,8 @@ import assets from '../data/assets';
 
 export default class Boot extends Phaser.State {
 
+  // Use this method to adjust the game appearance, number of input pointers,
+  // screen orientation handling etc.
   init () {
     // Point the Phaser Asset Loader to where all your assets live.
     this.load.path = 'assets/';
@@ -19,24 +21,6 @@ export default class Boot extends Phaser.State {
     // enable it by default.
     //this.physics.startSystem(Phaser.Physics.P2);
 
-    this.gameSetup();
-  }
-
-  preload () {
-    // Load the required assets to display our splash screen, later.
-    this.load.pack('boot', null, assets);
-  }
-
-  create () {
-    // Immediately after loading the boot assets, go to the next game state.
-    this.state.start('Preload');
-  }
-
-  // --------------------------------------------------------------------------
-
-  // Use this method to adjust the game appearance, number of input pointers,
-  // screen orientation handling etc.
-  gameSetup () {
     // Adjust how many pointers Phaser will check for input events.
     this.input.maxPointers = 2;
 
@@ -50,6 +34,16 @@ export default class Boot extends Phaser.State {
     // Tells Phaser to smooth texture corners and sub-pixels when rendering the
     // game canvas.
     this.stage.smoothed = true;
+  }
+
+  preload () {
+    // Load the required assets to display our splash screen, later.
+    this.load.pack('boot', null, assets);
+  }
+
+  create () {
+    // Immediately after loading the boot assets, go to the next game state.
+    this.state.start('Preload');
   }
 
 }

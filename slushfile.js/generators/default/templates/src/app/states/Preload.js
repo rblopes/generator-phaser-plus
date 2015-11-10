@@ -28,7 +28,6 @@ export default class Preload extends Phaser.State {
   init (packName = 'game') {
     this.packName = packName;
 
-    this.assetsReady    = false;
     this.soundsToDecode = getSoundsToDecode(packName);
   }
 
@@ -37,13 +36,9 @@ export default class Preload extends Phaser.State {
     this.loadAssets();
   }
 
-  create () {
-    this.assetsReady = true;
-  }
-
   update () {
     // Wait until all sound effects have been decoded into memory.
-    if (this.assetsReady && this.allSoundsDecoded) {
+    if (this.allSoundsDecoded) {
       this.state.start('Game');
     }
   }

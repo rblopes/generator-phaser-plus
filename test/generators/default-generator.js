@@ -69,12 +69,7 @@ module.exports = function (gulp, defineTestTask, task) {
         .once('stop', function () {
           mockDest.assertDestContains([
             'gulpfile.js',
-            'gulpfile.js/config/bundle.js',
-            'gulpfile.js/config/dirs.js',
-            'gulpfile.js/config/globs.js',
-            'gulpfile.js/config/index.js',
-            'gulpfile.js/config/phaser.js',
-            'gulpfile.js/config/pluginOptions.js',
+            'gulpfile.js/config.js',
             'gulpfile.js/index.js',
             'gulpfile.js/tasks/dev.js',
             'gulpfile.js/tasks/dist.js',
@@ -91,17 +86,14 @@ module.exports = function (gulp, defineTestTask, task) {
         .once('stop', function () {
           mockDest.assertDestContains([
             'README.md',
-            'src/scripts/app.js',
-            'src/scripts/app/data/assets.js',
-            'src/scripts/app/objects/SplashScreen.js',
-            'src/scripts/app/states.js',
-            'src/scripts/app/states/Boot.js',
-            'src/scripts/app/states/Game.js',
-            'src/scripts/app/states/Preload.js',
-            'src/styles/styles.less',
-            'src/views/data/meta.json',
-            'src/views/partials/icons.hbs',
-            'src/views/templates/index.hbs'
+            'src/app.js',
+            'src/app/data/assets.js',
+            'src/app/objects/SplashScreen.js',
+            'src/app/states.js',
+            'src/app/states/Boot.js',
+            'src/app/states/Game.js',
+            'src/app/states/Preload.js',
+            'src/index.js'
           ]);
 
           done();
@@ -115,10 +107,12 @@ module.exports = function (gulp, defineTestTask, task) {
           mockDest.assertDestContains([
             'static/browserconfig.xml',
             'static/favicon.ico',
+            'static/index.html',
             'static/manifest.json',
             'static/assets/phaser.png',
             'static/assets/progress-bar.png',
             'static/assets/splash-screen.png',
+            'static/icons/android-chrome-144x144.png',
             'static/icons/android-chrome-192x192.png',
             'static/icons/android-chrome-36x36.png',
             'static/icons/android-chrome-48x48.png',

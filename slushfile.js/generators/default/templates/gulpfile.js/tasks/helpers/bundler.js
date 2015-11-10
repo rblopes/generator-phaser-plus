@@ -6,7 +6,7 @@
 'use strict';
 
 
-var assign     = require('lodash.assign');
+var assign     = require('object-assign');
 var watchify   = require('watchify');
 var browserify = require('browserify');
 

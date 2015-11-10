@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## v0.0.6
+-  Updated template project to `phaser-plus-template@0.7.0`.
+
 ## v0.0.5
 -  Updated template project to match `phaser-plus-template@0.6.2`.
 -  Upgraded `inquirer` to latest version.
