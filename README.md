@@ -14,25 +14,26 @@ Batteries included
 
 Every project created with this generator includes the following tool-set:
 
-*   [Gulp][gulp], a popular task manager and build streaming, to handle
-    development and distribution tasks.
+*   [Gulp][gulp] task manager, to handle development and distribution tasks,
+    with alternative npm scripts provided.
+
+*   [BrowserSync][bsnc] development server for cross-device testing.
 
 *   [Browserify][brsy] support for easier management of components and
     dependency tracking.
 
-*   [BrowserSync][bsnc] development server, for cross-device testing.
+*   [Babel][babl] to compile scripts written in ECMAScript 2015 (and future
+    specs) into scripts compatible with today's browsers. Check which [language
+    features][feat] are currently supported.
 
 *   [EditorConfig][edcf] support, for consistent editor configuration between
-    collaborators — [check if EditorConfig is available for your code
-    editor][ecpl].
+    collaborators — check if [EditorConfig support][ecpl] is available for your
+    code editor.
 
-*   [ESLint][eslt] for code style and quality check.
+*   [ESLint][eslt] for code quality check.
 
-*   [Babel][babl] to translate from ES6 to ES5 syntax.
-    See which [language features][feat] are currently supported.
-
-*   [Handlebars][hbs.] templates, [LESS][less] style sheets, source maps and
-    more!
+*   Customizable scripts for automated [Audio Sprites][ausp] generation
+    (Requires [FFMpeg][ffmp]).
 
 The generated sample project is based on my [`phaser-plus-template`][p+tp] and,
 using this generator, you always get a working project similar to that. In
@@ -122,15 +123,15 @@ To find out more about Slush, check out the [documentation][slus].
 [eslt]: http://eslint.org/
 [gulp]: http://gulpjs.com/
 [babl]: https://babeljs.io/
-[less]: http://lesscss.org/
 [brsy]: http://browserify.org/
-[hbs.]: http://handlebarsjs.com/
+[ffmp]: https://www.ffmpeg.org/
 [edcf]: http://editorconfig.org/
 [bsnc]: http://www.browsersync.io/
 [slus]: https://github.com/slushjs/slush
 [ecpl]: http://editorconfig.org/#download
 [feat]: http://babeljs.io/docs/learn-es2015/
 [lift]: https://www.npmjs.com/package/liftoff
+[ausp]: https://github.com/tonistiigi/audiosprite
 [ddm.]: https://david-dm.org/rblopes/slush-phaser-plus
 [fury]: https://badge.fury.io/js/slush-phaser-plus.svg
 [npm.]: https://www.npmjs.com/package/slush-phaser-plus

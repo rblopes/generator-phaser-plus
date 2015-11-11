@@ -13,8 +13,8 @@ var helpers = require('../../lib/helpers');
 
 module.exports = function (variables) {
   var filter = $.filter([
-    '**/*.{md,json}',
-    '**/config/phaser.js'
+    '**/*.{md,json,html}',
+    '**/gulpfile.js/config.js'
   ], { restore: true });
 
   return gulp.src(__dirname + '/templates/**')

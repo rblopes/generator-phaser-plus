@@ -9,7 +9,7 @@
 
 
 // Import Babel runtime module.
-import 'babelify/polyfill';
+import 'babel-polyfill';
 
 // Expose the application main routine.
-export { default } from './app';
+export { init } from './app';

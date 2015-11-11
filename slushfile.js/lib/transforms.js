@@ -3,7 +3,7 @@
 
 module.exports.destDir = function destDir (dir) {
   return function (answers) {
-    answers.destDir = require('../lib/projectConfig').dirs[dir];
+    answers.destDir = 'src/app/' + dir;
     return answers;
   };
 };

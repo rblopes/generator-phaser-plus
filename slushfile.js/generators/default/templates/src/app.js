@@ -9,7 +9,7 @@
 import * as states from './app/states';
 
 
-export default function () {
+export function init () {
   const game = new Phaser.Game(640, 480, Phaser.AUTO);
 
   // Dynamically add all required game states.

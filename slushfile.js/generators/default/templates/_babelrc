@@ -1,3 +1,5 @@
 {
-  "nonStandard": false
+  "presets": [
+    "es2015"
+  ]
 }
