@@ -19,7 +19,7 @@
   ],
   "main": "slushfile.js",
   "scripts": {
-    "lint": "eslint slushfile.js/ test/",
+    "lint": "eslint generators/*/*.js lib/*.js test/*.js",
     "test": "NODE_ENV=test mocha test/*.js --reporter spec"
   },
   "preferGlobal": true,
@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "eslint": "^1.9.0",
+    "eslint-config-xo-space": "*",
     "mocha": "^2.3.0",
     "yeoman-assert": "^2.0.0"
   },
