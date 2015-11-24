@@ -20,7 +20,7 @@
   "main": "slushfile.js",
   "scripts": {
     "lint": "eslint slushfile.js/ test/",
-    "test": "NODE_ENV=test mocha test/test-*.js --reporter spec"
+    "test": "NODE_ENV=test mocha test/*.js --reporter spec"
   },
   "preferGlobal": true,
   "engines": {
