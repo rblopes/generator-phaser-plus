@@ -1,6 +1,11 @@
 Changelog
 =========
 
+## v0.1.0
+-  Ported generator to Yeoman.
+-  Renamed package to `generator-phaser-plus`.
+-  Updated template project to `phaser-plus-template@0.7.1`.
+
 ## v0.0.6
 -  Updated template project to `phaser-plus-template@0.7.0`.
 
