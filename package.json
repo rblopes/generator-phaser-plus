@@ -1,47 +1,42 @@
 {
-  "name": "slush-phaser-plus",
-  "description": "A Slush generator for Phaser web game projects, packed with lots of good features.",
+  "name": "generator-phaser-plus",
+  "description": "A Yeoman generator for Phaser web games, featuring a live environment with Babel, BrowserSync, Browserify and much more.",
   "version": "0.0.6",
-  "homepage": "https://github.com/rblopes/slush-phaser-plus#readme",
+  "homepage": "https://github.com/rblopes/generator-phaser-plus#readme",
   "author": "Rafael Barbosa Lopes <rafael.barbosalopes@gmail.com>",
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rblopes/slush-phaser-plus.git"
+    "url": "https://github.com/rblopes/generator-phaser-plus.git"
   },
-  "bugs": {
-    "url": "https://github.com/rblopes/slush-phaser-plus/issues"
-  },
+  "bugs": "https://github.com/rblopes/generator-phaser-plus/issues",
   "keywords": [
+    "es2015",
+    "es6",
     "gamedev",
     "phaser",
-    "slushgenerator"
+    "scaffold",
+    "yeoman-generator"
   ],
-  "main": "slushfile.js",
   "scripts": {
-    "lint": "eslint slushfile.js/ test/",
-    "test": "NODE_ENV=test mocha test/test-*.js --reporter spec"
+    "lint": "eslint generators/*/*.js lib/*.js test/*.js",
+    "test": "NODE_ENV=test mocha test/*.js --reporter spec"
   },
   "preferGlobal": true,
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=0.12.0"
   },
   "dependencies": {
-    "gulp": "^3.8.11",
-    "gulp-conflict": "^0.4.0",
-    "gulp-filter": "^3.0.0",
-    "gulp-hb": "^2.6.0",
-    "gulp-install": "~0.3.0",
-    "gulp-load-plugins": "~1.1.0",
-    "gulp-rename": "^1.2.2",
-    "inquirer": "~0.11.0",
-    "lodash": "^3.7.0",
-    "promise": "^7.0.0"
+    "chalk": "^1.0.0",
+    "lodash": "^3.10.0",
+    "yeoman-generator": "^0.21.0",
+    "yosay": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^1.0.0",
-    "mocha": "^2.2.5",
-    "mock-gulp-dest": "^0.1.1"
+    "eslint": "^1.9.0",
+    "eslint-config-xo-space": "*",
+    "mocha": "^2.3.0",
+    "yeoman-assert": "^2.0.0"
   },
   "license": "MIT"
 }
