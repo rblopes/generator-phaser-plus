@@ -11,12 +11,12 @@
   },
   "bugs": "https://github.com/rblopes/generator-phaser-plus/issues",
   "keywords": [
+    "yeoman-generator",
     "es2015",
     "es6",
     "gamedev",
     "phaser",
-    "scaffold",
-    "yeoman-generator"
+    "scaffold"
   ],
   "scripts": {
     "lint": "eslint generators/*/*.js lib/*.js test/*.js",
