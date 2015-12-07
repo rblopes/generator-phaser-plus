@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## v0.1.1
+-  Only a minor change to improve this generator discoverability.
+
 ## v0.1.0
 -  Ported generator to Yeoman.
 -  Renamed package to `generator-phaser-plus`.
