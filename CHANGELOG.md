@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## v0.1.2
+-  Added `babel-runtime` to the template project to avoid issues with `npm@2`.
+
 ## v0.1.1
 -  Only a minor change to improve this generator discoverability.
 
