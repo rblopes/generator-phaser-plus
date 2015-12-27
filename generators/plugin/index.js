@@ -6,7 +6,7 @@ var yeoman = require('yeoman-generator');
 var prompt = require('../../lib/prompt');
 var questions = require('./questions');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
   prompting: function () {
     this.log('Custom plugin generator:');
     prompt(questions, this);

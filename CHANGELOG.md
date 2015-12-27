@@ -1,6 +1,11 @@
 Changelog
 =========
 
+## v0.2.0
+-  Upgraded to `yeoman-generator@0.22.0`.
+-  Added development dependency `yeoman-test`.
+-  Fixed deprecated API calls in both generator and test modules.
+
 ## v0.1.2
 -  Added `babel-runtime` to the template project to avoid issues with `npm@2`.
 

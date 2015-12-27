@@ -5,7 +5,7 @@
 'use strict';
 
 var assert = require('yeoman-assert');
-var helpers = require('yeoman-generator').test;
+var helpers = require('yeoman-test');
 
 describe('object generator', function () {
   before(function (done) {
