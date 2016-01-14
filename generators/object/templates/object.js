@@ -7,7 +7,11 @@
  */
 
 
+<% if (baseClass) { -%>
 export default class <%- name %> extends Phaser.<%- baseClass %> {
+<% } else { -%>
+export default class <%- name %> {
+<% } -%>
   constructor (game, ...args) {
     super(game, ...args);
 

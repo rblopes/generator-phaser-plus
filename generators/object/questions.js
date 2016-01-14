@@ -31,7 +31,8 @@ module.exports = [
       'Button',
       'Text',
       'Tilemap',
-      'Graphics'
+      'Graphics',
+      { name: 'None', value: null }
     ],
     default: 0
   },

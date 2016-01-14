@@ -6,6 +6,7 @@ Changelog
 -  Upgraded to `lodash@4.0.0`.
 -  Added development dependency `yeoman-test`.
 -  Fixed deprecated API calls in both generator and test modules.
+-  Added a 'None' option to the `object` sub-generator, creating classes that do not extend a Phaser class.
 
 ## v0.1.2
 -  Added `babel-runtime` to the template project to avoid issues with `npm@2`.
