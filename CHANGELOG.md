@@ -3,6 +3,7 @@ Changelog
 
 ## v0.2.0
 -  Upgraded to `yeoman-generator@0.22.0`.
+-  Upgraded to `lodash@4.0.0`.
 -  Added development dependency `yeoman-test`.
 -  Fixed deprecated API calls in both generator and test modules.
 
