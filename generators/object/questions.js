@@ -32,7 +32,7 @@ module.exports = [
       'Text',
       'Tilemap',
       'Graphics',
-      { name: 'None', value: null }
+      {name: 'None', value: null}
     ],
     default: 0
   },
