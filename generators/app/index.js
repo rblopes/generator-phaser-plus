@@ -8,7 +8,7 @@ var prompt = require('../../lib/prompt');
 var defaults = require('../../lib/defaults');
 var questions = require('./questions');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
   prompting: function () {
     this.log(yosay(
       'Welcome to ' + chalk.green.bold('generator-phaser-plus') + '.'

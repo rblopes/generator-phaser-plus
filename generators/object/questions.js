@@ -1,7 +1,7 @@
 'use strict';
 
-var trim = require('lodash/string/trim');
-var isEmpty = require('lodash/lang/isEmpty');
+var trim = require('lodash/trim');
+var isEmpty = require('lodash/isEmpty');
 
 var classify = require('../../lib/classify');
 
@@ -31,7 +31,8 @@ module.exports = [
       'Button',
       'Text',
       'Tilemap',
-      'Graphics'
+      'Graphics',
+      { name: 'None', value: null }
     ],
     default: 0
   },

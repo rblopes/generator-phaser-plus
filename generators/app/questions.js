@@ -1,7 +1,7 @@
 'use strict';
 
-var trim = require('lodash/string/trim');
-var isEmpty = require('lodash/lang/isEmpty');
+var trim = require('lodash/trim');
+var isEmpty = require('lodash/isEmpty');
 
 module.exports = [
   {
