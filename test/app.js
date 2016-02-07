@@ -58,17 +58,13 @@ describe('default generator', function () {
   it('copies sample game code', function () {
     assert.file([
       'src/app.js',
-      'src/app/data/assets.js',
-      'src/app/objects/SplashScreen.js',
-      'src/app/states.js',
-      'src/app/states/Boot.js',
-      'src/app/states/Game.js',
-      'src/app/states/Preload.js'
+      'src/assets.js',
+      'src/objects/Logo.js',
+      'src/states.js',
+      'src/states/Boot.js',
+      'src/states/Game.js',
+      'src/states/Preload.js'
     ]);
-  });
-
-  it('copies resources directory contents', function () {
-    assert.file('resources/sfx/README.md');
   });
 
   it('copies initial game assets', function () {

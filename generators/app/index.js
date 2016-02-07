@@ -31,22 +31,16 @@ module.exports = yeoman.Base.extend({
     this.template('README.md', this.answers);
 
     // Copy gulpfile.js modules.
-    this.fs.copy(
-      [this.templatePath('gulpfile.js/**'), '!**/config.js'],
-      this.destinationPath('gulpfile.js/')
+    this.fs.copyTpl(
+      this.templatePath('gulpfile.js/**'),
+      this.destinationPath('gulpfile.js/'),
+      this.answers
     );
-    this.template('gulpfile.js/config.js', this.answers);
 
     // Copy sample game code.
     this.fs.copy(
       this.templatePath('src/**'),
       this.destinationPath('src/')
-    );
-
-    // Copy the resources directory
-    this.fs.copy(
-      this.templatePath('resources/**'),
-      this.destinationPath('resources/')
     );
 
     // Copy sample game assets.

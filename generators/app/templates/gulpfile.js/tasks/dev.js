@@ -8,23 +8,25 @@
 
 module.exports = function (gulp, $, config) {
 
-  // Are we in development mode?
-  var isWatching = false;
-
   var buffer      = require('vinyl-buffer');
   var source      = require('vinyl-source-stream');
+  var bundler     = require('./helpers/bundler');
   var browserSync = require('browser-sync').create();
 
-  var handleErrors = $.notify.onError('<%= error.message %>');
+  var handleErrors = $.notify.onError('<%%= error.message %>');
 
   var dirs  = config.dirs;
   var files = config.files;
 
-  var bundler = require('./helpers/bundler');
+  // Holds the Watchify instance for live development.
+  var watcher;
 
   // Bundle the application source code using Browserify.
   gulp.task('dev:scripts', [ 'dev:lint' ], function () {
-    return bundler(config.bundle, isWatching)
+    if (!watcher) {
+      watcher = bundler.watch(config.bundle);
+    }
+    return watcher
       .bundle()
       .on('error', handleErrors)
       .pipe(source('game.js'))
@@ -40,8 +42,6 @@ module.exports = function (gulp, $, config) {
 
   // Monitors files for changes, trigger rebuilds as needed.
   gulp.task('dev:watch', function () {
-    isWatching = true;
-
     gulp.watch(files.scripts, [ 'dev:scripts' ]);
   });
 

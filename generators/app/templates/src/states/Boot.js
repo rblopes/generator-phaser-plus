@@ -1,13 +1,12 @@
 /*
  * Boot state
- * ===========================================================================
+ * ==========
  *
  * The first state of the game, responsible for setting up some Phaser
  * features.
  */
 
-import assets from '../data/assets';
-
+import assets from '../assets';
 
 export default class Boot extends Phaser.State {
 
@@ -37,12 +36,12 @@ export default class Boot extends Phaser.State {
   }
 
   preload () {
-    // Load the required assets to display our splash screen, later.
+    // Load the graphical assets required to show the splash screen later.
     this.load.pack('boot', null, assets);
   }
 
   create () {
-    // Immediately after loading the boot assets, go to the next game state.
+    // After loading the splash screen assets, move to the next game state.
     this.state.start('Preload');
   }
 

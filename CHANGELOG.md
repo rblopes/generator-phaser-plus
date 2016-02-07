@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## v0.3.0
+-  Updated template project to match `phaser-plus-template@0.9.0`.
+
 ## v0.2.0
 -  Upgraded to `yeoman-generator@0.22.0`.
 -  Upgraded to `lodash@4.0.0`.

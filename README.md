@@ -30,9 +30,6 @@ Projects created with this generator come with:
     collaborators — check if [EditorConfig support][ecpl] is available for your
     code editor.
 
-*   Customizable scripts for automated [Audio Sprites][ausp] generation
-    (Requires [FFMpeg][ffmp]).
-
 The sample project is based on [`phaser-plus-template`][ppt_]. Both generator
 and sample project are regularly updated with improvements and bug fixes.
 
@@ -113,12 +110,10 @@ Source code distributed under the terms of the [MIT License](LICENSE).
 [node]: https://nodejs.org/
 [brsy]: http://browserify.org/
 [npm_]: https://www.npmjs.com/
-[ffmp]: https://www.ffmpeg.org/
 [edcf]: http://editorconfig.org/
 [bsnc]: http://www.browsersync.io/
 [ecpl]: http://editorconfig.org/#download
 [feat]: http://babeljs.io/docs/learn-es2015/
-[ausp]: https://github.com/tonistiigi/audiosprite
 [ppt_]: https://github.com/rblopes/phaser-plus-template
 [ddm_]: https://david-dm.org/rblopes/generator-phaser-plus
 [fury]: https://badge.fury.io/js/generator-phaser-plus.svg

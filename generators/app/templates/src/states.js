@@ -1,9 +1,9 @@
 /*
  * The `states` module
- * ============================================================================
+ * ===================
  *
- * A module declaring all game states present. Expose all required game
- * states using this module.
+ * Declares all present game states.
+ * Expose the required game states using this module.
  */
 
 export { default as Boot    } from './states/Boot';

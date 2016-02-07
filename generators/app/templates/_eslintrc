@@ -4,15 +4,15 @@
 # them as much as you want, or simply replace this file with another one you
 # have previously edited.
 #
-# For learn more about ESLint rules, use the reference page:
-# - <http://eslint.org/docs/rules/>
+# You can learn more about ESLint rules at <http://eslint.org/docs/rules/>.
 
 env:
-  es6: true                           # Enable ES6 features, except modules
+  es6: true                           # Enable ES2015 global variables
   browser: true                       # Enable Browser global variables
 
-ecmaFeatures:
-  modules: true                       # Allow the use of ES6 modules
+parserOptions:
+  ecmaVersion: 6                      # Validate ES2015 features
+  sourceType: module                  # Allow ES2015 modules
 
 globals:
   PIXI: false
