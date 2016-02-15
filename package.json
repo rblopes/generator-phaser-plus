@@ -33,7 +33,7 @@
     "yosay": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^1.9.0",
+    "eslint": "^2.0.0",
     "eslint-config-xo-space": "*",
     "mocha": "^2.3.0",
     "yeoman-assert": "^2.0.0",
