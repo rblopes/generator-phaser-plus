@@ -1,6 +1,12 @@
 Changelog
 =========
 
+## v0.3.0
+-  Updated template project to match `phaser-plus-template@0.9.0`.
+-  Favor Lodash modules instead of the whole library.
+-  Fixed class names not properly being written in 'PascalCase'.
+-  Moved Gulp tasks into its own generator.
+
 ## v0.2.0
 -  Upgraded to `yeoman-generator@0.22.0`.
 -  Upgraded to `lodash@4.0.0`.

@@ -30,23 +30,10 @@ module.exports = yeoman.Base.extend({
     // Create project README
     this.template('README.md', this.answers);
 
-    // Copy gulpfile.js modules.
-    this.fs.copy(
-      [this.templatePath('gulpfile.js/**'), '!**/config.js'],
-      this.destinationPath('gulpfile.js/')
-    );
-    this.template('gulpfile.js/config.js', this.answers);
-
     // Copy sample game code.
     this.fs.copy(
       this.templatePath('src/**'),
       this.destinationPath('src/')
-    );
-
-    // Copy the resources directory
-    this.fs.copy(
-      this.templatePath('resources/**'),
-      this.destinationPath('resources/')
     );
 
     // Copy sample game assets.
@@ -59,6 +46,18 @@ module.exports = yeoman.Base.extend({
 
     // Set this generator config defaults.
     this.config.defaults(defaults);
+  },
+
+  default: {
+    gulp: function () {
+      this.composeWith('phaser-plus:gulp', {
+        options: {
+          customBuild: this.answers.customBuild
+        }
+      }, {
+        local: require.resolve('../gulp')
+      });
+    }
   },
 
   install: function () {

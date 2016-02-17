@@ -1,7 +1,7 @@
 'use strict';
 
-var trim = require('lodash/trim');
-var isEmpty = require('lodash/isEmpty');
+var trim = require('lodash.trim');
+var isEmpty = require('lodash.isempty');
 
 var classify = require('../../lib/classify');
 

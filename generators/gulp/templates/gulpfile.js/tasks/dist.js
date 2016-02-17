@@ -8,7 +8,10 @@
 
 module.exports = function (gulp, $, config) {
 
-  var del = require('del');
+  var del     = require('del');
+  var buffer  = require('vinyl-buffer');
+  var source  = require('vinyl-source-stream');
+  var bundler = require('./helpers/bundler');
 
   var dirs  = config.dirs;
   var files = config.files;
@@ -18,14 +21,23 @@ module.exports = function (gulp, $, config) {
     return del([ dirs.build, dirs.dist ]);
   });
 
+  // Copies and minifies the Phaser build for distribution.
+  gulp.task('dist:phaser', function () {
+    return gulp.src([ files.phaser ])
+      .pipe($.rename('phaser.min.js'))
+      .pipe($.uglify())
+      .pipe($.sourcemaps.init())
+      .pipe($.sourcemaps.write('.'))
+      .pipe(gulp.dest(dirs.dist));
+  });
+
   // Bundle all scripts together for distribution.
-  gulp.task('dist:scripts', [ 'dev:scripts' ], function () {
-    return gulp.src([
-      files.phaser,
-      dirs.build + '/game.js'
-    ])
+  gulp.task('dist:scripts', [ 'dev:lint' ], function () {
+    return bundler(config.bundle)
+      .bundle()
+      .pipe(source('game.min.js'))
+      .pipe(buffer())
       .pipe($.sourcemaps.init({ loadMaps: true }))
-      .pipe($.concat('game.min.js'))
       .pipe($.uglify())
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest(dirs.dist));
@@ -45,6 +57,7 @@ module.exports = function (gulp, $, config) {
   gulp.task('dist', [ 'dist:clean' ], function (done) {
     gulp.start([
       'dist:assets',
+      'dist:phaser',
       'dist:scripts'
     ], done);
   });
