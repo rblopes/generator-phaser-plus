@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## v0.3.1
+-  Fixed class names not being capitalized.
+
 ## v0.3.0
 -  Updated template project to match `phaser-plus-template@0.9.0`.
 -  Favor Lodash modules instead of the whole library.
