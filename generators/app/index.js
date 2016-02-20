@@ -5,7 +5,7 @@ var yosay = require('yosay');
 var yeoman = require('yeoman-generator');
 
 var prompt = require('../../lib/prompt');
-var defaults = require('../../lib/defaults');
+var yorc = require('../../lib/yorc');
 var questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
@@ -45,7 +45,7 @@ module.exports = yeoman.Base.extend({
     this.template('static/manifest.json', this.answers);
 
     // Set this generator config defaults.
-    this.config.defaults(defaults);
+    this.config.defaults(yorc.defaults);
   },
 
   default: {

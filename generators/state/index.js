@@ -4,6 +4,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 
 var prompt = require('../../lib/prompt');
+var yorc = require('../../lib/yorc');
 var questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
@@ -13,7 +14,7 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    var dir = this.config.get('dirs').states;
+    var dir = yorc.get(this, 'dirs').states;
     var file = this.answers.name + '.js';
     this.template('state.js', path.join(dir, file), this.answers);
   },
