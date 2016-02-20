@@ -15,12 +15,19 @@ module.exports = yeoman.Base.extend({
 
   writing: function () {
     var dir = yorc.get(this, 'dirs').states;
-    var file = this.answers.name + '.js';
-    this.template('state.js', path.join(dir, file), this.answers);
-  },
+    var name = this.answers.name;
+    this.template('state.js', path.join(dir, name + '.js'), this.answers);
 
-  end: function () {
-    this.log('\nRemember to update your `states.js` file');
-    this.log('before using your new game state.');
+    // Append the `export ...` line to the `states.js` module,
+    // if one exists in the project tree.
+    var moduleName = yorc.get(this, 'states-module');
+    var moduleContents;
+    if (this.fs.exists(moduleName)) {
+      moduleContents = this.fs.read(moduleName);
+      this.template('states-module.js', moduleName, {
+        contents: moduleContents,
+        name: name
+      });
+    }
   }
 });
