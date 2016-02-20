@@ -9,8 +9,7 @@ var questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-    this.log('Object class generator:');
-    prompt(questions, this);
+    prompt(this, 'Object class generator:', questions);
   },
 
   writing: function () {

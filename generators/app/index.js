@@ -1,7 +1,6 @@
 'use strict';
 
 var chalk = require('chalk');
-var yosay = require('yosay');
 var yeoman = require('yeoman-generator');
 
 var prompt = require('../../lib/prompt');
@@ -10,12 +9,10 @@ var questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-    this.log(yosay(
-      'Welcome to ' + chalk.green.bold('generator-phaser-plus') + '.'
-    ));
-    this.log('Before we get started, could you tell me some');
-    this.log('details about your new game?');
-    prompt(questions, this);
+    prompt(this, [
+      'Before we get started, could you tell me some',
+      'details about your new game?'
+    ].join('\n'), questions);
   },
 
   writing: function () {

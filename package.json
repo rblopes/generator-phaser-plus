@@ -33,8 +33,7 @@
     "lodash.isempty": "^4.1.1",
     "lodash.trim": "^4.0.2",
     "lodash.upperfirst": "^4.0.2",
-    "yeoman-generator": "^0.22.0",
-    "yosay": "^1.0.0"
+    "yeoman-generator": "^0.22.0"
   },
   "devDependencies": {
     "eslint": "^2.0.0",
