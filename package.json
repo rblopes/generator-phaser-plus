@@ -12,11 +12,16 @@
   "bugs": "https://github.com/rblopes/generator-phaser-plus/issues",
   "keywords": [
     "yeoman-generator",
+    "canvas",
     "es2015",
     "es6",
+    "esnext",
+    "game development",
     "gamedev",
+    "html5",
     "phaser",
-    "scaffold"
+    "scaffold",
+    "webgl"
   ],
   "scripts": {
     "lint": "xo",
