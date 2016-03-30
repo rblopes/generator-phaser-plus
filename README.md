@@ -1,7 +1,7 @@
 [![generator-phaser-plus](logo.png)][gpp_]
 
 [![npm version][fury]][gpp_]
-[![Dependencies][ddmb]][ddm_]
+[![dependencies][ddm1] ![devDependencies][ddm2]][ddm_]
 [![Travis CI Build Status][tcib]][tci_]
 
 >   A [Yeoman][yo__] generator for [Phaser][phsr] web games, featuring a live
@@ -119,5 +119,6 @@ Source code distributed under the terms of the [MIT License](LICENSE).
 [fury]: https://badge.fury.io/js/generator-phaser-plus.svg
 [gpp_]: https://www.npmjs.com/package/generator-phaser-plus
 [tci_]: https://travis-ci.org/rblopes/generator-phaser-plus
-[ddmb]: https://david-dm.org/rblopes/generator-phaser-plus.svg
+[ddm1]: https://david-dm.org/rblopes/generator-phaser-plus.svg
 [tcib]: https://travis-ci.org/rblopes/generator-phaser-plus.svg
+[ddm2]: https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg
