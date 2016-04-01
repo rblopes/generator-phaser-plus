@@ -1,21 +1,18 @@
 'use strict';
 
 var chalk = require('chalk');
-var yosay = require('yosay');
 var yeoman = require('yeoman-generator');
 
 var prompt = require('../../lib/prompt');
-var defaults = require('../../lib/defaults');
+var yorc = require('../../lib/yorc');
 var questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-    this.log(yosay(
-      'Welcome to ' + chalk.green.bold('generator-phaser-plus') + '.'
-    ));
-    this.log('Before we get started, could you tell me some');
-    this.log('details about your new game?');
-    prompt(questions, this);
+    prompt(this, [
+      'Before we get started, could you tell me some',
+      'details about your new game?'
+    ].join('\n'), questions);
   },
 
   writing: function () {
@@ -45,7 +42,7 @@ module.exports = yeoman.Base.extend({
     this.template('static/manifest.json', this.answers);
 
     // Set this generator config defaults.
-    this.config.defaults(defaults);
+    this.config.defaults(yorc.defaults);
   },
 
   default: {

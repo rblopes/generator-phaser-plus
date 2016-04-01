@@ -4,22 +4,29 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 
 var prompt = require('../../lib/prompt');
+var yorc = require('../../lib/yorc');
 var questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-    this.log('Game state generator:');
-    prompt(questions, this);
+    prompt(this, 'Game state generator:', questions);
   },
 
   writing: function () {
-    var dir = this.config.get('dirs').states;
-    var file = this.answers.name + '.js';
-    this.template('state.js', path.join(dir, file), this.answers);
-  },
+    var dir = yorc.get(this, 'dirs').states;
+    var name = this.answers.name;
+    this.template('state.js', path.join(dir, name + '.js'), this.answers);
 
-  end: function () {
-    this.log('\nRemember to update your `states.js` file');
-    this.log('before using your new game state.');
+    // Append the `export ...` line to the `states.js` module,
+    // if one exists in the project tree.
+    var moduleName = yorc.get(this, 'states-module');
+    var moduleContents;
+    if (this.fs.exists(moduleName)) {
+      moduleContents = this.fs.read(moduleName);
+      this.template('states-module.js', moduleName, {
+        contents: moduleContents,
+        name: name
+      });
+    }
   }
 });

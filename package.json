@@ -12,14 +12,19 @@
   "bugs": "https://github.com/rblopes/generator-phaser-plus/issues",
   "keywords": [
     "yeoman-generator",
+    "canvas",
     "es2015",
     "es6",
+    "esnext",
+    "game development",
     "gamedev",
+    "html5",
     "phaser",
-    "scaffold"
+    "scaffold",
+    "webgl"
   ],
   "scripts": {
-    "lint": "eslint generators/*/*.js lib/*.js test/*.js",
+    "lint": "xo",
     "test": "NODE_ENV=test mocha test/*.js --reporter spec"
   },
   "preferGlobal": true,
@@ -33,16 +38,23 @@
     "lodash.isempty": "^4.1.1",
     "lodash.trim": "^4.0.2",
     "lodash.upperfirst": "^4.0.2",
-    "yeoman-generator": "^0.22.0",
-    "yosay": "^1.0.0"
+    "yeoman-generator": "^0.22.0"
   },
   "devDependencies": {
-    "eslint": "^2.0.0",
-    "eslint-config-xo": "*",
-    "eslint-config-xo-space": "*",
     "mocha": "^2.3.0",
+    "xo": "*",
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.0.0"
+  },
+  "xo": {
+    "space": true,
+    "envs": [
+      "node",
+      "mocha"
+    ],
+    "ignores": [
+      "generators/*/templates/**"
+    ]
   },
   "license": "MIT"
 }
