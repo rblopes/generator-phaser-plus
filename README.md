@@ -63,6 +63,8 @@ npm install --global gulp                   # Install Gulp task manager.
 
 ### Usage
 
+![Screenshot](screenshot.png)
+
 Start by creating a new directory to host your new project and, inside it, run
 `generator-phaser-plus`, issuing the following commands, like in the example
 below:
