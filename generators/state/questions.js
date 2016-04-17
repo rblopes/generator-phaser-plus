@@ -21,6 +21,13 @@ module.exports = [
     filter: trim
   },
   {
+    name: 'methods',
+    type: 'checkbox',
+    message: 'Which methods to include?',
+    choices: ['init', 'create', 'update', 'render', 'shutdown'],
+    default: ['create', 'update']
+  },
+  {
     type: 'confirm',
     name: 'proceed',
     message: 'Is it OK to proceed?'
