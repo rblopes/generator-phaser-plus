@@ -5,7 +5,6 @@
 
 'use strict';
 
-
 // Where this project source code lives.
 var SRC = 'src';
 
@@ -21,52 +20,39 @@ var STATIC = 'static';
 // Which Phaser build was selected to develop the game.
 var PHASER = 'node_modules/phaser/build/<%= customBuild %>.js';
 
+// Build output directories.
+exports.dirs = {
+  build: BUILD,
+  dist: DIST
+};
 
-module.exports = {
+// File paths and glob patterns.
+exports.files = {
+  // Finds this project static assets to be copied for distribution.
+  assets: STATIC + '/**',
 
-  // Build output directories.
-  dirs: {
-    build: BUILD,
-    dist: DIST
-  },
+  // Finds the scripts to be compiled.
+  scripts: SRC + '/**/*.js',
 
-  // File paths and glob patterns.
-  files: {
-    // Finds this project static assets to be copied for distribution.
-    assets: STATIC + '/**',
+  // The selected Phaser script.
+  phaser: PHASER
+};
 
-    // Finds the scripts to be compiled.
-    scripts: SRC + '/**/*.js',
+// The Browserify settings.
+exports.bundle = {
+  debug: true,
+  standalone: 'app',
+  entries: [SRC + '/app.js']
+};
 
-    // The selected Phaser script.
-    phaser: PHASER
-  },
-
-  // The Browserify settings.
-  bundle: {
-    debug: true,
-    standalone: 'app',
-    entries: [
-      'src/app.js'
-    ],
-    transform: [
-      'babelify'
-    ]
-  },
-
-  // The BrowserSync settings.
+// The BrowserSync settings.
+exports.server = {
   server: {
-    server: {
-      baseDir: [
-        STATIC,
-        BUILD
-      ],
-      routes: {
-        '/phaser.js': PHASER
-      }
-    },
-    ghostMode: false,
-    notify: false
-  }
-
+    baseDir: [STATIC, BUILD],
+    routes: {
+      '/phaser.js': PHASER
+    }
+  },
+  ghostMode: false,
+  notify: false
 };

@@ -6,17 +6,18 @@
 <% } -%>
  */
 
-
 export default class <%- name %> extends Phaser.Plugin {
-  constructor (game, parent) {
+
+  constructor(game, parent) {
     super(game, parent);
   }
 
-  init (/*...args*/) {
+  init(/*...args*/) {
     // TODO: Stub
   }
 
-  update () {
+  update() {
     // TODO: Stub
   }
+
 }

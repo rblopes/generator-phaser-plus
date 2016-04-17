@@ -3,45 +3,54 @@
  * ==========
  *
  * The first state of the game, responsible for setting up some Phaser
- * features.
+ * features. Adjust the game appearance, number of input pointers, screen
+ * orientation handling etc. using this game state.
  */
 
 import assets from '../assets';
 
 export default class Boot extends Phaser.State {
 
-  // Use this method to adjust the game appearance, number of input pointers,
-  // screen orientation handling etc.
-  init () {
+  preload() {
     // Point the Phaser Asset Loader to where all your assets live.
     this.load.path = 'assets/';
 
     // Initialize physics engines here. Phaser builds including Arcade Physics
-    // enable it by default.
+    // have it enabled by default.
     //this.physics.startSystem(Phaser.Physics.P2);
 
     // Adjust how many pointers Phaser will check for input events.
     this.input.maxPointers = 2;
 
-    // Adjust the scaling and page alignment of the game canvas.
+    // Set the alignment of the game canvas within the page.
     this.scale.pageAlignHorizontally = true;
+
+    // Adjust the scaling mode of the game canvas.
+    // If you're developing a pixel-art game, set it to 'USER_SCALE'.
     this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
+
+    // When using 'USER_SCALE' scaling mode, use this method to adjust the
+    // scaling factor.
+    //this.scale.setUserScale(2);
+
+    // Uncomment the following line to adjust the rendering of the canvas to
+    // crisp graphics. Great for pixel-art!
+    //Phaser.Canvas.setImageRenderingCrisp(this.game.canvas);
+
+    // Uncomment this line to disable smoothing of textures.
+    //this.stage.smoothed = false;
 
     // If the game canvas loses focus, keep the game loop running.
     this.stage.disableVisibilityChange = true;
 
-    // Tells Phaser to smooth texture corners and sub-pixels when rendering the
-    // game canvas.
-    this.stage.smoothed = true;
-  }
-
-  preload () {
-    // Load the graphical assets required to show the splash screen later.
+    // Load the graphical assets required to show the splash screen later,
+    // using the asset pack data.
     this.load.pack('boot', null, assets);
   }
 
-  create () {
-    // After loading the splash screen assets, move to the next game state.
+  create() {
+    // After applying the first adjustments and loading the splash screen
+    // assets, move to the next game state.
     this.state.start('Preload');
   }
 

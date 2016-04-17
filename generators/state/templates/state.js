@@ -6,25 +6,26 @@
 <% } -%>
  */
 
-
 export default class <%- name %> extends Phaser.State {
-  init () {
+
+  init() {
     // TODO: Stub
   }
 
-  preload () {
+  preload() {
     // TODO: Stub
   }
 
-  create () {
+  create() {
     // TODO: Stub
   }
 
-  update () {
+  update() {
     // TODO: Stub
   }
 
-  render () {
+  render() {
     // TODO: Stub
   }
+
 }
