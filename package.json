@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "lint": "xo",
-    "test": "NODE_ENV=test mocha test/*.js --reporter spec"
+    "test": "NODE_ENV=test mocha --reporter spec"
   },
   "preferGlobal": true,
   "engines": {
