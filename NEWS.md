@@ -1,9 +1,22 @@
 `generator-phaser-plus` Release Updates
 =======================================
 
-## v0.4 - 2016-04-01
-
 Beginning with release v0.4.x, a `NEWS.md` (this file) document will contain notes regarding additions, new features and bug fixes.
+
+##  v0.5 - 2016-04-30
+
+*   The basic sample project was upgraded to match release v0.10.2 of `phaser-plus-template`, including minor but important changes:
+
+    -   Revised tasks, one dependency upgraded, `gulp-json-minify` included to minify JSON files.
+
+    -   The example `assets.js` module now includes annotations regarding usage and examples.
+
+    -   Minor updates in coding syntax style and comments.
+
+*   The `states` sub-generator now allow choosing which methods to include when creating a new game state.
+
+
+##  v0.4 - 2016-04-01
 
 *   This release fixes a minor issue regarding sub-generators.
 

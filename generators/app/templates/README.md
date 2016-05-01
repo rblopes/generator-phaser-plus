@@ -1,7 +1,7 @@
-# [<%= title %>](https://example.com/my-game/)
+# [<%- title %>](https://example.com/my-game/)
 
 <% if (description) { -%>
->   <%= description %>
+>   <%- description %>
 <% } -%>
 
 ---

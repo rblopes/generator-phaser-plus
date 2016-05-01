@@ -1,2 +1,2 @@
 <%- contents -%>
-export { default as <%- name %> } from './states/<%- name %>';
+export {default as <%- name %>} from './states/<%- name %>';

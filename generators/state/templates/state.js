@@ -6,25 +6,42 @@
 <% } -%>
  */
 
-
 export default class <%- name %> extends Phaser.State {
-  init () {
+
+<% if (withInit) { -%>
+  init() {
     // TODO: Stub
   }
 
-  preload () {
+<% } -%>
+<% if (withPreload) { -%>
+  preload() {
     // TODO: Stub
   }
 
-  create () {
+<% } -%>
+<% if (withCreate) { -%>
+  create() {
     // TODO: Stub
   }
 
-  update () {
+<% } -%>
+<% if (withUpdate) { -%>
+  update() {
     // TODO: Stub
   }
 
-  render () {
+<% } -%>
+<% if (withRender) { -%>
+  render() {
     // TODO: Stub
   }
+
+<% } -%>
+<% if (withShutdown) { -%>
+  shutdown() {
+    // TODO: Stub
+  }
+
+<% } -%>
 }
