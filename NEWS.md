@@ -13,7 +13,7 @@ Beginning with release v0.4.x, a `NEWS.md` (this file) document will contain not
 
     -   Minor updates in coding syntax style and comments.
 
-*   The `states` sub-generator now allow choosing which methods to include when creating a new game state.
+*   The `states` sub-generator now allows choosing which methods to include when creating new game states.
 
 
 ##  v0.4 - 2016-04-01
