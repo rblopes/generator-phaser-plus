@@ -9,8 +9,8 @@ var helpers = require('yeoman-test');
 
 describe('state generator', function () {
   describe('with default options', function () {
-    before(function (done) {
-      helpers.run(require.resolve('../generators/state'))
+    before(function () {
+      return helpers.run(require.resolve('../generators/state'))
         .withPrompts({
           name: 'Test',
           description: 'Just a test state.',
@@ -21,7 +21,7 @@ describe('state generator', function () {
             states: 'some-dir'
           }
         })
-        .on('end', done);
+        .toPromise();
     });
 
     it('creates a test game state class', function () {
@@ -40,8 +40,8 @@ describe('state generator', function () {
   });
 
   describe('with custom methods', function () {
-    before(function (done) {
-      helpers.run(require.resolve('../generators/state'))
+    before(function () {
+      return helpers.run(require.resolve('../generators/state'))
         .withPrompts({
           name: 'Test',
           description: 'Just a test state.',
@@ -53,7 +53,7 @@ describe('state generator', function () {
             states: 'some-dir'
           }
         })
-        .on('end', done);
+        .toPromise();
     });
 
     it('creates a test game state class', function () {
@@ -72,8 +72,8 @@ describe('state generator', function () {
   });
 
   describe('with all methods', function () {
-    before(function (done) {
-      helpers.run(require.resolve('../generators/state'))
+    before(function () {
+      return helpers.run(require.resolve('../generators/state'))
         .withPrompts({
           name: 'Test',
           description: 'Just a test state.',
@@ -85,7 +85,7 @@ describe('state generator', function () {
             states: 'some-dir'
           }
         })
-        .on('end', done);
+        .toPromise();
     });
 
     it('creates a test game state class', function () {

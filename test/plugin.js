@@ -8,8 +8,8 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
 describe('plugin generator', function () {
-  before(function (done) {
-    helpers.run(require.resolve('../generators/plugin'))
+  before(function () {
+    return helpers.run(require.resolve('../generators/plugin'))
       .withPrompts({
         name: 'Test',
         description: 'Just a test plugin.',
@@ -20,7 +20,7 @@ describe('plugin generator', function () {
           plugins: 'some-dir'
         }
       })
-      .on('end', done);
+      .toPromise();
   });
 
   it('creates a test plugin class', function () {
