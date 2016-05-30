@@ -13,8 +13,7 @@ describe('default generator', function () {
       .withPrompts({
         title: 'My Test Game',
         description: 'My awesome test game.',
-        customBuild: 'phaser',
-        proceed: true
+        customBuild: 'phaser'
       })
       .toPromise();
   });

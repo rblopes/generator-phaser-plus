@@ -12,8 +12,7 @@ describe('plugin generator', function () {
     return helpers.run(require.resolve('../generators/plugin'))
       .withPrompts({
         name: 'Test',
-        description: 'Just a test plugin.',
-        proceed: true
+        description: 'Just a test plugin.'
       })
       .withLocalConfig({
         dirs: {

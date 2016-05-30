@@ -13,8 +13,7 @@ describe('state generator', function () {
       return helpers.run(require.resolve('../generators/state'))
         .withPrompts({
           name: 'Test',
-          description: 'Just a test state.',
-          proceed: true
+          description: 'Just a test state.'
         })
         .withLocalConfig({
           dirs: {
@@ -45,8 +44,7 @@ describe('state generator', function () {
         .withPrompts({
           name: 'Test',
           description: 'Just a test state.',
-          methods: ['init', 'create', 'render', 'shutdown'],
-          proceed: true
+          methods: ['init', 'create', 'render', 'shutdown']
         })
         .withLocalConfig({
           dirs: {
@@ -77,8 +75,7 @@ describe('state generator', function () {
         .withPrompts({
           name: 'Test',
           description: 'Just a test state.',
-          methods: ['init', 'preload', 'create', 'update', 'render', 'shutdown'],
-          proceed: true
+          methods: ['init', 'preload', 'create', 'update', 'render', 'shutdown']
         })
         .withLocalConfig({
           dirs: {

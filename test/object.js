@@ -14,8 +14,7 @@ describe('object generator', function () {
         .withPrompts({
           name: 'Test',
           description: 'Just a test object.',
-          baseClass: 'Image',
-          proceed: true
+          baseClass: 'Image'
         })
         .withLocalConfig({
           dirs: {
@@ -39,8 +38,7 @@ describe('object generator', function () {
         .withPrompts({
           name: 'AnotherTest',
           description: 'Just another test object.',
-          baseClass: null,
-          proceed: true
+          baseClass: null
         })
         .withLocalConfig({
           dirs: {
