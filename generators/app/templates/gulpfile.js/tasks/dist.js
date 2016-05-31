@@ -8,7 +8,7 @@
 var del = require('del');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
-var bundler = require('./helpers/bundler');
+var bundler = require('../lib/bundler');
 
 module.exports = function (gulp, $, config) {
   var dirs = config.dirs;

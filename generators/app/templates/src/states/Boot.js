@@ -12,11 +12,11 @@ import assets from '../assets';
 export default class Boot extends Phaser.State {
 
   preload() {
-    // Point the Phaser Asset Loader to where all your assets live.
+    // Point the Phaser Asset Loader to where your game assets live.
     this.load.path = 'assets/';
 
-    // Initialize physics engines here. Phaser builds including Arcade Physics
-    // have it enabled by default.
+    // Initialize physics engines here. Remember that Phaser builds including
+    // Arcade Physics have it enabled by default.
     //this.physics.startSystem(Phaser.Physics.P2);
 
     // Adjust how many pointers Phaser will check for input events.
@@ -26,7 +26,7 @@ export default class Boot extends Phaser.State {
     this.scale.pageAlignHorizontally = true;
 
     // Adjust the scaling mode of the game canvas.
-    // If you're developing a pixel-art game, set it to 'USER_SCALE'.
+    // Example: If you're developing a pixel-art game, set it to 'USER_SCALE'.
     this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
 
     // When using 'USER_SCALE' scaling mode, use this method to adjust the

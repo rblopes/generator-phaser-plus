@@ -41,10 +41,9 @@ describe('default generator', function () {
     assert.file([
       'gulpfile.js/config.js',
       'gulpfile.js/index.js',
+      'gulpfile.js/lib/bundler.js',
       'gulpfile.js/tasks/dev.js',
-      'gulpfile.js/tasks/dist.js',
-      'gulpfile.js/tasks/helpers',
-      'gulpfile.js/tasks/helpers/bundler.js'
+      'gulpfile.js/tasks/dist.js'
     ]);
   });
 

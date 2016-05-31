@@ -18,7 +18,7 @@ export default class Preload extends Phaser.State {
 
   create() {
     // Here is a good place to initialize plugins that depend on any game
-    // asset. Example:
+    // asset. Don't forget to `import` them first. Example:
     //this.add.plugin(MyPlugin/*, ... initialization parameters ... */);
 
     this.state.start('Game');
