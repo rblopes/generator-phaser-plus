@@ -8,15 +8,14 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
 describe('default generator', function () {
-  before(function (done) {
-    helpers.run(require.resolve('../generators/app'))
+  before(function () {
+    return helpers.run(require.resolve('../generators/app'))
       .withPrompts({
         title: 'My Test Game',
         description: 'My awesome test game.',
-        customBuild: 'phaser',
-        proceed: true
+        customBuild: 'phaser'
       })
-      .on('end', done);
+      .toPromise();
   });
 
   it('copies README and configuration files to project root', function () {
@@ -32,7 +31,7 @@ describe('default generator', function () {
     ]);
   });
 
-  it('Fills the game title and description in README', function () {
+  it('fills the game title and description in README', function () {
     var file = 'README.md';
     assert.fileContent(file, '# [My Test Game]');
     assert.fileContent(file, '>   My awesome test game.');
@@ -42,14 +41,13 @@ describe('default generator', function () {
     assert.file([
       'gulpfile.js/config.js',
       'gulpfile.js/index.js',
+      'gulpfile.js/lib/bundler.js',
       'gulpfile.js/tasks/dev.js',
-      'gulpfile.js/tasks/dist.js',
-      'gulpfile.js/tasks/helpers',
-      'gulpfile.js/tasks/helpers/bundler.js'
+      'gulpfile.js/tasks/dist.js'
     ]);
   });
 
-  it('Configures the tasks with the user choices.', function () {
+  it('configures the tasks with the user choices.', function () {
     var file = 'gulpfile.js/config.js';
     assert.fileContent(file,
       'var PHASER = \'node_modules/phaser/build/phaser.js\';');
@@ -106,13 +104,13 @@ describe('default generator', function () {
     ]);
   });
 
-  it('Fills title and description in the HTML document', function () {
+  it('fills title and description in the HTML document', function () {
     var file = 'static/index.html';
     assert.fileContent(file, '<title>My Test Game</title>');
     assert.fileContent(file, '<meta name="description" content="My awesome test game.">');
   });
 
-  it('Fills the game title in the page manifest', function () {
+  it('fills the game title in the page manifest', function () {
     var file = 'static/manifest.json';
     assert.fileContent(file, '"name": "My Test Game"');
   });

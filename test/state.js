@@ -9,19 +9,18 @@ var helpers = require('yeoman-test');
 
 describe('state generator', function () {
   describe('with default options', function () {
-    before(function (done) {
-      helpers.run(require.resolve('../generators/state'))
+    before(function () {
+      return helpers.run(require.resolve('../generators/state'))
         .withPrompts({
           name: 'Test',
-          description: 'Just a test state.',
-          proceed: true
+          description: 'Just a test state.'
         })
         .withLocalConfig({
           dirs: {
             states: 'some-dir'
           }
         })
-        .on('end', done);
+        .toPromise();
     });
 
     it('creates a test game state class', function () {
@@ -40,20 +39,19 @@ describe('state generator', function () {
   });
 
   describe('with custom methods', function () {
-    before(function (done) {
-      helpers.run(require.resolve('../generators/state'))
+    before(function () {
+      return helpers.run(require.resolve('../generators/state'))
         .withPrompts({
           name: 'Test',
           description: 'Just a test state.',
-          methods: ['init', 'create', 'render', 'shutdown'],
-          proceed: true
+          methods: ['init', 'create', 'render', 'shutdown']
         })
         .withLocalConfig({
           dirs: {
             states: 'some-dir'
           }
         })
-        .on('end', done);
+        .toPromise();
     });
 
     it('creates a test game state class', function () {
@@ -72,20 +70,19 @@ describe('state generator', function () {
   });
 
   describe('with all methods', function () {
-    before(function (done) {
-      helpers.run(require.resolve('../generators/state'))
+    before(function () {
+      return helpers.run(require.resolve('../generators/state'))
         .withPrompts({
           name: 'Test',
           description: 'Just a test state.',
-          methods: ['init', 'preload', 'create', 'update', 'render', 'shutdown'],
-          proceed: true
+          methods: ['init', 'preload', 'create', 'update', 'render', 'shutdown']
         })
         .withLocalConfig({
           dirs: {
             states: 'some-dir'
           }
         })
-        .on('end', done);
+        .toPromise();
     });
 
     it('creates a test game state class', function () {

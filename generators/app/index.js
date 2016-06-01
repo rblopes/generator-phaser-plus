@@ -9,51 +9,55 @@ var questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-    prompt(this, [
+    return prompt(this, [
       'Before we get started, could you tell me some',
       'details about your new game?'
     ].join('\n'), questions);
   },
 
-  writing: function () {
+  writing: {
     // Copy dotfiles and package.json
-    this.copy('_babelrc', '.babelrc');
-    this.copy('_editorconfig', '.editorconfig');
-    this.copy('_eslintrc', '.eslintrc');
-    this.copy('_gitattributes', '.gitattributes');
-    this.copy('_gitignore', '.gitignore');
-    this.copy('_package.json', 'package.json');
+    dotfiles: function () {
+      this.copy('_babelrc', '.babelrc');
+      this.copy('_editorconfig', '.editorconfig');
+      this.copy('_eslintrc', '.eslintrc');
+      this.copy('_gitattributes', '.gitattributes');
+      this.copy('_gitignore', '.gitignore');
+      this.copy('_package.json', 'package.json');
+    },
 
     // Create project README
-    this.template('README.md', this.answers);
+    readme: function () {
+      this.template('README.md', this.answers);
+    },
 
     // Copy sample game code.
-    this.fs.copy(
-      this.templatePath('src/**'),
-      this.destinationPath('src/')
-    );
+    app: function () {
+      this.directory('src/');
+    },
 
     // Copy sample game assets.
-    this.fs.copy(
-      [this.templatePath('static/**'), '!**/*.{html,json}'],
-      this.destinationPath('static/')
-    );
-    this.template('static/index.html', this.answers);
-    this.template('static/manifest.json', this.answers);
+    assets: function () {
+      this.fs.copy(
+        [this.templatePath('static/**'), '!**/*.{html,json}'],
+        this.destinationPath('static/')
+      );
+      this.template('static/index.html', this.answers);
+      this.template('static/manifest.json', this.answers);
+    },
+
+    // Copy Gulp tasks.
+    tasks: function () {
+      this.fs.copyTpl(
+        this.templatePath('gulpfile.js/**'),
+        this.destinationPath('gulpfile.js/'),
+        this.answers
+      );
+    },
 
     // Set this generator config defaults.
-    this.config.defaults(yorc.defaults);
-  },
-
-  default: {
-    gulp: function () {
-      this.composeWith('phaser-plus:gulp', {
-        options: {
-          customBuild: this.answers.customBuild
-        }
-      }, {
-        local: require.resolve('../gulp')
-      });
+    yorc: function () {
+      this.config.defaults(yorc.defaults);
     }
   },
 

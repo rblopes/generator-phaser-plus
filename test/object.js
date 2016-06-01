@@ -9,20 +9,19 @@ var helpers = require('yeoman-test');
 
 describe('object generator', function () {
   describe('extending a regular Phaser class', function () {
-    before(function (done) {
-      helpers.run(require.resolve('../generators/object'))
+    before(function () {
+      return helpers.run(require.resolve('../generators/object'))
         .withPrompts({
           name: 'Test',
           description: 'Just a test object.',
-          baseClass: 'Image',
-          proceed: true
+          baseClass: 'Image'
         })
         .withLocalConfig({
           dirs: {
             objects: 'some-dir'
           }
         })
-        .on('end', done);
+        .toPromise();
     });
 
     it('creates an test game object class', function () {
@@ -34,20 +33,19 @@ describe('object generator', function () {
   });
 
   describe('not extending a Phaser class', function () {
-    before(function (done) {
-      helpers.run(require.resolve('../generators/object'))
+    before(function () {
+      return helpers.run(require.resolve('../generators/object'))
         .withPrompts({
           name: 'AnotherTest',
           description: 'Just another test object.',
-          baseClass: null,
-          proceed: true
+          baseClass: null
         })
         .withLocalConfig({
           dirs: {
             objects: 'some-dir'
           }
         })
-        .on('end', done);
+        .toPromise();
     });
 
     it('creates an test game object class', function () {

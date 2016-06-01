@@ -3,6 +3,14 @@
 
 Beginning with release v0.4.x, a `NEWS.md` (this file) document will contain notes regarding additions, new features and bug fixes.
 
+
+##  v0.6 - 2016-05-31
+
+This release is mostly an maintenance release, so most of the effort went on updating the program code and its dependencies.
+
+Besides that, the project template is now based in `phaser-plus-template@0.11.0`. New projects now have `babel-eslint` parser in place of ESLint's default parser.
+
+
 ##  v0.5 - 2016-04-30
 
 *   The basic sample project was upgraded to match release v0.10.2 of `phaser-plus-template`, including minor but important changes:

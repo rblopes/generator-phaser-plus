@@ -8,7 +8,7 @@
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var server = require('browser-sync').create();
-var watch = require('./helpers/bundler').watch;
+var watch = require('../lib/bundler').watch;
 
 module.exports = function (gulp, $, config) {
   var dirs = config.dirs;
