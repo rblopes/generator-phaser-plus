@@ -11,7 +11,7 @@ var questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-    return prompt(this, 'Game state generator:', questions);
+    return prompt(this, questions);
   },
 
   writing: {

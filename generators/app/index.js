@@ -9,10 +9,7 @@ var questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-    return prompt(this, [
-      'Before we get started, could you tell me some',
-      'details about your new game?'
-    ].join('\n'), questions);
+    return prompt(this, questions);
   },
 
   writing: {

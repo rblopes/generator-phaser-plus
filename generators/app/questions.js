@@ -3,43 +3,39 @@
 var trim = require('lodash.trim');
 var isEmpty = require('lodash.isempty');
 
-module.exports = [
-  {
-    name: 'title',
-    message: 'What\'s the game title?',
-    validate: function (s) {
-      return !isEmpty(trim(s)) || 'No way! Great games have great titles!!';
-    },
-    filter: trim
+exports.message = [
+  'Hi there! You are just a few steps of creating your project.',
+  'But first, could you tell some details about your new game?'
+].join('\n');
+
+exports.questions = [{
+  name: 'title',
+  message: 'What\'s your game title?',
+  validate: function (s) {
+    return !isEmpty(trim(s)) || 'No way! Great games have great titles!!';
   },
-  {
-    name: 'description',
-    message: 'Give it a short description (optional)',
-    default: null,
-    filter: trim
-  },
-  {
-    type: 'list',
-    name: 'customBuild',
-    message: 'Which Phaser build will you use?',
-    choices: [
-      {
-        name: 'P2 with Arcade',
-        value: 'phaser'
-      },
-      {
-        name: 'Arcade only',
-        value: 'custom/phaser-arcade-physics'
-      },
-      {
-        name: 'No Physics',
-        value: 'custom/phaser-no-physics'
-      }
-    ]
-  },
-  {
-    type: 'confirm',
-    name: 'proceed',
-    message: 'Proceed with the project creation?'
-  }
-];
+  filter: trim
+}, {
+  name: 'description',
+  message: 'Give it a short description (optional)',
+  default: null,
+  filter: trim
+}, {
+  type: 'list',
+  name: 'customBuild',
+  message: 'Which Phaser build do you prefer?',
+  choices: [{
+    name: 'Arcade Physics and P2',
+    value: 'phaser'
+  }, {
+    name: 'Arcade Physics Only',
+    value: 'custom/phaser-arcade-physics'
+  }, {
+    name: 'No Physics Engines',
+    value: 'custom/phaser-no-physics'
+  }]
+}, {
+  type: 'confirm',
+  name: 'proceed',
+  message: 'Proceed with the project creation?'
+}];
