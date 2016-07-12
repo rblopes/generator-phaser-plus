@@ -40,7 +40,6 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('static/')
       );
       this.template('static/index.html', this.answers);
-      this.template('static/manifest.json', this.answers);
     },
 
     // Copy Gulp tasks.
