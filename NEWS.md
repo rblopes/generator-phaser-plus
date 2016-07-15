@@ -1,6 +1,16 @@
 `generator-phaser-plus` Releases
 ================================
 
+##  v0.7 - 2016-07-15
+
+Just another maintenance release with some updates to the project template, including:
+
+-   The Favicons and "Installable Web Application" metadata files are no longer included in the sample game. No more bloat!
+
+-   Finally a fix for a weird glitch that made users save edited scripts twice (or more) in order to trigger a single Browserify rebuild. There's a chance Watchify and `gulp.watch()` were conflicting in a way, but only under very specific conditions.
+
+As a closing note, this release will be the last of the generator with support for Node.js 0.12. If you happen to be using an old Node.js environment to develop your games, and wish to continue using `generator-phaser-plus`, please upgrade to Node.js 4 ASAP!
+
 
 ##  v0.6 - 2016-05-31
 
