@@ -9,10 +9,7 @@ var questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-    return prompt(this, [
-      'Before we get started, could you tell me some',
-      'details about your new game?'
-    ].join('\n'), questions);
+    return prompt(this, questions);
   },
 
   writing: {
@@ -43,7 +40,6 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('static/')
       );
       this.template('static/index.html', this.answers);
-      this.template('static/manifest.json', this.answers);
     },
 
     // Copy Gulp tasks.

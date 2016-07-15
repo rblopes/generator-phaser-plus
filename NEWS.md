@@ -1,12 +1,20 @@
-`generator-phaser-plus` Release Updates
-=======================================
+`generator-phaser-plus` Releases
+================================
 
-Beginning with release v0.4.x, a `NEWS.md` (this file) document will contain notes regarding additions, new features and bug fixes.
+##  v0.7 - 2016-07-15
+
+Just another maintenance release with some updates to the project template, including:
+
+-   The Favicons and "Installable Web Application" metadata files are no longer included in the sample game. No more bloat!
+
+-   Finally a fix for a weird glitch that made users save edited scripts twice (or more) in order to trigger a single Browserify rebuild. There's a chance Watchify and `gulp.watch()` were conflicting in a way, but only under very specific conditions.
+
+As a closing note, this release will be the last of the generator with support for Node.js 0.12. If you happen to be using an old Node.js environment to develop your games, and wish to continue using `generator-phaser-plus`, please upgrade to Node.js 4 ASAP!
 
 
 ##  v0.6 - 2016-05-31
 
-This release is mostly an maintenance release, so most of the effort went on updating the program code and its dependencies.
+This release is mostly a maintenance release, so most of the effort went on updating the program code and its dependencies.
 
 Besides that, the project template is now based in `phaser-plus-template@0.11.0`. New projects now have `babel-eslint` parser in place of ESLint's default parser.
 
@@ -57,3 +65,73 @@ Besides that, the project template is now based in `phaser-plus-template@0.11.0`
     ```
 
 *   A nifty new ASCII text banner was made to be displayed over all prompts :smiley:
+
+
+##  v0.3.1 - 2016-02-17
+*   Fixed class names not being capitalized.
+
+
+##  v0.3.0 - 2016-02-17
+*   Updated template project to match `phaser-plus-template@0.9.0`.
+*   Favor Lodash modules instead of the whole library.
+*   Fixed class names not properly being written in 'PascalCase'.
+*   Moved Gulp tasks into its own generator.
+
+
+##  v0.2.0 - 2016-01-15
+*   Upgraded to `yeoman-generator@0.22.0`.
+*   Upgraded to `lodash@4.0.0`.
+*   Added development dependency `yeoman-test`.
+*   Fixed deprecated API calls in both generator and test modules.
+*   Added a 'None' option to the `object` sub-generator, creating classes that do not extend a Phaser class.
+*   Updated template project to match `phaser-plus-template@0.7.3`.
+
+
+##  v0.1.2 - 2015-12-15
+*   Added `babel-runtime` to the template project to avoid issues with `npm@2`.
+
+
+##  v0.1.1 - 2015-12-07
+*   Only a minor change to improve this generator discoverability.
+
+
+##  v0.1.0 - 2015-11-29
+*   Ported generator to Yeoman.
+*   Renamed package to `generator-phaser-plus`.
+*   Updated template project to `phaser-plus-template@0.7.1`.
+
+
+##  v0.0.6 - 2015-11-11
+*   Updated template project to `phaser-plus-template@0.7.0`.
+
+
+##  v0.0.5 - 2015-09-20
+*   Updated template project to match `phaser-plus-template@0.6.2`.
+*   Upgraded `inquirer` to latest version.
+
+
+##  v0.0.4 - 2015-09-01
+*   Updated template project to `phaser-plus-template@0.6.0`.
+*   Removed the Phaser 'minimum' custom build option.
+*   Dev: Updated test suite.
+
+
+##  v0.0.3 - 2016-08-04
+*   Replaced `gulp-if` with `gulp-filter`.
+
+
+##  v0.0.2 - 2016-08-04
+*   Dev: Added integration to Travis CI.
+*   Dev: Added test suite.
+*   Dev: Replaced JSHint with ESLint.
+*   Dev: Removed supporting `gulpfile.js`.
+*   Updated template project to `my-phaser-template@0.4.1`.
+
+
+##  v0.0.1 - 2015-05-22
+*   Upgraded `gulp-conflict` plugin to v0.4.0
+*   Updated main templates to include v0.3.2 of `my-phaser-template`
+
+
+##  v0.0.0 - 2015-04-21
+*   First public release.

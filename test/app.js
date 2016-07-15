@@ -70,37 +70,7 @@ describe('default generator', function () {
       'static/assets/phaser.png',
       'static/assets/progress-bar.png',
       'static/assets/splash-screen.png',
-      'static/browserconfig.xml',
-      'static/favicon.ico',
-      'static/icons/android-chrome-144x144.png',
-      'static/icons/android-chrome-192x192.png',
-      'static/icons/android-chrome-36x36.png',
-      'static/icons/android-chrome-48x48.png',
-      'static/icons/android-chrome-72x72.png',
-      'static/icons/android-chrome-96x96.png',
-      'static/icons/apple-touch-icon-114x114.png',
-      'static/icons/apple-touch-icon-120x120.png',
-      'static/icons/apple-touch-icon-144x144.png',
-      'static/icons/apple-touch-icon-152x152.png',
-      'static/icons/apple-touch-icon-180x180.png',
-      'static/icons/apple-touch-icon-57x57.png',
-      'static/icons/apple-touch-icon-60x60.png',
-      'static/icons/apple-touch-icon-72x72.png',
-      'static/icons/apple-touch-icon-76x76.png',
-      'static/icons/apple-touch-icon-precomposed.png',
-      'static/icons/apple-touch-icon.png',
-      'static/icons/favicon-160x160.png',
-      'static/icons/favicon-16x16.png',
-      'static/icons/favicon-196x196.png',
-      'static/icons/favicon-32x32.png',
-      'static/icons/favicon-96x96.png',
-      'static/icons/mstile-144x144.png',
-      'static/icons/mstile-150x150.png',
-      'static/icons/mstile-310x150.png',
-      'static/icons/mstile-310x310.png',
-      'static/icons/mstile-70x70.png',
-      'static/index.html',
-      'static/manifest.json'
+      'static/index.html'
     ]);
   });
 
@@ -108,10 +78,5 @@ describe('default generator', function () {
     var file = 'static/index.html';
     assert.fileContent(file, '<title>My Test Game</title>');
     assert.fileContent(file, '<meta name="description" content="My awesome test game.">');
-  });
-
-  it('fills the game title in the page manifest', function () {
-    var file = 'static/manifest.json';
-    assert.fileContent(file, '"name": "My Test Game"');
   });
 });

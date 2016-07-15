@@ -37,7 +37,8 @@ and sample project are regularly updated with improvements and bug fixes.
 What's new in this release?
 ---------------------------
 
-Read the [NEWS](NEWS.md) doc for info about new features and issues fixed in the latest release. There's also a [CHANGELOG](CHANGELOG.md) with short notes on updates made to older releases of the project.
+Refer to the [NEWS](NEWS.md) document for info about new features and fixed
+issues between releases.
 
 
 Installation

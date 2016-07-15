@@ -9,7 +9,7 @@ var questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-    return prompt(this, 'Custom plugin generator:', questions);
+    return prompt(this, questions);
   },
 
   writing: function () {

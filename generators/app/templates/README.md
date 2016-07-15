@@ -6,7 +6,7 @@
 
 ---
 
-Congrats! To start developing you new game right away, type the following command in a terminal:
+Congrats! To start developing your new game right away, type the following command in a terminal:
 
 _Tip: you can also use Gulp to manage development tasks._
 
