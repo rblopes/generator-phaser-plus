@@ -1,16 +1,16 @@
 'use strict';
 
-var trim = require('lodash.trim');
-var isEmpty = require('lodash.isempty');
+const trim = require('lodash.trim');
+const isEmpty = require('lodash.isempty');
 
-var classify = require('../../lib/classify');
+const classify = require('../../lib/classify');
 
 exports.message = 'Object class generator:';
 
 exports.questions = [{
   name: 'name',
   message: 'What\'s the name of the object?',
-  validate: function (s) {
+  validate(s) {
     return !isEmpty(trim(s)) || 'Sorry, a name is required.';
   },
   filter: classify
@@ -31,7 +31,10 @@ exports.questions = [{
     'Text',
     'Tilemap',
     'Graphics',
-    {name: 'None', value: null}
+    {
+      name: 'None',
+      value: null
+    }
   ],
   default: 0
 }, {

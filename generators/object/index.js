@@ -1,20 +1,19 @@
 'use strict';
 
-var path = require('path');
-var yeoman = require('yeoman-generator');
+const yeoman = require('yeoman-generator');
 
-var prompt = require('../../lib/prompt');
-var yorc = require('../../lib/yorc');
-var questions = require('./questions');
+const prompt = require('../../lib/prompt');
+const yorc = require('../../lib/yorc');
+const questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
-  prompting: function () {
+  prompting() {
     return prompt(this, questions);
   },
 
-  writing: function () {
-    var dir = yorc.get(this, 'dirs').objects;
-    var file = this.answers.name + '.js';
-    this.template('object.js', path.join(dir, file), this.answers);
+  writing() {
+    const dir = yorc.get(this, 'dirs').objects;
+    this.template('object.js',
+      this.destinationPath(dir, `${this.answers.name}.js`), this.answers);
   }
 });

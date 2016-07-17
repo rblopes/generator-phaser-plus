@@ -35,7 +35,7 @@
   },
   "preferGlobal": true,
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=4"
   },
   "dependencies": {
     "chalk": "^1.0.0",
@@ -58,9 +58,10 @@
   "xo": {
     "space": true,
     "envs": [
-      "node",
-      "mocha"
+      "mocha",
+      "node"
     ],
+    "esnext": true,
     "ignores": [
       "generators/*/templates/**"
     ],

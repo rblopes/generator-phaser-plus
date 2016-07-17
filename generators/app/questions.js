@@ -1,7 +1,7 @@
 'use strict';
 
-var trim = require('lodash.trim');
-var isEmpty = require('lodash.isempty');
+const trim = require('lodash.trim');
+const isEmpty = require('lodash.isempty');
 
 exports.message = [
   'Hi there! You are just a few steps of creating your project.',
@@ -11,7 +11,7 @@ exports.message = [
 exports.questions = [{
   name: 'title',
   message: 'What\'s your game title?',
-  validate: function (s) {
+  validate(s) {
     return !isEmpty(trim(s)) || 'No way! Great games have great titles!!';
   },
   filter: trim

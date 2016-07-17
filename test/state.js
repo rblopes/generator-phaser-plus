@@ -4,27 +4,26 @@
 
 'use strict';
 
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-test');
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
 
-describe('state generator', function () {
-  describe('with default options', function () {
-    before(function () {
-      return helpers.run(require.resolve('../generators/state'))
-        .withPrompts({
-          name: 'Test',
-          description: 'Just a test state.'
-        })
-        .withLocalConfig({
-          dirs: {
-            states: 'some-dir'
-          }
-        })
-        .toPromise();
-    });
+describe('state generator', () => {
+  describe('with default options', () => {
+    before(() => helpers
+      .run(require.resolve('../generators/state'))
+      .withPrompts({
+        name: 'Test',
+        description: 'Just a test state.'
+      })
+      .withLocalConfig({
+        dirs: {
+          states: 'some-dir'
+        }
+      })
+      .toPromise());
 
-    it('creates a test game state class', function () {
-      var file = 'some-dir/Test.js';
+    it('creates a test game state class', () => {
+      const file = 'some-dir/Test.js';
       assert.file(file);
       assert.fileContent(file, '* Just a test state.');
       assert.fileContent(file, 'class Test extends Phaser.State');
@@ -38,24 +37,23 @@ describe('state generator', function () {
     });
   });
 
-  describe('with custom methods', function () {
-    before(function () {
-      return helpers.run(require.resolve('../generators/state'))
-        .withPrompts({
-          name: 'Test',
-          description: 'Just a test state.',
-          methods: ['init', 'create', 'render', 'shutdown']
-        })
-        .withLocalConfig({
-          dirs: {
-            states: 'some-dir'
-          }
-        })
-        .toPromise();
-    });
+  describe('with custom methods', () => {
+    before(() => helpers
+      .run(require.resolve('../generators/state'))
+      .withPrompts({
+        name: 'Test',
+        description: 'Just a test state.',
+        methods: ['init', 'create', 'render', 'shutdown']
+      })
+      .withLocalConfig({
+        dirs: {
+          states: 'some-dir'
+        }
+      })
+      .toPromise());
 
-    it('creates a test game state class', function () {
-      var file = 'some-dir/Test.js';
+    it('creates a test game state class', () => {
+      const file = 'some-dir/Test.js';
       assert.file(file);
       assert.fileContent(file, '* Just a test state.');
       assert.fileContent(file, 'class Test extends Phaser.State');
@@ -69,24 +67,23 @@ describe('state generator', function () {
     });
   });
 
-  describe('with all methods', function () {
-    before(function () {
-      return helpers.run(require.resolve('../generators/state'))
-        .withPrompts({
-          name: 'Test',
-          description: 'Just a test state.',
-          methods: ['init', 'preload', 'create', 'update', 'render', 'shutdown']
-        })
-        .withLocalConfig({
-          dirs: {
-            states: 'some-dir'
-          }
-        })
-        .toPromise();
-    });
+  describe('with all methods', () => {
+    before(() => helpers
+      .run(require.resolve('../generators/state'))
+      .withPrompts({
+        name: 'Test',
+        description: 'Just a test state.',
+        methods: ['init', 'preload', 'create', 'update', 'render', 'shutdown']
+      })
+      .withLocalConfig({
+        dirs: {
+          states: 'some-dir'
+        }
+      })
+      .toPromise());
 
-    it('creates a test game state class', function () {
-      var file = 'some-dir/Test.js';
+    it('creates a test game state class', () => {
+      const file = 'some-dir/Test.js';
       assert.file(file);
       assert.fileContent(file, '* Just a test state.');
       assert.fileContent(file, 'class Test extends Phaser.State');

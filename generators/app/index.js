@@ -1,20 +1,20 @@
 'use strict';
 
-var chalk = require('chalk');
-var yeoman = require('yeoman-generator');
+const chalk = require('chalk');
+const yeoman = require('yeoman-generator');
 
-var prompt = require('../../lib/prompt');
-var yorc = require('../../lib/yorc');
-var questions = require('./questions');
+const prompt = require('../../lib/prompt');
+const yorc = require('../../lib/yorc');
+const questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
-  prompting: function () {
+  prompting() {
     return prompt(this, questions);
   },
 
   writing: {
     // Copy dotfiles and package.json
-    dotfiles: function () {
+    dotfiles() {
       this.copy('_babelrc', '.babelrc');
       this.copy('_editorconfig', '.editorconfig');
       this.copy('_eslintrc', '.eslintrc');
@@ -24,17 +24,17 @@ module.exports = yeoman.Base.extend({
     },
 
     // Create project README
-    readme: function () {
+    readme() {
       this.template('README.md', this.answers);
     },
 
     // Copy sample game code.
-    app: function () {
+    app() {
       this.directory('src/');
     },
 
     // Copy sample game assets.
-    assets: function () {
+    assets() {
       this.fs.copy(
         [this.templatePath('static/**'), '!**/*.{html,json}'],
         this.destinationPath('static/')
@@ -43,7 +43,7 @@ module.exports = yeoman.Base.extend({
     },
 
     // Copy Gulp tasks.
-    tasks: function () {
+    tasks() {
       this.fs.copyTpl(
         this.templatePath('gulpfile.js/**'),
         this.destinationPath('gulpfile.js/'),
@@ -52,19 +52,19 @@ module.exports = yeoman.Base.extend({
     },
 
     // Set this generator config defaults.
-    yorc: function () {
+    yorc() {
       this.config.defaults(yorc.defaults);
     }
   },
 
-  install: function () {
+  install() {
     this.installDependencies({bower: false});
   },
 
-  end: function () {
+  end() {
     if (!this.options['skip-install']) {
       this.log('Congrats! Now, launch your project with');
-      this.log(chalk.yellow.bold('npm start') + ' and happy hacking :)');
+      this.log(`${chalk.yellow.bold('npm start')} and happy hacking :)`);
     }
   }
 });

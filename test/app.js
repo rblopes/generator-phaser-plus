@@ -4,21 +4,20 @@
 
 'use strict';
 
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-test');
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
 
-describe('default generator', function () {
-  before(function () {
-    return helpers.run(require.resolve('../generators/app'))
-      .withPrompts({
-        title: 'My Test Game',
-        description: 'My awesome test game.',
-        customBuild: 'phaser'
-      })
-      .toPromise();
-  });
+describe('default generator', () => {
+  before(() => helpers
+    .run(require.resolve('../generators/app'))
+    .withPrompts({
+      title: 'My Test Game',
+      description: 'My awesome test game.',
+      customBuild: 'phaser'
+    })
+    .toPromise());
 
-  it('copies README and configuration files to project root', function () {
+  it('copies README and configuration files to project root', () => {
     assert.file([
       '.babelrc',
       '.editorconfig',
@@ -31,13 +30,13 @@ describe('default generator', function () {
     ]);
   });
 
-  it('fills the game title and description in README', function () {
-    var file = 'README.md';
+  it('fills the game title and description in README', () => {
+    const file = 'README.md';
     assert.fileContent(file, '# [My Test Game]');
     assert.fileContent(file, '>   My awesome test game.');
   });
 
-  it('copies Gulp modules to project root', function () {
+  it('copies Gulp modules to project root', () => {
     assert.file([
       'gulpfile.js/config.js',
       'gulpfile.js/index.js',
@@ -47,13 +46,13 @@ describe('default generator', function () {
     ]);
   });
 
-  it('configures the tasks with the user choices.', function () {
-    var file = 'gulpfile.js/config.js';
+  it('configures the tasks with the user choices.', () => {
+    const file = 'gulpfile.js/config.js';
     assert.fileContent(file,
-      'var PHASER = \'node_modules/phaser/build/phaser.js\';');
+      `var PHASER = 'node_modules/phaser/build/phaser.js';`);
   });
 
-  it('copies sample game code', function () {
+  it('copies sample game code', () => {
     assert.file([
       'src/app.js',
       'src/assets.js',
@@ -65,7 +64,7 @@ describe('default generator', function () {
     ]);
   });
 
-  it('copies initial game assets', function () {
+  it('copies initial game assets', () => {
     assert.file([
       'static/assets/phaser.png',
       'static/assets/progress-bar.png',
@@ -74,8 +73,8 @@ describe('default generator', function () {
     ]);
   });
 
-  it('fills title and description in the HTML document', function () {
-    var file = 'static/index.html';
+  it('fills title and description in the HTML document', () => {
+    const file = 'static/index.html';
     assert.fileContent(file, '<title>My Test Game</title>');
     assert.fileContent(file, '<meta name="description" content="My awesome test game.">');
   });

@@ -1,25 +1,22 @@
 'use strict';
 
-var path = require('path');
-var yeoman = require('yeoman-generator');
-var assign = require('lodash.assign');
-var includes = require('lodash.includes');
+const yeoman = require('yeoman-generator');
+const assign = require('lodash.assign');
+const includes = require('lodash.includes');
 
-var prompt = require('../../lib/prompt');
-var yorc = require('../../lib/yorc');
-var questions = require('./questions');
+const prompt = require('../../lib/prompt');
+const yorc = require('../../lib/yorc');
+const questions = require('./questions');
 
 module.exports = yeoman.Base.extend({
-  prompting: function () {
+  prompting() {
     return prompt(this, questions);
   },
 
   writing: {
-    template: function () {
-      var dir = yorc.get(this, 'dirs').states;
-      var answers = this.answers;
-      var name = answers.name;
-
+    template() {
+      const dir = yorc.get(this, 'dirs').states;
+      const answers = this.answers;
       assign(answers, {
         withInit: includes(answers.methods, 'init'),
         withPreload: includes(answers.methods, 'preload'),
@@ -28,14 +25,14 @@ module.exports = yeoman.Base.extend({
         withRender: includes(answers.methods, 'render'),
         withShutdown: includes(answers.methods, 'shutdown')
       });
-
-      this.template('state.js', path.join(dir, name + '.js'), answers);
+      this.template('state.js',
+        this.destinationPath(dir, `${answers.name}.js`), answers);
     },
 
     // Append the `export ...` line to the `states.js` module,
     // if one exists in the project tree.
-    statesModule: function () {
-      var moduleName = yorc.get(this, 'states-module');
+    statesModule() {
+      const moduleName = yorc.get(this, 'states-module');
       if (this.fs.exists(moduleName)) {
         this.template('states-module.js', moduleName, {
           contents: this.fs.read(moduleName),

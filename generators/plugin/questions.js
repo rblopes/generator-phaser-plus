@@ -1,16 +1,16 @@
 'use strict';
 
-var trim = require('lodash.trim');
-var isEmpty = require('lodash.isempty');
+const trim = require('lodash.trim');
+const isEmpty = require('lodash.isempty');
 
-var classify = require('../../lib/classify');
+const classify = require('../../lib/classify');
 
 exports.message = 'Custom plugin generator:';
 
 exports.questions = [{
   name: 'name',
   message: 'What\'s the name of this plugin?',
-  validate: function (s) {
+  validate(s) {
     return !isEmpty(trim(s)) || 'Sorry, a name is required.';
   },
   filter: classify
