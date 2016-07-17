@@ -5,21 +5,21 @@
 
 'use strict';
 
-var merge = require('merge-stream');
-var buffer = require('vinyl-buffer');
-var source = require('vinyl-source-stream');
-var server = require('browser-sync').create();
-var watch = require('../lib/bundler').watch;
+const merge = require('merge-stream');
+const server = require('browser-sync').create();
+const watch = require('../lib/bundler').watch;
+const getNamedBuffer = require('../lib/get-named-buffer');
 
 module.exports = function (gulp, $, config) {
-  var dirs = config.dirs;
-  var files = config.files;
+  const dirs = config.dirs;
+  const files = config.files;
 
-  // Compiles the application code for development, actively observing changes
-  // and triggering rebuilds on demand.
-  gulp.task('dev:scripts', (function () {
-    var notifyError = $.notify.onError('<%%= error.message %>');
-    var watcher = watch(config.bundle)
+  // Compile the application code for development, actively observing for
+  // changes and triggering rebuilds on demand.
+  gulp.task('bundleDev', (() => {
+    const devBuffer = getNamedBuffer('game.js');
+    const notifyError = $.notify.onError('<%%= error.message %>');
+    const watcher = watch(config.bundle)
       .on('log', $.util.log)
       .on('update', task);
     return task;
@@ -30,27 +30,24 @@ module.exports = function (gulp, $, config) {
       return watcher
         .bundle()
         .on('error', notifyError)
-        .pipe(source('game.js'))
-        .pipe(buffer())
+        .pipe(devBuffer())
         .pipe(gulp.dest(dirs.build))
         .pipe(server.stream());
     }
   })());
 
-  // Starts the live web development server for testing.
-  gulp.task('dev:serve', ['dev:scripts'], function () {
-    server.init(config.server);
-  });
+  // Starts the Web Server for testing.
+  gulp.task('serve', ['bundleDev'], () => server.init(config.server));
 
-  // Check script files and issue warnings about non-conformances.
+  // Check syntax and style of scripts and warn about potential issues.
   function lint() {
     return gulp.src([files.scripts])
-      .pipe($.cached('dev:lint'))
+      .pipe($.cached('eslint'))
       .pipe($.eslint())
       .pipe($.eslint.format('stylish', process.stderr));
   }
-  gulp.task('dev:lint', lint);
+  gulp.task('lint', lint);
 
   // The main development task.
-  gulp.task('default', ['dev:serve']);
+  gulp.task('default', ['serve']);
 };

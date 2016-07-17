@@ -1,0 +1,14 @@
+.*
+*.log
+Thumbs.db
+yarn.lock
+
+dist/
+build/
+node_modules/
+
+!.git*
+!.babelrc
+!.eslint*
+!.yo-rc.json
+!.editorconfig

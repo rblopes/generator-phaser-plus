@@ -28,6 +28,7 @@
     "lib/"
   ],
   "scripts": {
+    "fix": "xo --fix",
     "lint": "xo",
     "prepublish": "publish-please guard",
     "publish-please": "publish-please",
@@ -39,7 +40,6 @@
   },
   "dependencies": {
     "chalk": "^1.0.0",
-    "lodash.assign": "^4.0.8",
     "lodash.camelcase": "^4.0.1",
     "lodash.includes": "^4.1.2",
     "lodash.isempty": "^4.1.1",
@@ -48,6 +48,7 @@
     "yeoman-generator": "^0.24.1"
   },
   "devDependencies": {
+    "fs-extra": "^1.0.0",
     "mocha": "^3.0.2",
     "publish-please": "^2.1.4",
     "xo": "*",
@@ -55,18 +56,16 @@
     "yeoman-test": "^1.0.0"
   },
   "xo": {
-    "space": true,
     "envs": [
       "mocha",
       "node"
     ],
     "esnext": true,
     "ignores": [
-      "generators/*/templates/**"
+      "generators/*/templates/**",
+      "test/fixtures/**"
     ],
-    "rules": {
-      "xo/no-process-exit": 0
-    }
+    "space": true
   },
   "license": "MIT"
 }

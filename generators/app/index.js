@@ -2,64 +2,61 @@
 
 const chalk = require('chalk');
 const yeoman = require('yeoman-generator');
-
-const prompt = require('../../lib/prompt');
 const yorc = require('../../lib/yorc');
-const questions = require('./questions');
+const prompt = require('./prompt');
 
-module.exports = yeoman.Base.extend({
+module.exports = class extends yeoman.Base {
   prompting() {
-    return prompt(this, questions);
-  },
+    return prompt(this);
+  }
 
-  writing: {
-    // Copy dotfiles and package.json
-    dotfiles() {
-      this.copy('_babelrc', '.babelrc');
-      this.copy('_editorconfig', '.editorconfig');
-      this.copy('_eslintrc', '.eslintrc');
-      this.copy('_gitattributes', '.gitattributes');
-      this.copy('_gitignore', '.gitignore');
-      this.copy('_package.json', 'package.json');
-    },
+  get writing() {
+    return {
+      // Copy dotfiles.
+      dotfiles() {
+        this.copy('dotfiles/editorconfig', '.editorconfig');
+        this.copy('dotfiles/gitattributes', '.gitattributes');
+        this.copy('dotfiles/gitignore', '.gitignore');
+      },
 
-    // Create project README
-    readme() {
-      this.template('README.md', this.answers);
-    },
+      // Create project README.
+      readme() {
+        this.template('README.md', this.variables);
+      },
 
-    // Copy sample game code.
-    app() {
-      this.directory('src/');
-    },
+      // Copy the project scripts and related assets.
+      app() {
+        this.directory(
+          this.templatePath(this.baseTemplate),
+          this.destinationPath());
+      },
 
-    // Copy sample game assets.
-    assets() {
-      this.fs.copy(
-        [this.templatePath('static/**'), '!**/*.{html,json}'],
-        this.destinationPath('static/')
-      );
-      this.template('static/index.html', this.answers);
-    },
+      // Copy sample game assets.
+      assets() {
+        this.fs.copy(
+          [this.templatePath('static/**'), '!**/*.{html,json}'],
+          this.destinationPath('static/'));
+        this.template('static/index.html', this.variables);
+      },
 
-    // Copy Gulp tasks.
-    tasks() {
-      this.fs.copyTpl(
-        this.templatePath('gulpfile.js/**'),
-        this.destinationPath('gulpfile.js/'),
-        this.answers
-      );
-    },
+      // Copy Gulp tasks.
+      tasks() {
+        this.fs.copyTpl(
+          this.templatePath('gulpfile.js/**'),
+          this.destinationPath('gulpfile.js/'),
+          this.variables);
+      },
 
-    // Set this generator config defaults.
-    yorc() {
-      this.config.defaults(yorc.defaults);
-    }
-  },
+      // Set the generator configuration values.
+      yorc() {
+        this.config.defaults(yorc.defaultsFor(this, this.baseTemplate));
+      }
+    };
+  }
 
   install() {
     this.installDependencies({bower: false});
-  },
+  }
 
   end() {
     if (!this.options['skip-install']) {
@@ -67,4 +64,4 @@ module.exports = yeoman.Base.extend({
       this.log(`${chalk.yellow.bold('npm start')} and happy hacking :)`);
     }
   }
-});
+};

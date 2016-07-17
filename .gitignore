@@ -1,8 +1,2 @@
-.*
 *.log
-
 node_modules/
-
-!.git*
-!.publishrc
-!.editorconfig

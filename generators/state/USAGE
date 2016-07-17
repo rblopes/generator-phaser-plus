@@ -1,2 +1,4 @@
 Description:
-  Creates the skeleton of a Phaser game state.
+  Creates the blueprint of a Phaser game state. When given a class `name`, it
+  will create the blueprint of a game state class containing only the `#create`
+  and `#update` methods.

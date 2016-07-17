@@ -1,24 +1,36 @@
 /*
- * Project configuration
- * =====================
+ * Tasks configuration
+ * ===================
  */
 
 'use strict';
 
 // Where this project source code lives.
-var SRC = 'src';
+const SRC = 'src';
 
 // Where final distribution files will be copied.
-var DIST = 'dist';
+const DIST = 'dist';
 
 // Where compiled scripts will be placed.
-var BUILD = 'build';
+const BUILD = 'build';
 
 // Where static assets (textures, fonts, sprites, sounds etc.) live.
-var STATIC = 'static';
+const STATIC = 'static';
+
+// Where bundled Phaser builds are located.
+const PHASER_BUILDS = 'node_modules/phaser/build';
 
 // Which Phaser build was selected to develop the game.
-var PHASER = 'node_modules/phaser/build/<%= customBuild %>.js';
+//
+// Available options:
+// *  .../phaser.js: The standard one, with both Arcade and P2 Physics.
+// *  .../custom/phaser-arcade-physics.js: Including only Arcade Physics.
+// *  .../custom/phaser-no-physics.js: No physics engines included.
+//
+// Note: Other features are missing in the 'no physics' build, like Tilemaps.
+//    If you're getting exceptions when trying to create these game objects,
+//    change to another build option listed above.
+const PHASER = `${PHASER_BUILDS}/<%= customBuild %>.js`;
 
 // Build output directories.
 exports.dirs = {
@@ -29,10 +41,10 @@ exports.dirs = {
 // File paths and glob patterns.
 exports.files = {
   // Finds this project static assets to be copied for distribution.
-  assets: STATIC + '/**',
+  assets: `${STATIC}/**`,
 
   // Finds the scripts to be compiled.
-  scripts: SRC + '/**/*.js',
+  scripts: `${SRC}/**/*.js`,
 
   // The selected Phaser script.
   phaser: PHASER
@@ -42,7 +54,7 @@ exports.files = {
 exports.bundle = {
   debug: true,
   standalone: 'app',
-  entries: [SRC + '/app.js']
+  entries: [`${SRC}/app.js`]
 };
 
 // The BrowserSync settings.
@@ -54,5 +66,6 @@ exports.server = {
     }
   },
   ghostMode: false,
-  notify: false
+  notify: false,
+  ui: false
 };

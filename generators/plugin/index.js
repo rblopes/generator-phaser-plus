@@ -1,19 +1,31 @@
 'use strict';
 
 const yeoman = require('yeoman-generator');
+const prompt = require('./prompt');
 
-const prompt = require('../../lib/prompt');
-const yorc = require('../../lib/yorc');
-const questions = require('./questions');
+module.exports = class extends yeoman.Base {
+  constructor(args, env) {
+    super(args, env);
+    this
+      .argument('name', {
+        type: String,
+        required: false,
+        desc: 'The plugin class name'
+      })
+      .option('description', {
+        type: String,
+        required: String,
+        desc: 'Describe the purpose of this plugin',
+        alias: 'm'
+      });
+  }
 
-module.exports = yeoman.Base.extend({
   prompting() {
-    return prompt(this, questions);
-  },
+    return prompt(this);
+  }
 
   writing() {
-    const dir = yorc.get(this, 'dirs').plugins;
-    this.template('plugin.js',
-      this.destinationPath(dir, `${this.answers.name}.js`), this.answers);
+    this.template(`plugin-${this.baseTemplate}.js`,
+      this.destinationPath(this.outDir, this.outFilename), this.variables);
   }
-});
+};
