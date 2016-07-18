@@ -23,6 +23,10 @@
     "scaffold",
     "webgl"
   ],
+  "files": [
+    "generators/",
+    "lib/"
+  ],
   "scripts": {
     "lint": "xo",
     "prepublish": "publish-please guard",
