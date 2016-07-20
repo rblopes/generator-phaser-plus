@@ -46,10 +46,10 @@
     "lodash.isempty": "^4.1.1",
     "lodash.trim": "^4.0.2",
     "lodash.upperfirst": "^4.0.2",
-    "yeoman-generator": "^0.23.0"
+    "yeoman-generator": "^0.24.1"
   },
   "devDependencies": {
-    "mocha": "^2.3.0",
+    "mocha": "^3.0.2",
     "publish-please": "^2.1.4",
     "xo": "*",
     "yeoman-assert": "^2.0.0",
