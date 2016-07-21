@@ -41,7 +41,6 @@
     "chalk": "^1.0.0",
     "lodash.assign": "^4.0.8",
     "lodash.camelcase": "^4.0.1",
-    "lodash.flowright": "^3.2.1",
     "lodash.includes": "^4.1.2",
     "lodash.isempty": "^4.1.1",
     "lodash.trim": "^4.0.2",
