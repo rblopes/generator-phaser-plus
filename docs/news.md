@@ -1,6 +1,19 @@
 `generator-phaser-plus` Releases
 ================================
 
+##  v1.0 - 2016-11-22
+
+Just a few days away before the first release completes 1 year, I'm proud to release the first stable version of `generator-phaser-plus`.
+
+Being "1.0" means no more breaking changes, because most of the features are well established and will stay the same for a while, save for a few occasional additions. For now, most of the development activities to follow will be targeted at improving the generator itself. The template projects, however, are unlikely to see drastic changes, hopefully until a planned "version 2.0" hits the spotlight.
+
+Beginning with this release, users are now able to choose if they want to develop their games with Babel or just using basic CommonJS stuff. And since ECMAScript 2015+ support in Web browsers and some devices is slowly catching up, some features are no longer exclusive to Babel anymore.
+
+Also, the much overdue documentation is finally here! It includes a "Quick Starting Guide", as well several pages covering most aspects of the generator and its created game projects. [Check it out!](./index.md)
+
+Of course, it doesn't end here. Lots of things are being planned for this next development cycle, including Phaser 3 support and lots more! Stay tuned!
+
+
 ##  v0.7 - 2016-07-15
 
 Just another maintenance release with some updates to the project template, including:

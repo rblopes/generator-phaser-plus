@@ -1,115 +1,86 @@
-[![generator-phaser-plus](logo.png)][gpp_]
+[![generator-phaser-plus][logo]][gpp_]
 
-[![npm version][fury]][gpp_]
-[![dependencies][ddm1] ![devDependencies][ddm2]][ddm_]
-[![Travis CI Build Status][tcib]][tci_]
+[![npm version][bdg1]][gpp_]
+[![dependencies][bdg2]][ddm1]
+[![devDependencies][bdg3]][ddm2]
+[![Travis CI Build Status][bdg4]][tci_]
 
->   A [Yeoman][yo__] generator for [Phaser][phsr] web games, featuring a live
->   development environment with Babel, BrowserSync, Browserify and much more.
+>   Create [Phaser][phsr] Web games using Browserify, BrowserSync, Gulp and more.
+
+
+Two templates, same workflow!
+-----------------------------
+
+**New in version "1.0"**: Choose how you want to craft your game code:
+
+*   With application scripts written as CommonJS modules, ideal for newcomers as well seasoned developers who want to start creating games at once.
+
+*   Or using ECMAScript modules and the latest available spec features. Comes with [Babel][babl] compiler to make scripts of the future compatible with today's browsers and devices. Recommended for skilled developers and adventurers.
 
 
 Batteries included
 ------------------
 
-Projects created with this generator come with:
+Projects created with `generator-phaser-plus` are powered by the following tools:
 
-*   [Gulp][gulp] task manager, to handle development and distribution tasks,
-    with alternative npm scripts provided.
+*   [Gulp][gulp] task manager, to handle development and distribution tasks, with [alternative npm scripts][t].
 
 *   [BrowserSync][bsnc] for cross-device testing.
 
 *   [Browserify][brsy] for easier management of components and dependencies.
 
-*   [Babel][babl] to compile ECMAScript 2015 scripts (or future specs) into
-    scripts compatible with today's browsers. Check which [language
-    features][feat] are currently supported.
-
 *   [ESLint][eslt] for code quality check.
 
-*   [EditorConfig][edcf] support, for consistent editor configuration between
-    collaborators — check if [EditorConfig support][ecpl] is available for your
-    code editor.
 
-The sample project is based on [`phaser-plus-template`][ppt_]. Both generator
-and sample project are regularly updated with improvements and bug fixes.
+Quick Start
+-----------
 
+>   Note: Assuming you have already installed [Node.js][node].
 
-What's new in this release?
----------------------------
+1.  **Get [Yeoman][yo__] and `generator-phaser-plus` via [npm][npm_].**
 
-Refer to the [NEWS](NEWS.md) document for info about new features and fixed
-issues between releases.
+    ```sh
+    npm install --global yo                    # Install Yeoman if you don't have it yet.
+    npm install --global generator-phaser-plus # Install generator-phaser-plus.
+    ```
 
+2.  **Create a directory to keep your project contents and go into it.**
 
-Installation
-------------
+    ```sh
+    mkdir my-awesome-game
+    cd my-awesome-game
+    ```
 
-First, you need a properly installed and configured [Node.js][node]
-environment, with [npm][npm_] available.
+3.  **Create your new game project.**
 
-To install `generator-phaser-plus` (and Yeoman, if you didn't already), enter
-the following commands on a terminal:
+    ```sh
+    yo phaser-plus
+    ```
 
-```sh
-npm install --global yo                     # To install Yeoman.
-npm install --global generator-phaser-plus  # To install this generator.
-```
+4.  **Launch it!**
 
-Optionally, install Gulp to handle the tasks of your created projects.
+    ```sh
+    npm start
+    ```
 
-```sh
-npm install --global gulp                   # Install Gulp task manager.
-```
-
-
-### Usage
-
-![Screenshot](screenshot.png)
-
-Start by creating a new directory to host your new project and, inside it, run
-`generator-phaser-plus`, issuing the following commands, like in the example
-below:
-
-```sh
-mkdir my-project && cd $_
-yo phaser-plus
-```
-
-A brief questionnaire asking details about your new project should appear.
-Answer the questions to proceed with the project creation. The generator will
-take care of installing all project dependencies for you automatically.
-
-After that, you can begin testing your new project right away issuing the
-following command:
-
-```sh
-npm start                               # Or simply `gulp`.
-```
-
-
-### Available sub-generators
-
-Some preset sub-generators are provided, aiding in some common development
-tasks.
-
-```sh
-yo phaser-plus:<sub-generator>
-```
-
-The following sub-generators are available, performing tasks as described:
-
-*   `object`: Helps creating game objects from a set of base classes.
-*   `plugin`: A boilerplate for your own Phaser plug-ins.
-*   `state`: Generates `Phaser.State` classes.
+Have a look at the [documentation][m] to learn more about available features and [the most recent development updates][n], including [sub-generators][s], [how projects are structured][p], [development tasks][t] and a more in-depth [hands-on tutorial][g], presenting the general workflow and how you can take advantage of the generator to speed up your game development.
 
 
 License
 -------
 
-Source code distributed under the terms of the [MIT License](LICENSE).
+This software is distributed under the terms of the [MIT License](LICENSE).
 
 
 <!-- Links -->
+
+[n]: docs/news.md
+[m]: docs/index.md
+[t]: docs/tasks.md
+[p]: docs/project-layout.md
+[g]: docs/quick-start-guide.md
+[s]: docs/generator.md#sub-generators
+[logo]: docs/media/logo.png
 
 [phsr]: http://phaser.io/
 [yo__]: http://yeoman.io/
@@ -119,15 +90,12 @@ Source code distributed under the terms of the [MIT License](LICENSE).
 [node]: https://nodejs.org/
 [brsy]: http://browserify.org/
 [npm_]: https://www.npmjs.com/
-[edcf]: http://editorconfig.org/
 [bsnc]: http://www.browsersync.io/
-[ecpl]: http://editorconfig.org/#download
-[feat]: http://babeljs.io/docs/learn-es2015/
-[ppt_]: https://github.com/rblopes/phaser-plus-template
-[ddm_]: https://david-dm.org/rblopes/generator-phaser-plus
-[fury]: https://badge.fury.io/js/generator-phaser-plus.svg
+[ddm1]: https://david-dm.org/rblopes/generator-phaser-plus
 [gpp_]: https://www.npmjs.com/package/generator-phaser-plus
 [tci_]: https://travis-ci.org/rblopes/generator-phaser-plus
-[ddm1]: https://david-dm.org/rblopes/generator-phaser-plus.svg
-[tcib]: https://travis-ci.org/rblopes/generator-phaser-plus.svg
-[ddm2]: https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg
+[ddm2]: https://david-dm.org/rblopes/generator-phaser-plus?type=dev
+[bdg1]: https://img.shields.io/npm/v/generator-phaser-plus.svg?style=flat-square
+[bdg2]: https://img.shields.io/david/rblopes/generator-phaser-plus.svg?style=flat-square
+[bdg4]: https://img.shields.io/travis/rblopes/generator-phaser-plus.svg?style=flat-square
+[bdg3]: https://img.shields.io/david/dev/rblopes/generator-phaser-plus.svg?style=flat-square
