@@ -5,63 +5,49 @@
 
 'use strict';
 
-var del = require('del');
-var buffer = require('vinyl-buffer');
-var source = require('vinyl-source-stream');
-var bundler = require('../lib/bundler');
+const del = require('del');
+const runSequence = require('run-sequence');
+const bundler = require('../lib/bundler');
+const getNamedBuffer = require('../lib/get-named-buffer');
 
 module.exports = function (gulp, $, config) {
-  var dirs = config.dirs;
-  var files = config.files;
+  const dirs = config.dirs;
+  const files = config.files;
 
-  var filterHTML = $.filter('**/*.html', {restore: true});
-  var filterJSON = $.filter('**/*.json', {restore: true});
+  // Wipes `build` and `dist` directories.
+  gulp.task('clean', () => del([dirs.build, dirs.dist]));
 
-  // Wipes `build` and `dist` directories before any task.
-  gulp.task('dist:clean', function () {
-    return del([dirs.build, dirs.dist]);
-  });
+  // Copy all application assets for distribution.
+  gulp.task('copyAssets', () =>
+    gulp.src(files.assets)
+      .pipe($.if('**/*.html', $.processhtml()))
+      .pipe($.if('**/*.json', $.jsonMinify()))
+      .pipe(gulp.dest(dirs.dist)));
 
-  // Copies and minifies the Phaser build for distribution.
-  gulp.task('dist:phaser', function () {
-    return gulp.src([files.phaser])
-      .pipe($.rename('phaser.min.js'))
+  // Copy a minified Phaser build for distribution.
+  gulp.task('copyPhaser', () =>
+    gulp.src([files.phaser])
+      .pipe($.sourcemaps.init({loadMaps: true}))
       .pipe($.uglify())
-      .pipe($.sourcemaps.init())
+      .pipe($.rename('phaser.min.js'))
       .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest(dirs.dist));
-  });
+      .pipe(gulp.dest(dirs.dist)));
 
-  // Bundle all scripts together for distribution.
-  gulp.task('dist:scripts', ['dev:lint'], function () {
-    return bundler(config.bundle)
+  // Bundle application scripts for distribution.
+  gulp.task('bundleDist', ['lint'], () =>
+    bundler(config.bundle)
       .bundle()
-      .pipe(source('game.min.js'))
-      .pipe(buffer())
+      .pipe(getNamedBuffer('game.min.js')())
       .pipe($.sourcemaps.init({loadMaps: true}))
       .pipe($.uglify())
       .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest(dirs.dist));
-  });
-
-  // Copy all required application assets into the final build directory.
-  gulp.task('dist:assets', function () {
-    return gulp.src(files.assets)
-      .pipe(filterHTML)
-      .pipe($.processhtml())
-      .pipe(filterHTML.restore)
-      .pipe(filterJSON)
-      .pipe($.jsonMinify())
-      .pipe(filterJSON.restore)
-      .pipe(gulp.dest(dirs.dist));
-  });
+      .pipe(gulp.dest(dirs.dist)));
 
   // The main distribution task.
-  gulp.task('dist', ['dist:clean'], function (done) {
-    gulp.start([
-      'dist:assets',
-      'dist:phaser',
-      'dist:scripts'
-    ], done);
-  });
+  gulp.task('dist', done =>
+    runSequence('clean', [
+      'copyAssets',
+      'copyPhaser',
+      'bundleDist'
+    ], done));
 };

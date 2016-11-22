@@ -1,24 +1,25 @@
-# [<%- title %>](https://example.com/my-game/)
-
+# [<%= title %>](https://example.com/my-game/)
 <% if (description) { -%>
->   <%- description %>
+
+>   <%= description %>
 <% } -%>
 
 ---
 
-Congrats! To start developing your new game right away, type the following command in a terminal:
+Congrats! To manage your project and start developing your new game right away,
+the following npm scripts are available:
 
-_Tip: you can also use Gulp to manage development tasks._
-
-```sh
-npm start     # Also `gulp`: launches the project development environment.
-```
+>   TIP: You can also use Gulp to manage development tasks.
 
 The following npm scripts are also available:
 
 ```sh
-npm run dist  # Or `gulp dist`: Prepares the game for distribution.
-npm run clean # Or `gulp dist:clean`: Deletes build files.
+npm start         # Or `gulp`: launches the project development environment.
+npm run dist      # Or `gulp dist`: Prepares the game for distribution.
+npm run lint      # Or `gulp lint`: Checks scripts for linting issues.
+npm run clean     # Or `gulp clean`: Deletes build files.
+npm run test-dist # Build and run your project
 ```
 
-Should you consider distributing your game as an open source project, please [include a LICENSE file](http://choosealicense.com/) in your project root.
+Should you consider distributing your game as an open source project, please
+choose and [include a LICENSE file](http://choosealicense.com/) for your project.

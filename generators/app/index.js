@@ -1,70 +1,67 @@
 'use strict';
 
-var chalk = require('chalk');
-var yeoman = require('yeoman-generator');
+const chalk = require('chalk');
+const yeoman = require('yeoman-generator');
+const yorc = require('../../lib/yorc');
+const prompt = require('./prompt');
 
-var prompt = require('../../lib/prompt');
-var yorc = require('../../lib/yorc');
-var questions = require('./questions');
+module.exports = class extends yeoman.Base {
+  prompting() {
+    return prompt(this);
+  }
 
-module.exports = yeoman.Base.extend({
-  prompting: function () {
-    return prompt(this, questions);
-  },
+  get writing() {
+    return {
+      // Copy dotfiles.
+      dotfiles() {
+        this.copy('dotfiles/editorconfig', '.editorconfig');
+        this.copy('dotfiles/gitattributes', '.gitattributes');
+        this.copy('dotfiles/gitignore', '.gitignore');
+      },
 
-  writing: {
-    // Copy dotfiles and package.json
-    dotfiles: function () {
-      this.copy('_babelrc', '.babelrc');
-      this.copy('_editorconfig', '.editorconfig');
-      this.copy('_eslintrc', '.eslintrc');
-      this.copy('_gitattributes', '.gitattributes');
-      this.copy('_gitignore', '.gitignore');
-      this.copy('_package.json', 'package.json');
-    },
+      // Create project README.
+      readme() {
+        this.template('README.md', this.variables);
+      },
 
-    // Create project README
-    readme: function () {
-      this.template('README.md', this.answers);
-    },
+      // Copy the project scripts and related assets.
+      app() {
+        this.directory(
+          this.templatePath(this.baseTemplate),
+          this.destinationPath());
+      },
 
-    // Copy sample game code.
-    app: function () {
-      this.directory('src/');
-    },
+      // Copy sample game assets.
+      assets() {
+        this.fs.copy(
+          [this.templatePath('static/**'), '!**/*.{html,json}'],
+          this.destinationPath('static/'));
+        this.template('static/index.html', this.variables);
+      },
 
-    // Copy sample game assets.
-    assets: function () {
-      this.fs.copy(
-        [this.templatePath('static/**'), '!**/*.{html,json}'],
-        this.destinationPath('static/')
-      );
-      this.template('static/index.html', this.answers);
-    },
+      // Copy Gulp tasks.
+      tasks() {
+        this.fs.copyTpl(
+          this.templatePath('gulpfile.js/**'),
+          this.destinationPath('gulpfile.js/'),
+          this.variables);
+      },
 
-    // Copy Gulp tasks.
-    tasks: function () {
-      this.fs.copyTpl(
-        this.templatePath('gulpfile.js/**'),
-        this.destinationPath('gulpfile.js/'),
-        this.answers
-      );
-    },
+      // Set the generator configuration values.
+      yorc() {
+        this.config.defaults(yorc.defaultsFor(this, this.baseTemplate));
+      }
+    };
+  }
 
-    // Set this generator config defaults.
-    yorc: function () {
-      this.config.defaults(yorc.defaults);
-    }
-  },
-
-  install: function () {
+  install() {
     this.installDependencies({bower: false});
-  },
+  }
 
-  end: function () {
+  end() {
     if (!this.options['skip-install']) {
       this.log('Congrats! Now, launch your project with');
-      this.log(chalk.yellow.bold('npm start') + ' and happy hacking :)');
+      this.log(`${chalk.yellow.bold('npm start')} and happy hacking :)`);
     }
   }
-});
+};

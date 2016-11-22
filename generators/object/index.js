@@ -1,20 +1,31 @@
 'use strict';
 
-var path = require('path');
-var yeoman = require('yeoman-generator');
+const yeoman = require('yeoman-generator');
+const prompt = require('./prompt');
 
-var prompt = require('../../lib/prompt');
-var yorc = require('../../lib/yorc');
-var questions = require('./questions');
-
-module.exports = yeoman.Base.extend({
-  prompting: function () {
-    return prompt(this, questions);
-  },
-
-  writing: function () {
-    var dir = yorc.get(this, 'dirs').objects;
-    var file = this.answers.name + '.js';
-    this.template('object.js', path.join(dir, file), this.answers);
+module.exports = class extends yeoman.Base {
+  constructor(args, env) {
+    super(args, env);
+    this
+      .argument('name', {
+        type: String,
+        required: false,
+        desc: 'The game object class name'
+      })
+      .option('description', {
+        type: String,
+        required: false,
+        desc: 'Describe what this object do',
+        alias: 'm'
+      });
   }
-});
+
+  prompting() {
+    return prompt(this);
+  }
+
+  writing() {
+    this.template(`object-${this.baseTemplate}.js`,
+      this.destinationPath(this.outDir, this.outFilename), this.variables);
+  }
+};

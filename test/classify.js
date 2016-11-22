@@ -1,32 +1,32 @@
 'use strict';
 
-var assert = require('assert');
-var classify = require('../lib/classify');
+const assert = require('assert');
+const classify = require('../lib/classify');
 
-describe('`classify` module', function () {
-  var c1 = 'test';
-  var c2 = '__!!test??__';
-  var c3 = '--test--test--';
-  var c4 = 'Some class name';
-  var c5 = 'Sømè wëîrd çlâß ñåmé';
+describe('`classify` module', () => {
+  const c1 = 'test';
+  const c2 = '__!!test??__';
+  const c3 = '--test--test--';
+  const c4 = 'Some class name';
+  const c5 = 'Sømè wëîrd çlâß ñåmé';
 
-  it('capitalize names', function () {
+  it('capitalize names', () => {
     assert.strictEqual(classify(c1), 'Test');
   });
 
-  it('escapes punctuation and symbols', function () {
+  it('escapes punctuation and symbols', () => {
     assert.strictEqual(classify(c2), 'Test');
   });
 
-  it('camelcase dasherized names', function () {
+  it('camelcase dasherized names', () => {
     assert.strictEqual(classify(c3), 'TestTest');
   });
 
-  it('camelcase words', function () {
+  it('camelcase words', () => {
     assert.strictEqual(classify(c4), 'SomeClassName');
   });
 
-  it('deburr and camelcase words', function () {
+  it('deburr and camelcase words', () => {
     assert.strictEqual(classify(c5), 'SomeWeirdClassName');
   });
 });

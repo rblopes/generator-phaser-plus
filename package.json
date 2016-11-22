@@ -1,9 +1,9 @@
 {
   "name": "generator-phaser-plus",
-  "description": "A Yeoman generator for Phaser web games, featuring a live environment with Babel, BrowserSync, Browserify and much more.",
+  "description": "Create Phaser Web games using Browserify, BrowserSync, Gulp and more.",
   "version": "0.7.0",
   "homepage": "https://github.com/rblopes/generator-phaser-plus#readme",
-  "author": "Rafael Barbosa Lopes <rafael.barbosalopes@gmail.com>",
+  "author": "Rafael Barbosa Lopes <rafael.barbosalopes@gmail.com> (https://github.com/rblopes)",
   "contributors": [],
   "repository": {
     "type": "git",
@@ -12,18 +12,28 @@
   "bugs": "https://github.com/rblopes/generator-phaser-plus/issues",
   "keywords": [
     "yeoman-generator",
+    "babel",
     "canvas",
     "es2015",
+    "es2016",
+    "es2017",
     "es6",
+    "es7",
     "esnext",
     "game development",
     "gamedev",
+    "games",
     "html5",
     "phaser",
     "scaffold",
     "webgl"
   ],
+  "files": [
+    "generators/",
+    "lib/"
+  ],
   "scripts": {
+    "fix": "xo --fix",
     "lint": "xo",
     "prepublish": "publish-please guard",
     "publish-please": "publish-please",
@@ -31,38 +41,36 @@
   },
   "preferGlobal": true,
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=4"
   },
   "dependencies": {
     "chalk": "^1.0.0",
-    "lodash.assign": "^4.0.8",
     "lodash.camelcase": "^4.0.1",
-    "lodash.flowright": "^3.2.1",
     "lodash.includes": "^4.1.2",
     "lodash.isempty": "^4.1.1",
     "lodash.trim": "^4.0.2",
     "lodash.upperfirst": "^4.0.2",
-    "yeoman-generator": "^0.23.0"
+    "yeoman-generator": "^0.24.1"
   },
   "devDependencies": {
-    "mocha": "^2.3.0",
+    "fs-extra": "^1.0.0",
+    "mocha": "^3.0.2",
     "publish-please": "^2.1.4",
     "xo": "*",
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.0.0"
   },
   "xo": {
-    "space": true,
     "envs": [
-      "node",
-      "mocha"
+      "mocha",
+      "node"
     ],
+    "esnext": true,
     "ignores": [
-      "generators/*/templates/**"
+      "generators/*/templates/**",
+      "test/fixtures/**"
     ],
-    "rules": {
-      "xo/no-process-exit": 0
-    }
+    "space": true
   },
   "license": "MIT"
 }

@@ -2,10 +2,16 @@ language: node_js
 
 sudo: false
 node_js:
+  - v7
   - v6
-  - v5
   - v4
-  - '0.12'
+
+git:
+  depth: 15
+
+branches:
+  only:
+    - master
 
 script:
   - npm run lint

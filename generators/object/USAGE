@@ -1,2 +1,4 @@
 Description:
-  Creates the skeleton of a extended Phaser object class (or prefab).
+  Creates the blueprint of a extended Phaser object class (or prefab). When
+  given a class `name`, it will create a blueprint of a extended
+  `Phaser.Sprite` class.
