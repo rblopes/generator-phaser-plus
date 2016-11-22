@@ -1,0 +1,48 @@
+{
+  "scripts": {
+    "clean": "gulp clean",
+    "dist": "gulp dist",
+    "lint": "gulp lint",
+    "start": "gulp",
+    "test-dist": "npm run dist && browser-sync start -c gulpfile.js/bs-config.js"
+  },
+  "dependencies": {
+    "phaser": "^2.6.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-runtime": "^6.18.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.18.0",
+    "browserify": "^13.1.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-cached": "^1.1.0",
+    "gulp-eslint": "^3.0.0",
+    "gulp-if": "^2.0.1",
+    "gulp-json-minify": "^1.0.5",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-processhtml": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "lazypipe": "^1.0.1",
+    "merge-stream": "^1.0.0",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.2.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "private": true
+}
