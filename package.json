@@ -35,8 +35,6 @@
   "scripts": {
     "fix": "xo --fix",
     "lint": "xo",
-    "prepublish": "publish-please guard",
-    "publish-please": "publish-please",
     "test": "NODE_ENV=test mocha --reporter spec"
   },
   "preferGlobal": true,
@@ -55,7 +53,6 @@
   "devDependencies": {
     "fs-extra": "^1.0.0",
     "mocha": "^3.0.2",
-    "publish-please": "^2.1.4",
     "xo": "*",
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.0.0"
