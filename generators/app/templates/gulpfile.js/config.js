@@ -17,8 +17,8 @@ const BUILD = 'build';
 // Where static assets (textures, fonts, sprites, sounds etc.) live.
 const STATIC = 'static';
 
-// Where bundled Phaser builds are located.
-const PHASER_BUILDS = 'node_modules/phaser/build';
+// Where bundled Phaser CE builds are located.
+const PHASER_BUILDS = 'node_modules/phaser-ce/build';
 
 // Which Phaser build was selected to develop the game.
 //

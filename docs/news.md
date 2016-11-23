@@ -1,6 +1,19 @@
 `generator-phaser-plus` Releases
 ================================
 
+##  v1.1 - 2016-11-23
+
+Whoa, that was fast!!
+
+Today, Richard Davey, creator of Phaser [announced, through his YouTube channel](https://youtu.be/mGZ5c2EWMeQ), his plans for Phaser's upcoming and future releases, including a new "Community Edition", whose management and decisions will be handed out by members of the JavaScript game developers community.
+
+I hope these changes are for the best and help Phaser be the best game framework for JavaScript ever. It is too soon, though, to evaluate how these decisions will impact Phaser and all the ecosystem built around it. My commitment on maintaining this little tool, however, has not changed, and I am publishing this update in response to today's changes.
+
+The changes introduced by this update are very small, only replacing the package providing the Phaser builds (`phaser-ce`), so users can continue enjoying the latest additions and bug fixes. Nothing else has changed.
+
+Meanwhile, I am following closely the latest updates in Phaser repository and will be updating the generator as more changes become necessary.
+
+
 ##  v1.0 - 2016-11-22
 
 Just a few days away before the first release completes 1 year, I'm proud to release the first stable version of `generator-phaser-plus`.

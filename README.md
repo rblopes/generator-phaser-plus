@@ -17,6 +17,8 @@ Two templates, same workflow!
 
 *   Or using ECMAScript modules and the latest available spec features. Comes with [Babel][babl] compiler to make scripts of the future compatible with today's browsers and devices. Recommended for skilled developers and adventurers.
 
+>   Note: All projects are configured to use the Phaser CE libraries.
+
 
 Batteries included
 ------------------
