@@ -11,6 +11,8 @@ Here you will find the sample [Phaser][phsr] projects used as base templates for
 
 Both projects provide the same sample game, including only the essential features to start developing games right away.
 
+>   Note: All projects are configured to use the Phaser CE libraries.
+
 
 Batteries Included
 ------------------
