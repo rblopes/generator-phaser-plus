@@ -19,7 +19,7 @@
     "browser-sync": "^2.18.0",
     "browserify": "^13.1.0",
     "del": "^2.2.0",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-cached": "^1.1.0",
     "gulp-eslint": "^3.0.0",
     "gulp-if": "^2.0.1",
