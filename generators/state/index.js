@@ -1,9 +1,9 @@
 'use strict';
 
-const yeoman = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 const prompt = require('./prompt');
 
-module.exports = class extends yeoman.Base {
+module.exports = class extends Generator {
   constructor(args, env) {
     super(args, env);
     this
@@ -27,17 +27,22 @@ module.exports = class extends yeoman.Base {
   get writing() {
     return {
       template() {
-        this.template(`${this.baseTemplate}/state.js`,
-          this.destinationPath(this.outDir, this.outFilename), this.variables);
+        this.fs.copyTpl(
+          this.templatePath(`${this.baseTemplate}/state.js`),
+          this.destinationPath(this.outDir, this.outFilename),
+          this.variables);
       },
 
       // Append the `export ...` line to the `states.js` module, if one exists.
       statesModule() {
         if (this.fs.exists(this.indexModuleName)) {
-          this.template(`${this.baseTemplate}/states-index.js`,
-            this.indexModuleName, Object.assign({
+          this.fs.copyTpl(
+            this.templatePath(`${this.baseTemplate}/states-index.js`),
+            this.indexModuleName,
+            Object.assign({
               contents: this.fs.read(this.indexModuleName)
-            }, this.variables));
+            }, this.variables)
+          );
         }
       }
     };
