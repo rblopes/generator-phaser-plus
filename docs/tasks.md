@@ -29,8 +29,6 @@ Tasks configuration are kept in the module `gulpfile.js/config.js`, exposing the
 
 *   **`server`**: configuration values used by [Browsersync][bsnc] to set up the development web server.
 
->   Note: In addition, a second module, `gulpfile.js/bs-config.js`, is used to configure Browsersync for testing the bundled project using the `npm run test-dist` task.
-
 
 General Tasks
 -------------
