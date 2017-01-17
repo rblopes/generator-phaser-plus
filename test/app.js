@@ -58,7 +58,6 @@ const files = {
   },
   // Common Gulp modules
   gulpfiles: [
-    'gulpfile.js/bs-config.js',
     'gulpfile.js/config.js',
     'gulpfile.js/index.js',
     'gulpfile.js/lib/bundler.js',
