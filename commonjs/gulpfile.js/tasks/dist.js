@@ -6,6 +6,7 @@
 'use strict';
 
 const del = require('del');
+const server = require('browser-sync').create();
 const runSequence = require('run-sequence');
 const bundler = require('../lib/bundler');
 const getNamedBuffer = require('../lib/get-named-buffer');
@@ -50,4 +51,7 @@ module.exports = function (gulp, $, config) {
       'copyPhaser',
       'bundleDist'
     ], done));
+
+  // Used to test the application bundled for distribution in the browser.
+  gulp.task('test-dist', ['dist'], () => server.init(config.server.dist));
 };

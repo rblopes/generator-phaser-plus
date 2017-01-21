@@ -4,7 +4,7 @@
     "dist": "gulp dist",
     "lint": "gulp lint",
     "start": "gulp",
-    "test-dist": "npm run dist && browser-sync start -c gulpfile.js/bs-config.js"
+    "test-dist": "gulp test-dist"
   },
   "dependencies": {
     "phaser-ce": "^2.7.0"

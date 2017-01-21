@@ -59,13 +59,25 @@ exports.bundle = {
 
 // The BrowserSync settings.
 exports.server = {
-  server: {
-    baseDir: [STATIC, BUILD],
-    routes: {
-      '/phaser.js': PHASER
-    }
+  // Settings for the development server.
+  dev: {
+    server: {
+      baseDir: [STATIC, BUILD],
+      routes: {
+        '/phaser.js': PHASER
+      }
+    },
+    ghostMode: false,
+    notify: false,
+    ui: false
   },
-  ghostMode: false,
-  notify: false,
-  ui: false
+  // Settings for testing the application bundled for distribution. Used when
+  // running the `test-dist` npm script.
+  dist: {
+    server: DIST,
+    port: 8080,
+    ghostMode: false,
+    notify: false,
+    ui: false
+  }
 };

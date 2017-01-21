@@ -37,7 +37,7 @@ module.exports = function (gulp, $, config) {
   })());
 
   // Starts the Web Server for testing.
-  gulp.task('serve', ['bundleDev'], () => server.init(config.server));
+  gulp.task('serve', ['bundleDev'], () => server.init(config.server.dev));
 
   // Check syntax and style of scripts and warn about potential issues.
   function lint() {
