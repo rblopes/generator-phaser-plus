@@ -43,6 +43,9 @@ export default class Boot extends Phaser.State {
     // If the game canvas loses focus, keep the game loop running.
     this.stage.disableVisibilityChange = true;
 
+    // Whether to use frame-based interpolations or not.
+    this.tweens.frameBased = false;
+
     // Load the graphical assets required to show the splash screen later,
     // using the asset pack data.
     this.load.pack('boot', null, assets);
