@@ -11,13 +11,13 @@
 Two templates, same workflow!
 -----------------------------
 
-**New in version "1.0"**: Choose how you want to craft your game code:
+Choose how you want to craft your game code:
 
 *   With application scripts written as CommonJS modules, ideal for newcomers as well seasoned developers who want to start creating games at once.
 
 *   Or using ECMAScript modules and the latest available spec features. Comes with [Babel][babl] compiler to make scripts of the future compatible with today's browsers and devices. Recommended for skilled developers and adventurers.
 
->   Note: All projects are configured to use the Phaser CE libraries.
+>   Note: All projects come configured for [Phaser CE](https://github.com/photonstorm/phaser-ce).
 
 
 Batteries included

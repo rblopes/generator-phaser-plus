@@ -43,6 +43,9 @@ exports.preload = function (game) {
   // If the game canvas loses focus, keep the game loop running.
   game.stage.disableVisibilityChange = true;
 
+  // Whether to use frame-based interpolations or not.
+  game.tweens.frameBased = false;
+
   // Load the graphical assets required to show the splash screen later,
   // using the asset pack data.
   game.load.pack('boot', null, assets);

@@ -1,6 +1,17 @@
 `generator-phaser-plus` Releases
 ================================
 
+##  v2.0 - 2017-01-21
+
+This is mostly a maintenance release of the generator, but it also contains a major update of one important internal dependency. To conform with semantic versioning, however, a major release of the generator is being published today to account for this change.
+
+As usual, this release comes with some regular minor tweaks to both project templates, including:
+
+-   Projects using ECMAScript modules now come with [`babel-preset-env`](https://github.com/babel/babel-preset-env) included, a Babel plugin that tracks supported ECMAScript features in browsers and helps reducing bundled scripts.
+
+-   The `test-dist` script was rewritten as a Gulp task.
+
+
 ##  v1.1 - 2016-11-23
 
 Whoa, that was fast!!

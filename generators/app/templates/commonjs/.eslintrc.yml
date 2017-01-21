@@ -9,6 +9,7 @@
 #   <http://eslint.org/docs/user-guide/configuring>.
 
 env:
+  es6: true                           # Enable ES2015+ features
   browser: true                       # Enable Browser global variables
   commonjs: true                      # Enable CommonJS support
 

@@ -1,9 +1,26 @@
 {
-  "presets": ["latest", "stage-2"],
+  "presets": [
+    "latest",
+    "stage-2",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions"
+          ]
+        },
+        "useBuiltIns": true
+      }
+    ]
+  ],
   "plugins": [
-    ["transform-runtime", {
-      "polyfill": true,
-      "regenerator": false
-    }]
+    [
+      "transform-runtime",
+      {
+        "polyfill": true,
+        "regenerator": false
+      }
+    ]
   ]
 }

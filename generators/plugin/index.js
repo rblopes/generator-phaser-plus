@@ -1,9 +1,9 @@
 'use strict';
 
-const yeoman = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 const prompt = require('./prompt');
 
-module.exports = class extends yeoman.Base {
+module.exports = class extends Generator {
   constructor(args, env) {
     super(args, env);
     this
@@ -25,7 +25,9 @@ module.exports = class extends yeoman.Base {
   }
 
   writing() {
-    this.template(`plugin-${this.baseTemplate}.js`,
-      this.destinationPath(this.outDir, this.outFilename), this.variables);
+    this.fs.copyTpl(
+      this.templatePath(`plugin-${this.baseTemplate}.js`),
+      this.destinationPath(this.outDir, this.outFilename),
+      this.variables);
   }
 };

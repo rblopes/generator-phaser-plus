@@ -9,10 +9,11 @@
 #   <http://eslint.org/docs/user-guide/configuring>.
 
 env:
+  es6: true                           # Enable ES2015+ features
   browser: true                       # Enable Browser global variables
 
 parserOptions:
-  ecmaVersion: 2016                   # Validate ECMAScript 2016 features
+  ecmaVersion: 2016                   # Validate ECMAScript 2016 syntax
   sourceType: module                  # Allow ECMAScript modules
 
 globals:
