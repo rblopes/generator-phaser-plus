@@ -13,13 +13,13 @@ const questions = g => [{
   message: `What's the plugin name?`,
   filter: classify,
   validate: s => !isEmpty(s) || 'Sorry, a name is required.',
-  when: !g.name
+  when: !g.options.name
 }, {
   name: 'description',
   message: 'Give it a short description (optional)',
   default: null,
   filter: trim,
-  when: !g.name
+  when: !g.options.name
 }];
 
 module.exports = function (g) {
@@ -29,7 +29,7 @@ module.exports = function (g) {
 
   function processCLI(inputs) {
     return Object.assign({
-      name: classify(g.name),
+      name: classify(g.options.name),
       description: trim(g.options.description)
     }, inputs);
   }

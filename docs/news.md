@@ -11,6 +11,10 @@ As usual, this release comes with some regular minor tweaks to both project temp
 
 -   The `test-dist` script was rewritten as a Gulp task.
 
+### v2.0.1 - 2017-01-23
+
+- Fixed command line arguments not working in sub-generators.
+
 
 ##  v1.1 - 2016-11-23
 
