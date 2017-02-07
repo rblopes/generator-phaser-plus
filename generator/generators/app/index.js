@@ -24,8 +24,6 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const baseTemplate = this.variables.baseTemplate;
-
     //  Copy dotfiles.
     this.fs.copy(
       this.templatePath('dotfiles/editorconfig'),
@@ -45,7 +43,7 @@ module.exports = class extends Generator {
 
     //  Copy scripts and related files.
     this.fs.copyTpl(
-      this.templatePath(`${baseTemplate}/**`),
+      this.templatePath('scripts/**'),
       this.destinationPath(),
       this.variables, {}, {
         globOptions: {
@@ -53,10 +51,10 @@ module.exports = class extends Generator {
         }
       });
 
-    //  Copy shared game project assets.
+    //  Copy game assets.
     this.fs.copy(
-      this.templatePath('shared/**'),
-      this.destinationPath('app/'));
+      this.templatePath('static/'),
+      this.destinationPath('app/static/'));
 
     //  Copy Webpack configuration.
     this.fs.copyTpl(
@@ -70,7 +68,7 @@ module.exports = class extends Generator {
         createdWith: this.rootGeneratorVersion(),
         creationDate: new Date().toISOString()
       }
-    }, defaults[baseTemplate]));
+    }, defaults));
   }
 
   install() {

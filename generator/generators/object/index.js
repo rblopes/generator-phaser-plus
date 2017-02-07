@@ -18,10 +18,8 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const baseTemplate = this.config.get('baseTemplate');
-
     this.fs.copyTpl(
-      this.templatePath(`object-${baseTemplate}.js`),
+      this.templatePath(`object.js`),
       this.destinationPath(
         utils.getModuleName(
           this.config.get('objects').dest,

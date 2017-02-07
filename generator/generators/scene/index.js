@@ -19,8 +19,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const baseTemplate = this.config.get('baseTemplate');
-    const template = name => this.templatePath(`${baseTemplate}/${name}.js`);
+    const template = name => this.templatePath(`${name}.js`);
 
     const config = this.config.get('scenes');
     const filename = kebabCase(this.variables.name);
