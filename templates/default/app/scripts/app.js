@@ -5,15 +5,12 @@
  * Provides the game initialization routine.
  */
 
-//  Required: import Babel polyfills.
-import 'babel-polyfill';
-
 //  Import configuration and game scenes.
 import * as config from './config';
 import * as scenes from './scenes';
 
 //  Add all required scenes and boot the game.
-function init() {
+export function boot() {
   const game = new Phaser.Game(config);
 
   Object
@@ -25,4 +22,4 @@ function init() {
   return game;
 }
 
-init();
+boot();

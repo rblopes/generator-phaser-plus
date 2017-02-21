@@ -34,7 +34,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
 
   function checkECMAScriptConfig() {
     assert.file([
-      '.babelrc',
+      '.babelrc.js',
       '.editorconfig',
       '.eslintrc.js',
       '.gitattributes',
