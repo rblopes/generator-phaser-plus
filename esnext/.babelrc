@@ -1,18 +1,15 @@
 {
   "presets": [
-    "latest",
-    "stage-2",
     [
       "env",
       {
         "targets": {
-          "browsers": [
-            "last 2 versions"
-          ]
+          "browsers": "last 2 versions"
         },
         "useBuiltIns": true
       }
-    ]
+    ],
+    "stage-2"
   ],
   "plugins": [
     [
