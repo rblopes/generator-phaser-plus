@@ -25,7 +25,7 @@
     "gulp-if": "^2.0.1",
     "gulp-json-minify": "^1.0.5",
     "gulp-load-plugins": "^1.4.0",
-    "gulp-notify": "^2.2.0",
+    "gulp-notify": "^3.0.0",
     "gulp-processhtml": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.2.0",
