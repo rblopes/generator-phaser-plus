@@ -14,7 +14,7 @@ module.exports = class extends Generator {
       .option('description', {
         type: String,
         description: 'Describe what this object do',
-        alias: 'm',
+        alias: 'm'
       });
   }
 

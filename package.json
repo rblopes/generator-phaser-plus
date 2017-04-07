@@ -66,6 +66,9 @@
       "generators/*/templates/**",
       "test/fixtures/**"
     ],
+    "rules": {
+      "capitalized-comments": "off"
+    },
     "space": true
   },
   "license": "MIT"

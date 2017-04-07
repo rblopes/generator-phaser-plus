@@ -1,7 +1,7 @@
 'use strict';
 
-const chalk = require('chalk');
 const assert = require('assert');
+const chalk = require('chalk');
 const classify = require('../lib/classify');
 
 describe(chalk.cyan('`classify` module'), () => {
