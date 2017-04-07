@@ -2,7 +2,6 @@
 
 const trim = require('lodash.trim');
 const isEmpty = require('lodash.isempty');
-const includes = require('lodash.includes');
 const yorc = require('../../lib/yorc');
 const prompt = require('../../lib/prompt');
 const classify = require('../../lib/classify');
@@ -18,7 +17,6 @@ const questions = g => [{
 }, {
   name: 'description',
   message: 'Give it a short description (optional)',
-  default: null,
   filter: trim,
   when: !g.options.name
 }, {
@@ -53,14 +51,8 @@ module.exports = function (g) {
       indexModuleName: yorc.get(g, 'states-module') || config.moduleName,
       variables: {
         name: inputs.name,
-        underline: '='.repeat(inputs.name.length + 6),
+        methods: inputs.methods,
         description: inputs.description,
-        withInit: includes(inputs.methods, 'init'),
-        withPreload: includes(inputs.methods, 'preload'),
-        withCreate: includes(inputs.methods, 'create'),
-        withUpdate: includes(inputs.methods, 'update'),
-        withRender: includes(inputs.methods, 'render'),
-        withShutdown: includes(inputs.methods, 'shutdown'),
         requirePath: config.requirePath
       }
     });

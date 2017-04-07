@@ -16,7 +16,6 @@ const questions = [{
 }, {
   name: 'description',
   message: 'Give it a short description (optional)',
-  default: null,
   filter: trim
 }, {
   type: 'list',

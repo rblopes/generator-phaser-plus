@@ -78,8 +78,10 @@ module.exports = class extends Generator {
 
   end() {
     if (!this.options['skip-install']) {
-      this.log('Congrats! Now, launch your project with');
-      this.log(`${chalk.yellow.bold('npm start')} and happy hacking :)`);
+      this.log(
+        `Congrats! Now, launch your project with\n`,
+        `${chalk.yellow.bold('npm start')} and happy hacking :)`
+      );
     }
   }
 };

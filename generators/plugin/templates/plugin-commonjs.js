@@ -1,6 +1,6 @@
 /*
  * <%- name %> plugin
- * <%- underline %>
+ * <%- '='.repeat(name.length + 7) %>
  *
 <% if (description) { -%>
  * <%- description %>
@@ -10,7 +10,6 @@
 'use strict';
 
 module.exports = <%- name %>;
-
 function <%- name %>(game, parent) {
   Phaser.Plugin.call(this, game, parent);
 

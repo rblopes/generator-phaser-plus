@@ -1,6 +1,6 @@
 /*
  * <%- name %> state
- * <%- underline %>
+ * <%- '='.repeat(6 + name.length) %>
  *
 <% if (description) { -%>
  * <%- description %>
@@ -8,41 +8,11 @@
  */
 
 export default class <%- name %> extends Phaser.State {
+<% methods.forEach(method => { -%>
 
-<% if (withInit) { -%>
-  init() {
+  <%- method %>() {
     // TODO: Stub
   }
+<% }) -%>
 
-<% } -%>
-<% if (withPreload) { -%>
-  preload() {
-    // TODO: Stub
-  }
-
-<% } -%>
-<% if (withCreate) { -%>
-  create() {
-    // TODO: Stub
-  }
-
-<% } -%>
-<% if (withUpdate) { -%>
-  update() {
-    // TODO: Stub
-  }
-
-<% } -%>
-<% if (withRender) { -%>
-  render() {
-    // TODO: Stub
-  }
-
-<% } -%>
-<% if (withShutdown) { -%>
-  shutdown() {
-    // TODO: Stub
-  }
-
-<% } -%>
 }

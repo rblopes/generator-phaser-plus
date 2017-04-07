@@ -5,17 +5,15 @@ const prompt = require('./prompt');
 
 module.exports = class extends Generator {
   constructor(args, env) {
-    super(args, env);
-    this
+    super(args, env)
       .argument('name', {
         type: String,
         required: false,
-        desc: 'The plugin class name'
+        description: 'The plugin class name'
       })
       .option('description', {
         type: String,
-        required: String,
-        desc: 'Describe the purpose of this plugin',
+        description: 'Describe the purpose of this plugin',
         alias: 'm'
       });
   }

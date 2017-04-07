@@ -1,6 +1,6 @@
 /*
  * <%- name %> plugin
- * <%- underline %>
+ * <%- '='.repeat(name.length + 7) %>
  *
 <% if (description) { -%>
  * <%- description %>

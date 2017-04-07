@@ -5,17 +5,15 @@ const prompt = require('./prompt');
 
 module.exports = class extends Generator {
   constructor(args, env) {
-    super(args, env);
-    this
+    super(args, env)
       .argument('name', {
         type: String,
         required: false,
-        desc: 'The game state class name'
+        description: 'The game state class name'
       })
       .option('description', {
         type: String,
-        required: false,
-        desc: 'Describe what happens in this game state',
+        description: 'Describe what happens in this game state',
         alias: 'm'
       });
   }
