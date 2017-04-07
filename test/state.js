@@ -4,182 +4,141 @@
 
 'use strict';
 
-const path = require('path');
-const fse = require('fs-extra');
+const chalk = require('chalk');
 const assert = require('yeoman-assert');
-const helpers = require('yeoman-test');
+const runGenerator = require('./fixtures/run-generator');
 
-// Return a callback to be used in the 'before' hook of a test, to run the
-// generator with given answers in a mock project.
-function runOnMockProject(name, prompts) {
-  return () => helpers
-    .run(require.resolve('../generators/state'))
-    .inTmpDir(dir => fse.copySync(
-      path.join(__dirname, `../test/fixtures/${name}-project/`), dir))
-    .withPrompts(prompts)
-    .toPromise();
-}
+// User inputs.
+const name = 'Test';
+const description = 'A test game state.';
+const methods = ['init', 'create', 'shutdown'];
 
-describe('state generator - CommonJS projects', () => {
-  describe('with default methods', () => {
-    before(runOnMockProject('commonjs', {
-      name: 'Test',
-      description: 'Just a test state.'
-    }));
+// Expected file name of the create module.
+const fileName = `src/${name}.js`;
 
-    it('creates a game state class with the chosen methods', () => {
-      const file = 'src/Test.js';
-      assert.file(file);
-      assert.fileContent(file, '* Just a test state.');
-      assert.noFileContent(file, 'exports.init = function (/*game*/) {');
-      assert.noFileContent(file, 'exports.preload = function (/*game*/) {');
-      assert.fileContent(file, 'exports.create = function (/*game*/) {');
-      assert.fileContent(file, 'exports.update = function (/*game*/) {');
-      assert.noFileContent(file, 'exports.render = function (/*game*/) {');
-      assert.noFileContent(file, 'exports.shutdown = function (/*game*/) {');
+// The states index module, that should be updated.
+const statesIndex = 'src/states-index.js';
+
+describe(chalk.bold.cyan('generator-phaser-plus:state'), () => {
+  describe('creates a CommonJS module', () => {
+    describe('with chosen methods', () => {
+      it('using prompts', () =>
+        runGenerator('state', 'commonjs')
+          .withPrompts({name, description, methods})
+          .then(checkCreatedModule)
+          .then(checkUpdatedIndex));
+
+      function checkCreatedModule() {
+        assert.fileContent([
+          [fileName, `* ${description}`],
+          [fileName, `exports.init = function () {`],
+          [fileName, `exports.create = function (/*game*/) {`],
+          [fileName, `exports.shutdown = function (/*game*/) {`]
+        ]);
+        assert.noFileContent([
+          [fileName, `exports.preload = function (/*game*/) {`],
+          [fileName, `exports.update = function (/*game*/) {`],
+          [fileName, `exports.render = function (/*game*/) {`]
+        ]);
+      }
     });
 
-    it('appends the `require` line to the states index script', () => {
-      const file = 'src/states-index.js';
-      assert.fileContent(file, `exports.Nada = require('./Nada');`);
-      assert.fileContent(file, `exports.Test = require('./Test');`);
+    describe('with default methods', () => {
+      it('using prompts', () =>
+        runGenerator('state', 'commonjs')
+          .withPrompts({name, description})
+          .then(checkCreatedModule)
+          .then(checkUpdatedIndex));
+
+      it('using command-line interface', () =>
+        runGenerator('state', 'commonjs')
+          .withArguments([name])
+          .withOptions({description})
+          .then(checkCreatedModule)
+          .then(checkUpdatedIndex));
+
+      function checkCreatedModule() {
+        assert.fileContent([
+          [fileName, `* ${description}`],
+          [fileName, `exports.create = function (/*game*/) {`],
+          [fileName, `exports.update = function (/*game*/) {`]
+        ]);
+        assert.noFileContent([
+          [fileName, `exports.init = function () {`],
+          [fileName, `exports.preload = function (/*game*/) {`],
+          [fileName, `exports.render = function (/*game*/) {`],
+          [fileName, `exports.shutdown = function (/*game*/) {`]
+        ]);
+      }
     });
+
+    function checkUpdatedIndex() {
+      assert.fileContent([
+        [statesIndex, `exports.Nada = require('./Nada');`],
+        [statesIndex, `exports.${name} = require('./${name}');`]
+      ]);
+    }
   });
 
-  describe('with custom methods', () => {
-    before(runOnMockProject('commonjs', {
-      name: 'Test',
-      description: 'Just a test state.',
-      methods: ['init', 'create', 'render', 'shutdown']
-    }));
+  describe('creates a ECMAScript module', () => {
+    describe('with chosen methods', () => {
+      it('using prompts', () =>
+        runGenerator('state', 'esnext')
+          .withPrompts({name, description, methods})
+          .then(checkCreatedModule)
+          .then(checkUpdatedIndex));
 
-    it('creates a game state class with the chosen methods', () => {
-      const file = 'src/Test.js';
-      assert.file(file);
-      assert.fileContent(file, '* Just a test state.');
-      assert.fileContent(file, 'exports.init = function (/*game*/) {');
-      assert.noFileContent(file, 'exports.preload = function (/*game*/) {');
-      assert.fileContent(file, 'exports.create = function (/*game*/) {');
-      assert.noFileContent(file, 'exports.update = function (/*game*/) {');
-      assert.fileContent(file, 'exports.render = function (/*game*/) {');
-      assert.fileContent(file, 'exports.shutdown = function (/*game*/) {');
+      function checkCreatedModule() {
+        assert.fileContent([
+          [fileName, `* ${description}`],
+          [fileName, `class ${name} extends Phaser.State {`],
+          [fileName, `init() {`],
+          [fileName, `create() {`],
+          [fileName, `shutdown() {`]
+        ]);
+        assert.noFileContent([
+          [fileName, `preload() {`],
+          [fileName, `update() {`],
+          [fileName, `render() {`]
+        ]);
+      }
     });
 
-    it('appends the `require` line to the states index script', () => {
-      const file = 'src/states-index.js';
-      assert.fileContent(file, `exports.Nada = require('./Nada');`);
-      assert.fileContent(file, `exports.Test = require('./Test');`);
-    });
-  });
+    describe('with default methods', () => {
+      it('using prompts', () =>
+        runGenerator('state', 'esnext')
+          .withPrompts({name, description})
+          .then(checkCreatedModule)
+          .then(checkUpdatedIndex));
 
-  describe('with all methods', () => {
-    before(runOnMockProject('commonjs', {
-      name: 'Test',
-      description: 'Just a test state.',
-      methods: ['init', 'preload', 'create', 'update', 'render', 'shutdown']
-    }));
+      it('using command-line interface', () =>
+        runGenerator('state', 'esnext')
+          .withArguments([name])
+          .withOptions({description})
+          .then(checkCreatedModule)
+          .then(checkUpdatedIndex));
 
-    it('creates a game state class with the chosen methods', () => {
-      const file = 'src/Test.js';
-      assert.file(file);
-      assert.fileContent(file, '* Just a test state.');
-      assert.fileContent(file, 'exports.init = function (/*game*/) {');
-      assert.fileContent(file, 'exports.preload = function (/*game*/) {');
-      assert.fileContent(file, 'exports.create = function (/*game*/) {');
-      assert.fileContent(file, 'exports.update = function (/*game*/) {');
-      assert.fileContent(file, 'exports.render = function (/*game*/) {');
-      assert.fileContent(file, 'exports.shutdown = function (/*game*/) {');
-    });
-
-    it('appends the `require` line to the states index script', () => {
-      const file = 'src/states-index.js';
-      assert.fileContent(file, `exports.Nada = require('./Nada');`);
-      assert.fileContent(file, `exports.Test = require('./Test');`);
-    });
-  });
-});
-
-describe('state generator - ECMAScript projects', () => {
-  describe('with default methods', () => {
-    before(runOnMockProject('esnext', {
-      name: 'Test',
-      description: 'Just a test state.'
-    }));
-
-    it('creates a game state class with the chosen methods', () => {
-      const file = 'src/Test.js';
-      assert.file(file);
-      assert.fileContent(file, '* Just a test state.');
-      assert.fileContent(file, 'class Test extends Phaser.State');
-
-      assert.noFileContent(file, 'init() {');
-      assert.noFileContent(file, 'preload() {');
-      assert.fileContent(file, 'create() {');
-      assert.fileContent(file, 'update() {');
-      assert.noFileContent(file, 'render() {');
-      assert.noFileContent(file, 'shutdown() {');
+      function checkCreatedModule() {
+        assert.fileContent([
+          [fileName, `* ${description}`],
+          [fileName, `class ${name} extends Phaser.State {`],
+          [fileName, `create() {`],
+          [fileName, `update() {`]
+        ]);
+        assert.noFileContent([
+          [fileName, `init() {`],
+          [fileName, `preload() {`],
+          [fileName, `render() {`],
+          [fileName, `shutdown() {`]
+        ]);
+      }
     });
 
-    it('appends the `export` statement to the states index script', () => {
-      const file = 'src/states-index.js';
-      assert.fileContent(file, `export {default as Nada} from './Nada';`);
-      assert.fileContent(file, `export {default as Test} from './Test';`);
-    });
-  });
-
-  describe('with custom methods', () => {
-    before(runOnMockProject('esnext', {
-      name: 'Test',
-      description: 'Just a test state.',
-      methods: ['init', 'create', 'render', 'shutdown']
-    }));
-
-    it('creates a game state class with the chosen methods', () => {
-      const file = 'src/Test.js';
-      assert.file(file);
-      assert.fileContent(file, '* Just a test state.');
-      assert.fileContent(file, 'class Test extends Phaser.State');
-
-      assert.fileContent(file, 'init() {');
-      assert.noFileContent(file, 'preload() {');
-      assert.fileContent(file, 'create() {');
-      assert.noFileContent(file, 'update() {');
-      assert.fileContent(file, 'render() {');
-      assert.fileContent(file, 'shutdown() {');
-    });
-
-    it('appends the `export` statement to the states index script', () => {
-      const file = 'src/states-index.js';
-      assert.fileContent(file, `export {default as Nada} from './Nada';`);
-      assert.fileContent(file, `export {default as Test} from './Test';`);
-    });
-  });
-
-  describe('with all methods', () => {
-    before(runOnMockProject('esnext', {
-      name: 'Test',
-      description: 'Just a test state.',
-      methods: ['init', 'preload', 'create', 'update', 'render', 'shutdown']
-    }));
-
-    it('creates a game state class with the chosen methods', () => {
-      const file = 'src/Test.js';
-      assert.file(file);
-      assert.fileContent(file, '* Just a test state.');
-      assert.fileContent(file, 'class Test extends Phaser.State');
-
-      assert.fileContent(file, 'init() {');
-      assert.fileContent(file, 'preload() {');
-      assert.fileContent(file, 'create() {');
-      assert.fileContent(file, 'update() {');
-      assert.fileContent(file, 'render() {');
-      assert.fileContent(file, 'shutdown() {');
-    });
-
-    it('appends the `export` statement to the states index script', () => {
-      const file = 'src/states-index.js';
-      assert.fileContent(file, `export {default as Nada} from './Nada';`);
-      assert.fileContent(file, `export {default as Test} from './Test';`);
-    });
+    function checkUpdatedIndex() {
+      assert.fileContent([
+        [statesIndex, `export {default as Nada} from './Nada';`],
+        [statesIndex, `export {default as ${name}} from './${name}';`]
+      ]);
+    }
   });
 });

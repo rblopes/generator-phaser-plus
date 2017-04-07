@@ -1,6 +1,13 @@
 `generator-phaser-plus` Releases
 ================================
 
+##  v2.1 - 2017-04-07
+
+-   The `esnext` template was updated to use `babel-preset-env` only, to better align with Babel's recommendations.
+
+-   Development dependencies of both project templates were updated.
+
+
 ##  v2.0 - 2017-01-21
 
 This is mostly a maintenance release of the generator, but it also contains a major update of one important internal dependency. To conform with semantic versioning, however, a major release of the generator is being published today to account for this change.

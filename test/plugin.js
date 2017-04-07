@@ -4,46 +4,55 @@
 
 'use strict';
 
-const path = require('path');
-const fse = require('fs-extra');
+const chalk = require('chalk');
 const assert = require('yeoman-assert');
-const helpers = require('yeoman-test');
+const runGenerator = require('./fixtures/run-generator');
 
-// Return a callback to be used in the 'before' hook of a test, to run the
-// generator with given answers in a mock project.
-function runOnMockProject(name, prompts) {
-  return () => helpers
-    .run(require.resolve('../generators/plugin'))
-    .inTmpDir(dir => fse.copySync(
-      path.join(__dirname, `../test/fixtures/${name}-project/`), dir))
-    .withPrompts(prompts)
-    .toPromise();
-}
+// User inputs.
+const name = 'Test';
+const description = 'A test plugin.';
 
-describe('plugin generator - CommonJS projects', () => {
-  before(runOnMockProject('commonjs', {
-    name: 'Test',
-    description: 'Just a test plugin.'
-  }));
+// Expected file name of the create module.
+const fileName = `src/${name}.js`;
 
-  it('creates a test plugin', () => {
-    const file = 'src/Test.js';
-    assert.file(file);
-    assert.fileContent(file, '* Just a test plugin.');
-    assert.fileContent(file, 'function Test(game, parent) {');
+describe(chalk.bold.cyan('generator-phaser-plus:plugin'), () => {
+  describe('creates a CommonJS module', () => {
+    it('using prompts', () =>
+      runGenerator('plugin', 'commonjs')
+        .withPrompts({name, description})
+        .then(checkCreatedModule));
+
+    it('using command-line interface', () =>
+      runGenerator('plugin', 'commonjs')
+        .withArguments([name])
+        .withOptions({description})
+        .then(checkCreatedModule));
+
+    function checkCreatedModule() {
+      assert.fileContent([
+        [fileName, `* ${description}`],
+        [fileName, `function ${name}(game, parent) {`]
+      ]);
+    }
   });
-});
 
-describe('plugin generator - ECMAScript projects', () => {
-  before(runOnMockProject('esnext', {
-    name: 'Test',
-    description: 'Just a test plugin.'
-  }));
+  describe('creates a ECMAScript module', () => {
+    it('using prompts', () =>
+      runGenerator('plugin', 'esnext')
+        .withPrompts({name, description})
+        .then(checkCreatedModule));
 
-  it('creates a test plugin', () => {
-    const file = 'src/Test.js';
-    assert.file(file);
-    assert.fileContent(file, '* Just a test plugin.');
-    assert.fileContent(file, 'class Test extends Phaser.Plugin {');
+    it('using command-line interface', () =>
+      runGenerator('plugin', 'esnext')
+        .withArguments([name])
+        .withOptions({description})
+        .then(checkCreatedModule));
+
+    function checkCreatedModule() {
+      assert.fileContent([
+        [fileName, `* ${description}`],
+        [fileName, `class ${name} extends Phaser.Plugin {`]
+      ]);
+    }
   });
 });

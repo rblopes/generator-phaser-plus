@@ -4,85 +4,94 @@
 
 'use strict';
 
-const path = require('path');
-const fse = require('fs-extra');
+const chalk = require('chalk');
 const assert = require('yeoman-assert');
-const helpers = require('yeoman-test');
+const runGenerator = require('./fixtures/run-generator');
 
-// Return a callback to be used in the 'before' hook of a test, to run the
-// generator with given answers in a mock project.
-function runOnMockProject(name, prompts) {
-  return () => helpers
-    .run(require.resolve('../generators/object'))
-    .inTmpDir(dir => fse.copySync(
-      path.join(__dirname, `../test/fixtures/${name}-project/`), dir))
-    .withPrompts(prompts)
-    .toPromise();
-}
+// User inputs.
+const name = 'Test';
+const description = 'A test object.';
+const baseClass = 'Sprite';
 
-describe('object generator - CommonJS projects', () => {
-  describe('extending a regular Phaser class', () => {
-    before(runOnMockProject('commonjs', {
-      name: 'Test',
-      description: 'Just a test object.',
-      baseClass: 'Image'
-    }));
+// Expected file name of the create module.
+const fileName = `src/${name}.js`;
 
-    it('creates an test game object class', () => {
-      const file = 'src/Test.js';
-      assert.file(file);
-      assert.fileContent(file, '* Just a test object.');
-      assert.fileContent(file, 'function Test(game/*, ...args*/) {');
-      assert.fileContent(file, 'Phaser.Image.call(this, game/*, ...args*/);');
-      assert.fileContent(file, 'Test.prototype = Object.create(Phaser.Image.prototype);');
+describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
+  describe('creates a CommonJS module', () => {
+    describe(`containing a class extended from 'Phaser.${baseClass}'`, () => {
+      it('using prompts', () =>
+        runGenerator('object', 'commonjs')
+          .withPrompts({name, description, baseClass})
+          .then(checkCreatedModule));
+
+      it('using command-line interface', () =>
+        runGenerator('object', 'commonjs')
+          .withArguments([name])
+          .withOptions({description})
+          .then(checkCreatedModule));
+
+      function checkCreatedModule() {
+        assert.fileContent([
+          [fileName, `* ${description}`],
+          [fileName, `function ${name}(game/*, ...args*/) {`],
+          [fileName, `Phaser.${baseClass}.call(this, game/*, ...args*/);`],
+          [fileName, `${name}.prototype = Object.create(Phaser.${baseClass}`]
+        ]);
+      }
+    });
+
+    describe('containing a not extended class', () => {
+      it('using prompts', () =>
+        runGenerator('object', 'commonjs')
+          .withPrompts({name, description})
+          .then(checkCreatedModule));
+
+      function checkCreatedModule() {
+        assert.fileContent([
+          [fileName, `* ${description}`],
+          [fileName, `function ${name}(game/*, ...args*/) {`]
+        ]);
+        assert.noFileContent(
+          fileName,
+          `${name}.prototype = Object.create(`
+        );
+      }
     });
   });
 
-  describe('not extending a Phaser class', () => {
-    before(runOnMockProject('commonjs', {
-      name: 'Test',
-      description: 'Just a test object.',
-      baseClass: null
-    }));
+  describe('creates a ECMAScript module', () => {
+    describe(`containing a class extended from 'Phaser.${baseClass}'`, () => {
+      it('using prompts', () =>
+        runGenerator('object', 'esnext')
+          .withPrompts({name, description, baseClass})
+          .then(checkCreatedModule));
 
-    it('creates an test game object class', () => {
-      const file = 'src/Test.js';
-      assert.file(file);
-      assert.fileContent(file, '* Just a test object.');
-      assert.fileContent(file, 'function Test(game/*, ...args*/) {');
-      assert.noFileContent(file, 'Test.prototype = Object.create(');
+      it('using command-line interface', () =>
+        runGenerator('object', 'esnext')
+          .withArguments([name])
+          .withOptions({description})
+          .then(checkCreatedModule));
+
+      function checkCreatedModule() {
+        assert.fileContent([
+          [fileName, `* ${description}`],
+          [fileName, `class ${name} extends Phaser.${baseClass} {`]
+        ]);
+      }
     });
-  });
-});
 
-describe('object generator - ECMAScript projects', () => {
-  describe('extending a regular Phaser class', () => {
-    before(runOnMockProject('esnext', {
-      name: 'Test',
-      description: 'Just a test object.',
-      baseClass: 'Image'
-    }));
+    describe('containing a not extended class', () => {
+      it('using prompts', () =>
+        runGenerator('object', 'esnext')
+          .withPrompts({name, description})
+          .then(checkCreatedModule));
 
-    it('creates an test game object class', () => {
-      const file = 'src/Test.js';
-      assert.file(file);
-      assert.fileContent(file, '* Just a test object.');
-      assert.fileContent(file, 'class Test extends Phaser.Image');
-    });
-  });
-
-  describe('not extending a Phaser class', () => {
-    before(runOnMockProject('esnext', {
-      name: 'Test',
-      description: 'Just a test object.',
-      baseClass: null
-    }));
-
-    it('creates an test game object class', () => {
-      const file = 'src/Test.js';
-      assert.file(file);
-      assert.fileContent(file, '* Just a test object.');
-      assert.fileContent(file, 'class Test {');
+      function checkCreatedModule() {
+        assert.fileContent([
+          [fileName, `* ${description}`],
+          [fileName, `class ${name} {`]
+        ]);
+      }
     });
   });
 });

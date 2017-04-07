@@ -17,8 +17,6 @@ Choose how you want to craft your game code:
 
 *   Or using ECMAScript modules and the latest available spec features. Comes with [Babel][babl] compiler to make scripts of the future compatible with today's browsers and devices. Recommended for skilled developers and adventurers.
 
->   Note: All projects come configured for [Phaser CE](https://github.com/photonstorm/phaser-ce).
-
 
 Batteries included
 ------------------
@@ -65,7 +63,7 @@ Quick Start
     npm start
     ```
 
-Have a look at the [documentation][m] to learn more about available features and [the most recent development updates][n], including [sub-generators][s], [how projects are structured][p], [development tasks][t] and a more in-depth [hands-on tutorial][g], presenting the general workflow and how you can take advantage of the generator to speed up your game development.
+Have a look at the [user's manual][m] and learn more about available features, including [sub-generators and how to use them][s], [how game projects are structured][p], [available development tasks][t], as well a more in-depth [hands-on tutorial][g], presenting the general workflow and how you can take advantage from it to speed up your game development. You'll also find out more about the [latest development updates][n] and how you can [help contributing to this project][c].
 
 
 License
@@ -79,6 +77,7 @@ This software is distributed under the terms of the [MIT License](LICENSE).
 [n]: docs/news.md
 [m]: docs/index.md
 [t]: docs/tasks.md
+[c]: docs/contributing.md
 [p]: docs/project-layout.md
 [g]: docs/quick-start-guide.md
 [s]: docs/generator.md#sub-generators

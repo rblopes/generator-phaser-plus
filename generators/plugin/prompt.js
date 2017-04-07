@@ -17,7 +17,6 @@ const questions = g => [{
 }, {
   name: 'description',
   message: 'Give it a short description (optional)',
-  default: null,
   filter: trim,
   when: !g.options.name
 }];
@@ -40,7 +39,6 @@ module.exports = function (g) {
       outFilename: `${inputs.name}.js`,
       variables: {
         name: inputs.name,
-        underline: '='.repeat(inputs.name.length + 7),
         description: inputs.description
       }
     });

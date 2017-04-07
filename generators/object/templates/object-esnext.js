@@ -1,6 +1,6 @@
 /*
  * <%- name %>
- * <%- underline %>
+ * <%- '='.repeat(name.length) %>
  *
 <% if (description) { -%>
  * <%- description %>
