@@ -5,7 +5,7 @@
  * Provides the game initialization routine.
  */
 
-// Required: import the Babel runtime module.
+// Required: import Babel polyfills.
 import 'babel-polyfill';
 
 // Import game states.
