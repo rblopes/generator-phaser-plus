@@ -1,7 +1,6 @@
 .*
 *.log
 Thumbs.db
-yarn.lock
 
 dist/
 build/
