@@ -87,6 +87,9 @@ Below is the complete reference of supported media asset types supported by Phas
 
 Declare a [Texture Packer][tpck] Atlas. Use this type to declare both the graphic texture and its following metadata.
 
+#### Equivalent API method
+*   [`Phaser.Loader#atlas`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#atlas)
+
 #### Type Parameters
 *   **`atlasURL`**: Optional. The path of the Texture Atlas metadata.
 
@@ -102,7 +105,9 @@ Declare a [Texture Packer][tpck] Atlas. Use this type to declare both the graphi
 
     *   **`TEXTURE_ATLAS_JSON_ARRAY`**: A Texture Atlas exported as a JSON document containing data formatted as an array object. This format defaults to a `.json` file extension, thus, omitting the `atlasURL` field implicitly yields a `<key>.json` URL path pattern. This is the default format expected by Phaser when this field is omitted.
 
-    *   **`TEXTURE_ATLAS_JSON_HASH`**: A Texture Atlas exported as a JSON document, containing data formatted as a hash (or "plain" JavaScript) object. This format implies a `.json` file extension, thus, omitting the `atlasURL` field yields a `<key>.json` URL path pattern.
+    *   **`TEXTURE_ATLAS_JSON_HASH`**: A Texture Atlas exported as a JSON document containing data formatted as a hash (or "plain" JavaScript) object. This format implies a `.json` file extension, thus, omitting the `atlasURL` field yields a `<key>.json` URL path pattern.
+
+    *   **`TEXTURE_ATLAS_JSON_PYXEL`**: A Texture Atlas metadata in JSON format, created using [Pyxel Edit](http://pyxeledit.com/). This format implies a `.json` file extension, thus, omitting the `atlasURL` field yields a `<key>.json` URL path pattern.
 
     *   **`TEXTURE_ATLAS_XML_STARLING`**: A Texture Atlas exported as a XML document, containing data in "Starling XML" format. This format implies a `.xml` file extension, thus, omitting the `atlasURL` field yields a `<key>.xml` URL path pattern.
 
@@ -121,6 +126,9 @@ Declare a [Texture Packer][tpck] Atlas. Use this type to declare both the graphi
 ### `atlasJSONArray`
 
 Alternative way of declaring a Texture Atlas in the "JSON Array" format.
+
+#### Equivalent API method
+*   [`Phaser.Loader#atlasJSONArray`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#atlasJSONArray)
 
 #### Type Parameters
 *   **`atlasURL`**: Optional. The path of the Texture Atlas metadata. When omitted, the pattern `<key>.json` is assumed.
@@ -142,6 +150,9 @@ Alternative way of declaring a Texture Atlas in the "JSON Array" format.
 
 Alternative way of declaring a Texture Atlas in the "JSON Hash" format.
 
+#### Equivalent API method
+*   [`Phaser.Loader#atlasJSONHash`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#atlasJSONHash)
+
 #### Type Parameters
 *   **`atlasURL`**: Optional. The path of the Texture Atlas metadata. When omitted, the pattern `<key>.json` is assumed.
 
@@ -161,6 +172,9 @@ Alternative way of declaring a Texture Atlas in the "JSON Hash" format.
 ### `atlasXML`
 
 Alternative way of declaring a Starling XML Texture Atlas.
+
+#### Equivalent API method
+*   [`Phaser.Loader#atlasXML`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#atlasXML)
 
 #### Type Parameters
 *   **`atlasURL`**: Optional. The path of the Texture Atlas metadata. When omitted, the pattern `<key>.xml` is assumed.
@@ -182,6 +196,9 @@ Alternative way of declaring a Starling XML Texture Atlas.
 
 Declare an audio sample file. Remember that the use of some [audio codecs][aufm] are restricted by some browsers and devices.
 
+#### Equivalent API method
+*   [`Phaser.Loader#audio`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#audio)
+
 #### Type Parameters
 *   **`urls`**: Mandatory. The paths to audio samples of different formats. It can be either a string, an array of strings or an array of objects in the format `{uri: 'blob:<resource-path>', type: '<type>'}`, specifying both the URL and its mimetype. When using arrays, Phaser will choose the first one compatible with the device.
 
@@ -200,6 +217,9 @@ Declare an audio sample file. Remember that the use of some [audio codecs][aufm]
 ### `audiosprite`
 
 Declare an audio sprite.
+
+#### Equivalent API method
+*   [`Phaser.Loader#audioSprite`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#audioSprite)
 
 #### Type Parameters
 *   **`urls`**: Mandatory. The paths to audio samples of different formats. It can be either a string, an array of strings or an array of objects in the format `{uri: 'blob:<resource-path>', type: '<type>'}`, specifying both the URL and its mimetype. When using arrays, Phaser will choose the first one compatible with the device.
@@ -222,6 +242,9 @@ Declare an audio sprite.
 ### `binary`
 
 Declare a file in an arbitrary binary format. To retrieve the file from the game cache, use the [`Phaser.Cache#getBinary()`][pcgb] method.
+
+#### Equivalent API method
+*   [`Phaser.Loader#binary`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#binary)
 
 #### Type Parameters
 *   **`url`**: Optional. The URL of the binary file. If omitted,  pattern in the format `<key>.bin` is assumed (i.e.: appending the `.bin` file extension).
@@ -249,6 +272,9 @@ Declare a file in an arbitrary binary format. To retrieve the file from the game
 ### `bitmapFont`
 
 Declare a bitmap font texture and its accompanying metadata.
+
+#### Equivalent API method
+*   [`Phaser.Loader#bitmapFont`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#bitmapFont)
 
 #### Type Parameters
 
@@ -278,6 +304,9 @@ Declare a bitmap font texture and its accompanying metadata.
 
 Declare a still image.
 
+#### Equivalent API method
+*   [`Phaser.Loader#image`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#image)
+
 #### Type Parameters
 *   **`url`**: Optional. The path to this asset. If omitted, a pattern `<key>.png` is assumed.
 
@@ -294,6 +323,9 @@ Declare a still image.
 ### `json`
 
 Declare a JSON document. Use [`game.cache.getJSON(<key>)`][pcgj] to recover the file from the cache.
+
+#### Equivalent API method
+*   [`Phaser.Loader#json`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#json)
 
 #### Type Parameters
 *   **`url`**: The path to this asset. If omitted, a pattern `<key>.json` is assumed.
@@ -312,6 +344,9 @@ Declare a JSON document. Use [`game.cache.getJSON(<key>)`][pcgj] to recover the 
 
 Declares a file in [Lime+Corona][phed] format. The file can be retrieved using the [`Phaser.Cache#getJSON(<key>)`][pcgj] method.
 
+#### Equivalent API method
+*   [`Phaser.Loader#physics`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#physics)
+
 #### Type Parameters
 *   **`url`**: The path to this asset. If omitted, a pattern `<key>.json` is assumed.
 
@@ -329,6 +364,9 @@ Declares a file in [Lime+Corona][phed] format. The file can be retrieved using t
 
 Declare a fragment shader.
 
+#### Equivalent API method
+*   [`Phaser.Loader#shader`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#shader)
+
 #### Type Parameters
 *   **`url`**: The path to this asset. If omitted, a pattern `<key>.frag` is assumed.
 
@@ -345,6 +383,9 @@ Declare a fragment shader.
 ### `spritesheet`
 
 Declare the texture of a sprite sheet.
+
+#### Equivalent API method
+*   [`Phaser.Loader#spritesheet`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#spritesheet)
 
 #### Type Parameters
 *   **`url`**: Optional. The path to this asset. If omitted, a pattern `<key>.png` is assumed.
@@ -379,6 +420,9 @@ Declare the texture of a sprite sheet.
 
 Declare a text file. Retrieve the file using [`game.cache.getText(<key>)`][pcgt].
 
+#### Equivalent API method
+*   [`Phaser.Loader#text`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#text)
+
 #### Type Parameters
 *   **`url`**: The path to this asset. If omitted, a pattern `<key>.txt` is assumed.
 
@@ -395,6 +439,9 @@ Declare a text file. Retrieve the file using [`game.cache.getText(<key>)`][pcgt]
 ### `tilemap`
 
 Declare a [Tiled][tild] tilemap. Use different `image` entries to load the required textures.
+
+#### Equivalent API method
+*   [`Phaser.Loader#tilemap`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#tilemap)
 
 #### Type Parameters
 *   **`url`**: Optional. The path to that tilemap.
@@ -418,6 +465,9 @@ Declare a [Tiled][tild] tilemap. Use different `image` entries to load the requi
 
 Declare a video file.
 
+#### Equivalent API method
+*   [`Phaser.Loader#video`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#video)
+
 #### Type Parameters
 *   **`urls`**: Mandatory. The paths of videos of different codecs. It can be either a string, an array of strings or an array of objects in the format `{uri: 'blob:<resource-path>', type: '<type>'}`, specifying both the URL and its mimetype. When using arrays, Phaser will choose the first one that is device-compatible. When using the `'blob:'` URL scheme, the mimetype of the embedding media codec is required.
 
@@ -434,6 +484,9 @@ Declare a video file.
 ### `xml`
 
 Declare a XML document. Retrieve the file with `game.cache.getXML(<key>)`.
+
+#### Equivalent API method
+*   [`Phaser.Loader#xml`](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#xml)
 
 #### Type Parameters
 *   **`url`**: The path to this asset. If omitted, a pattern `<key>.xml` is assumed.
