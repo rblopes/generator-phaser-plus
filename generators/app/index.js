@@ -2,6 +2,7 @@
 
 const chalk = require('chalk');
 const Generator = require('yeoman-generator');
+const detectInstalled = require('detect-installed');
 const yorc = require('../../lib/yorc');
 const prompt = require('./prompt');
 
@@ -73,15 +74,22 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.installDependencies({bower: false});
+    // Prefer Yarn package manager, if available.
+    if (detectInstalled.sync('yarn')) {
+      this.yarnInstall();
+    } else {
+      this.npmInstall();
+    }
   }
 
   end() {
+    const command = `${detectInstalled.sync('yarn') ? 'yarn': 'npm'} start`;
     if (!this.options['skip-install']) {
-      this.log(
-        `Congrats! Now, launch your project with\n`,
-        `${chalk.yellow.bold('npm start')} and happy hacking :)`
-      );
+      this.log([
+        '',
+        'Congrats! Now, launch your project using',
+        `${chalk.yellow.bold(command)} and happy hacking :)`
+      ].join('\n'));
     }
   }
 };
