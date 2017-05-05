@@ -46,11 +46,12 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
   function checkCommonJsConfig() {
     assert.file([
       '.editorconfig',
-      '.eslintrc.yml',
+      '.eslintrc.js',
       '.gitattributes',
       '.gitignore',
       '.yo-rc.json',
-      'package.json'
+      'package.json',
+      'yarn.lock'
     ]);
   }
 
@@ -58,11 +59,12 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
     assert.file([
       '.babelrc',
       '.editorconfig',
-      '.eslintrc.yml',
+      '.eslintrc.js',
       '.gitattributes',
       '.gitignore',
       '.yo-rc.json',
-      'package.json'
+      'package.json',
+      'yarn.lock'
     ]);
   }
 
