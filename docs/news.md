@@ -3,7 +3,7 @@
 
 ##  v2.2 - 2017-05-05
 
--   Generated projects now take full advantage of [Yarn](https://yarnpkg.com/). `generator-phaser-plus` will detect if Yarn is installed in the user's environment and use it if available. Generated projects contain Yarn lock files, guaranteeing they get the same dependencies across installations.
+-   Generated projects now take full advantage of [Yarn](https://yarnpkg.com/). `generator-phaser-plus` will detect if Yarn is installed in the user's environment and use it if available. Project templates contain Yarn lock files, guaranteeing they always get the same dependencies across multiple installations.
 
 -   Switched the document format of the ESLint rulesets included in the templates from YAML to JavaScript.
 
