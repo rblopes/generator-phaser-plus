@@ -92,6 +92,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
   function checkCommonJsModules() {
     assert.file([
       'src/assets.js',
+      'src/config.js',
       'src/objects/Logo.js',
       'src/states/Boot.js',
       'src/states/Game.js',
@@ -104,6 +105,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
   function checkECMAScriptModules() {
     assert.file([
       'src/assets.js',
+      'src/config.js',
       'src/objects/Logo.js',
       'src/states.js',
       'src/states/Boot.js',

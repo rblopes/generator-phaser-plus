@@ -17,7 +17,7 @@ function showSplashScreen (game) {
 
 exports.preload = function (game) {
   showSplashScreen(game);
-  game.load.pack('game', null, assets);
+  game.load.pack('gameAssets', null, assets);
 };
 
 exports.create = function (game) {

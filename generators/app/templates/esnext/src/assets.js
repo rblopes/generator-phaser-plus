@@ -6,19 +6,17 @@
  * method. Use this module to declare game assets.
  */
 
-export default {
-  // -- Splash screen assets used by the Preloader.
-  boot: [{
-    key: 'splash-screen',
-    type: 'image'
-  }, {
-    key: 'progress-bar',
-    type: 'image'
-  }],
+//  -- Splash screen assets used by the Preloader.
+export const preloaderAssets = [{
+  key: 'splash-screen',
+  type: 'image'
+}, {
+  key: 'progress-bar',
+  type: 'image'
+}];
 
-  // -- General assets used throughout the game.
-  game: [{
-    key: 'phaser',
-    type: 'image'
-  }]
-};
+//  -- General assets used throughout the game.
+export const gameAssets = [{
+  key: 'phaser',
+  type: 'image'
+}];

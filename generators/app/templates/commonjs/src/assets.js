@@ -8,8 +8,8 @@
 
 'use strict';
 
-// -- Splash screen assets used by the Preloader.
-exports.boot = [{
+//  -- Splash screen assets used by the Preloader.
+exports.preloaderAssets = [{
   key: 'splash-screen',
   type: 'image'
 }, {
@@ -17,8 +17,8 @@ exports.boot = [{
   type: 'image'
 }];
 
-// -- General assets used throughout the game.
-exports.game = [{
+//  -- General assets used throughout the game.
+exports.gameAssets = [{
   key: 'phaser',
   type: 'image'
 }];

@@ -16,13 +16,13 @@ module.exports = function (gulp, $, config) {
 
   // Compile the application code for development, actively observing for
   // changes and triggering rebuilds on demand.
-  gulp.task('bundleDev', (() => {
+  gulp.task('bundleDev', () => {
     const devBuffer = getNamedBuffer('game.js');
     const notifyError = $.notify.onError('<%%= error.message %>');
     const watcher = watch(config.bundle)
       .on('log', $.util.log)
       .on('update', task);
-    return task;
+    return task();
     function task() {
       return merge(lint(), rebuild());
     }
@@ -34,14 +34,14 @@ module.exports = function (gulp, $, config) {
         .pipe(gulp.dest(dirs.build))
         .pipe(server.stream());
     }
-  })());
+  });
 
   // Starts the Web Server for testing.
   gulp.task('serve', ['bundleDev'], () => server.init(config.server.dev));
 
   // Check syntax and style of scripts and warn about potential issues.
   function lint() {
-    return gulp.src([files.scripts])
+    return gulp.src(files.scripts)
       .pipe($.cached('eslint'))
       .pipe($.eslint())
       .pipe($.eslint.format('stylish', process.stderr));
