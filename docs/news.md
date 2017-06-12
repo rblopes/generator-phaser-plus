@@ -1,6 +1,13 @@
 `generator-phaser-plus` Releases
 ================================
 
+##  v2.3 - 2017-06-12
+
+-   Upgraded dependencies of both template projects, including plugins for UglifyJS 3 and ESLint 4.
+
+-   A new module, containing the Phaser game instance configuration was added in template projects. Users can now adjust game resolution, pixel density and preferred renderer there.
+
+
 ##  v2.2 - 2017-05-05
 
 -   Generated projects now take full advantage of [Yarn](https://yarnpkg.com/). `generator-phaser-plus` will detect if Yarn is installed in the user's environment and use it if available. Project templates contain Yarn lock files, guaranteeing they always get the same dependencies across multiple installations.
