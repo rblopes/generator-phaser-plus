@@ -8,11 +8,12 @@
 // Required: import Babel polyfills.
 import 'babel-polyfill';
 
-// Import game states.
+// Import configuration and game states.
+import * as config from './config';
 import * as states from './states';
 
 export function init() {
-  const game = new Phaser.Game(640, 480, Phaser.AUTO);
+  const game = new Phaser.Game(config);
 
   // Dynamically add all required game states.
   Object

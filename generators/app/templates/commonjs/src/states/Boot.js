@@ -37,18 +37,14 @@ exports.preload = function (game) {
   // crisp graphics. Great for pixel-art!
   //Phaser.Canvas.setImageRenderingCrisp(game.canvas);
 
-  // Uncomment this line to disable smoothing of textures.
-  //game.stage.smoothed = false;
-
   // If the game canvas loses focus, keep the game loop running.
   game.stage.disableVisibilityChange = true;
 
   // Whether to use frame-based interpolations or not.
   game.tweens.frameBased = false;
 
-  // Load the graphical assets required to show the splash screen later,
-  // using the asset pack data.
-  game.load.pack('boot', null, assets);
+  // Load the graphical assets required to show the splash screen.
+  game.load.pack('preloaderAssets', null, assets);
 };
 
 exports.create = function (game) {

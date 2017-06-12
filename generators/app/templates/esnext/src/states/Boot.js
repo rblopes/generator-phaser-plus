@@ -7,7 +7,7 @@
  * orientation handling etc. using this game state.
  */
 
-import assets from '../assets';
+import {preloaderAssets} from '../assets';
 
 export default class Boot extends Phaser.State {
 
@@ -34,11 +34,8 @@ export default class Boot extends Phaser.State {
     //this.scale.setUserScale(2);
 
     // Uncomment the following line to adjust the rendering of the canvas to
-    // crisp graphics. Great for pixel-art!
+    // crisp graphics. Great for pixel art!
     //Phaser.Canvas.setImageRenderingCrisp(this.game.canvas);
-
-    // Uncomment this line to disable smoothing of textures.
-    //this.stage.smoothed = false;
 
     // If the game canvas loses focus, keep the game loop running.
     this.stage.disableVisibilityChange = true;
@@ -46,9 +43,8 @@ export default class Boot extends Phaser.State {
     // Whether to use frame-based interpolations or not.
     this.tweens.frameBased = false;
 
-    // Load the graphical assets required to show the splash screen later,
-    // using the asset pack data.
-    this.load.pack('boot', null, assets);
+    // Load the graphical assets required to show the splash screen.
+    this.load.pack('preloaderAssets', null, {preloaderAssets});
   }
 
   create() {
