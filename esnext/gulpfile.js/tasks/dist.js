@@ -27,7 +27,7 @@ module.exports = function (gulp, $, config) {
 
   // Copy a minified Phaser build for distribution.
   gulp.task('copyPhaser', () =>
-    gulp.src([files.phaser])
+    gulp.src(files.phaser)
       .pipe($.sourcemaps.init({loadMaps: true}))
       .pipe($.uglify())
       .pipe($.rename('phaser.min.js'))
