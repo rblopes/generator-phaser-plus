@@ -7,6 +7,10 @@
 
 -   A new module, containing the Phaser game instance configuration was added in template projects. Users can now adjust game resolution, pixel density and preferred renderer there.
 
+### v2.3.1 - 2017-06-12
+
+-   Fixed text inputs in some inquiry prompts being suppressed if `trim` is not wrapped in a function expression.
+
 
 ##  v2.2 - 2017-05-05
 
