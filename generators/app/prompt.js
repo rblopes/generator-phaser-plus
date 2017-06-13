@@ -11,12 +11,12 @@ But first, could you tell some details about your new game?
 const questions = [{
   name: 'title',
   message: `What's your game title?`,
-  filter: trim,
+  filter: s => trim(s),
   validate: s => !isEmpty(s) || 'No way! Great games have great titles!!'
 }, {
   name: 'description',
   message: 'Give it a short description (optional)',
-  filter: trim
+  filter: s => trim(s)
 }, {
   type: 'list',
   name: 'customBuild',

@@ -11,13 +11,13 @@ const greeting = 'Object class generator:\n';
 const questions = g => [{
   name: 'name',
   message: `What's the object name?`,
-  filter: classify,
+  filter: s => classify(s),
   validate: s => !isEmpty(s) || 'Sorry, a name is required.',
   when: !g.options.name
 }, {
   name: 'description',
   message: 'Give it a short description (optional)',
-  filter: trim,
+  filter: s => trim(s),
   when: !g.options.name
 }, {
   type: 'list',
