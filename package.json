@@ -1,7 +1,7 @@
 {
   "name": "generator-phaser-plus",
   "description": "Create Phaser Web games using Browserify, BrowserSync, Gulp and more.",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "homepage": "https://github.com/rblopes/generator-phaser-plus#readme",
   "author": "Rafael Barbosa Lopes (https://github.com/rblopes)",
   "contributors": [],
