@@ -83,12 +83,12 @@ module.exports = class extends Generator {
   }
 
   end() {
-    const command = `${detectInstalled.sync('yarn') ? 'yarn' : 'npm'} start`;
     if (!this.options['skip-install']) {
+      const command = `${detectInstalled.sync('yarn') ? 'yarn' : 'npm'} start`;
       this.log([
         '',
         'Congrats! Now, launch your project using',
-        `${chalk.yellow.bold(command)} and happy hacking :)`
+        chalk`{yellow ${command}} and happy hacking :)`
       ].join('\n'));
     }
   }

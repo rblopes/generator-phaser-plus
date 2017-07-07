@@ -42,7 +42,7 @@
     "node": ">=4"
   },
   "dependencies": {
-    "chalk": "^1.1.0",
+    "chalk": "^2.0.1",
     "detect-installed": "^2.0.4",
     "lodash.camelcase": "^4.3.0",
     "lodash.isempty": "^4.4.0",
