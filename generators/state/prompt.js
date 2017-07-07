@@ -2,7 +2,6 @@
 
 const trim = require('lodash.trim');
 const isEmpty = require('lodash.isempty');
-const yorc = require('../../lib/yorc');
 const prompt = require('../../lib/prompt');
 const classify = require('../../lib/classify');
 
@@ -41,14 +40,12 @@ module.exports = function (g) {
     }, inputs);
   }
   function processInputs(inputs) {
-    const config = yorc.get(g, 'states');
+    const config = g.config.get('states');
     return Object.assign(g, {
-      baseTemplate: yorc.get(g, 'baseTemplate'),
-      outDir: yorc.get(g, 'dirs').states,
+      baseTemplate: g.config.get('baseTemplate'),
+      outDir: g.config.get('dirs').states,
       outFilename: `${inputs.name}.js`,
-      // NOTE: We also look for a `states-module` key for compatibility with
-      //       old projects created using earlier versions of the generator.
-      indexModuleName: yorc.get(g, 'states-module') || config.moduleName,
+      indexModuleName: config.moduleName,
       variables: {
         name: inputs.name,
         methods: inputs.methods,

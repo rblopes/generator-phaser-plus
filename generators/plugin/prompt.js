@@ -2,7 +2,6 @@
 
 const trim = require('lodash.trim');
 const isEmpty = require('lodash.isempty');
-const yorc = require('../../lib/yorc');
 const prompt = require('../../lib/prompt');
 const classify = require('../../lib/classify');
 
@@ -34,8 +33,8 @@ module.exports = function (g) {
   }
   function processInputs(inputs) {
     return Object.assign(g, {
-      baseTemplate: yorc.get(g, 'baseTemplate'),
-      outDir: yorc.get(g, 'dirs').plugins,
+      baseTemplate: g.config.get('baseTemplate'),
+      outDir: g.config.get('dirs').plugins,
       outFilename: `${inputs.name}.js`,
       variables: {
         name: inputs.name,

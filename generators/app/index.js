@@ -3,7 +3,7 @@
 const chalk = require('chalk');
 const Generator = require('yeoman-generator');
 const detectInstalled = require('detect-installed');
-const yorc = require('../../lib/yorc');
+const defaults = require('../../lib/defaults');
 const prompt = require('./prompt');
 
 module.exports = class extends Generator {
@@ -68,7 +68,12 @@ module.exports = class extends Generator {
 
       // Set the generator configuration values.
       yorc() {
-        this.config.defaults(yorc.defaultsFor(this, this.baseTemplate));
+        this.config.defaults(Object.assign({
+          meta: {
+            createdWith: this.rootGeneratorVersion(),
+            creationDate: new Date().toISOString()
+          }
+        }, defaults[this.baseTemplate]));
       }
     };
   }
