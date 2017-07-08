@@ -5,7 +5,9 @@
 [![devDependencies][bdg3]][ddm2]
 [![Travis CI Build Status][bdg4]][tci_]
 
->   Create [Phaser][phsr] Web games using Browserify, BrowserSync, Gulp and more.
+>   Create [Phaser][phsr] Web games using Browserify, Browsersync, Gulp and more.
+
+`generator-phaser-plus` is a Yeoman plugin that makes creating Phaser Web game projects simple, quick and easy.
 
 
 Two templates, same workflow!
@@ -13,21 +15,21 @@ Two templates, same workflow!
 
 Choose how you want to craft your game code:
 
-*   With application scripts written as CommonJS modules, ideal for newcomers as well seasoned developers who want to start creating games at once.
+*   With application scripts written as CommonJS modules: ideal for newcomers as well experienced developers who want to start creating games at once, or;
 
-*   Or using ECMAScript modules and the latest available spec features. Comes with [Babel][babl] compiler to make scripts of the future compatible with today's browsers and devices. Recommended for skilled developers and adventurers.
+*   Using ECMAScript modules and the latest available language features: Comes with [Babel][babl] and [`babel-preset-env`](https://github.com/babel/babel-preset-env) to make scripts "from the future" work in today's browsers and devices. Recommended for skilled developers and adventurers.
 
 
-Batteries included
+Batteries Included
 ------------------
 
 Projects created with `generator-phaser-plus` are powered by the following tools:
 
-*   [Gulp][gulp] task manager, to handle development and distribution tasks, with [alternative npm scripts][t].
+*   [Gulp][gulp] task manager, to handle development and distribution tasks.
 
-*   [BrowserSync][bsnc] for cross-device testing.
+*   [Browsersync][bsnc] for cross-device testing.
 
-*   [Browserify][brsy] for easier management of components and dependencies.
+*   [Browserify][brsy] for easier integration of components and dependencies.
 
 *   [ESLint][eslt] for code quality check.
 
@@ -37,21 +39,21 @@ Quick Start
 
 >   Note: Assuming you have already installed [Node.js][node].
 
-1.  **Get [Yeoman][yo__] and `generator-phaser-plus` via [npm][npm_].**
+1.  **Install [Yeoman][yo__] and `generator-phaser-plus` via [npm][npm_]:**
 
     ```sh
     npm install --global yo                    # Install Yeoman if you don't have it yet.
     npm install --global generator-phaser-plus # Install generator-phaser-plus.
     ```
 
-2.  **Create a directory to keep your project contents and go into it.**
+2.  **Create an empty directory for your new project and go into it:**
 
     ```sh
     mkdir my-awesome-game
     cd my-awesome-game
     ```
 
-3.  **Create your new game project.**
+3.  **Start creating your new project:**
 
     ```sh
     yo phaser-plus
@@ -63,7 +65,7 @@ Quick Start
     npm start
     ```
 
-Have a look at the [user's manual][m] and learn more about available features, including [sub-generators and how to use them][s], [how game projects are structured][p], [available development tasks][t], as well a more in-depth [hands-on tutorial][g], presenting the general workflow and how you can take advantage from it to speed up your game development. You'll also find out more about the [latest development updates][n] and how you can [help contributing to this project][c].
+Have a look at the [user's manual][m] and learn more about available features, including [sub-generators and how to use them][s], [how projects are structured][p], [available development tasks][t], and a [hands-on tutorial][g] presenting the general workflow and how you can speed up your game development. You'll also find out more about the [latest development updates][n] and how you can [help contributing to this project][c].
 
 
 License
