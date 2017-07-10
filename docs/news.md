@@ -1,6 +1,15 @@
 `generator-phaser-plus` Releases
 ================================
 
+##  v2.4 - 2017-07-12
+
+This will likely be the last release of `generator-phaser-plus` in a while. I'll probably publish a few occasional patches in the coming weeks, but that's it.
+
+Meanwhile, I'll focus on the development of the next generation of the tool, with support for the upcoming Phaser 3, with lots of much deserved improvements.
+
+This release includes the usual batch of updates, including the upgrade to the latest `babel-preset-env` and a few tweaks in the templates.
+
+
 ##  v2.3 - 2017-06-12
 
 -   Upgraded dependencies of both template projects, including plugins for UglifyJS 3 and ESLint 4.
