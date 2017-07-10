@@ -10,7 +10,7 @@
 var Logo = require('../objects/Logo');
 
 exports.create = function (game) {
-  // TODO: Replace this with a really cool game code here :)
+  //  TODO: Replace this content with really cool game code here :)
   var x = game.world.centerX;
   var y = game.world.centerY;
   game.add.existing(new Logo(game, x, y));

@@ -21,8 +21,9 @@ exports.preload = function (game) {
 };
 
 exports.create = function (game) {
-  // Here is a good place to initialize plugins dependent of any game asset.
-  // Don't forget to `require` them first. Example:
-  //game.myPlugin = game.plugins.add(MyPlugin/*, ... parameters ... */);
+  //  Here is a good place to initialize plugins dependent of any game asset.
+  //  Don't forget to `require` them first. Example:
+  // game.myPlugin = game.plugins.add(MyPlugin/*, ... parameters ... */);
+
   game.state.start('Game');
 };
