@@ -7,14 +7,14 @@
 
 'use strict';
 
-// Import configuration and game states.
+//  Import configuration and game states.
 var config = require('./config');
 var states = require('./states');
 
+//  Add all required states and boot the game.
 exports.init = function () {
   var game = new Phaser.Game(config);
 
-  // Dynamically add all required game states.
   Object
     .keys(states)
     .forEach(function (key) {

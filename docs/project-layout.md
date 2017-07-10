@@ -1,7 +1,7 @@
 Project Layout and Configuration
 ================================
 
-Projects created using `generator-phaser-plus` have a very simple, easy to understand layout to help keeping your content well organized. This page contains a quick summary of the contents included in every starting project.
+Projects created using `generator-phaser-plus` are conceived with a simple layout for better organization. This page is a summary of the contents included in every starting project.
 
 
 Development Environment and Configuration
@@ -11,7 +11,7 @@ The `package.json` is a file managed by npm, containing relevant information abo
 
 A special `gulpfile.js/` directory contains scripts used by the task manager, Gulp, responsible for running the development tasks. You will find more in depth details about this directory in the "[Tasks][task]" page.
 
-There is also a hidden `.yo-rc.json` file used by Yeoman to store some [`generator-phaser-plus` configuration][gppc], requested when using sub-generators.
+Also, a hidden `.yo-rc.json` file is used by Yeoman to store some [`generator-phaser-plus` configuration][gppc] requested when using sub-generators.
 
 
 Application Code
@@ -23,6 +23,7 @@ The game application code goes inside a dedicated `src/` directory. You can cust
 src/
 ├── app.js
 ├── assets.js
+├── config.js
 ├── objects
 │   └── Logo.js
 └── states
@@ -34,7 +35,9 @@ src/
 
 The `app.js` is the game application entry point and contains the `main()` routine, responsible for starting up the game.
 
-A special module `assets.js` is used to declare game assets in [Phaser Asset Pack format][aspk], useful to keep this kind of data out of the game states logic.
+A special `assets.js` module is used to declare game assets in [Phaser Asset Pack format][aspk], useful to keep this kind of data out of the game states logic.
+
+The `config.js` module defines some aspects of a running Phaser instance. Use this module to change screen resolution, preferred renderer, graphics pixel density among other properties.
 
 There are three sub-directories that help keep some of your game code organized:
 
@@ -75,7 +78,7 @@ Miscellaneous Files
 
 *   **[`.gitignore`][giti]**: A file used by Git, specifying intentionally untracked files.
 
-*   **[`.eslintrc.yml`][esrc]**: A file containing the [ESLint][esl_] rules and general configuration.
+*   **[`.eslintrc.js`][esrc]**: A file containing the [ESLint][esl_] rules and general configuration.
 
 *   **[`.babel.json`][bbrc]**: For ECMAScript-style projects, this file contain the Babel compiler configuration, such as plugin presets and other data affecting how the compiler work.
 

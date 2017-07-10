@@ -22,27 +22,22 @@ module.exports = class extends Generator {
     return prompt(this);
   }
 
-  get writing() {
-    return {
-      template() {
-        this.fs.copyTpl(
-          this.templatePath(`${this.baseTemplate}/state.js`),
-          this.destinationPath(this.outDir, this.outFilename),
-          this.variables);
-      },
+  writing() {
+    //  Write the new game state module.
+    this.fs.copyTpl(
+      this.templatePath(`${this.baseTemplate}/state.js`),
+      this.destinationPath(this.outDir, this.outFilename),
+      this.variables);
 
-      // Append the `export ...` line to the `states.js` module, if one exists.
-      statesModule() {
-        if (this.fs.exists(this.indexModuleName)) {
-          this.fs.copyTpl(
-            this.templatePath(`${this.baseTemplate}/states-index.js`),
-            this.indexModuleName,
-            Object.assign({
-              contents: this.fs.read(this.indexModuleName)
-            }, this.variables)
-          );
-        }
-      }
-    };
+    //  Append the `export ...` line to the states index module, if one exists.
+    if (this.fs.exists(this.indexModuleName)) {
+      this.fs.copyTpl(
+        this.templatePath(`${this.baseTemplate}/states-index.js`),
+        this.indexModuleName,
+        Object.assign({
+          contents: this.fs.read(this.indexModuleName)
+        }, this.variables)
+      );
+    }
   }
 };
