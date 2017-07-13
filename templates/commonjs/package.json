@@ -1,0 +1,40 @@
+{
+  "scripts": {
+    "clean": "gulp clean",
+    "dist": "gulp dist",
+    "lint": "gulp lint",
+    "start": "gulp",
+    "test-dist": "gulp test-dist"
+  },
+  "dependencies": {
+    "phaser-ce": "^2.8.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "browserify": "^14.4.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-cached": "^1.1.0",
+    "gulp-eslint": "^4.0.0",
+    "gulp-if": "^2.0.1",
+    "gulp-json-minify": "^1.0.9",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-processhtml": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.5.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.7",
+    "lazypipe": "^1.0.1",
+    "merge-stream": "^1.0.0",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.9.0"
+  },
+  "browserify": {
+    "transform": []
+  },
+  "private": true
+}
