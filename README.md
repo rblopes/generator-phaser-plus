@@ -32,11 +32,11 @@ This software is distributed under the terms of the [MIT License](LICENSE.md).
 
 [docs]: docs/dev-guide.md
 [logo]: docs/media/logo.png
-[ddm1]: https://david-dm.org/rblopes/generator-phaser-plus
 [gpp_]: https://www.npmjs.com/package/generator-phaser-plus
 [tci_]: https://travis-ci.org/rblopes/generator-phaser-plus
-[ddm2]: https://david-dm.org/rblopes/generator-phaser-plus?type=dev
+[ddm1]: https://david-dm.org/rblopes/generator-phaser-plus?path=generator
 [bdg1]: https://img.shields.io/npm/v/generator-phaser-plus.svg?style=flat-square
-[bdg2]: https://img.shields.io/david/rblopes/generator-phaser-plus.svg?style=flat-square
+[ddm2]: https://david-dm.org/rblopes/generator-phaser-plus?path=generator&type=dev
 [bdg4]: https://img.shields.io/travis/rblopes/generator-phaser-plus.svg?style=flat-square
-[bdg3]: https://img.shields.io/david/dev/rblopes/generator-phaser-plus.svg?style=flat-square
+[bdg2]: https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=generator
+[bdg3]: https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=generator
