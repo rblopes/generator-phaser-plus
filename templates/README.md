@@ -1,31 +1,15 @@
-`generator-phaser-plus` Templates Collection
-============================================
+`generator-phaser-plus` Templates
+=================================
 
-![`generator-phaser-plus` Templates Collection](logo.png)
+<div align="center"><img src="../docs/media/logo.png"></div>
 
-Here you will find the sample [Phaser][phsr] projects used as base templates for [`generator-phaser-plus`][gpp_]:
+Here you find the [`generator-phaser-plus`](../generator/#readme) template projects:
 
 *   One with application scripts written as CommonJS modules, ideal for newcomers as well seasoned developers who want to start creating games at once.
 
-*   Another one with scripts written as ECMAScript modules, for more skilled developers willing to test the latest and future JavaScript features using Phaser. Includes [Babel][babl] to compile and bundle scripts written in ECMAScript 2015+ syntax into scripts compatible with today's browsers and devices.
+*   Another one using ECMAScript modules, for more skilled developers willing to test the latest and future JavaScript features. Includes [Babel](https://babeljs.io/), configured with [`babel-preset-env`](https://github.com/babel/babel-preset-env), to compile and bundle scripts in a format compatible with today's browsers and devices.
 
-Both projects provide the same sample game, including only the essential features to start developing games right away.
-
->   Note: All projects are configured to use the Phaser CE libraries.
-
-
-Batteries Included
-------------------
-
-All projects are ready to roll, including the following tools under the hood:
-
-*   [Gulp][gulp] task manager, to handle development and distribution tasks, with alternative npm scripts.
-
-*   [BrowserSync][bsnc] for cross-device testing.
-
-*   [Browserify][brsy] for easier management of components and dependencies.
-
-*   [ESLint][eslt] for code quality check.
+Both projects provide the same sample game, including only the essential features to start developing right away.
 
 
 How do I use these sample projects?
@@ -33,7 +17,7 @@ How do I use these sample projects?
 
 Ideally, you should use `generator-phaser-plus` to bootstrap new game projects. The generator is capable of creating projects with the same features you see here.
 
-![generator-phaser-plus Screenshot](generator-screenshot.png)
+![generator-phaser-plus Screenshot](../docs/media/screenshot.png)
 
 Just install it, using `npm install --global generator-phaser-plus`.
 
@@ -43,15 +27,14 @@ Otherwise, you can contribute with bug fixes and features you'd like to see adde
 Development Instructions
 ------------------------
 
-First off all, clone the generator repository locally and checkout the `templates` branch using Git:
+To start, simply clone this repository locally.
 
 ```
 git clone https://github.com/rblopes/generator-phaser-plus.git
-cd generator-phaser-plus/
-git checkout templates
+cd generator-phaser-plus/templates/
 ```
 
-Then, `cd` into any directory of your choice, install and manage tasks and dependencies using npm or Gulp, as you're used to with any game project created with `generator-phaser-plus`.
+Go into any directory of your choice, install the project dependencies and run tasks using npm (or [Yarn](https://yarnpkg.com/)), as you're used to with any game project created with `generator-phaser-plus`.
 
 ```sh
 cd commonjs   # Example: edit the 'CommonJS' project.
@@ -61,21 +44,8 @@ npm run dist  # or `gulp dist`: Prepares the game for distribution.
 npm run clean # or `gulp clean`: Deletes build files.
 ```
 
->   When submitting a pull request, don't forget to set the base branch to `templates` on the submission form.
-
 
 License
 -------
 
-This software is distributed under the terms of the [MIT License](LICENSE).
-
-
-<!-- Links -->
-
-[phsr]: http://phaser.io/
-[eslt]: http://eslint.org/
-[gulp]: http://gulpjs.com/
-[babl]: https://babeljs.io/
-[brsy]: http://browserify.org/
-[bsnc]: http://www.browsersync.io/
-[gpp_]: https://github.com/rblopes/generator-phaser-plus
+This software is distributed under the terms of the [MIT License](../LICENSE.md).
