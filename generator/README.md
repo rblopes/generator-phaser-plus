@@ -1,15 +1,27 @@
 <div align="center">
-
-[![generator-phaser-plus][logo]][gpp_]
-
-<div>
-
-[![npm version][bdg1]][gpp_]
-[![dependencies][bdg2]][ddm1]
-[![devDependencies][bdg3]][ddm2]
-[![Travis CI Build Status][bdg4]][tci_]
-
-</div>
+    <img src="../docs/media/logo.png" alt="generator-phaser-plus">
+    <div>
+        <a href="https://www.npmjs.com/package/generator-phaser-plus">
+            <img
+                alt="npm version"
+                src="https://img.shields.io/npm/v/generator-phaser-plus.svg?style=flat-square">
+        </a>
+        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=generator">
+            <img
+                alt="dependencies"
+                src="https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=generator">
+        </a>
+        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=generator&type=dev">
+            <img
+                alt="devDependencies"
+                src="https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=generator">
+        </a>
+        <a href="https://travis-ci.org/rblopes/generator-phaser-plus">
+            <img
+                alt="Travis CI Build Status"
+                src="https://img.shields.io/travis/rblopes/generator-phaser-plus.svg?style=flat-square">
+        </a>
+    </div>
 </div>
 
 >   Create [Phaser][phsr] Web games using Browserify, Browsersync, Gulp and more.
@@ -101,11 +113,3 @@ This software is distributed under the terms of the [MIT License](LICENSE).
 [brsy]: http://browserify.org/
 [npm_]: https://www.npmjs.com/
 [bsnc]: http://www.browsersync.io/
-[gpp_]: https://www.npmjs.com/package/generator-phaser-plus
-[tci_]: https://travis-ci.org/rblopes/generator-phaser-plus
-[ddm1]: https://david-dm.org/rblopes/generator-phaser-plus?path=generator
-[bdg1]: https://img.shields.io/npm/v/generator-phaser-plus.svg?style=flat-square
-[ddm2]: https://david-dm.org/rblopes/generator-phaser-plus?path=generator&type=dev
-[bdg4]: https://img.shields.io/travis/rblopes/generator-phaser-plus.svg?style=flat-square
-[bdg2]: https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=generator
-[bdg3]: https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=generator
