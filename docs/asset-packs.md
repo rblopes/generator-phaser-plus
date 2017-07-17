@@ -1,7 +1,7 @@
 Explaining Phaser Asset Packs
 =============================
 
-Asset Packs are a format supported by Phaser to declare media assets used in a game. Asset packs were featured for the first in Phaser v2.0.4.
+Asset Packs are a format supported by Phaser to declare media assets used in a game. Asset packs were featured for the first in [Phaser v2.0.6](https://github.com/photonstorm/phaser/releases/tag/v2.0.6).
 
 With Asset Packs, you declare media assets in a declarative format, either using JSON documents or just plain JavaScript objects.
 
@@ -11,42 +11,42 @@ Asset Packs are a format more suitable for games using server side technologies,
 How Asset Packs Work
 --------------------
 
-Phaser Asset Packs can be either JSON documents or plain JavaScript objects, where each key contains a list of files used in the game. A single document can have several asset packs.
+Phaser Asset Packs can be either JSON documents or plain JavaScript objects. Each key contains a list of files used in the game. A single document can declare several asset packs.
 
 ```js
 // Example: A Phaser Asset Pack JSON document.
 {
-  "boot": [
-    {
-      "key": "splash-screen",
-      "type": "image",
-      "url": "my-awesome-game.jpeg"
-    },
-    {
-      "key": "progress-bar",
-      "type": "image"
-    }
-  ],
-  "game": [
-    {
-      "key": "hero",
-      "type": "spritesheet",
-      "url": "sprites/hero.png",
-      "margin": 4,
-      "spacing": 4,
-      "frameMax": 32,
-      "frameWidth": 64,
-      "frameHeight": 64
-    },
-    {
-      "key": "levels",
-      "type": "tilemap"
-    }
-  ]
+    "boot": [
+        {
+            "key": "splash-screen",
+            "type": "image",
+            "url": "my-awesome-game.jpeg"
+        },
+        {
+            "key": "progress-bar",
+            "type": "image"
+        }
+    ],
+    "game": [
+        {
+            "key": "hero",
+            "type": "spritesheet",
+            "url": "sprites/hero.png",
+            "margin": 4,
+            "spacing": 4,
+            "frameMax": 32,
+            "frameWidth": 64,
+            "frameHeight": 64
+        },
+        {
+            "key": "levels",
+            "type": "tilemap"
+        }
+    ]
 }
 ```
 
-Like when using regular [`Phaser.Loader`][load] method calls, files are queued to be loaded in the browser, during the `preload` phase of a game state life-cycle, rather than being immediately loaded. Asset Packs, however, take preference.
+Compared to using regular [`Phaser.Loader`][load] method calls, files are queued to be loaded in the browser, during the `preload` phase of a game state life-cycle, rather than being immediately loaded. Asset Packs, however, have preference.
 
 Each asset pack is assigned a unique key, which will be referred when using the [`Phaser.Loader#pack`][pack] method to load its corresponding media assets.
 
@@ -57,9 +57,9 @@ game.load.pack('boot', 'assets.json');
 
 The sample project created by `generator-phaser-plus` comes with a pre-made module named `assets.js`. The starting setting contains only the necessary bits to load the sample game assets, split in two sections.
 
-*   **`boot`**: this key declares the graphical assets to be loaded during the booting stage of the game, the `Boot` state. These are the graphics that make the splash screen of the "Preloader".
+*   **`preloaderAssets`**: this key declares the graphical assets to be loaded during the booting stage of the game, the `Boot` state. These are the graphics that make the splash screen of the "Preloader".
 
-*   **`game`**: this key declares the remaining game assets, loaded during the `Preloader` state. While fetching the necessary assets to be used in the game, the progress will be reported on the splash screen.
+*   **`gameAssets`**: this key declares the remaining game assets, loaded during the `Preloader` state. While fetching the necessary assets to be used in the game, the progress will be reported on the splash screen.
 
 This is only a minimal, recommended set up for Phaser games running using multiple states.
 
@@ -114,11 +114,11 @@ Declare a [Texture Packer][tpck] Atlas. Use this type to declare both the graphi
 #### Example
 ```js
 {
-  key: 'example',
-  type: 'atlas',
-  atlasURL: 'example.json',
-  textureURL: 'example.png',
-  format: 'TEXTURE_ATLAS_JSON_HASH'
+    key: 'example',
+    type: 'atlas',
+    atlasURL: 'example.json',
+    textureURL: 'example.png',
+    format: 'TEXTURE_ATLAS_JSON_HASH'
 }
 ```
 
@@ -231,10 +231,10 @@ Declare an audio sprite.
 #### Example
 ```js
 {
-  key: 'example',
-  type: 'audiosprite',
-  urls: ['example.m4a', 'example.oga'],
-  jsonURL: 'example.json'
+    key: 'example',
+    type: 'audiosprite',
+    urls: ['example.m4a', 'example.oga'],
+    jsonURL: 'example.json'
 }
 ```
 
@@ -261,10 +261,10 @@ Declare a file in an arbitrary binary format. To retrieve the file from the game
 #### Example
 ```js
 {
-  key: 'example',
-  type: 'binary',
-  url: 'example.bin',
-  callback: callbackFunction
+    key: 'example',
+    type: 'binary',
+    url: 'example.bin',
+    callback: callbackFunction
 }
 ```
 
@@ -290,12 +290,12 @@ Declare a bitmap font texture and its accompanying metadata.
 #### Example
 ```js
 {
-  key: 'example',
-  type: 'bitmapFont',
-  atlasURL: 'example.json',
-  textureURL: 'example.png',
-  xSpacing: 0,
-  ySpacing: 0
+    key: 'example',
+    type: 'bitmapFont',
+    atlasURL: 'example.json',
+    textureURL: 'example.png',
+    xSpacing: 0,
+    ySpacing: 0
 }
 ```
 
@@ -313,9 +313,9 @@ Declare a still image.
 #### Example
 ```js
 {
-  key: 'example',
-  type: 'image',
-  url: 'example.jpeg'
+    key: 'example',
+    type: 'image',
+    url: 'example.jpeg'
 }
 ```
 
@@ -333,9 +333,9 @@ Declare a JSON document. Use [`game.cache.getJSON(<key>)`][pcgj] to recover the 
 #### Example
 ```js
 {
-  key: 'example',
-  type: 'json',
-  url: 'example.json'
+    key: 'example',
+    type: 'json',
+    url: 'example.json'
 }
 ```
 
@@ -373,9 +373,9 @@ Declare a fragment shader.
 #### Example
 ```js
 {
-  key: 'example',
-  type: 'shader',
-  url: 'example.frag'
+    key: 'example',
+    type: 'shader',
+    url: 'example.frag'
 }
 ```
 
@@ -404,14 +404,14 @@ Declare the texture of a sprite sheet.
 #### Example
 ```js
 {
-  key: 'example',
-  type: 'spritesheet',
-  url: 'example.gif',
-  margin: 2,
-  spacing: 2,
-  frameMax: 16,
-  frameWidth: 24,
-  frameHeight: 32
+    key: 'example',
+    type: 'spritesheet',
+    url: 'example.gif',
+    margin: 2,
+    spacing: 2,
+    frameMax: 16,
+    frameWidth: 24,
+    frameHeight: 32
 }
 ```
 
@@ -429,9 +429,9 @@ Declare a text file. Retrieve the file using [`game.cache.getText(<key>)`][pcgt]
 #### Example
 ```js
 {
-  key: 'example',
-  type: 'text',
-  url: 'example.txt'
+    key: 'example',
+    type: 'text',
+    url: 'example.txt'
 }
 ```
 
