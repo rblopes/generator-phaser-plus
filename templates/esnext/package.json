@@ -13,7 +13,7 @@
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babelify": "^7.3.0",
-    "browser-sync": "^2.18.12",
+    "browser-sync": "^2.18.13",
     "browserify": "^14.4.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
