@@ -6,6 +6,7 @@
 
 const chalk = require('chalk');
 const assert = require('yeoman-assert');
+const utils = require('../lib/utils');
 const runGenerator = require('./fixtures/run-generator');
 
 // User inputs.
@@ -14,7 +15,7 @@ const description = 'A test object.';
 const baseClass = 'Sprite';
 
 // Expected file name of the create module.
-const fileName = `src/${name}.js`;
+const filename = utils.getModuleName('src', name);
 
 describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
   describe('creates a CommonJS module', () => {
@@ -26,10 +27,10 @@ describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
 
       function checkCreatedModule() {
         assert.fileContent([
-          [fileName, `* ${description}`],
-          [fileName, `function ${name}(game/*, ...args*/) {`],
-          [fileName, `Phaser.${baseClass}.call(this, game/*, ...args*/);`],
-          [fileName, `${name}.prototype = Object.create(Phaser.${baseClass}`]
+          [filename, `* ${description}`],
+          [filename, `function ${name}(game/*, ...args*/) {`],
+          [filename, `Phaser.${baseClass}.call(this, game/*, ...args*/);`],
+          [filename, `${name}.prototype = Object.create(Phaser.${baseClass}`]
         ]);
       }
     });
@@ -42,11 +43,11 @@ describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
 
       function checkCreatedModule() {
         assert.fileContent([
-          [fileName, `* ${description}`],
-          [fileName, `function ${name}(game/*, ...args*/) {`]
+          [filename, `* ${description}`],
+          [filename, `function ${name}(game/*, ...args*/) {`]
         ]);
         assert.noFileContent(
-          fileName,
+          filename,
           `${name}.prototype = Object.create(`
         );
       }
@@ -62,8 +63,8 @@ describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
 
       function checkCreatedModule() {
         assert.fileContent([
-          [fileName, `* ${description}`],
-          [fileName, `class ${name} extends Phaser.${baseClass} {`]
+          [filename, `* ${description}`],
+          [filename, `class ${name} extends Phaser.${baseClass} {`]
         ]);
       }
     });
@@ -76,8 +77,8 @@ describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
 
       function checkCreatedModule() {
         assert.fileContent([
-          [fileName, `* ${description}`],
-          [fileName, `class ${name} {`]
+          [filename, `* ${description}`],
+          [filename, `class ${name} {`]
         ]);
       }
     });

@@ -6,6 +6,7 @@
 
 const chalk = require('chalk');
 const assert = require('yeoman-assert');
+const utils = require('../lib/utils');
 const runGenerator = require('./fixtures/run-generator');
 
 // User inputs.
@@ -14,7 +15,7 @@ const description = 'A test game state.';
 const methods = ['init', 'create', 'shutdown'];
 
 // Expected file name of the create module.
-const fileName = `src/${name}.js`;
+const filename = utils.getModuleName('src', name);
 
 // The states index module, that should be updated.
 const statesIndex = 'src/scenes-index.js';
@@ -30,15 +31,15 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
 
       function checkCreatedModule() {
         assert.fileContent([
-          [fileName, `* ${description}`],
-          [fileName, `exports.init = function () {`],
-          [fileName, `exports.create = function (/*game*/) {`],
-          [fileName, `exports.shutdown = function (/*game*/) {`]
+          [filename, `* ${description}`],
+          [filename, `exports.init = function () {`],
+          [filename, `exports.create = function (/*game*/) {`],
+          [filename, `exports.shutdown = function (/*game*/) {`]
         ]);
         assert.noFileContent([
-          [fileName, `exports.preload = function (/*game*/) {`],
-          [fileName, `exports.update = function (/*game*/) {`],
-          [fileName, `exports.render = function (/*game*/) {`]
+          [filename, `exports.preload = function (/*game*/) {`],
+          [filename, `exports.update = function (/*game*/) {`],
+          [filename, `exports.render = function (/*game*/) {`]
         ]);
       }
     });
@@ -52,15 +53,15 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
 
       function checkCreatedModule() {
         assert.fileContent([
-          [fileName, `* ${description}`],
-          [fileName, `exports.create = function (/*game*/) {`],
-          [fileName, `exports.update = function (/*game*/) {`]
+          [filename, `* ${description}`],
+          [filename, `exports.create = function (/*game*/) {`],
+          [filename, `exports.update = function (/*game*/) {`]
         ]);
         assert.noFileContent([
-          [fileName, `exports.init = function () {`],
-          [fileName, `exports.preload = function (/*game*/) {`],
-          [fileName, `exports.render = function (/*game*/) {`],
-          [fileName, `exports.shutdown = function (/*game*/) {`]
+          [filename, `exports.init = function () {`],
+          [filename, `exports.preload = function (/*game*/) {`],
+          [filename, `exports.render = function (/*game*/) {`],
+          [filename, `exports.shutdown = function (/*game*/) {`]
         ]);
       }
     });
@@ -83,16 +84,16 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
 
       function checkCreatedModule() {
         assert.fileContent([
-          [fileName, `* ${description}`],
-          [fileName, `class ${name} extends Phaser.State {`],
-          [fileName, `init() {`],
-          [fileName, `create() {`],
-          [fileName, `shutdown() {`]
+          [filename, `* ${description}`],
+          [filename, `class ${name} extends Phaser.State {`],
+          [filename, `init() {`],
+          [filename, `create() {`],
+          [filename, `shutdown() {`]
         ]);
         assert.noFileContent([
-          [fileName, `preload() {`],
-          [fileName, `update() {`],
-          [fileName, `render() {`]
+          [filename, `preload() {`],
+          [filename, `update() {`],
+          [filename, `render() {`]
         ]);
       }
     });
@@ -106,16 +107,16 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
 
       function checkCreatedModule() {
         assert.fileContent([
-          [fileName, `* ${description}`],
-          [fileName, `class ${name} extends Phaser.State {`],
-          [fileName, `create() {`],
-          [fileName, `update() {`]
+          [filename, `* ${description}`],
+          [filename, `class ${name} extends Phaser.State {`],
+          [filename, `create() {`],
+          [filename, `update() {`]
         ]);
         assert.noFileContent([
-          [fileName, `init() {`],
-          [fileName, `preload() {`],
-          [fileName, `render() {`],
-          [fileName, `shutdown() {`]
+          [filename, `init() {`],
+          [filename, `preload() {`],
+          [filename, `render() {`],
+          [filename, `shutdown() {`]
         ]);
       }
     });

@@ -2,12 +2,13 @@
 
 const trim = require('lodash.trim');
 const isEmpty = require('lodash.isempty');
+const utils = require('../../lib/utils');
 const prompt = require('../../lib/prompt');
 const classify = require('../../lib/classify');
 
 const greeting = 'Game scene generator:\n';
 
-const questions = g => [{
+const questions = () => [{
   name: 'name',
   message: `What's the name of this game state?`,
   filter: s => classify(s),
@@ -30,8 +31,7 @@ module.exports = function (g) {
       const config = g.config.get('scenes');
       return Object.assign(g, {
         baseTemplate: g.config.get('baseTemplate'),
-        dest: config.dest,
-        filename: `${inputs.name}.js`,
+        filename: g.destinationPath(utils.getModuleName(config.dest, inputs.name)),
         indexModuleName: config.index.name,
         variables: {
           name: inputs.name,

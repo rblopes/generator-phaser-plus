@@ -12,7 +12,7 @@ module.exports = class extends Generator {
     //  Write the new game state module.
     this.fs.copyTpl(
       this.templatePath(`${this.baseTemplate}/module.js`),
-      this.destinationPath(this.dest, this.filename),
+      this.filename,
       this.variables);
 
     //  Append the `export ...` line to the states index module, if one exists.
