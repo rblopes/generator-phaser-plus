@@ -4,20 +4,6 @@ const Generator = require('yeoman-generator');
 const prompt = require('./prompt');
 
 module.exports = class extends Generator {
-  constructor(args, env) {
-    super(args, env)
-      .argument('name', {
-        type: String,
-        required: false,
-        description: 'The game state class name'
-      })
-      .option('description', {
-        type: String,
-        description: 'Describe what happens in this game state',
-        alias: 'm'
-      });
-  }
-
   prompting() {
     return prompt(this);
   }

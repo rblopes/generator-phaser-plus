@@ -24,12 +24,6 @@ describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
           .withPrompts({name, description, baseClass})
           .then(checkCreatedModule));
 
-      it('using command-line interface', () =>
-        runGenerator('object', 'commonjs')
-          .withArguments([name])
-          .withOptions({description})
-          .then(checkCreatedModule));
-
       function checkCreatedModule() {
         assert.fileContent([
           [fileName, `* ${description}`],
@@ -64,12 +58,6 @@ describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
       it('using prompts', () =>
         runGenerator('object', 'esnext')
           .withPrompts({name, description, baseClass})
-          .then(checkCreatedModule));
-
-      it('using command-line interface', () =>
-        runGenerator('object', 'esnext')
-          .withArguments([name])
-          .withOptions({description})
           .then(checkCreatedModule));
 
       function checkCreatedModule() {

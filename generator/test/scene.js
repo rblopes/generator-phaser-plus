@@ -50,13 +50,6 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
           .then(checkCreatedModule)
           .then(checkUpdatedIndex));
 
-      it('using command-line interface', () =>
-        runGenerator('scene', 'commonjs')
-          .withArguments([name])
-          .withOptions({description})
-          .then(checkCreatedModule)
-          .then(checkUpdatedIndex));
-
       function checkCreatedModule() {
         assert.fileContent([
           [fileName, `* ${description}`],
@@ -108,13 +101,6 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
       it('using prompts', () =>
         runGenerator('scene', 'esnext')
           .withPrompts({name, description})
-          .then(checkCreatedModule)
-          .then(checkUpdatedIndex));
-
-      it('using command-line interface', () =>
-        runGenerator('scene', 'esnext')
-          .withArguments([name])
-          .withOptions({description})
           .then(checkCreatedModule)
           .then(checkUpdatedIndex));
 

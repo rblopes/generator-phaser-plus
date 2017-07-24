@@ -11,13 +11,11 @@ const questions = g => [{
   name: 'name',
   message: `What's the object name?`,
   filter: s => classify(s),
-  validate: s => !isEmpty(s) || 'Sorry, a name is required.',
-  when: !g.options.name
+  validate: s => !isEmpty(s) || 'Sorry, a name is required.'
 }, {
   name: 'description',
   message: 'Give it a short description (optional)',
-  filter: s => trim(s),
-  when: !g.options.name
+  filter: s => trim(s)
 }, {
   type: 'list',
   name: 'baseClass',
@@ -33,32 +31,21 @@ const questions = g => [{
       name: 'None',
       value: null
     }
-  ],
-  when: !g.options.name
+  ]
 }];
 
 module.exports = function (g) {
   return prompt(g, greeting, questions(g))
-    .then(processCLI)
-    .then(processInputs);
-
-  function processCLI(inputs) {
-    return Object.assign({
-      name: classify(g.options.name),
-      description: trim(g.options.description),
-      baseClass: 'Sprite'
-    }, inputs);
-  }
-  function processInputs(inputs) {
-    return Object.assign(g, {
-      baseTemplate: g.config.get('baseTemplate'),
-      outDir: g.config.get('dirs').objects,
-      outFilename: `${inputs.name}.js`,
-      variables: {
-        name: inputs.name,
-        baseClass: inputs.baseClass,
-        description: inputs.description
-      }
+    .then(inputs => {
+      return Object.assign(g, {
+        baseTemplate: g.config.get('baseTemplate'),
+        outDir: g.config.get('dirs').objects,
+        outFilename: `${inputs.name}.js`,
+        variables: {
+          name: inputs.name,
+          baseClass: inputs.baseClass,
+          description: inputs.description
+        }
+      });
     });
-  }
 };
