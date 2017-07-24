@@ -7,7 +7,7 @@
     "test-dist": "gulp test-dist"
   },
   "dependencies": {
-    "phaser-ce": "^2.8.1"
+    "phaser-ce": "^2.8.3"
   },
   "devDependencies": {
     "babel-polyfill": "^6.23.0",
