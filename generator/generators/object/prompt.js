@@ -37,10 +37,11 @@ const questions = g => [{
 module.exports = function (g) {
   return prompt(g, greeting, questions(g))
     .then(inputs => {
+      const config = g.config.get('objects');
       return Object.assign(g, {
         baseTemplate: g.config.get('baseTemplate'),
-        outDir: g.config.get('dirs').objects,
-        outFilename: `${inputs.name}.js`,
+        dest: config.dest,
+        filename: `${inputs.name}.js`,
         variables: {
           name: inputs.name,
           baseClass: inputs.baseClass,

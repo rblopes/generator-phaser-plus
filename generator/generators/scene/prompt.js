@@ -27,17 +27,17 @@ const questions = g => [{
 module.exports = function (g) {
   return prompt(g, greeting, questions(g))
     .then(inputs => {
-      const config = g.config.get('states');
+      const config = g.config.get('scenes');
       return Object.assign(g, {
         baseTemplate: g.config.get('baseTemplate'),
-        outDir: g.config.get('dirs').states,
-        outFilename: `${inputs.name}.js`,
-        indexModuleName: config.moduleName,
+        dest: config.dest,
+        filename: `${inputs.name}.js`,
+        indexModuleName: config.index.name,
         variables: {
           name: inputs.name,
           methods: inputs.methods,
           description: inputs.description,
-          requirePath: config.requirePath
+          requirePath: config.index.requirePath
         }
       });
     });

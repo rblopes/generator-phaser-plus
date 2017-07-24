@@ -11,7 +11,7 @@ module.exports = class extends Generator {
   writing() {
     this.fs.copyTpl(
       this.templatePath(`object-${this.baseTemplate}.js`),
-      this.destinationPath(this.outDir, this.outFilename),
+      this.destinationPath(this.dest, this.filename),
       this.variables);
   }
 };
