@@ -5,11 +5,11 @@ const isEmpty = require('lodash.isempty');
 const prompt = require('../../lib/prompt');
 const classify = require('../../lib/classify');
 
-const greeting = 'Object class generator:\n';
+const greeting = 'Game scene generator:\n';
 
 const questions = g => [{
   name: 'name',
-  message: `What's the object name?`,
+  message: `What's the name of this game state?`,
   filter: s => classify(s),
   validate: s => !isEmpty(s) || 'Sorry, a name is required.'
 }, {
@@ -17,35 +17,27 @@ const questions = g => [{
   message: 'Give it a short description (optional)',
   filter: s => trim(s)
 }, {
-  type: 'list',
-  name: 'baseClass',
-  message: 'From which base class this object extends from?',
-  choices: [
-    'Sprite',
-    'Group',
-    'Image',
-    'Button',
-    'Text',
-    'Graphics',
-    {
-      name: 'None',
-      value: null
-    }
-  ]
+  name: 'methods',
+  type: 'checkbox',
+  message: 'Which methods to include in the game state?',
+  choices: ['init', 'preload', 'create', 'update', 'render', 'shutdown'],
+  default: ['create', 'update']
 }];
 
 module.exports = function (g) {
   return prompt(g, greeting, questions(g))
     .then(inputs => {
-      const config = g.config.get('objects');
+      const config = g.config.get('scenes');
       return Object.assign(g, {
         baseTemplate: g.config.get('baseTemplate'),
         dest: config.dest,
         filename: `${inputs.name}.js`,
+        indexModuleName: config.index.name,
         variables: {
           name: inputs.name,
-          baseClass: inputs.baseClass,
-          description: inputs.description
+          methods: inputs.methods,
+          description: inputs.description,
+          requirePath: config.index.requirePath
         }
       });
     });
