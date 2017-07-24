@@ -1,5 +1,5 @@
 /*
- * CommonJS states index.
+ * CommonJS scenes index.
  */
 
 exports.Nada = require('./Nada');

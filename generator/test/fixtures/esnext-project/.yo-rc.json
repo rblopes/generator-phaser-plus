@@ -7,7 +7,7 @@
       "states": "src/"
     },
     "states": {
-      "moduleName": "src/states-index.js",
+      "moduleName": "src/scenes-index.js",
       "requirePath": "./"
     }
   }

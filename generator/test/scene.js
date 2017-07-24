@@ -17,13 +17,13 @@ const methods = ['init', 'create', 'shutdown'];
 const fileName = `src/${name}.js`;
 
 // The states index module, that should be updated.
-const statesIndex = 'src/states-index.js';
+const statesIndex = 'src/scenes-index.js';
 
-describe(chalk.bold.cyan('generator-phaser-plus:state'), () => {
+describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
   describe('creates a CommonJS module', () => {
     describe('with chosen methods', () => {
       it('using prompts', () =>
-        runGenerator('state', 'commonjs')
+        runGenerator('scene', 'commonjs')
           .withPrompts({name, description, methods})
           .then(checkCreatedModule)
           .then(checkUpdatedIndex));
@@ -45,13 +45,13 @@ describe(chalk.bold.cyan('generator-phaser-plus:state'), () => {
 
     describe('with default methods', () => {
       it('using prompts', () =>
-        runGenerator('state', 'commonjs')
+        runGenerator('scene', 'commonjs')
           .withPrompts({name, description})
           .then(checkCreatedModule)
           .then(checkUpdatedIndex));
 
       it('using command-line interface', () =>
-        runGenerator('state', 'commonjs')
+        runGenerator('scene', 'commonjs')
           .withArguments([name])
           .withOptions({description})
           .then(checkCreatedModule)
@@ -83,7 +83,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:state'), () => {
   describe('creates a ECMAScript module', () => {
     describe('with chosen methods', () => {
       it('using prompts', () =>
-        runGenerator('state', 'esnext')
+        runGenerator('scene', 'esnext')
           .withPrompts({name, description, methods})
           .then(checkCreatedModule)
           .then(checkUpdatedIndex));
@@ -106,13 +106,13 @@ describe(chalk.bold.cyan('generator-phaser-plus:state'), () => {
 
     describe('with default methods', () => {
       it('using prompts', () =>
-        runGenerator('state', 'esnext')
+        runGenerator('scene', 'esnext')
           .withPrompts({name, description})
           .then(checkCreatedModule)
           .then(checkUpdatedIndex));
 
       it('using command-line interface', () =>
-        runGenerator('state', 'esnext')
+        runGenerator('scene', 'esnext')
           .withArguments([name])
           .withOptions({description})
           .then(checkCreatedModule)

@@ -5,7 +5,7 @@ const isEmpty = require('lodash.isempty');
 const prompt = require('../../lib/prompt');
 const classify = require('../../lib/classify');
 
-const greeting = 'Game state generator:\n';
+const greeting = 'Game scene generator:\n';
 
 const questions = g => [{
   name: 'name',
