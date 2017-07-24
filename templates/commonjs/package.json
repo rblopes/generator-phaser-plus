@@ -7,10 +7,10 @@
     "test-dist": "gulp test-dist"
   },
   "dependencies": {
-    "phaser-ce": "^2.8.1"
+    "phaser-ce": "^2.8.3"
   },
   "devDependencies": {
-    "browser-sync": "^2.18.12",
+    "browser-sync": "^2.18.13",
     "browserify": "^14.4.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
