@@ -4,7 +4,6 @@ Description:
 
 Available Sub-generators:
   object: Creates the skeleton of a extended Phaser object class (or prefab).
-  plugin: Creates the skeleton of a custom Phaser plugin.
   state: Creates the skeleton of a Phaser game state.
 
   To run a sub-generator, use:
