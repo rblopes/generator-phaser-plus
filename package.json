@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "copy-templates": "./scripts/copy-templates.fish"
+  },
+  "private": true
+}
