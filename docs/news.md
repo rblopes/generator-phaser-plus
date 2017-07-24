@@ -9,6 +9,10 @@ Meanwhile, I'll focus on the development of the next generation of the tool, wit
 
 This release includes the usual batch of updates, including the upgrade to the latest `babel-preset-env` and a few tweaks in the templates.
 
+### v2.4.1 - 2017-07-24
+
+Includes an upgrade for Phaser CE 2.8.3 and Browsersync 2.18.13 in template projects.
+
 
 ##  v2.3 - 2017-06-12
 
