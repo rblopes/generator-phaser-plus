@@ -3,11 +3,8 @@
 const trim = require('lodash.trim');
 const isEmpty = require('lodash.isempty');
 const utils = require('../../lib/utils');
-const prompt = require('../../lib/prompt');
 
-const greeting = 'Object class generator:\n';
-
-const questions = () => [{
+module.exports = [{
   name: 'name',
   message: `What's the object name?`,
   filter: s => utils.pascalCase(s),
@@ -33,19 +30,3 @@ const questions = () => [{
     }
   ]
 }];
-
-module.exports = function (g) {
-  return prompt(g, greeting, questions(g))
-    .then(inputs => {
-      const config = g.config.get('objects');
-      return Object.assign(g, {
-        baseTemplate: g.config.get('baseTemplate'),
-        filename: g.destinationPath(utils.getModuleName(config.dest, inputs.name)),
-        variables: {
-          name: inputs.name,
-          baseClass: inputs.baseClass,
-          description: inputs.description
-        }
-      });
-    });
-};

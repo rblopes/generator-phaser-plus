@@ -2,13 +2,8 @@
 
 const trim = require('lodash.trim');
 const isEmpty = require('lodash.isempty');
-const prompt = require('../../lib/prompt');
 
-const greeting = `Hi there! You're just a few steps of creating your project.
-But first, could you tell some details about your new game?
-`;
-
-const questions = [{
+module.exports = [{
   name: 'title',
   message: `What's your game title?`,
   filter: s => trim(s),
@@ -43,15 +38,3 @@ const questions = [{
     value: 'esnext'
   }]
 }];
-
-module.exports = function (g) {
-  return prompt(g, greeting, questions)
-    .then(inputs => Object.assign(g, {
-      baseTemplate: inputs.baseTemplate,
-      variables: {
-        title: inputs.title,
-        description: inputs.description,
-        customBuild: inputs.customBuild
-      }
-    }));
-};
