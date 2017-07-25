@@ -4,14 +4,13 @@ const trim = require('lodash.trim');
 const isEmpty = require('lodash.isempty');
 const utils = require('../../lib/utils');
 const prompt = require('../../lib/prompt');
-const classify = require('../../lib/classify');
 
 const greeting = 'Game scene generator:\n';
 
 const questions = () => [{
   name: 'name',
   message: `What's the name of this game state?`,
-  filter: s => classify(s),
+  filter: s => utils.pascalCase(s),
   validate: s => !isEmpty(s) || 'Sorry, a name is required.'
 }, {
   name: 'description',

@@ -19,4 +19,22 @@ describe(chalk.bold.cyan('`utils` module'), () => {
       assert.strictEqual(utils.getModuleName('-', className), expected);
     }
   });
+
+  describe(chalk.bold.cyan('#pascalCase'), () => {
+    const c1 = 'test';
+    const c2 = '__!!test??__';
+    const c3 = '--test--test--';
+    const c4 = 'Some class name';
+    const c5 = 'Sømè wëîrd çlâß ñåmé';
+
+    it('capitalize names', () => test(c1, 'Test'));
+    it('escapes punctuation and symbols', () => test(c2, 'Test'));
+    it('converts names separated by dashes', () => test(c3, 'TestTest'));
+    it('converts words', () => test(c4, 'SomeClassName'));
+    it('replaces non-ASCII characters', () => test(c5, 'SomeWeirdClassName'));
+
+    function test(s, expected) {
+      assert.strictEqual(utils.pascalCase(s), expected);
+    }
+  });
 });
