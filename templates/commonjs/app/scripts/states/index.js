@@ -8,6 +8,6 @@
 
 'use strict';
 
-exports.Boot = require('./Boot');
-exports.Preloader = require('./Preloader');
-exports.Game = require('./Game');
+exports.Boot = require('./boot');
+exports.Preloader = require('./preloader');
+exports.Game = require('./game');

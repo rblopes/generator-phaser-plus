@@ -7,7 +7,7 @@
 
 'use strict';
 
-var Logo = require('../objects/Logo');
+var Logo = require('../objects/logo');
 
 exports.create = function (game) {
   //  TODO: Replace this content with really cool game code here :)
