@@ -3,15 +3,29 @@
 const chalk = require('chalk');
 const Generator = require('yeoman-generator');
 const detectInstalled = require('detect-installed');
+const banner = require('../../lib/banner');
 const defaults = require('../../lib/defaults');
-const prompt = require('./prompt');
+const questions = require('./questions');
+
+const greeting = `Hi there! You're just a few steps of creating your project.
+But first, could you tell some details about your new game?
+`;
 
 module.exports = class extends Generator {
+  initializing() {
+    this.log(banner(this.rootGeneratorVersion()));
+    this.log(greeting);
+  }
+
   prompting() {
-    return prompt(this);
+    return this
+      .prompt(questions)
+      .then(variables => Object.assign(this, {variables}));
   }
 
   writing() {
+    const baseTemplate = this.variables.baseTemplate;
+
     //  Copy dotfiles.
     this.fs.copy(
       this.templatePath('dotfiles/editorconfig'),
@@ -31,7 +45,7 @@ module.exports = class extends Generator {
 
     //  Copy scripts and related files.
     this.fs.copy(
-      this.templatePath(`${this.baseTemplate}/**`),
+      this.templatePath(`${baseTemplate}/**`),
       this.destinationPath(),
       {
         globOptions: {
@@ -60,7 +74,7 @@ module.exports = class extends Generator {
         createdWith: this.rootGeneratorVersion(),
         creationDate: new Date().toISOString()
       }
-    }, defaults[this.baseTemplate]));
+    }, defaults[baseTemplate]));
   }
 
   install() {

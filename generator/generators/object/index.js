@@ -1,31 +1,33 @@
 'use strict';
 
 const Generator = require('yeoman-generator');
-const prompt = require('./prompt');
+const utils = require('../../lib/utils');
+const banner = require('../../lib/banner');
+const questions = require('./questions');
 
 module.exports = class extends Generator {
-  constructor(args, env) {
-    super(args, env)
-      .argument('name', {
-        type: String,
-        required: false,
-        description: 'The game object class name'
-      })
-      .option('description', {
-        type: String,
-        description: 'Describe what this object do',
-        alias: 'm'
-      });
+  initializing() {
+    this.log(banner(this.rootGeneratorVersion()));
+    this.log('Object class generator:\n');
   }
 
   prompting() {
-    return prompt(this);
+    return this
+      .prompt(questions)
+      .then(variables => Object.assign(this, {variables}));
   }
 
   writing() {
+    const baseTemplate = this.config.get('baseTemplate');
+
     this.fs.copyTpl(
-      this.templatePath(`object-${this.baseTemplate}.js`),
-      this.destinationPath(this.outDir, this.outFilename),
+      this.templatePath(`object-${baseTemplate}.js`),
+      this.destinationPath(
+        utils.getModuleName(
+          this.config.get('objects').dest,
+          this.variables.name
+        )
+      ),
       this.variables);
   }
 };
