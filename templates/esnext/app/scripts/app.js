@@ -13,7 +13,7 @@ import * as config from './config';
 import * as states from './states';
 
 //  Add all required states and boot the game.
-export function init() {
+function init() {
   const game = new Phaser.Game(config);
 
   Object
@@ -24,3 +24,5 @@ export function init() {
 
   return game;
 }
+
+init();

@@ -3,8 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Phaser Plus Template • CommonJS template</title>
-    <meta name="description" content="A project template for Phaser web games.">
+    <title><%= htmlWebpackPlugin.options.title %></title>
     <style>
       html { box-sizing: border-box; }
       html, body { background: #000; overflow: hidden; -ms-touch-action: none; touch-action: none; }
@@ -14,14 +13,7 @@
   </head>
 
   <body>
-    <!-- build:js phaser.min.js -->
-    <script src="phaser.js"></script>
-    <!-- /build -->
-    <!-- NOTE: Add third-party library scripts here. -->
-    <!-- build:js game.min.js -->
-    <script src="game.js"></script>
-    <!-- /build -->
-    <script>window.app.init()</script>
+    <!-- app scripts will be injected here automatically -->
   </body>
 
 </html>

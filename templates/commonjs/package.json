@@ -1,8 +1,16 @@
 {
-  "scripts": {},
+  "scripts": {
+    "start": "webpack-dashboard -- webpack-dev-server --config config/"
+  },
   "dependencies": {
     "phaser-ce": "^2.8.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "expose-loader": "^0.7.3",
+    "html-webpack-plugin": "^2.29.0",
+    "webpack": "^3.4.0",
+    "webpack-dashboard": "^0.4.0",
+    "webpack-dev-server": "^2.6.1"
+  },
   "private": true
 }
