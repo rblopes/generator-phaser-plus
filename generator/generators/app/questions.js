@@ -14,20 +14,6 @@ module.exports = [{
   filter: s => trim(s)
 }, {
   type: 'list',
-  name: 'customBuild',
-  message: 'Which Phaser build are you going to use?',
-  choices: [{
-    name: 'Arcade Physics and P2',
-    value: 'phaser'
-  }, {
-    name: 'Arcade Physics Only',
-    value: 'custom/phaser-arcade-physics'
-  }, {
-    name: 'No Physics Engines',
-    value: 'custom/phaser-no-physics'
-  }]
-}, {
-  type: 'list',
   name: 'baseTemplate',
   message: 'How do you prefer to develop your game code?',
   choices: [{

@@ -53,19 +53,15 @@ module.exports = class extends Generator {
         }
       });
 
-    //  Copy sample game assets.
+    //  Copy shared game project assets.
     this.fs.copy(
-      [this.templatePath('static/**'), '!**/*.{html,json}'],
-      this.destinationPath('static/'));
-    this.fs.copyTpl(
-      this.templatePath('static/index.html'),
-      this.destinationPath('static/index.html'),
-      this.variables);
+      this.templatePath('shared/**'),
+      this.destinationPath('app/'));
 
-    //  Copy Gulp tasks.
+    //  Copy Webpack configuration.
     this.fs.copyTpl(
-      this.templatePath('gulpfile.js/**'),
-      this.destinationPath('gulpfile.js/'),
+      this.templatePath('config/'),
+      this.destinationPath('config/'),
       this.variables);
 
     //  Set default configuration values.

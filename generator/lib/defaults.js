@@ -27,8 +27,8 @@ exports.esnext = {
   scenes: {
     dest: 'src/states/',
     index: {
-      name: 'src/states.js',
-      requirePath: './states/'
+      name: 'src/states/index.js',
+      requirePath: './'
     }
   }
 };
