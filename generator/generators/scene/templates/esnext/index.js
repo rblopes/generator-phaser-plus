@@ -1,2 +1,2 @@
 <%- contents -%>
-export {default as <%- name %>} from '<%- requirePath %><%- name %>';
+export {default as <%- name %>} from '<%- requirePath %><%- filename %>';

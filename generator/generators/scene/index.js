@@ -1,6 +1,7 @@
 'use strict';
 
 const Generator = require('yeoman-generator');
+const kebabCase = require('lodash.kebabcase');
 const utils = require('../../lib/utils');
 const banner = require('../../lib/banner');
 const questions = require('./questions');
@@ -22,6 +23,7 @@ module.exports = class extends Generator {
     const template = name => this.templatePath(`${baseTemplate}/${name}.js`);
 
     const config = this.config.get('scenes');
+    const filename = kebabCase(this.variables.name);
     const indexModuleName = this.destinationPath(config.index.name);
 
     //  Write the new game state module.
@@ -39,6 +41,7 @@ module.exports = class extends Generator {
     //  Append the `export ...` line to the states index module, if one exists.
     if (this.fs.exists(indexModuleName)) {
       const variables = Object.assign({
+        filename,
         contents: this.fs.read(indexModuleName),
         requirePath: config.index.requirePath
       }, this.variables);

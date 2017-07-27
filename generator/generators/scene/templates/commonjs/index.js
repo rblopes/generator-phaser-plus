@@ -1,2 +1,2 @@
 <%- contents -%>
-exports.<%- name %> = require('<%- requirePath %><%- name %>');
+exports.<%- name %> = require('<%- requirePath %><%- filename %>');

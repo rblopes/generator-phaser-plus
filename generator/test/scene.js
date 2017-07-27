@@ -6,6 +6,7 @@
 
 const chalk = require('chalk');
 const assert = require('yeoman-assert');
+const kebabCase = require('lodash.kebabcase');
 const utils = require('../lib/utils');
 const runGenerator = require('./fixtures/run-generator');
 
@@ -69,7 +70,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
     function checkUpdatedIndex() {
       assert.fileContent([
         [statesIndex, `exports.Nada = require('./Nada');`],
-        [statesIndex, `exports.${name} = require('./${name}');`]
+        [statesIndex, `exports.${name} = require('./${kebabCase(name)}');`]
       ]);
     }
   });
@@ -124,7 +125,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
     function checkUpdatedIndex() {
       assert.fileContent([
         [statesIndex, `export {default as Nada} from './Nada';`],
-        [statesIndex, `export {default as ${name}} from './${name}';`]
+        [statesIndex, `export {default as ${name}} from './${kebabCase(name)}';`]
       ]);
     }
   });
