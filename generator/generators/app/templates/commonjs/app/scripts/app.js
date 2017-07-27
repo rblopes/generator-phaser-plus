@@ -12,7 +12,7 @@ var config = require('./config');
 var states = require('./states');
 
 //  Add all required states and boot the game.
-exports.init = function () {
+function init () {
   var game = new Phaser.Game(config);
 
   Object
@@ -25,3 +25,5 @@ exports.init = function () {
 
   return game;
 };
+
+init();
