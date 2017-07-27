@@ -8,12 +8,12 @@
 exports.commonjs = {
   baseTemplate: 'commonjs',
   objects: {
-    dest: 'src/objects/'
+    dest: 'app/scripts/objects/'
   },
   scenes: {
-    dest: 'src/states/',
+    dest: 'app/scripts/states/',
     index: {
-      name: 'src/states/index.js',
+      name: 'app/scripts/states/index.js',
       requirePath: './'
     }
   }
@@ -22,12 +22,12 @@ exports.commonjs = {
 exports.esnext = {
   baseTemplate: 'esnext',
   objects: {
-    dest: 'src/objects/'
+    dest: 'app/scripts/objects/'
   },
   scenes: {
-    dest: 'src/states/',
+    dest: 'app/scripts/states/',
     index: {
-      name: 'src/states/index.js',
+      name: 'app/scripts/states/index.js',
       requirePath: './'
     }
   }
