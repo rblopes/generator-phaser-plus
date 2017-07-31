@@ -11,18 +11,15 @@ This page contains development notes planned for `generator-phaser-plus` continu
 ### Generator
 
 *   Possibly drop support for Node.js "Argon" (v4).
-*   Adapt sub-generators to meet Phaser 3 standards.
-*   Option for `kebab-cased` generated file names.
 
 ### Templates
 
 *   Replace Browserify with Webpack.
-    *   Possibly integrated with Gulp.
+    *   Integrated with Gulp?
 *   Reorganize project tree.
 *   Make projects compatible with:
     *   Cordova
     *   Electron
-*   Remove the CommonJS template?
 
 ### Misc
 
