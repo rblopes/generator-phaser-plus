@@ -5,30 +5,30 @@
  * Default configuration values for each project template.
  */
 
-'use strict';
-
 exports.commonjs = {
   baseTemplate: 'commonjs',
-  dirs: {
-    objects: 'src/objects/',
-    plugins: 'src/plugins/',
-    states: 'src/states/'
+  objects: {
+    dest: 'app/scripts/objects/'
   },
-  states: {
-    moduleName: 'src/states/index.js',
-    requirePath: './'
+  scenes: {
+    dest: 'app/scripts/states/',
+    index: {
+      name: 'app/scripts/states/index.js',
+      requirePath: './'
+    }
   }
 };
 
 exports.esnext = {
   baseTemplate: 'esnext',
-  dirs: {
-    objects: 'src/objects/',
-    plugins: 'src/plugins/',
-    states: 'src/states/'
+  objects: {
+    dest: 'app/scripts/objects/'
   },
-  states: {
-    moduleName: 'src/states.js',
-    requirePath: './states/'
+  scenes: {
+    dest: 'app/scripts/states/',
+    index: {
+      name: 'app/scripts/states/index.js',
+      requirePath: './'
+    }
   }
 };

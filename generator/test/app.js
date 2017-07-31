@@ -25,9 +25,9 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
     it('using prompts', () =>
       runGenerator()
         .withPrompts({title, description, customBuild, baseTemplate: 'commonjs'})
-        .then(checkAssets)
+        .then(checkSharedAssets)
         .then(checkReadme)
-        .then(checkGulpTasks)
+        .then(checkWebpackConfig)
         .then(checkCommonJsConfig)
         .then(checkCommonJsModules));
   });
@@ -36,9 +36,9 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
     it('using prompts', () =>
       runGenerator()
         .withPrompts({title, description, customBuild, baseTemplate: 'esnext'})
-        .then(checkAssets)
+        .then(checkSharedAssets)
         .then(checkReadme)
-        .then(checkGulpTasks)
+        .then(checkWebpackConfig)
         .then(checkECMAScriptConfig)
         .then(checkECMAScriptModules));
   });
@@ -50,8 +50,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
       '.gitattributes',
       '.gitignore',
       '.yo-rc.json',
-      'package.json',
-      'yarn.lock'
+      'package.json'
     ]);
   }
 
@@ -63,8 +62,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
       '.gitattributes',
       '.gitignore',
       '.yo-rc.json',
-      'package.json',
-      'yarn.lock'
+      'package.json'
     ]);
   }
 
@@ -75,55 +73,53 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
     ]);
   }
 
-  function checkGulpTasks() {
+  function checkWebpackConfig() {
     assert.file([
-      'gulpfile.js/index.js',
-      'gulpfile.js/lib/bundler.js',
-      'gulpfile.js/lib/get-named-buffer.js',
-      'gulpfile.js/tasks/dev.js',
-      'gulpfile.js/tasks/dist.js'
+      'config/index.js',
+      'config/paths.js',
+      'config/plugins.js'
     ]);
-    assert.fileContent(
-      'gulpfile.js/config.js',
-      `{PHASER_BUILDS}/${customBuild}.js`
-    );
   }
 
   function checkCommonJsModules() {
     assert.file([
-      'src/assets.js',
-      'src/config.js',
-      'src/objects/Logo.js',
-      'src/states/Boot.js',
-      'src/states/Game.js',
-      'src/states/index.js',
-      'src/states/Preloader.js'
+      'app/scripts/assets.js',
+      'app/scripts/config.js',
+      'app/scripts/objects/logo.js',
+      'app/scripts/states/boot.js',
+      'app/scripts/states/game.js',
+      'app/scripts/states/index.js',
+      'app/scripts/states/preloader.js'
     ]);
-    assert.fileContent('src/app.js', 'exports.init = function () {');
+    assert.fileContent(
+      'app/scripts/app.js',
+      `var config = require('./config');`
+    );
   }
 
   function checkECMAScriptModules() {
     assert.file([
-      'src/assets.js',
-      'src/config.js',
-      'src/objects/Logo.js',
-      'src/states.js',
-      'src/states/Boot.js',
-      'src/states/Game.js',
-      'src/states/Preloader.js'
+      'app/scripts/assets.js',
+      'app/scripts/config.js',
+      'app/scripts/objects/logo.js',
+      'app/scripts/states/boot.js',
+      'app/scripts/states/game.js',
+      'app/scripts/states/index.js',
+      'app/scripts/states/preloader.js'
     ]);
-    assert.fileContent('src/app.js', 'export function init() {');
+    assert.fileContent(
+      'app/scripts/app.js',
+      `import * as config from './config';`
+    );
   }
 
-  function checkAssets() {
+  function checkSharedAssets() {
     assert.file([
-      'static/assets/phaser.png',
-      'static/assets/progress-bar.png',
-      'static/assets/splash-screen.png'
-    ]);
-    assert.fileContent([
-      ['static/index.html', `<title>${title}</title>`],
-      ['static/index.html', `<meta name="description" content="${description}">`]
+      'app/index.html',
+      'app/static/favicon.ico',
+      'app/static/assets/phaser.png',
+      'app/static/assets/progress-bar.png',
+      'app/static/assets/splash-screen.png'
     ]);
   }
 });
