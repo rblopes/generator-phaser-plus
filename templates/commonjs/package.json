@@ -3,7 +3,7 @@
     "start": "webpack-dashboard -- webpack-dev-server --config config/"
   },
   "dependencies": {
-    "phaser-ce": "^2.8.3"
+    "phaser": "^3.0.0-alpha.2"
   },
   "devDependencies": {
     "expose-loader": "^0.7.3",
