@@ -8,17 +8,20 @@
 
 'use strict';
 
-//  -- Splash screen assets used by the Preloader.
-exports.preloaderAssets = [{
+//  -- Splash screen assets.
+exports.splashScreenAssets = [{
   key: 'splash-screen',
-  type: 'image'
+  type: 'image',
+  url: 'assets/splash-screen.png'
 }, {
   key: 'progress-bar',
-  type: 'image'
+  type: 'image',
+  url: 'assets/progress-bar.png'
 }];
 
 //  -- General assets used throughout the game.
 exports.gameAssets = [{
   key: 'phaser',
-  type: 'image'
+  type: 'image',
+  url: 'assets/phaser.png'
 }];

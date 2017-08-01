@@ -44,10 +44,10 @@ module.exports = class extends Generator {
       this.variables);
 
     //  Copy scripts and related files.
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath(`${baseTemplate}/**`),
       this.destinationPath(),
-      {
+      this.variables, {}, {
         globOptions: {
           dot: true
         }
