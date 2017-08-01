@@ -8,9 +8,9 @@
  */
 
 'use strict';
-<% for (const method of methods) { -%>
+<% methods.forEach(method => { -%>
 
 exports.<%- method %> = function () {
   //  TODO: Stub
 };
-<% } -%>
+<% }) -%>

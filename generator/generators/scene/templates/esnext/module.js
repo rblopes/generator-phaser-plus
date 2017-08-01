@@ -8,11 +8,11 @@
  */
 
 export default class <%- name %> extends Phaser.Scene {
-<% for (const method of methods) { -%>
+<% methods.forEach(method => { -%>
 
   <%- method %>() {
     //  TODO: Stub
   }
-<% } -%>
+<% }) -%>
 
 }
