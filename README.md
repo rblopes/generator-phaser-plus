@@ -37,6 +37,15 @@ This repository contains both the generator code and its template projects, conv
 For more info, take a look at the project [development guide](docs/dev-guide.md).
 
 
+## About Version 3
+
+Development of the next major release with [Phaser 3](https://github.com/photonstorm/phaser) just began and soon you'll find out how you can help me in this crucial task. You can install it already via npm:
+
+```
+npm install --global generator-phaser-plus@next
+```
+
+
 ## License
 
 This software is distributed under the terms of the [MIT License](LICENSE.md).
