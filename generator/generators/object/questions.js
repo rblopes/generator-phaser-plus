@@ -19,10 +19,7 @@ module.exports = [{
   message: 'From which base class this object extends from?',
   choices: [
     'Sprite',
-    'Group',
     'Image',
-    'Button',
-    'Text',
     'Graphics',
     {
       name: 'None',

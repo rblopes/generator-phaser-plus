@@ -9,22 +9,22 @@
 
 'use strict';
 
-module.exports = <%- name %>;
-
-function <%- name %>(game/*, ...args*/) {
+module.exports = Phaser.Class({
+<% if (baseClass) { %>
+  Extends: Phaser.GameObjects.<%- baseClass %>,
+<% } %>
+  initialize: function <%- name %>(scene/*, ...args*/) {
 <% if (baseClass) { -%>
-  Phaser.<%- baseClass %>.call(this, game/*, ...args*/);
+      Phaser.GameObjects.<%- baseClass %>.call(this, scene/*, ...args*/);
 
 <% } -%>
-  // TODO:
-  //   1. Edit constructor parameters accordingly.
-  //   2. Adjust object properties.
-}
-<% if (baseClass) { -%>
-<%- name %>.prototype = Object.create(Phaser.<%- baseClass %>.prototype);
-<%- name %>.prototype.constructor = <%- name %>;
-<% } -%>
+    //  TODO:
+    //    1. Edit constructor parameters accordingly.
+    //    2. Adjust object properties.
+  },
 
-<%- name %>.prototype.update = function () {
-  // TODO: Stub.
-};
+  update: function() {
+    //  TODO: Stub.
+  }
+
+});

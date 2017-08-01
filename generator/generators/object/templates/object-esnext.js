@@ -8,23 +8,23 @@
  */
 
 <% if (baseClass) { -%>
-export default class <%- name %> extends Phaser.<%- baseClass %> {
+export default class <%- name %> extends Phaser.GameObjects.<%- baseClass %> {
 <% } else { -%>
 export default class <%- name %> {
 <% } -%>
 
-  constructor(game, ...args) {
+  constructor(scene/*, ...args*/) {
 <% if (baseClass) { -%>
-    super(game, ...args);
+    super(scene/*, ...args*/);
 
 <% } -%>
-    // TODO:
-    //   1. Edit constructor parameters accordingly.
-    //   2. Adjust object properties.
+    //  TODO:
+    //    1. Edit constructor parameters accordingly.
+    //    2. Adjust object properties.
   }
 
   update() {
-    // TODO: Stub.
+    //  TODO: Stub.
   }
 
 }
