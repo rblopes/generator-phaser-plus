@@ -14,20 +14,27 @@ export const height = 480;
 //  * CANVAS: Use 'context2D' API rendering method;
 //  * AUTO: Phaser will choose, based on the device capabilities, the best
 //          rendering method to be used.
-export const renderer = Phaser.AUTO;
+export const type = Phaser.AUTO;
 
-//  Declare the pixel density of the game graphics.
+//  Adjust game canvas zoom factor.
+export const zoom = 1;
+
+//  Declare the pixel density of game graphics.
 export const resolution = 1;
 
 //  Uncomment to disable rendering anti-aliasing. Great for pixel art.
-// export const antialias = false;
-
-//  Uncomment to enable WebGL multi-texture features.
-// export const multiTexture = true;
+// export const pixelArt = true;
 
 //  Uncomment to enable canvas transparency.
 // export const transparent = true;
 
-//  Uncomment to disable the Phaser debugging API.
-//  TODO: Automate the production build to conditionally enable this flag.
-// export const enableDebug = false;
+//  Apply some style to the game canvas element.
+export const canvasStyle = 'display: block; margin: 0 auto;';
+
+//  Uncomment to define a custom background color.
+// export const backgroundColor = '#000000';
+
+//  Game title, version and Web address.
+export const title = '<%- title %>';
+export const version = '1.0.0';
+export const url = 'https://example.com/';

@@ -17,7 +17,7 @@ module.exports = env => {
     context: paths.context,
 
     entry: {
-      vendor: ['p2', 'pixi', 'phaser'],
+      vendor: ['phaser'],
       app: paths.app
     },
 
@@ -28,15 +28,6 @@ module.exports = env => {
 
     module: {
       rules: [{
-        test: paths.alias.p2,
-        use: 'expose-loader?p2'
-      }, {
-        test: paths.alias.pixi,
-        use: 'expose-loader?PIXI'
-      }, {
-        test: paths.alias.phaser,
-        use: 'expose-loader?Phaser'
-      }, {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/
@@ -44,10 +35,6 @@ module.exports = env => {
     },
 
     plugins: plugins(isProduction),
-
-    resolve: {
-      alias: paths.alias
-    },
 
     devtool: 'cheap-source-map',
 

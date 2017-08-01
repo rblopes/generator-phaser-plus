@@ -4,7 +4,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "phaser-ce": "^2.8.3"
+    "phaser": "^3.0.0-alpha.2"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

@@ -19,7 +19,7 @@ const filename = utils.getModuleName('src', name);
 
 describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
   describe('creates a CommonJS module', () => {
-    describe(`containing a class extended from 'Phaser.${baseClass}'`, () => {
+    describe(`containing a class extended from 'GameObjects.${baseClass}'`, () => {
       it('using prompts', () =>
         runGenerator('object', 'commonjs')
           .withPrompts({name, description, baseClass})
@@ -28,9 +28,9 @@ describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
       function checkCreatedModule() {
         assert.fileContent([
           [filename, `* ${description}`],
-          [filename, `function ${name}(game/*, ...args*/) {`],
-          [filename, `Phaser.${baseClass}.call(this, game/*, ...args*/);`],
-          [filename, `${name}.prototype = Object.create(Phaser.${baseClass}`]
+          [filename, `Extends: Phaser.GameObjects.${baseClass},`],
+          [filename, `initialize: function ${name}(scene/*, ...args*/) {`],
+          [filename, `Phaser.GameObjects.${baseClass}.call(this, scene/*, ...args*/);`]
         ]);
       }
     });
@@ -44,18 +44,15 @@ describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
       function checkCreatedModule() {
         assert.fileContent([
           [filename, `* ${description}`],
-          [filename, `function ${name}(game/*, ...args*/) {`]
+          [filename, `initialize: function ${name}(scene/*, ...args*/) {`]
         ]);
-        assert.noFileContent(
-          filename,
-          `${name}.prototype = Object.create(`
-        );
+        assert.noFileContent(filename, `Extends: Phaser.GameObjects`);
       }
     });
   });
 
   describe('creates a ECMAScript module', () => {
-    describe(`containing a class extended from 'Phaser.${baseClass}'`, () => {
+    describe(`containing a class extended from 'GameObjects.${baseClass}'`, () => {
       it('using prompts', () =>
         runGenerator('object', 'esnext')
           .withPrompts({name, description, baseClass})
@@ -64,7 +61,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
       function checkCreatedModule() {
         assert.fileContent([
           [filename, `* ${description}`],
-          [filename, `class ${name} extends Phaser.${baseClass} {`]
+          [filename, `class ${name} extends Phaser.GameObjects.${baseClass} {`]
         ]);
       }
     });

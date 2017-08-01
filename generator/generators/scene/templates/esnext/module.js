@@ -1,5 +1,5 @@
 /*
- * <%- name %> state
+ * <%- name %> scene
  * <%- '='.repeat(6 + name.length) %>
  *
 <% if (description) { -%>
@@ -7,12 +7,12 @@
 <% } -%>
  */
 
-export default class <%- name %> extends Phaser.State {
-<% methods.forEach(method => { -%>
+export default class <%- name %> extends Phaser.Scene {
+<% for (const method of methods) { -%>
 
   <%- method %>() {
-    // TODO: Stub
+    //  TODO: Stub
   }
-<% }) -%>
+<% } -%>
 
 }

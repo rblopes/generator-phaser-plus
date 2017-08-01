@@ -6,12 +6,16 @@
  * logo.
  */
 
-export default class Logo extends Phaser.Sprite {
+export default class Logo extends Phaser.GameObjects.Sprite {
 
-  constructor(game, x, y) {
-    super(game, x, y, 'phaser');
+  constructor(scene) {
+    super(scene, 0, 0, 'phaser');
 
-    this.anchor.set(0.5);
+    const x = scene.cameras.main.width / 2;
+    const y = scene.cameras.main.height / 2;
+
+    this.setPosition(x, y);
+    this.setOrigin(0.5);
   }
 
   update() {

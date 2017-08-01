@@ -2,4 +2,4 @@
  * CommonJS scenes index.
  */
 
-exports.Nada = require('./Nada');
+exports.Nada = require('./nada');

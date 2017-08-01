@@ -11,9 +11,9 @@ exports.commonjs = {
     dest: 'app/scripts/objects/'
   },
   scenes: {
-    dest: 'app/scripts/states/',
+    dest: 'app/scripts/scenes/',
     index: {
-      name: 'app/scripts/states/index.js',
+      name: 'app/scripts/scenes/index.js',
       requirePath: './'
     }
   }
@@ -25,9 +25,9 @@ exports.esnext = {
     dest: 'app/scripts/objects/'
   },
   scenes: {
-    dest: 'app/scripts/states/',
+    dest: 'app/scripts/scenes/',
     index: {
-      name: 'app/scripts/states/index.js',
+      name: 'app/scripts/scenes/index.js',
       requirePath: './'
     }
   }

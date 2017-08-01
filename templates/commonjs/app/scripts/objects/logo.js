@@ -8,14 +8,22 @@
 
 'use strict';
 
-function Logo(game, x, y) {
-  Phaser.Sprite.call(this, game, x, y, 'phaser');
+module.exports = Phaser.Class({
 
-  this.anchor.set(0.5);
-}
-Logo.prototype = Object.create(Phaser.Sprite.prototype);
-module.exports = Logo.prototype.constructor = Logo;
+  Extends: Phaser.GameObjects.Sprite,
 
-Logo.prototype.update = function () {
-  this.angle += 0.1;
-};
+  initialize: function Logo (scene) {
+    Phaser.GameObjects.Sprite.call(this, scene, 0, 0, 'phaser');
+
+    var x = scene.cameras.main.width / 2;
+    var y = scene.cameras.main.height / 2;
+
+    this.setPosition(x, y);
+    this.setOrigin(0.5);
+  },
+
+  update: function () {
+    this.angle += 0.1;
+  }
+
+});

@@ -84,13 +84,15 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
   function checkCommonJsModules() {
     assert.file([
       'app/scripts/assets.js',
-      'app/scripts/config.js',
       'app/scripts/objects/logo.js',
-      'app/scripts/states/boot.js',
-      'app/scripts/states/game.js',
-      'app/scripts/states/index.js',
-      'app/scripts/states/preloader.js'
+      'app/scripts/scenes/game.js',
+      'app/scripts/scenes/index.js',
+      'app/scripts/scenes/splash-screen.js'
     ]);
+    assert.fileContent(
+      'app/scripts/config.js',
+      `exports.title = 'My Test Game';`
+    );
     assert.fileContent(
       'app/scripts/app.js',
       `var config = require('./config');`
@@ -100,13 +102,15 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
   function checkECMAScriptModules() {
     assert.file([
       'app/scripts/assets.js',
-      'app/scripts/config.js',
       'app/scripts/objects/logo.js',
-      'app/scripts/states/boot.js',
-      'app/scripts/states/game.js',
-      'app/scripts/states/index.js',
-      'app/scripts/states/preloader.js'
+      'app/scripts/scenes/game.js',
+      'app/scripts/scenes/index.js',
+      'app/scripts/scenes/splash-screen.js'
     ]);
+    assert.fileContent(
+      'app/scripts/config.js',
+      `export const title = 'My Test Game';`
+    );
     assert.fileContent(
       'app/scripts/app.js',
       `import * as config from './config';`

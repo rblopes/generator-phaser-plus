@@ -34,13 +34,13 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
         assert.fileContent([
           [filename, `* ${description}`],
           [filename, `exports.init = function () {`],
-          [filename, `exports.create = function (/*game*/) {`],
-          [filename, `exports.shutdown = function (/*game*/) {`]
+          [filename, `exports.create = function () {`],
+          [filename, `exports.shutdown = function () {`]
         ]);
         assert.noFileContent([
-          [filename, `exports.preload = function (/*game*/) {`],
-          [filename, `exports.update = function (/*game*/) {`],
-          [filename, `exports.render = function (/*game*/) {`]
+          [filename, `exports.preload = function () {`],
+          [filename, `exports.update = function () {`],
+          [filename, `exports.render = function () {`]
         ]);
       }
     });
@@ -55,21 +55,21 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
       function checkCreatedModule() {
         assert.fileContent([
           [filename, `* ${description}`],
-          [filename, `exports.create = function (/*game*/) {`],
-          [filename, `exports.update = function (/*game*/) {`]
+          [filename, `exports.create = function () {`],
+          [filename, `exports.update = function () {`]
         ]);
         assert.noFileContent([
           [filename, `exports.init = function () {`],
-          [filename, `exports.preload = function (/*game*/) {`],
-          [filename, `exports.render = function (/*game*/) {`],
-          [filename, `exports.shutdown = function (/*game*/) {`]
+          [filename, `exports.preload = function () {`],
+          [filename, `exports.render = function () {`],
+          [filename, `exports.shutdown = function () {`]
         ]);
       }
     });
 
     function checkUpdatedIndex() {
       assert.fileContent([
-        [statesIndex, `exports.Nada = require('./Nada');`],
+        [statesIndex, `exports.Nada = require('./nada');`],
         [statesIndex, `exports.${name} = require('./${kebabCase(name)}');`]
       ]);
     }
@@ -86,7 +86,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
       function checkCreatedModule() {
         assert.fileContent([
           [filename, `* ${description}`],
-          [filename, `class ${name} extends Phaser.State {`],
+          [filename, `class ${name} extends Phaser.Scene {`],
           [filename, `init() {`],
           [filename, `create() {`],
           [filename, `shutdown() {`]
@@ -109,7 +109,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
       function checkCreatedModule() {
         assert.fileContent([
           [filename, `* ${description}`],
-          [filename, `class ${name} extends Phaser.State {`],
+          [filename, `class ${name} extends Phaser.Scene {`],
           [filename, `create() {`],
           [filename, `update() {`]
         ]);
@@ -124,7 +124,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
 
     function checkUpdatedIndex() {
       assert.fileContent([
-        [statesIndex, `export {default as Nada} from './Nada';`],
+        [statesIndex, `export {default as Nada} from './nada';`],
         [statesIndex, `export {default as ${name}} from './${kebabCase(name)}';`]
       ]);
     }
