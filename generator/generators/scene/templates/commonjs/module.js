@@ -1,5 +1,5 @@
 /*
- * <%- name %> state
+ * <%- name %> scene
  * <%- '='.repeat(6 + name.length) %>
  *
 <% if (description) { -%>
@@ -8,9 +8,9 @@
  */
 
 'use strict';
-<% methods.forEach(method => { -%>
+<% for (const method of methods) { -%>
 
-exports.<%- method %> = function (<%- method !== 'init' ? '/*game*/' : '' %>) {
-  // TODO: Stub
+exports.<%- method %> = function () {
+  //  TODO: Stub
 };
-<% }) -%>
+<% } -%>

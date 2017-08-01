@@ -2,4 +2,4 @@
  * ECMAScript scenes index.
  */
 
-export {default as Nada} from './Nada';
+export {default as Nada} from './nada';
