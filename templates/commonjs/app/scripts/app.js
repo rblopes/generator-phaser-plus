@@ -7,21 +7,21 @@
 
 'use strict';
 
-//  Import configuration and game states.
+//  Import configuration and game scenes.
 var config = require('./config');
-var states = require('./states');
+var scenes = require('./scenes');
 
-//  Add all required states and boot the game.
+//  Add all required scenes and boot the game.
 function init () {
   var game = new Phaser.Game(config);
 
   Object
-    .keys(states)
+    .keys(scenes)
     .forEach(function (key) {
-      game.state.add(key, states[key]);
+      game.scene.add(key, scenes[key]);
     });
 
-  game.state.start('Boot');
+  game.scene.start('SplashScreen');
 
   return game;
 };
