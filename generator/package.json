@@ -34,8 +34,7 @@
   ],
   "scripts": {
     "fix": "xo --fix",
-    "lint": "xo",
-    "test": "NODE_ENV=test mocha --reporter spec"
+    "test": "xo && NODE_ENV=test mocha --reporter spec"
   },
   "preferGlobal": true,
   "engines": {

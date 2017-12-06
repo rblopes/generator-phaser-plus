@@ -14,7 +14,4 @@ branches:
     - master
 
 script:
-  - cd generator
-  - npm install
-  - npm run lint
-  - npm test
+  - cd generator && npm install && npm test
