@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "copy-templates": "./scripts/copy-templates.fish",
     "test": "lerna run test"
   },
   "devDependencies": {
