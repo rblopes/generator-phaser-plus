@@ -27,7 +27,11 @@ module.exports = env => {
     },
 
     module: {
-      rules: []
+      rules: [{
+        test: /\.js$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
+      }]
     },
 
     plugins: plugins(isProduction),

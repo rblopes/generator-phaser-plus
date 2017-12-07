@@ -21,38 +21,16 @@ function runGenerator() {
 describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
   this.timeout(0);
 
-  describe('creates CommonJS-based projects', () => {
-    it('using prompts', () =>
-      runGenerator()
-        .withPrompts({title, description, customBuild, baseTemplate: 'commonjs'})
-        .then(checkSharedAssets)
-        .then(checkReadme)
-        .then(checkWebpackConfig)
-        .then(checkCommonJsConfig)
-        .then(checkCommonJsModules));
-  });
-
   describe('creates ECMAScript-based projects', () => {
     it('using prompts', () =>
       runGenerator()
-        .withPrompts({title, description, customBuild, baseTemplate: 'esnext'})
+        .withPrompts({title, description, customBuild, baseTemplate: 'default'})
         .then(checkSharedAssets)
         .then(checkReadme)
         .then(checkWebpackConfig)
         .then(checkECMAScriptConfig)
         .then(checkECMAScriptModules));
   });
-
-  function checkCommonJsConfig() {
-    assert.file([
-      '.editorconfig',
-      '.eslintrc.js',
-      '.gitattributes',
-      '.gitignore',
-      '.yo-rc.json',
-      'package.json'
-    ]);
-  }
 
   function checkECMAScriptConfig() {
     assert.file([
@@ -79,24 +57,6 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
       'config/paths.js',
       'config/plugins.js'
     ]);
-  }
-
-  function checkCommonJsModules() {
-    assert.file([
-      'app/scripts/assets.js',
-      'app/scripts/objects/logo.js',
-      'app/scripts/scenes/game.js',
-      'app/scripts/scenes/index.js',
-      'app/scripts/scenes/splash-screen.js'
-    ]);
-    assert.fileContent(
-      'app/scripts/config.js',
-      `exports.title = 'My Test Game';`
-    );
-    assert.fileContent(
-      'app/scripts/app.js',
-      `var config = require('./config');`
-    );
   }
 
   function checkECMAScriptModules() {

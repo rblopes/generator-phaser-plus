@@ -12,15 +12,4 @@ module.exports = [{
   name: 'description',
   message: 'Give it a short description (optional)',
   filter: s => trim(s)
-}, {
-  type: 'list',
-  name: 'baseTemplate',
-  message: 'How do you prefer to develop your game code?',
-  choices: [{
-    name: 'Using CommonJS modules',
-    value: 'commonjs'
-  }, {
-    name: 'Using Babel and ECMAScript modules',
-    value: 'esnext'
-  }]
 }];

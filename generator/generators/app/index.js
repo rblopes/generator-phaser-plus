@@ -24,28 +24,16 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const baseTemplate = this.variables.baseTemplate;
-
     //  Copy dotfiles.
-    this.fs.copy(
-      this.templatePath('dotfiles/editorconfig'),
-      this.destinationPath('.editorconfig'));
-    this.fs.copy(
-      this.templatePath('dotfiles/gitattributes'),
-      this.destinationPath('.gitattributes'));
-    this.fs.copy(
-      this.templatePath('dotfiles/gitignore'),
-      this.destinationPath('.gitignore'));
+    for (const file of ['editorconfig', 'gitattributes', 'gitignore']) {
+      this.fs.copy(
+        this.templatePath(`dotfiles/${file}`),
+        this.destinationPath(`.${file}`));
+    }
 
-    //  Write project README.
+    //  Copy README, Webpack configuration, scripts and related files.
     this.fs.copyTpl(
-      this.templatePath('README.md'),
-      this.destinationPath('README.md'),
-      this.variables);
-
-    //  Copy scripts and related files.
-    this.fs.copyTpl(
-      this.templatePath(`${baseTemplate}/**`),
+      this.templatePath('scripts/**'),
       this.destinationPath(),
       this.variables, {}, {
         globOptions: {
@@ -53,16 +41,10 @@ module.exports = class extends Generator {
         }
       });
 
-    //  Copy shared game project assets.
+    //  Copy game assets.
     this.fs.copy(
-      this.templatePath('shared/**'),
-      this.destinationPath('app/'));
-
-    //  Copy Webpack configuration.
-    this.fs.copyTpl(
-      this.templatePath('config/'),
-      this.destinationPath('config/'),
-      this.variables);
+      this.templatePath('static/'),
+      this.destinationPath('app/static/'));
 
     //  Set default configuration values.
     this.config.defaults(Object.assign({
@@ -70,7 +52,7 @@ module.exports = class extends Generator {
         createdWith: this.rootGeneratorVersion(),
         creationDate: new Date().toISOString()
       }
-    }, defaults[baseTemplate]));
+    }, defaults));
   }
 
   install() {

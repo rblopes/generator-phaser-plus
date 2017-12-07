@@ -18,43 +18,10 @@ const baseClass = 'Sprite';
 const filename = utils.getModuleName('src', name);
 
 describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
-  describe('creates a CommonJS module', () => {
-    describe(`containing a class extended from 'GameObjects.${baseClass}'`, () => {
-      it('using prompts', () =>
-        runGenerator('object', 'commonjs')
-          .withPrompts({name, description, baseClass})
-          .then(checkCreatedModule));
-
-      function checkCreatedModule() {
-        assert.fileContent([
-          [filename, `* ${description}`],
-          [filename, `Extends: Phaser.GameObjects.${baseClass},`],
-          [filename, `initialize: function ${name}(scene/*, ...args*/) {`],
-          [filename, `Phaser.GameObjects.${baseClass}.call(this, scene/*, ...args*/);`]
-        ]);
-      }
-    });
-
-    describe('containing a not extended class', () => {
-      it('using prompts', () =>
-        runGenerator('object', 'commonjs')
-          .withPrompts({name, description})
-          .then(checkCreatedModule));
-
-      function checkCreatedModule() {
-        assert.fileContent([
-          [filename, `* ${description}`],
-          [filename, `initialize: function ${name}(scene/*, ...args*/) {`]
-        ]);
-        assert.noFileContent(filename, `Extends: Phaser.GameObjects`);
-      }
-    });
-  });
-
   describe('creates a ECMAScript module', () => {
     describe(`containing a class extended from 'GameObjects.${baseClass}'`, () => {
       it('using prompts', () =>
-        runGenerator('object', 'esnext')
+        runGenerator('object', 'default')
           .withPrompts({name, description, baseClass})
           .then(checkCreatedModule));
 
@@ -68,7 +35,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
 
     describe('containing a not extended class', () => {
       it('using prompts', () =>
-        runGenerator('object', 'esnext')
+        runGenerator('object', 'default')
           .withPrompts({name, description})
           .then(checkCreatedModule));
 
