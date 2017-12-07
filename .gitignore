@@ -1,4 +1,5 @@
 *.log
+yarn.lock
 dist/
 build/
 node_modules/
