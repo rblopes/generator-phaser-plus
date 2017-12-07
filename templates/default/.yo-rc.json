@@ -1,6 +1,5 @@
 {
   "generator-phaser-plus": {
-    "baseTemplate": "esnext",
     "objects": {
       "dest": "app/scripts/objects/"
     },
