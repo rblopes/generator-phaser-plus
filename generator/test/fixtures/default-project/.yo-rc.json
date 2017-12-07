@@ -1,6 +1,5 @@
 {
   "generator-phaser-plus": {
-    "baseTemplate": "commonjs",
     "objects": {
       "dest": "src/"
     },

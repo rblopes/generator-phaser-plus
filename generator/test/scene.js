@@ -22,63 +22,10 @@ const filename = utils.getModuleName('src', name);
 const statesIndex = 'src/scenes-index.js';
 
 describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
-  describe('creates a CommonJS module', () => {
-    describe('with chosen methods', () => {
-      it('using prompts', () =>
-        runGenerator('scene', 'commonjs')
-          .withPrompts({name, description, methods})
-          .then(checkCreatedModule)
-          .then(checkUpdatedIndex));
-
-      function checkCreatedModule() {
-        assert.fileContent([
-          [filename, `* ${description}`],
-          [filename, `exports.init = function () {`],
-          [filename, `exports.create = function () {`],
-          [filename, `exports.shutdown = function () {`]
-        ]);
-        assert.noFileContent([
-          [filename, `exports.preload = function () {`],
-          [filename, `exports.update = function () {`],
-          [filename, `exports.render = function () {`]
-        ]);
-      }
-    });
-
-    describe('with default methods', () => {
-      it('using prompts', () =>
-        runGenerator('scene', 'commonjs')
-          .withPrompts({name, description})
-          .then(checkCreatedModule)
-          .then(checkUpdatedIndex));
-
-      function checkCreatedModule() {
-        assert.fileContent([
-          [filename, `* ${description}`],
-          [filename, `exports.create = function () {`],
-          [filename, `exports.update = function () {`]
-        ]);
-        assert.noFileContent([
-          [filename, `exports.init = function () {`],
-          [filename, `exports.preload = function () {`],
-          [filename, `exports.render = function () {`],
-          [filename, `exports.shutdown = function () {`]
-        ]);
-      }
-    });
-
-    function checkUpdatedIndex() {
-      assert.fileContent([
-        [statesIndex, `exports.Nada = require('./nada');`],
-        [statesIndex, `exports.${name} = require('./${kebabCase(name)}');`]
-      ]);
-    }
-  });
-
   describe('creates a ECMAScript module', () => {
     describe('with chosen methods', () => {
       it('using prompts', () =>
-        runGenerator('scene', 'esnext')
+        runGenerator('scene', 'default')
           .withPrompts({name, description, methods})
           .then(checkCreatedModule)
           .then(checkUpdatedIndex));
@@ -101,7 +48,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
 
     describe('with default methods', () => {
       it('using prompts', () =>
-        runGenerator('scene', 'esnext')
+        runGenerator('scene', 'default')
           .withPrompts({name, description})
           .then(checkCreatedModule)
           .then(checkUpdatedIndex));
