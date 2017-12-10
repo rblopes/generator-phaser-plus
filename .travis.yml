@@ -14,4 +14,4 @@ branches:
     - master
 
 script:
-  - cd generator && npm install && npm test
+  - cd packages/generator-phaser-plus/ && npm install && npm test
