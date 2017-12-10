@@ -6,7 +6,7 @@
         <a href="https://www.npmjs.com/package/generator-phaser-plus">
             <img
                 alt="npm version"
-                src="https://img.shields.io/npm/v/generator-phaser-plus.svg?style=flat-square">
+                src="https://img.shields.io/npm/v/generator-phaser-plus/next.svg?style=flat-square">
         </a>
         <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=generator">
             <img
