@@ -1,7 +1,5 @@
-# `generator-phaser-plus`
-
 <div align="center">
-    <img src="docs/media/logo.png" alt="generator-phaser-plus">
+    <img src="docs/media/logo.png" alt="generator-phaser-plus logo" title="generator-phaser-plus">
     <div>
         <a href="https://www.npmjs.com/package/generator-phaser-plus">
             <img
@@ -11,12 +9,12 @@
         <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=generator">
             <img
                 alt="dependencies"
-                src="https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=generator">
+                src="https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=packages/generator-phaser-plus">
         </a>
         <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=generator&type=dev">
             <img
                 alt="devDependencies"
-                src="https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=generator">
+                src="https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=packages/generator-phaser-plus">
         </a>
         <a href="https://travis-ci.org/rblopes/generator-phaser-plus">
             <img
@@ -26,20 +24,22 @@
     </div>
 </div>
 
-`generator-phaser-plus` is a [Yeoman](http://yeoman.io/) plugin that makes creating [Phaser](http://phaser.io/) Web game projects simple, quick and easy.
+`generator-phaser-plus` is a [Yeoman](http://yeoman.io/) plugin that makes starting up [Phaser](http://phaser.io/) Web game projects simple, quick and easy.
 
-This repository contains both the generator code and its template projects, conveniently organized as individual directories.
+This project is currently being ported to the single repository ("monorepo") development model and its structure is changing rapidly. All contents are being conveniently organized in individual directories:
 
-*   **`generator`**: Contains the generator code and development scripts.
+*   **:file_folder: `docs/`**: The user manual and general documentation pages of the generator. (**Note:** The current documentation pages are pending updates for the upcoming release. If you're looking for [documentation of the stable release](/rblopes/generator-phaser-plus/blob/v2.x/docs/index.md#generator-phaser-plus-manual), you will find a snapshot of the actual pages under the [`v2.x`](/rblopes/generator-phaser-plus/blob/v2.x/) branch.)
 
-*   **`templates`**: Contains the sample projects. Those are fully runnable, preview versions of the projects created by the generator and updates made here are extracted back as generator templates.
+*   **:file_folder: `packages/`**: The npm packages (only `generator-phaser-plus` for now, actually) of the generator libraries.
 
-For more info, take a look at the project [development guide](docs/dev-guide.md).
+*   **:file_folder: `templates/`**: The sample projects. These are fully runnable, preview versions of the projects created with the generator. Updates made there are extracted back as project templates of the generator.
+
+~~For more info, take a look at the project [development guide](docs/dev-guide.md).~~ (**Note:** Coming soon.)
 
 
 ## About Version 3
 
-Development of the next major release with [Phaser 3](https://github.com/photonstorm/phaser) just began and soon you'll find out how you can help me in this crucial task. You can install it already via npm:
+Development of the next major release with support for [Phaser 3](https://github.com/photonstorm/phaser) just began and soon you'll find out how you can help me in this crucial task. You can install it already with npm (or Yarn) using the `next` distribution tag:
 
 ```
 npm install --global generator-phaser-plus@next

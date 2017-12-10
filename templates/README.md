@@ -3,13 +3,30 @@
 
 <div align="center"><img src="../docs/media/logo.png"></div>
 
-Here you find the [`generator-phaser-plus`](../generator/#readme) template projects:
+Here you will find the [`generator-phaser-plus`](../generator/#readme) project templates.
 
-*   One with application scripts written as CommonJS modules, ideal for newcomers as well seasoned developers who want to start creating games at once.
+The provided projects present here contain the same sample game and include only the essential features to start game development with Phaser right away. Changes made here are extracted back and become actual project templates in the generator.
 
-*   Another one using ECMAScript modules, for more skilled developers willing to test the latest and future JavaScript features. Includes [Babel](https://babeljs.io/), configured with [`babel-preset-env`](https://github.com/babel/babel-preset-env), to compile and bundle scripts in a format compatible with today's browsers and devices.
+Currently, the following templates are available.
 
-Both projects provide the same sample game, including only the essential features to start developing right away.
+
+<h2>
+    <span>:file_folder: `default/`</span>
+    <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=templates/default/">
+        <img
+            alt="dependencies status"
+            src="https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=templates/default/">
+    </a>
+    <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=templates/default/&type=dev">
+        <img
+            alt="devDependencies status"
+            src="https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=templates/default/">
+    </a>
+</h2>
+
+As the name implies, this is the default project template created by `generator-phaser-plus`. Contains a very basic Webpack configuration. Application scripts are authored using ECMAScript syntax and modules. Includes [Babel](https://babeljs.io/), configured with [`babel-preset-env`](https://github.com/babel/babel-preset-env), to compile and bundle scripts in a format compatible with today's browsers and devices.
+
+>   **Note**: This is the project template being developed to be shipped with `generator-phaser-plus@3.0.0`.
 
 
 How do I use these sample projects?
@@ -34,15 +51,7 @@ git clone https://github.com/rblopes/generator-phaser-plus.git
 cd generator-phaser-plus/templates/
 ```
 
-Go into any directory of your choice, install the project dependencies and run tasks using npm (or [Yarn](https://yarnpkg.com/)), as you're used to with any game project created with `generator-phaser-plus`.
-
-```sh
-cd commonjs   # Example: edit the 'CommonJS' project.
-npm install   # Installs the required project dependencies.
-npm start     # or `gulp dev`: Launches the game in development mode.
-npm run dist  # or `gulp dist`: Prepares the game for distribution.
-npm run clean # or `gulp clean`: Deletes build files.
-```
+Go into any directory of your choice and install the project dependencies and run tasks using npm or [Yarn](https://yarnpkg.com/).
 
 
 License
