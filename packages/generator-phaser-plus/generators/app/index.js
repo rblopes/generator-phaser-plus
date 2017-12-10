@@ -58,9 +58,10 @@ module.exports = class extends Generator {
   install() {
     //  Prefer Yarn package manager, if available.
     if (detectInstalled.sync('yarn')) {
-      return this.yarnInstall();
+      this.yarnInstall();
+    } else {
+      this.npmInstall();
     }
-    return this.npmInstall();
   }
 
   end() {

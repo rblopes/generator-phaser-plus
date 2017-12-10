@@ -5,5 +5,8 @@
   "devDependencies": {
     "lerna": "^2.0.0"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "private": true
 }
