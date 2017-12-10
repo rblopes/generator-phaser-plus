@@ -6,14 +6,14 @@
                 alt="npm version"
                 src="https://img.shields.io/npm/v/generator-phaser-plus/next.svg?style=flat-square">
         </a>
-        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=generator">
+        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus/">
             <img
-                alt="dependencies"
+                alt="dependencies status"
                 src="https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=packages/generator-phaser-plus">
         </a>
-        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=generator&type=dev">
+        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus/&type=dev">
             <img
-                alt="devDependencies"
+                alt="devDependencies status"
                 src="https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=packages/generator-phaser-plus">
         </a>
         <a href="https://travis-ci.org/rblopes/generator-phaser-plus">
@@ -28,7 +28,7 @@
 
 This project is currently being ported to the single repository ("monorepo") development model and its structure is changing rapidly. All contents are being conveniently organized in individual directories:
 
-*   **:file_folder: `docs/`**: The user manual and general documentation pages of the generator. (**Note:** The current documentation pages are pending updates for the upcoming release. If you're looking for [documentation of the stable release](/rblopes/generator-phaser-plus/blob/v2.x/docs/index.md#generator-phaser-plus-manual), you will find a snapshot of the actual pages under the [`v2.x`](/rblopes/generator-phaser-plus/blob/v2.x/) branch.)
+*   **:file_folder: `docs/`**: The user manual and general documentation pages of the generator. (**Note:** The current documentation pages are pending updates for the upcoming release. If you're looking for [documentation of the stable release](https://github.com/rblopes/generator-phaser-plus/blob/v2.x/docs/index.md#generator-phaser-plus-manual), you will find a snapshot of the actual pages under the [`v2.x`](https://github.com/rblopes/generator-phaser-plus/blob/v2.x/) branch.)
 
 *   **:file_folder: `packages/`**: The npm packages (only `generator-phaser-plus` for now, actually) of the generator libraries.
 

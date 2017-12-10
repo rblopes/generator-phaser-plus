@@ -11,7 +11,7 @@ Currently, the following templates are available.
 
 
 <h2>
-    <span>:file_folder: `default/`</span>
+    <span>:file_folder: <code>default/</code></span>
     <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=templates/default/">
         <img
             alt="dependencies status"
