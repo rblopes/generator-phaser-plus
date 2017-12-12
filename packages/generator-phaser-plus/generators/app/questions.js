@@ -10,6 +10,6 @@ module.exports = [{
   validate: s => !isEmpty(s) || 'No way! Great games have great titles!!'
 }, {
   name: 'description',
-  message: 'Give it a short description (optional)',
+  message: `Describe your game in a few words (optional):`,
   filter: s => trim(s)
 }];

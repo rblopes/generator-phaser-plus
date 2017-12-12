@@ -6,12 +6,12 @@ const utils = require('../../lib/utils');
 
 module.exports = [{
   name: 'name',
-  message: `What's the object name?`,
+  message: `What's this object name?`,
   filter: s => utils.pascalCase(s),
   validate: s => !isEmpty(s) || 'Sorry, a name is required.'
 }, {
   name: 'description',
-  message: 'Give it a short description (optional)',
+  message: `Describe this object in a few words (optional):`,
   filter: s => trim(s)
 }, {
   type: 'list',

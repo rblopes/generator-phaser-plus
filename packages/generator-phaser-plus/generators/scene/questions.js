@@ -6,17 +6,17 @@ const utils = require('../../lib/utils');
 
 module.exports = [{
   name: 'name',
-  message: `What's the name of this game state?`,
+  message: `What's this scene name?`,
   filter: s => utils.pascalCase(s),
   validate: s => !isEmpty(s) || 'Sorry, a name is required.'
 }, {
   name: 'description',
-  message: 'Give it a short description (optional)',
+  message: 'Describe this scene in a few words (optional):',
   filter: s => trim(s)
 }, {
   name: 'methods',
   type: 'checkbox',
-  message: 'Which methods to include in the game state?',
+  message: 'Choose which life-cycle methods to include:',
   choices: ['init', 'preload', 'create', 'update', 'render', 'shutdown'],
   default: ['create', 'update']
 }];
