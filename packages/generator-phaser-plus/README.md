@@ -1,20 +1,20 @@
 <div align="center">
-    <img src="../docs/media/logo.png" alt="generator-phaser-plus">
+    <img src="../../docs/media/logo.png" alt="generator-phaser-plus logo" title="generator-phaser-plus">
     <div>
         <a href="https://www.npmjs.com/package/generator-phaser-plus">
             <img
                 alt="npm version"
-                src="https://img.shields.io/npm/v/generator-phaser-plus.svg?style=flat-square">
+                src="https://img.shields.io/npm/v/generator-phaser-plus/next.svg?style=flat-square">
         </a>
-        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=generator">
+        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus/">
             <img
-                alt="dependencies"
-                src="https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=generator">
+                alt="dependencies status"
+                src="https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=packages/generator-phaser-plus">
         </a>
-        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=generator&type=dev">
+        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus/&type=dev">
             <img
-                alt="devDependencies"
-                src="https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=generator">
+                alt="devDependencies status"
+                src="https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=packages/generator-phaser-plus">
         </a>
         <a href="https://travis-ci.org/rblopes/generator-phaser-plus">
             <img
@@ -24,48 +24,24 @@
     </div>
 </div>
 
->   Create [Phaser][phsr] Web games using Browserify, Browsersync, Gulp and more.
+>   Create [Phaser](http://phaser.io/) Web games with ease.
 
 `generator-phaser-plus` is a Yeoman plugin that makes creating Phaser Web game projects simple, quick and easy.
-
-
-Two templates, same workflow!
------------------------------
-
-Choose how you want to craft your game code:
-
-*   With application scripts written as CommonJS modules: ideal for newcomers as well experienced developers who want to start creating games at once, or;
-
-*   Using ECMAScript modules and the latest available language features: Comes with [Babel][babl] and [`babel-preset-env`](https://github.com/babel/babel-preset-env) to make scripts "from the future" work in today's browsers and devices. Recommended for skilled developers and adventurers.
-
-
-Batteries Included
-------------------
-
-Projects created with `generator-phaser-plus` are powered by the following tools:
-
-*   [Gulp][gulp] task manager, to handle development and distribution tasks.
-
-*   [Browsersync][bsnc] for cross-device testing.
-
-*   [Browserify][brsy] for easier integration of components and dependencies.
-
-*   [ESLint][eslt] for code quality check.
 
 
 Quick Start
 -----------
 
->   Note: Assuming you have already installed [Node.js][node].
+>   Note: Assuming you have already installed [Node.js](https://nodejs.org/).
 
-1.  **Install [Yeoman][yo__] and `generator-phaser-plus` via [npm][npm_]:**
+1.  **Install [Yeoman](http://yeoman.io/) and `generator-phaser-plus`:**
 
     ```sh
     npm install --global yo                    # Install Yeoman if you don't have it yet.
     npm install --global generator-phaser-plus # Install generator-phaser-plus.
     ```
 
-2.  **Create an empty directory for your new project and go into it:**
+2.  **Create a directory for your new project and go into it:**
 
     ```sh
     mkdir my-awesome-game
@@ -90,26 +66,15 @@ Have a look at the [user's manual][m] and learn more about available features, i
 License
 -------
 
-This software is distributed under the terms of the [MIT License](LICENSE).
+This software is distributed under the terms of the [MIT License](../../LICENSE.md).
 
 
 <!-- Links -->
 
-[n]: ../docs/news.md
-[m]: ../docs/index.md
-[t]: ../docs/tasks.md
-[c]: ../docs/contributing.md
-[p]: ../docs/project-layout.md
-[g]: ../docs/quick-start-guide.md
-[s]: ../docs/generator.md#sub-generators
-[logo]: ../docs/media/logo.png
-
-[phsr]: http://phaser.io/
-[yo__]: http://yeoman.io/
-[eslt]: http://eslint.org/
-[gulp]: http://gulpjs.com/
-[babl]: https://babeljs.io/
-[node]: https://nodejs.org/
-[brsy]: http://browserify.org/
-[npm_]: https://www.npmjs.com/
-[bsnc]: http://www.browsersync.io/
+[n]: ../../docs/news.md
+[m]: ../../docs/index.md
+[t]: ../../docs/tasks.md
+[c]: ../../docs/contributing.md
+[p]: ../../docs/project-layout.md
+[g]: ../../docs/quick-start-guide.md
+[s]: ../../docs/generator.md#sub-generators
