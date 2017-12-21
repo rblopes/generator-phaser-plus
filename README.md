@@ -30,7 +30,7 @@ This project is currently being ported to the single repository ("monorepo") dev
 
 *   **:file_folder: `docs/`**: The user manual and general documentation pages of the generator. (**Note:** The current documentation pages are pending updates for the upcoming release. If you're looking for [documentation of the stable release](https://github.com/rblopes/generator-phaser-plus/blob/v2.x/docs/index.md#generator-phaser-plus-manual), you will find a snapshot of the actual pages under the [`v2.x`](https://github.com/rblopes/generator-phaser-plus/blob/v2.x/) branch.)
 
-*   **:file_folder: `packages/`**: The npm packages (only `generator-phaser-plus` for now, actually) of the generator libraries.
+*   **:file_folder: `packages/`**: The npm packages (only `generator-phaser-plus` for now) of the generator libraries.
 
 *   **:file_folder: `templates/`**: The sample projects. These are fully runnable, preview versions of the projects created with the generator. Updates made there are extracted back as project templates of the generator.
 
