@@ -10,8 +10,8 @@ import Logo from '../objects/logo';
 
 export default class Game extends Phaser.Scene {
 
-  constructor() {
-    super({files});
+  constructor(config = {}) {
+    super(Object.assign({files}, config));
   }
 
   create() {

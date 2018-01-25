@@ -2,24 +2,21 @@
  * `assets` module
  * ===============
  *
- * Declares static asset packs to be loaded using the `Phaser.Loader#pack`
- * method. Use this module to declare game assets.
+ * Static assets to be loaded. Files are declared using 'Scene Asset Payload'
+ * format. Assets are assumed to live in the `app/static/assets/` folder.
  */
 
 //  -- Splash screen assets.
 export const splashScreenAssets = [{
   key: 'splash-screen',
-  type: 'image',
-  url: 'assets/splash-screen.png'
+  type: 'image'
 }, {
   key: 'progress-bar',
-  type: 'image',
-  url: 'assets/progress-bar.png'
+  type: 'image'
 }];
 
 //  -- General assets used throughout the game.
 export const gameAssets = [{
   key: 'phaser',
-  type: 'image',
-  url: 'assets/phaser.png'
+  type: 'image'
 }];
