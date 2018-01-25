@@ -11,15 +11,10 @@ import * as scenes from './scenes';
 
 //  Add all required scenes and boot the game.
 export function boot() {
-  const game = new Phaser.Game(config);
-
-  Object
-    .entries(scenes)
-    .forEach(([key, scene]) => game.scene.add(key, scene));
-
-  game.scene.start('SplashScreen');
-
-  return game;
+  return Object.entries(scenes).reduce(
+    (g, [k, S]) => ((g.scene.add(k, S, k === 'SplashScreen'), g)),
+    new Phaser.Game(config)
+  );
 }
 
 boot();

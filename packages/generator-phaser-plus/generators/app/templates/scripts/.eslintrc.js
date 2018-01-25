@@ -47,9 +47,9 @@ exports.rules = {
     }
   ],
 
-  // Favor Unix-style line endings
+  //  Favor Unix-style line endings
   'linebreak-style': ['error', 'unix'],
 
-  // End lines with semicolons
+  //  End lines with semicolons
   'semi': ['error', 'always']
 };

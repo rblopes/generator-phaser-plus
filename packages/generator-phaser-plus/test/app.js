@@ -25,16 +25,43 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
     it('using prompts', () =>
       runGenerator()
         .withPrompts({title, description, customBuild, baseTemplate: 'default'})
-        .then(checkSharedAssets)
         .then(checkReadme)
-        .then(checkWebpackConfig)
-        .then(checkECMAScriptConfig)
-        .then(checkECMAScriptModules));
+        .then(checkTasks)
+        .then(checkConfig)
+        .then(checkAssets)
+        .then(checkScripts));
   });
 
-  function checkECMAScriptConfig() {
+  function checkReadme() {
+    assert.fileContent([
+      ['README.md', `# [${title}]`],
+      ['README.md', `>   ${description}`]
+    ]);
+  }
+
+  function checkTasks() {
     assert.file([
-      '.babelrc.js',
+      'gulpfile.js/config/babel.js',
+      'gulpfile.js/config/webpack',
+      'gulpfile.js/config/webpack/uglify.js',
+      'gulpfile.js/config/webpack/plugins.js',
+      'gulpfile.js/config/webpack/index.js',
+      'gulpfile.js/config/paths.js',
+      'gulpfile.js/config/browsersync.js',
+      'gulpfile.js/index.js',
+      'gulpfile.js/tasks/copy-assets.js',
+      'gulpfile.js/tasks/serve.js',
+      'gulpfile.js/tasks/clean.js',
+      'gulpfile.js/tasks/dist.js',
+      'gulpfile.js/tasks/compile.js',
+      'gulpfile.js/lib/server.js',
+      'gulpfile.js/lib/webpack-middlewares.js',
+      'gulpfile.js/lib/webpack.js'
+    ]);
+  }
+
+  function checkConfig() {
+    assert.file([
       '.editorconfig',
       '.eslintrc.js',
       '.gitattributes',
@@ -44,24 +71,20 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
     ]);
   }
 
-  function checkReadme() {
-    assert.fileContent([
-      ['README.md', `# [${title}]`],
-      ['README.md', `>   ${description}`]
-    ]);
-  }
-
-  function checkWebpackConfig() {
+  function checkAssets() {
     assert.file([
-      'config/index.js',
-      'config/paths.js',
-      'config/plugins.js'
+      'app/index.html',
+      'app/static/favicon.ico',
+      'app/static/assets/phaser.png',
+      'app/static/assets/progress-bar.png',
+      'app/static/assets/splash-screen.png'
     ]);
   }
 
-  function checkECMAScriptModules() {
+  function checkScripts() {
     assert.file([
       'app/scripts/assets.js',
+      'app/scripts/index.js',
       'app/scripts/objects/logo.js',
       'app/scripts/scenes/game.js',
       'app/scripts/scenes/index.js',
@@ -71,19 +94,5 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
       'app/scripts/config.js',
       `export const title = 'My Test Game';`
     );
-    assert.fileContent(
-      'app/scripts/app.js',
-      `import * as config from './config';`
-    );
-  }
-
-  function checkSharedAssets() {
-    assert.file([
-      'app/index.html',
-      'app/static/favicon.ico',
-      'app/static/assets/phaser.png',
-      'app/static/assets/progress-bar.png',
-      'app/static/assets/splash-screen.png'
-    ]);
   }
 });

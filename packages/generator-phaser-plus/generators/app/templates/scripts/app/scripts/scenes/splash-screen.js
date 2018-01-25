@@ -10,8 +10,8 @@ import {splashScreenAssets as files} from '../assets';
 
 export default class SplashScreen extends Phaser.Scene {
 
-  constructor() {
-    super({files});
+  constructor(config = {}) {
+    super(Object.assign({files}, config));
   }
 
   preload() {
@@ -28,8 +28,9 @@ export default class SplashScreen extends Phaser.Scene {
   showBackground() {
     const x = this.cameras.main.width / 2;
     const y = this.cameras.main.height / 2;
-    const background = this.add.image(x, y, 'splash-screen');
-    background.setOrigin(0.5);
+
+    this.add.image(x, y, 'splash-screen');
+    this.add.image(82, 282, 'progress-bar').setOrigin(0);
   }
 
 }
