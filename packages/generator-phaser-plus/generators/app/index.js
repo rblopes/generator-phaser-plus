@@ -23,29 +23,14 @@ module.exports = class extends Generator {
       .then(variables => Object.assign(this, {variables}));
   }
 
+  configuring() {
+    this.composeWith(
+      require.resolve('@rblopes/generator-phaser-plus-template-default'),
+      {variables: this.variables}
+    );
+  }
+
   writing() {
-    //  Copy dotfiles.
-    for (const file of ['editorconfig', 'gitattributes', 'gitignore']) {
-      this.fs.copy(
-        this.templatePath(`dotfiles/${file}`),
-        this.destinationPath(`.${file}`));
-    }
-
-    //  Copy README, Webpack configuration, scripts and related files.
-    this.fs.copyTpl(
-      this.templatePath('scripts/**'),
-      this.destinationPath(),
-      this.variables, {}, {
-        globOptions: {
-          dot: true
-        }
-      });
-
-    //  Copy game assets.
-    this.fs.copy(
-      this.templatePath('static/'),
-      this.destinationPath('app/static/'));
-
     //  Set default configuration values.
     this.config.defaults(Object.assign({
       meta: {
