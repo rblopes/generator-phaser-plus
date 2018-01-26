@@ -13,20 +13,25 @@
   "keywords": [
     "yeoman-generator",
     "babel",
+    "browsersync",
     "canvas",
     "es2015",
     "es2016",
     "es2017",
+    "es2018",
     "es6",
     "es7",
+    "es8",
     "esnext",
     "game development",
     "gamedev",
     "games",
+    "gulp",
     "html5",
     "phaser",
     "scaffold",
-    "webgl"
+    "webgl",
+    "webpack"
   ],
   "files": [
     "generators/",
