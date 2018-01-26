@@ -1,26 +1,8 @@
-<h1>
-    <span>
-        <a href="https://www.npmjs.com/package/generator-phaser-plus">
-            <code>generator-phaser-plus</code>
-        </a>
-        default template
-    </span>
-    <a href="https://www.npmjs.com/package/@rblopes/generator-phaser-plus-template-default">
-        <img
-            alt="npm version"
-            src="https://img.shields.io/npm/v/@rblopes/generator-phaser-plus-template-default/next.svg?style=flat-square">
-    </a>
-    <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus-template-default/">
-        <img
-            alt="dependencies status"
-            src="https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=packages/generator-phaser-plus-template-default">
-    </a>
-    <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus-template-default/&type=dev">
-        <img
-            alt="devDependencies status"
-            src="https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=packages/generator-phaser-plus-template-default">
-    </a>
-</h1>
+# [`generator-phaser-plus`](https://www.npmjs.com/package/generator-phaser-plus) _default_ template
+
+[![npm version](https://img.shields.io/npm/v/@rblopes/generator-phaser-plus-template-default/next.svg?style=flat-square)](https://www.npmjs.com/package/@rblopes/generator-phaser-plus-template-default)
+[![dependencies status](https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=packages/generator-phaser-plus-template-default)](https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus-template-default/)
+[![devDependencies status](https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=packages/generator-phaser-plus-template-default)](https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus-template-default/&type=dev)
 
 >   Create [Phaser](http://phaser.io/) Web games with ease.
 

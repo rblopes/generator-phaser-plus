@@ -38,6 +38,7 @@
   },
   "main": "index.js",
   "files": [
+    "templates/",
     "index.js",
     "test.js"
   ],
