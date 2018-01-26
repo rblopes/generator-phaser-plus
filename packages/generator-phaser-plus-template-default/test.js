@@ -1,7 +1,3 @@
-/*
- * Main generator test suite.
- */
-
 'use strict';
 
 const chalk = require('chalk');
@@ -9,20 +5,20 @@ const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
 
 // User inputs.
-const title = 'My Test Game';
-const description = 'My Awesome Test Game.';
+const title = 'Test Title';
+const description = 'Test Description';
 
 function runGenerator() {
   return helpers
-    .run(require.resolve('../generators/app'));
+    .run(require.resolve('.'));
 }
 
-describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
+describe(chalk.bold.cyan('generator-phaser-plus-template-default'), function () {
   this.timeout(0);
 
   it('creates the project', () =>
     runGenerator()
-      .withPrompts({title, description})
+      .withOptions({variables: {title, description}})
       .then(checkReadme)
       .then(checkTasks)
       .then(checkConfig)
@@ -63,7 +59,6 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
       '.eslintrc.js',
       '.gitattributes',
       '.gitignore',
-      '.yo-rc.json',
       'package.json'
     ]);
   }

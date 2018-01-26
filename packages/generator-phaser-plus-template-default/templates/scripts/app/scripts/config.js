@@ -46,6 +46,6 @@ export const loader = {
 };
 
 //  Game title, version and Web address.
-export const title = 'My Awesome Game';
+export const title = '<%- title %>';
 export const version = '1.0.0';
 export const url = 'https://example.com/';
