@@ -1,7 +1,9 @@
 language: node_js
 
 sudo: false
+
 node_js:
+  - v9
   - v8
   - v6
   - v4
@@ -12,6 +14,3 @@ git:
 branches:
   only:
     - master
-
-script:
-  - cd packages/generator-phaser-plus/ && npm install && npm test

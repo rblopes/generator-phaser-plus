@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "pretest": "learn bootstrap",
     "test": "lerna run test"
   },
   "devDependencies": {
