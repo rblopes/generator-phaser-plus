@@ -2,9 +2,7 @@
  * <%- name %>
  * <%- '='.repeat(name.length) %>
  *
-<% if (description) { -%>
- * <%- description %>
-<% } -%>
+ * My custom object.
  */
 
 <% if (baseClass) { -%>
@@ -21,10 +19,6 @@ export default class <%- name %> {
     //  TODO:
     //    1. Edit constructor parameters accordingly.
     //    2. Adjust object properties.
-  }
-
-  update() {
-    //  TODO: Stub.
   }
 
 }

@@ -2,17 +2,15 @@
  * <%- name %> scene
  * <%- '='.repeat(6 + name.length) %>
  *
-<% if (description) { -%>
- * <%- description %>
-<% } -%>
+ * My custom scene.
  */
 
 export default class <%- name %> extends Phaser.Scene {
-<% methods.forEach(method => { -%>
+<% for (const method of methods) { -%>
 
   <%- method %>() {
     //  TODO: Stub
   }
-<% }) -%>
+<% } -%>
 
 }

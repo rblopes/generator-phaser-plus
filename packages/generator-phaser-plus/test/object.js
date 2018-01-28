@@ -11,22 +11,31 @@ const runGenerator = require('./fixtures/run-generator');
 
 // User inputs.
 const name = utils.pascalCase('Test Object');
-const description = 'A test object.';
 const baseClass = 'Sprite';
 
 // Expected file name of the create module.
 const filename = utils.getModuleName('src', name);
 
 describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
-  it(`creates a '${name}' class`, () =>
+  it(`creates an extended '${name}' class`, () =>
     runGenerator('object', 'default')
-      .withPrompts({name, description, baseClass})
-      .then(checkCreatedModule));
+      .withArguments([name])
+      .withPrompts({baseClass})
+      .then(() => {
+        assert.fileContent(
+          filename,
+          `class ${name} extends Phaser.GameObjects.${baseClass} {`
+        );
+      }));
 
-  function checkCreatedModule() {
-    assert.fileContent([
-      [filename, `* ${description}`],
-      [filename, `class ${name} extends Phaser.GameObjects.${baseClass} {`]
-    ]);
-  }
+  it(`creates a plain '${name}' class`, () =>
+    runGenerator('object', 'default')
+      .withArguments([name])
+      .withPrompts({baseClass: null})
+      .then(() => {
+        assert.fileContent(
+          filename,
+          `class ${name} {`
+        );
+      }));
 });

@@ -12,7 +12,6 @@ const runGenerator = require('./fixtures/run-generator');
 
 // User inputs.
 const name = utils.pascalCase('Test Scene');
-const description = 'A test game scene.';
 const methods = ['init', 'create', 'shutdown'];
 
 // Expected file name of the create module.
@@ -25,13 +24,14 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
   describe(`creates a '${name}' class`, () => {
     it('with selected life-cycle methods', () => {
       return runGenerator('scene', 'default')
-        .withPrompts({name, description, methods})
+        .withArguments([name])
+        .withOptions({customize: true})
+        .withPrompts({methods})
         .then(checkCreatedModule)
         .then(checkIndexModule);
 
       function checkCreatedModule() {
         assert.fileContent([
-          [filename, `* ${description}`],
           [filename, `class ${name} extends Phaser.Scene {`],
           [filename, `init() {`],
           [filename, `create() {`],
@@ -40,20 +40,20 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
         assert.noFileContent([
           [filename, `preload() {`],
           [filename, `update() {`],
-          [filename, `render() {`]
+          [filename, `render() {`],
+          [filename, `destroy() {`]
         ]);
       }
     });
 
     it('with default methods', () => {
       return runGenerator('scene', 'default')
-        .withPrompts({name, description})
+        .withArguments([name])
         .then(checkCreatedModule)
         .then(checkIndexModule);
 
       function checkCreatedModule() {
         assert.fileContent([
-          [filename, `* ${description}`],
           [filename, `class ${name} extends Phaser.Scene {`],
           [filename, `create() {`],
           [filename, `update() {`]
@@ -62,7 +62,8 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
           [filename, `init() {`],
           [filename, `preload() {`],
           [filename, `render() {`],
-          [filename, `shutdown() {`]
+          [filename, `shutdown() {`],
+          [filename, `destroy() {`]
         ]);
       }
     });

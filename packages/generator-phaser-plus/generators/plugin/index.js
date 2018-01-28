@@ -3,29 +3,31 @@
 const Generator = require('yeoman-generator');
 const utils = require('../../lib/utils');
 const banner = require('../../lib/banner');
-const questions = require('./questions');
 
 module.exports = class extends Generator {
-  initializing() {
-    this.log(banner(this.rootGeneratorVersion()));
-    this.log('Plugin generator:\n');
+  constructor(args, opts) {
+    super(args, opts)
+      .argument('name', {
+        description: 'The plugin class name.',
+        type: name => utils.pascalCase(name)
+      });
   }
 
-  prompting() {
-    return this
-      .prompt(questions)
-      .then(variables => Object.assign(this, {variables}));
+  initializing() {
+    this.log(banner(this.rootGeneratorVersion()));
+    this.log('Game plugin class generator:\n');
   }
 
   writing() {
+    const {name} = this.options;
+
     this.fs.copyTpl(
       this.templatePath('plugin.js'),
       this.destinationPath(
         utils.getModuleName(
           this.config.get('plugins').dest,
-          this.variables.name
+          name
         )
-      ),
-      this.variables);
+      ), {name});
   }
 };

@@ -4,18 +4,57 @@ const Generator = require('yeoman-generator');
 const kebabCase = require('lodash.kebabcase');
 const utils = require('../../lib/utils');
 const banner = require('../../lib/banner');
-const questions = require('./questions');
 
 module.exports = class extends Generator {
+  constructor(args, opts) {
+    super(args, opts)
+      .argument('name', {
+        description: 'The scene class name.',
+        type: name => utils.pascalCase(name)
+      })
+      .option('customize', {
+        alias: 'c',
+        description: 'Select life-cycle methods to include.'
+      });
+  }
+
   initializing() {
     this.log(banner(this.rootGeneratorVersion()));
-    this.log('Game scene generator:\n');
+    this.log('Game scene class generator:\n');
   }
 
   prompting() {
+    const defaults = {methods: ['create', 'update']};
+
+    const questions = [{
+      name: 'methods',
+      type: 'checkbox',
+      message: 'Choose which life-cycle methods to include:',
+      choices: [
+        'init',
+        'preload',
+        'create',
+        'update',
+        'render',
+        'shutdown',
+        'destroy'
+      ],
+      default: defaults.methods,
+      when: () => this.options.customize
+    }];
+
     return this
       .prompt(questions)
-      .then(variables => Object.assign(this, {variables}));
+      .then(variables => {
+        if (typeof variables.methods === 'undefined') {
+          variables.methods = defaults.methods;
+        }
+
+        //  Assign user inputs to the variables hash.
+        variables.name = this.options.name;
+
+        return Object.assign(this, {variables});
+      });
   }
 
   writing() {

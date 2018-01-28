@@ -3,18 +3,45 @@
 const Generator = require('yeoman-generator');
 const utils = require('../../lib/utils');
 const banner = require('../../lib/banner');
-const questions = require('./questions');
 
 module.exports = class extends Generator {
+  constructor(args, opts) {
+    super(args, opts)
+      .argument('name', {
+        description: 'The object class name.',
+        type: name => utils.pascalCase(name)
+      });
+  }
+
   initializing() {
     this.log(banner(this.rootGeneratorVersion()));
-    this.log('Object class generator:\n');
+    this.log('Game object class generator:\n');
   }
 
   prompting() {
+    const questions = [{
+      name: 'baseClass',
+      type: 'list',
+      message: `From which 'GameObject' class to extend from?`,
+      choices: [
+        'Sprite',
+        'Image',
+        'Graphics',
+        {
+          name: 'None',
+          value: null
+        }
+      ]
+    }];
+
     return this
       .prompt(questions)
-      .then(variables => Object.assign(this, {variables}));
+      .then(variables => {
+        //  Assign user inputs to the variables hash.
+        variables.name = this.options.name;
+
+        return Object.assign(this, {variables});
+      });
   }
 
   writing() {

@@ -2,9 +2,7 @@
  * <%- name %>
  * <%- '='.repeat(name.length) %>
  *
-<% if (description) { -%>
- * <%- description %>
-<% } -%>
+ * My custom plugin.
  */
 
 export default class <%- name %> {
