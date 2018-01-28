@@ -18,7 +18,7 @@ const filename = utils.getModuleName('src', name);
 
 describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
   it(`creates an extended '${name}' class`, () =>
-    runGenerator('object', 'default')
+    runGenerator('object')
       .withArguments([name])
       .withPrompts({baseClass})
       .then(() => {
@@ -29,7 +29,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
       }));
 
   it(`creates a plain '${name}' class`, () =>
-    runGenerator('object', 'default')
+    runGenerator('object')
       .withArguments([name])
       .withPrompts({baseClass: null})
       .then(() => {

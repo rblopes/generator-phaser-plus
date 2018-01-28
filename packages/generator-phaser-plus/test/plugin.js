@@ -17,7 +17,7 @@ const filename = utils.getModuleName('src', name);
 
 describe(chalk.bold.cyan('generator-phaser-plus:plugin'), () => {
   it(`creates a '${name}' class`, () =>
-    runGenerator('plugin', 'default')
+    runGenerator('plugin')
       .withArguments([name])
       .then(checkCreatedModule));
 

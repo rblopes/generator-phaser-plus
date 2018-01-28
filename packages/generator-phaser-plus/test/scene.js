@@ -23,7 +23,7 @@ const statesIndex = 'src/scenes-index.js';
 describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
   describe(`creates a '${name}' class`, () => {
     it('with selected life-cycle methods', () => {
-      return runGenerator('scene', 'default')
+      return runGenerator('scene')
         .withArguments([name])
         .withOptions({customize: true})
         .withPrompts({methods})
@@ -47,7 +47,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
     });
 
     it('with default methods', () => {
-      return runGenerator('scene', 'default')
+      return runGenerator('scene')
         .withArguments([name])
         .then(checkCreatedModule)
         .then(checkIndexModule);

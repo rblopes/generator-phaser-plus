@@ -10,9 +10,9 @@ const helpers = require('yeoman-test');
  * @param {string} projectName - the name of the generator to run.
  * @return A Yeoman generator running context.
  */
-module.exports = function (name, projectName) {
+module.exports = function (name) {
   return helpers
     .run(require.resolve(`../../generators/${name}`))
     .inTmpDir(dir =>
-      fse.copySync(`${__dirname}/${projectName}-project/`, dir));
+      fse.copySync(`${__dirname}/project/`, dir));
 };
