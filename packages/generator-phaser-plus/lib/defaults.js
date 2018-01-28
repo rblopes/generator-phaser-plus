@@ -9,6 +9,9 @@ module.exports = {
   objects: {
     dest: 'app/scripts/objects/'
   },
+  plugins: {
+    dest: 'app/scripts/plugins/'
+  },
   scenes: {
     dest: 'app/scripts/scenes/',
     index: {

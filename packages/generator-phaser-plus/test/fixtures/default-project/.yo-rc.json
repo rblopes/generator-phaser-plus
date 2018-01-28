@@ -3,6 +3,9 @@
     "objects": {
       "dest": "src/"
     },
+    "plugins": {
+      "dest": "src/"
+    },
     "scenes": {
       "dest": "src/",
       "index": {
