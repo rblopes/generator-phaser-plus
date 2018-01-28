@@ -10,7 +10,7 @@ const utils = require('../lib/utils');
 const runGenerator = require('./fixtures/run-generator');
 
 // User inputs.
-const name = 'Test';
+const name = utils.pascalCase('Test Object');
 const description = 'A test object.';
 const baseClass = 'Sprite';
 
@@ -18,33 +18,15 @@ const baseClass = 'Sprite';
 const filename = utils.getModuleName('src', name);
 
 describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
-  describe('creates a ECMAScript module', () => {
-    describe(`containing a class extended from 'GameObjects.${baseClass}'`, () => {
-      it('using prompts', () =>
-        runGenerator('object', 'default')
-          .withPrompts({name, description, baseClass})
-          .then(checkCreatedModule));
+  it(`creates a '${name}' class`, () =>
+    runGenerator('object', 'default')
+      .withPrompts({name, description, baseClass})
+      .then(checkCreatedModule));
 
-      function checkCreatedModule() {
-        assert.fileContent([
-          [filename, `* ${description}`],
-          [filename, `class ${name} extends Phaser.GameObjects.${baseClass} {`]
-        ]);
-      }
-    });
-
-    describe('containing a not extended class', () => {
-      it('using prompts', () =>
-        runGenerator('object', 'default')
-          .withPrompts({name, description})
-          .then(checkCreatedModule));
-
-      function checkCreatedModule() {
-        assert.fileContent([
-          [filename, `* ${description}`],
-          [filename, `class ${name} {`]
-        ]);
-      }
-    });
-  });
+  function checkCreatedModule() {
+    assert.fileContent([
+      [filename, `* ${description}`],
+      [filename, `class ${name} extends Phaser.GameObjects.${baseClass} {`]
+    ]);
+  }
 });

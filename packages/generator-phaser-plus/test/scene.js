@@ -1,5 +1,5 @@
 /*
- * Game state generator test suite.
+ * Game scene generator test suite.
  */
 
 'use strict';
@@ -11,8 +11,8 @@ const utils = require('../lib/utils');
 const runGenerator = require('./fixtures/run-generator');
 
 // User inputs.
-const name = 'Test';
-const description = 'A test game state.';
+const name = utils.pascalCase('Test Scene');
+const description = 'A test game scene.';
 const methods = ['init', 'create', 'shutdown'];
 
 // Expected file name of the create module.
@@ -22,13 +22,12 @@ const filename = utils.getModuleName('src', name);
 const statesIndex = 'src/scenes-index.js';
 
 describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
-  describe('creates a ECMAScript module', () => {
-    describe('with chosen methods', () => {
-      it('using prompts', () =>
-        runGenerator('scene', 'default')
-          .withPrompts({name, description, methods})
-          .then(checkCreatedModule)
-          .then(checkUpdatedIndex));
+  describe(`creates a '${name}' class`, () => {
+    it('with selected life-cycle methods', () => {
+      return runGenerator('scene', 'default')
+        .withPrompts({name, description, methods})
+        .then(checkCreatedModule)
+        .then(checkIndexModule);
 
       function checkCreatedModule() {
         assert.fileContent([
@@ -46,12 +45,11 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
       }
     });
 
-    describe('with default methods', () => {
-      it('using prompts', () =>
-        runGenerator('scene', 'default')
-          .withPrompts({name, description})
-          .then(checkCreatedModule)
-          .then(checkUpdatedIndex));
+    it('with default methods', () => {
+      return runGenerator('scene', 'default')
+        .withPrompts({name, description})
+        .then(checkCreatedModule)
+        .then(checkIndexModule);
 
       function checkCreatedModule() {
         assert.fileContent([
@@ -69,7 +67,7 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
       }
     });
 
-    function checkUpdatedIndex() {
+    function checkIndexModule() {
       assert.fileContent([
         [statesIndex, `export {default as Nada} from './nada';`],
         [statesIndex, `export {default as ${name}} from './${kebabCase(name)}';`]

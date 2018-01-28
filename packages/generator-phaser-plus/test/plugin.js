@@ -17,7 +17,7 @@ const description = 'A test plugin.';
 const filename = utils.getModuleName('src', name);
 
 describe(chalk.bold.cyan('generator-phaser-plus:plugin'), () => {
-  it('creates a plugin', () =>
+  it(`creates a '${name}' class`, () =>
     runGenerator('plugin', 'default')
       .withPrompts({name, description})
       .then(checkCreatedModule));
