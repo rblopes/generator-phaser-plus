@@ -21,3 +21,8 @@ The sample project has the following features:
 -   A sample Phaser 3 application, enough for a small Web game, including a splash screen component and a organized directory structure.
 
 You can create your own Web games powered by Phaser too. Install `generator-phaser-plus` now, via npm or Yarn, and start right away!
+
+
+## License
+
+This software is distributed under the terms of the [MIT License](../../LICENSE.md).
