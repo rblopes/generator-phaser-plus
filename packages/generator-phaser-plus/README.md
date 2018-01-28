@@ -1,28 +1,6 @@
-<div align="center">
-    <img src="../../docs/media/logo.png" alt="generator-phaser-plus logo" title="generator-phaser-plus">
-    <div>
-        <a href="https://www.npmjs.com/package/generator-phaser-plus">
-            <img
-                alt="npm version"
-                src="https://img.shields.io/npm/v/generator-phaser-plus/next.svg?style=flat-square">
-        </a>
-        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus/">
-            <img
-                alt="dependencies status"
-                src="https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=packages/generator-phaser-plus">
-        </a>
-        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus/&type=dev">
-            <img
-                alt="devDependencies status"
-                src="https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=packages/generator-phaser-plus">
-        </a>
-        <a href="https://travis-ci.org/rblopes/generator-phaser-plus">
-            <img
-                alt="Travis CI Build Status"
-                src="https://img.shields.io/travis/rblopes/generator-phaser-plus.svg?style=flat-square">
-        </a>
-    </div>
-</div>
+# `generator-phaser-plus`
+
+[![npm version](https://img.shields.io/npm/v/generator-phaser-plus/next.svg?style=flat-square)](https://www.npmjs.com/package/generator-phaser-plus) [![dependencies status](https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=packages/generator-phaser-plus)](https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus/) [![devDependencies status](https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=packages/generator-phaser-plus)](https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus/&type=dev) [![Travis CI Build Status](https://img.shields.io/travis/rblopes/generator-phaser-plus.svg?style=flat-square)](https://travis-ci.org/rblopes/generator-phaser-plus)
 
 >   Create [Phaser](http://phaser.io/) Web games with ease.
 
@@ -44,8 +22,8 @@ Quick Start
 2.  **Create a directory for your new project and go into it:**
 
     ```sh
-    mkdir my-awesome-game
-    cd my-awesome-game
+    mkdir my-awesome-game/
+    cd my-awesome-game/
     ```
 
 3.  **Start creating your new project:**
