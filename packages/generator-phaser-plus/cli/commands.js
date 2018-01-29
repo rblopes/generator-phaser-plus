@@ -30,7 +30,7 @@ exports.object = {
 };
 
 exports.plugin = {
-  command: 'plugin <name>',
+  command: 'plugin <name> [id]',
   aliases: ['p'],
   describe: 'Create a custom plugin class.',
   builder(yargs) {
@@ -38,6 +38,11 @@ exports.plugin = {
       .positional('name', {
         type: 'string',
         describe: 'The plugin class name.'
+      })
+      .positional('id', {
+        type: 'string',
+        describe: `The internal plugin 'id'.`,
+        default: null
       });
   }
 };

@@ -7,7 +7,7 @@
 
 export default class <%- name %> {
   static register(sys) {
-    sys.plugins.constructor.register('<%- name %>', this, 'test');
+    sys.plugins.constructor.register('<%- name %>', this, '<%- id %>');
     sys.plugins.installGlobal(sys, ['<%- name %>']);
   }
 

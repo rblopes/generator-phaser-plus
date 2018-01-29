@@ -13,7 +13,7 @@ const generators = {
     options: []
   },
   plugin: {
-    arguments: ['name'],
+    arguments: ['name', 'id'],
     options: []
   },
   scene: {
