@@ -33,7 +33,11 @@
     "webgl",
     "webpack"
   ],
+  "bin": {
+    "phaser-plus": "cli/index.js"
+  },
   "files": [
+    "cli/",
     "generators/",
     "lib/"
   ],
@@ -54,6 +58,8 @@
     "lodash.kebabcase": "^4.1.1",
     "lodash.trim": "^4.5.0",
     "lodash.upperfirst": "^4.3.0",
+    "yargs": "^11.0.0",
+    "yeoman-environment": "^2.0.5",
     "yeoman-generator": "^2.0.1"
   },
   "devDependencies": {
