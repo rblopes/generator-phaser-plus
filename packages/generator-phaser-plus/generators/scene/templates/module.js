@@ -6,7 +6,7 @@
  */
 
 export default class <%- name %> extends Phaser.Scene {
-<% for (const method of methods) { -%>
+<% for (let method of methods) { -%>
 
   <%- method %>() {
     //  TODO: Stub
