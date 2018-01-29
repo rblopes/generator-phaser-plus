@@ -1,2 +1,2 @@
 Description:
-  Creates the blueprint of a extended Phaser object class (or prefab).
+  Creates an extended game object class.

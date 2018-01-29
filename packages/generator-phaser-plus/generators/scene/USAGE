@@ -1,2 +1,2 @@
 Description:
-  Creates the blueprint of a Phaser game state.
+  Creates a new game scene class.

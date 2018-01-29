@@ -1,11 +1,17 @@
 Description:
-  Creates a Phaser web game project, featuring a live development environment
+  Creates a Phaser Web game project, featuring a live development environment
   ready for ES2015+ and cross-device testing.
 
 Available Sub-generators:
-  object: Creates the skeleton of a extended Phaser object class (or prefab).
-  scene: Creates the skeleton of a Phaser 3 game scene.
+  - object: Creates an extended game object class
+  - plugin: Creates a custom plugin class
+  - scene: Creates a new game scene class
 
   To run a sub-generator, use:
 
   > yo phaser-plus:<sub-generator>
+
+Hint:
+  The generator will automatically detect and use the package manager Yarn, if
+  available. If you want to install and manage dependencies using npm instead,
+  use the flag `--no-yarn`.
