@@ -7,11 +7,25 @@ const banner = require('../../lib/banner');
 const defaults = require('../../lib/defaults');
 const questions = require('./questions');
 
-const greeting = `Hi there! You're just a few steps of creating your project.
-But first, could you tell some details about your new game?
-`;
+let npmClient;
+
+const greeting = [
+  chalk.green('='.repeat(78)),
+  '        You are just one step away of creating your new game project.',
+  '              Just fill in the answers below and we are done!',
+  chalk.green('='.repeat(78))
+].join('\n');
 
 module.exports = class extends Generator {
+  constructor(args, opts) {
+    super(args, opts)
+      .option('yarn', {
+        type: Boolean,
+        default: true,
+        hide: true
+      });
+  }
+
   initializing() {
     this.log(banner(this.rootGeneratorVersion()));
     this.log(greeting);
@@ -24,6 +38,9 @@ module.exports = class extends Generator {
   }
 
   configuring() {
+    npmClient =
+      this.options.yarn && detectInstalled.sync('yarn') ? 'yarn' : 'npm';
+
     this.composeWith(
       require.resolve('@rblopes/generator-phaser-plus-template-default'),
       {variables: this.variables}
@@ -41,8 +58,8 @@ module.exports = class extends Generator {
   }
 
   install() {
-    //  Prefer Yarn package manager, if available.
-    if (detectInstalled.sync('yarn')) {
+    //  Prefer Yarn, if available.
+    if (npmClient === 'yarn') {
       this.yarnInstall();
     } else {
       this.npmInstall();
@@ -51,11 +68,10 @@ module.exports = class extends Generator {
 
   end() {
     if (!this.options['skip-install']) {
-      const command = `${detectInstalled.sync('yarn') ? 'yarn' : 'npm'} start`;
       this.log([
         '',
         'Congrats! Now, launch your project using',
-        chalk`{yellow ${command}} and happy hacking :)`
+        `${chalk.yellow(`${npmClient} install`)} and happy hacking :)`
       ].join('\n'));
     }
   }
