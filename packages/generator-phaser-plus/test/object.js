@@ -17,7 +17,7 @@ const baseClass = 'Sprite';
 const filename = utils.getModuleName('src', name);
 
 describe(chalk.bold.cyan('generator-phaser-plus:object'), () => {
-  it(`creates an extended '${name}' class`, () =>
+  it(`creates a '${name}' class extending the '${baseClass}' class`, () =>
     runGenerator('object')
       .withArguments([name])
       .withPrompts({baseClass})

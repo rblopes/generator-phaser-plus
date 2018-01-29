@@ -21,58 +21,56 @@ const filename = utils.getModuleName('src', name);
 const statesIndex = 'src/scenes-index.js';
 
 describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
-  describe(`creates a '${name}' class`, () => {
-    it('with selected life-cycle methods', () => {
-      return runGenerator('scene')
-        .withArguments([name])
-        .withOptions({customize: true})
-        .withPrompts({methods})
-        .then(checkCreatedModule)
-        .then(checkIndexModule);
+  it(`creates a '${name}' class with selected life-cycle methods`, () => {
+    return runGenerator('scene')
+      .withArguments([name])
+      .withOptions({customize: true})
+      .withPrompts({methods})
+      .then(checkCreatedModule)
+      .then(checkIndexModule);
 
-      function checkCreatedModule() {
-        assert.fileContent([
-          [filename, `class ${name} extends Phaser.Scene {`],
-          [filename, `init() {`],
-          [filename, `create() {`],
-          [filename, `shutdown() {`]
-        ]);
-        assert.noFileContent([
-          [filename, `preload() {`],
-          [filename, `update() {`],
-          [filename, `render() {`],
-          [filename, `destroy() {`]
-        ]);
-      }
-    });
-
-    it('with default methods', () => {
-      return runGenerator('scene')
-        .withArguments([name])
-        .then(checkCreatedModule)
-        .then(checkIndexModule);
-
-      function checkCreatedModule() {
-        assert.fileContent([
-          [filename, `class ${name} extends Phaser.Scene {`],
-          [filename, `create() {`],
-          [filename, `update() {`]
-        ]);
-        assert.noFileContent([
-          [filename, `init() {`],
-          [filename, `preload() {`],
-          [filename, `render() {`],
-          [filename, `shutdown() {`],
-          [filename, `destroy() {`]
-        ]);
-      }
-    });
-
-    function checkIndexModule() {
+    function checkCreatedModule() {
       assert.fileContent([
-        [statesIndex, `export {default as Nada} from './nada';`],
-        [statesIndex, `export {default as ${name}} from './${kebabCase(name)}';`]
+        [filename, `class ${name} extends Phaser.Scene {`],
+        [filename, `init() {`],
+        [filename, `create() {`],
+        [filename, `shutdown() {`]
+      ]);
+      assert.noFileContent([
+        [filename, `preload() {`],
+        [filename, `update() {`],
+        [filename, `render() {`],
+        [filename, `destroy() {`]
       ]);
     }
   });
+
+  it(`creates a '${name}' class with default methods`, () => {
+    return runGenerator('scene')
+      .withArguments([name])
+      .then(checkCreatedModule)
+      .then(checkIndexModule);
+
+    function checkCreatedModule() {
+      assert.fileContent([
+        [filename, `class ${name} extends Phaser.Scene {`],
+        [filename, `create() {`],
+        [filename, `update() {`]
+      ]);
+      assert.noFileContent([
+        [filename, `init() {`],
+        [filename, `preload() {`],
+        [filename, `render() {`],
+        [filename, `shutdown() {`],
+        [filename, `destroy() {`]
+      ]);
+    }
+  });
+
+  function checkIndexModule() {
+    assert.fileContent([
+      [statesIndex, `export {default as Nada} from './nada';`],
+      [statesIndex, `export {default as ${name}} from './${kebabCase(name)}';`]
+    ]);
+  }
 });
