@@ -71,7 +71,7 @@ module.exports = class extends Generator {
       this.log([
         '',
         'Congrats! Now, launch your project using',
-        `${chalk.yellow(`${npmClient} install`)} and happy hacking :)`
+        `${chalk.yellow(`${npmClient} start`)} and happy hacking :)`
       ].join('\n'));
     }
   }
