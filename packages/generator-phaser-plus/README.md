@@ -4,18 +4,16 @@
 
 >   Create [Phaser](http://phaser.io/) Web games with ease.
 
-`generator-phaser-plus` is a Yeoman plugin that makes creating Phaser Web game projects simple, quick and easy.
+`generator-phaser-plus` is a [Yeoman generator](http://yeoman.io/) that makes starting up Phaser 3 game projects dead simple.
 
 
-Quick Start
------------
+## Quick Start
 
->   Note: Assuming you have already installed [Node.js](https://nodejs.org/).
+>   Note: Assuming you already have [Node.js](https://nodejs.org/) installed.
 
-1.  **Install [Yeoman](http://yeoman.io/) and `generator-phaser-plus`:**
+1.  **Download and install `generator-phaser-plus` from npm:**
 
     ```sh
-    npm install --global yo                    # Install Yeoman if you don't have it yet.
     npm install --global generator-phaser-plus # Install generator-phaser-plus.
     ```
 
@@ -26,10 +24,12 @@ Quick Start
     cd my-awesome-game/
     ```
 
-3.  **Start creating your new project:**
+3.  **Start your new game project:**
+
+    Just run the `phaser-plus` command and fill in the questionnaire.
 
     ```sh
-    yo phaser-plus
+    phaser-plus
     ```
 
 4.  **Launch it!**
@@ -41,8 +41,7 @@ Quick Start
 Have a look at the [user's manual][m] and learn more about available features, including [sub-generators and how to use them][s], [how projects are structured][p], [available development tasks][t], and a [hands-on tutorial][g] presenting the general workflow and how you can speed up your game development. You'll also find out more about the [latest development updates][n] and how you can [help contributing to this project][c].
 
 
-License
--------
+## License
 
 This software is distributed under the terms of the [MIT License](../../LICENSE.md).
 
