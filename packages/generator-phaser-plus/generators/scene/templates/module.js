@@ -6,6 +6,10 @@
  */
 
 export default class <%- name %> extends Phaser.Scene {
+
+  constructor(config = {}) {
+    super(Object.assign({key: '<%- name %>'}, config));
+  }
 <% methods.forEach(method => { -%>
 
   <%- method %>() {
