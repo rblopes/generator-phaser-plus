@@ -16,14 +16,18 @@ module.exports = (env = 'development') => ({
 
   output: {
     filename:
-      env === 'production'
-        ? '[name]-[chunkhash].bundle.js'
-        : '[name].bundle.js',
+      env === 'production' ?
+        '[name]-[chunkhash].bundle.js' :
+        '[name].bundle.js',
     path: dest
   },
 
   module: {
     rules: [
+      {
+        test: /\.(frag|vert)$/,
+        use: 'raw-loader'
+      },
       {
         test: /\.js$/,
         include: src,

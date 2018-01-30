@@ -4,11 +4,10 @@
 
 const path = require('path');
 
-const root = (exports.root = process.cwd());
-const src = (exports.src = path.resolve(root, 'app/'));
-const dest = (exports.dest = path.resolve(root, 'dist/'));
-
+exports.root = process.cwd();
+exports.src = path.resolve(exports.root, 'app/');
+exports.dest = path.resolve(exports.root, 'dist/');
 exports.dirs = {
-  static: path.resolve(src, 'static/'),
-  scripts: path.resolve(src, 'scripts/')
+  static: path.resolve(exports.src, 'static/'),
+  scripts: path.resolve(exports.src, 'scripts/')
 };
