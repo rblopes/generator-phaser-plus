@@ -34,7 +34,7 @@
     "webpack"
   ],
   "bin": {
-    "phaser-plus": "cli/index.js"
+    "phaser-plus": "cli.js"
   },
   "files": [
     "cli/",
