@@ -35,8 +35,8 @@
 
 ## Table of Contents
 
--   [Installing and Using `generator-phaser-plus`](#installing-and-using-generator-phaser-plus)
-    -   [Creating a New Phaser Game Project](#creating-a-new-phaser-game-project)
+-   [Installation and Usage](#installation-and-usage)
+    -   [Create a New Phaser Game Project](#create-a-new-phaser-game-project)
     -   [Generators](#generators)
 -   [A Brief Tutorial](#a-brief-tutorial)
 -   [Project Setup](#project-setup)
@@ -52,7 +52,7 @@
 -   [License](#license)
 
 
-## Installing and Using `generator-phaser-plus`
+## Installation and Usage
 
 >   **NOTE**: Assuming you have at least [Node.js](https://nodejs.org/) `v6.12` installed.
 
@@ -65,7 +65,7 @@ npm install --global generator-phaser-plus
 ```
 
 
-### Creating a New Phaser Game Project
+### Create a New Phaser Game Project
 
 1.  First, create a new directory to keep you project contents and go into it.
 
@@ -137,7 +137,7 @@ Creates scene classes. By default, scenes have the `create` and `update` methods
 
 ## A Brief Tutorial
 
->   **NOTE**: Coming soon.
+>   Coming soon.
 
 
 ## Project Setup
@@ -212,7 +212,7 @@ There are two main development tasks:
     ```
     </details>
 
--   **`dist`** task. The distribution task. When your game is ready, use this task to bundle the application code, its dependencies and static assets. It preforms the following jobs, in order:
+-   **`dist`** task. The distribution task. When your game is ready, use this task to bundle the application code, its dependencies and static assets. It performs the following jobs, in order:
 
     -   Dispose the previously compiled version of your game, to avoid mixing outdated files.
     -   Recursively copy all static assets located under the `app/static/` directory.
@@ -251,12 +251,12 @@ gulpfile.js/
 
 #### Yeoman metadata (`.yo-rc.json`)
 
-Yeoman creates a hidden configuration file, storing some information required by `generator-phaser-plus`. This file also indicates the root of the project for Yeoman, so files created by any generator are relative to its location. Below is a commented sample of a regular `.yo-rc.json` file.
+Yeoman creates a hidden configuration file, storing some information required by `generator-phaser-plus`. This file also indicates the root of the project for Yeoman, so files created by any generator are relative to this location. Below is a commented sample of a regular `.yo-rc.json` file.
 
 ```js
 {
   "generator-phaser-plus": {                        //  The generator name, verified by Yeoman
-    "meta": {                                       //  Creation data e generator version
+    "meta": {                                       //  Creation date and generator version
       "createdWith": "3.0.0",
       "creationDate": "2018-01-01T12:34:56.789Z"
     },
@@ -277,9 +277,9 @@ Yeoman creates a hidden configuration file, storing some information required by
 }
 ```
 
-For example, when using the `scene` generator, Yeoman will read the related data to perform its task: the destination directory where the created scene should be placed, and some other data required to update the scene index module with the new entry.
+For example, when using the `scene` generator, Yeoman will consume the related data to perform its task: the destination directory where the new scene module should be placed, and some other data required to update the scene index module with the new entry.
 
-This file is required by Yeoman and you should keep a backup of it in case you want to continue using `generator-phaser-plus` with your project.
+This file is required by Yeoman and you should keep it in case you want to continue using `generator-phaser-plus` with your project.
 
 >   **NOTE**: You may be asked about `.yo-rc.json` contents when posting an issue.
 
@@ -366,7 +366,7 @@ Read the [contribution guidelines](CONTRIBUTING.md) to learn how you can help `g
 
 ## Release Notes
 
-Read the [NEWS](NEWS.md) for info about the latest release.
+Read the [news page](NEWS.md) for info about the latest release.
 
 
 ## License
