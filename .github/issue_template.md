@@ -18,6 +18,6 @@ Hi! Thanks for reporting this issue. No, I won't make you fill in some awkward f
 
 5.  Feel free to offer suggestions, like documentation, new features and improvements in general.
 
-6.  Please, be patient: I develop this software alone and on my spare time. It may take a while to send you a reply and solve your issue.
+6.  Please, be patient: I develop this software alone, for free, and on my spare time. It may take a while to send you a reply and solve your issue.
 
 -->

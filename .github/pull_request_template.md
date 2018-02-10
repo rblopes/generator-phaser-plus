@@ -1,6 +1,6 @@
 <!--
 
-Hi! First of all, thanks for sending this pull request. Below are a few hints for you to help me understand why you are making your contribution:
+Hi! Thank you very much for your contribution. Below are a few hints for you to help me understand why you are making your contribution:
 
 1.  Have you followed the contribution guidelines? If not, take your time to review them and apply the necessary changes to your fork. Don't worry, you can come back later and send your pull request when you're ready.
 
