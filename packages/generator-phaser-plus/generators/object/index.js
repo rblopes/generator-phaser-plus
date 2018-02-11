@@ -1,6 +1,7 @@
 'use strict';
 
 const Generator = require('yeoman-generator');
+const kebabCase = require('lodash.kebabcase');
 const utils = require('../../lib/utils');
 const banner = require('../../lib/banner');
 
@@ -24,13 +25,15 @@ module.exports = class extends Generator {
       type: 'list',
       message: `From which 'GameObject' class to extend from?`,
       choices: [
-        'Sprite',
-        'Image',
-        'Graphics',
-        {
-          name: 'None',
-          value: null
-        }
+        {name: 'Sprite', value: 'sprite'},
+        {name: 'Image', value: 'image'},
+        {name: 'TileSprite', value: 'tile-sprite'},
+        {name: 'Blitter', value: 'blitter'},
+        {name: 'Group', value: 'group'},
+        {name: 'Zone', value: 'zone'},
+        {name: 'DynamicBitmapText', value: 'dynamic-bitmap-text'},
+        {name: 'Graphics', value: 'graphics'},
+        {name: 'None', value: 'plain'}
       ]
     }];
 
@@ -40,13 +43,16 @@ module.exports = class extends Generator {
         //  Assign user inputs to the variables hash.
         variables.name = this.options.name;
 
+        //  Infer the object texture key by its class name.
+        variables.texture = kebabCase(this.options.name);
+
         return Object.assign(this, {variables});
       });
   }
 
   writing() {
     this.fs.copyTpl(
-      this.templatePath(`object.js`),
+      this.templatePath(`${this.variables.baseClass}.js`),
       this.destinationPath(
         utils.getModuleName(
           this.config.get('objects').dest,
