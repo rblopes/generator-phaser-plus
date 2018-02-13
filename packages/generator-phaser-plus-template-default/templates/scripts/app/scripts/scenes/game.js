@@ -5,13 +5,11 @@
  * A sample Game scene, displaying the Phaser logo.
  */
 
-import {gameAssets as files} from '../assets';
 import Logo from '../objects/logo';
 
 export default class Game extends Phaser.Scene {
-
   constructor(config = {}) {
-    super(Object.assign({files}, config));
+    super(Object.assign({key: 'Game'}, config));
   }
 
   create() {
@@ -22,5 +20,4 @@ export default class Game extends Phaser.Scene {
   update() {
     this.logo.update();
   }
-
 }

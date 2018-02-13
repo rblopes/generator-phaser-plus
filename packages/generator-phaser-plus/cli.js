@@ -3,8 +3,8 @@
 'use strict';
 
 const program = require('yargs');
-const buildCommands = require('../lib/build-commands');
-const commands = require('./commands');
+const buildCommands = require('./lib/build-commands');
+const commands = require('./lib/cli-commands');
 
 buildCommands(program, commands)
   .strict(true)
