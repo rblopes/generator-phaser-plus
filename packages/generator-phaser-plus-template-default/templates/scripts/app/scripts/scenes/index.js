@@ -6,5 +6,6 @@
  * Expose the required game scenes using this module.
  */
 
+export {default as Loader} from './loader';
 export {default as SplashScreen} from './splash-screen';
 export {default as Game} from './game';
