@@ -11,7 +11,8 @@ module.exports = class extends Generator {
     for (const file of ['editorconfig', 'gitattributes', 'gitignore']) {
       this.fs.copy(
         this.templatePath(`dotfiles/${file}`),
-        this.destinationPath(`.${file}`));
+        this.destinationPath(`.${file}`)
+      );
     }
 
     //  Copy README, Webpack configuration, scripts and related files.
@@ -22,11 +23,13 @@ module.exports = class extends Generator {
         globOptions: {
           dot: true
         }
-      });
+      }
+    );
 
     //  Copy game assets.
     this.fs.copy(
       this.templatePath('static/'),
-      this.destinationPath('app/static/'));
+      this.destinationPath('app/static/')
+    );
   }
 };
