@@ -45,6 +45,7 @@ module.exports = class extends Generator {
           this.config.get('plugins').dest,
           this.variables.name
         )
-      ), this.variables);
+      ), this.variables
+    );
   }
 };

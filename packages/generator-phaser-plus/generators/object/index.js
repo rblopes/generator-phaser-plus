@@ -59,6 +59,7 @@ module.exports = class extends Generator {
           this.variables.name
         )
       ),
-      this.variables);
+      this.variables
+    );
   }
 };
