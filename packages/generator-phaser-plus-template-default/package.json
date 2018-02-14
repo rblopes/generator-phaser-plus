@@ -44,7 +44,7 @@
   ],
   "scripts": {
     "fix": "xo --fix",
-    "test": "xo && NODE_ENV=test mocha --reporter spec"
+    "test": "xo && cross-env NODE_ENV=test mocha --reporter spec"
   },
   "engines": {
     "node": ">=4"
@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "chalk": "^2.3.0",
+    "cross-env": "^5.1.3",
     "mocha": "^5.0.0",
     "xo": "^0.18.0",
     "yeoman-assert": "^3.1.0",
