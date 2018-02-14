@@ -34,10 +34,10 @@
     "webpack"
   ],
   "bin": {
-    "phaser-plus": "cli.js"
+    "phaser-plus": "./cli.js"
   },
   "files": [
-    "cli/",
+    "cli.js",
     "generators/",
     "lib/"
   ],
