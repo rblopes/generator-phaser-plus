@@ -6,11 +6,11 @@
  * effects, while displaying a busy splash screen.
  */
 
-import {splashScreenAssets as files} from '../assets';
+import * as files from '../assets';
 
 export default class SplashScreen extends Phaser.Scene {
-  constructor(config = {}) {
-    super(Object.assign({key: 'SplashScreen', files}, config));
+  constructor() {
+    super({key: 'SplashScreen', files: files.splashScreenAssets});
   }
 
   preload() {
@@ -31,7 +31,10 @@ export default class SplashScreen extends Phaser.Scene {
   }
 
   prepareLoaderScene() {
-    const scene = this.scene.get('Loader');
+    //  Use a temporary scene to load remaining game assets.
+    const scene = this.scene
+      .add(null, {key: 'Loader', files: files.gameAssets})
+      .get('Loader');
 
     //  Change the scene viewport to simulate a shrunk progress bar.
     const camera = scene.cameras.main;
