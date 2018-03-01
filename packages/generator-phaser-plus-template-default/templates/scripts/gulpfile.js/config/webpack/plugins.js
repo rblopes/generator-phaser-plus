@@ -7,17 +7,12 @@ const UglifyJS = require('uglifyjs-webpack-plugin');
 const HTML = require('html-webpack-plugin');
 const uglifyOptions = require('./uglify');
 
-module.exports = (env = 'development') =>
+module.exports = (mode = 'development') =>
   [
     //  Required by Phaser: Enable Canvas and WebGL renderers.
     new webpack.DefinePlugin({
       CANVAS_RENDERER: true,
       WEBGL_RENDERER: true
-    }),
-
-    //  Split the compiled JavaScript bundle.
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor']
     }),
 
     //  Process the HTML template.
@@ -27,5 +22,5 @@ module.exports = (env = 'development') =>
     }),
 
     //  Minify bundled JavaScript for distribution.
-    env === 'production' && new UglifyJS(uglifyOptions)
+    mode === 'production' && new UglifyJS(uglifyOptions)
   ].filter(Boolean);
