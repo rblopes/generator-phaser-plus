@@ -2,12 +2,13 @@
 
 const chalk = require('chalk');
 const Generator = require('yeoman-generator');
-const detectInstalled = require('detect-installed');
+const which = require('which');
 const banner = require('../../lib/banner');
 const defaults = require('../../lib/defaults');
 const questions = require('./questions');
 
-let npmClient;
+//  Assume 'npm' is the default npm client.
+let npmClient = 'npm';
 
 const greeting = [
   chalk.green('='.repeat(78)),
@@ -38,8 +39,10 @@ module.exports = class extends Generator {
   }
 
   configuring() {
-    npmClient =
-      this.options.yarn && detectInstalled.sync('yarn') ? 'yarn' : 'npm';
+    //  If available, prefer Yarn instead of npm.
+    if (this.options.yarn && which.sync('yarn', {nothrow: true})) {
+      npmClient = 'yarn';
+    }
 
     this.composeWith(
       require.resolve('@rblopes/generator-phaser-plus-template-default'),
