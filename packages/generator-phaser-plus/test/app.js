@@ -85,7 +85,6 @@ describe(chalk.bold.cyan('generator-phaser-plus:app'), function () {
       'app/scripts/objects/logo.js',
       'app/scripts/scenes/game.js',
       'app/scripts/scenes/index.js',
-      'app/scripts/scenes/loader.js',
       'app/scripts/scenes/splash-screen.js'
     ]);
     assert.fileContent(

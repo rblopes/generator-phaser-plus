@@ -6,7 +6,9 @@ const {src, dest} = require('../paths');
 const babelConfig = require('../babel');
 const plugins = require('./plugins');
 
-module.exports = (env = 'development') => ({
+module.exports = (mode = 'development') => ({
+  mode,
+
   context: src,
 
   entry: {
@@ -16,7 +18,7 @@ module.exports = (env = 'development') => ({
 
   output: {
     filename:
-      env === 'production' ?
+      mode === 'production' ?
         '[name]-[chunkhash].bundle.js' :
         '[name].bundle.js',
     path: dest
@@ -39,7 +41,7 @@ module.exports = (env = 'development') => ({
     ]
   },
 
-  plugins: plugins(env),
+  plugins: plugins(mode),
 
-  devtool: env === 'development' ? 'eval-source-map' : 'source-map'
+  devtool: mode === 'development' ? 'eval-source-map' : 'source-map'
 });

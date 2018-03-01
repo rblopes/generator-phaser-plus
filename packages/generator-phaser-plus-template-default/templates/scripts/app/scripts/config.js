@@ -5,6 +5,9 @@
  * The game instance settings.
  */
 
+//  Import created game scenes.
+import * as scenes from './scenes';
+
 //  Game canvas dimensions.
 export const width = 640;
 export const height = 480;
@@ -49,3 +52,6 @@ export const loader = {
 export const title = '<%- title %>';
 export const version = '1.0.0';
 export const url = 'https://example.com/';
+
+//  Add game scenes.
+export const scene = Object.values(scenes);
