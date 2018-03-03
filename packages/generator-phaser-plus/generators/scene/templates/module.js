@@ -3,16 +3,16 @@ export default class <%- name %> extends Phaser.Scene {
    * My custom scene.
    *
    * @extends Phaser.Scene
-   * @param {object} [config={}] - The scene configuration parameters.
    */
-  constructor(config = {}) {
-    super(Object.assign({key: '<%- name %>'}, config));
+  constructor() {
+    super({key: '<%- name %>'});
   }
 <% if (methods.includes('init')) { -%>
 
   /**
    * Called when a scene is initialized.
    *
+   * @protected
    * @param {object} data Initialization parameters.
    */
   init(/* data = {} */) {
@@ -23,6 +23,8 @@ export default class <%- name %> extends Phaser.Scene {
   /**
    * Called when a scene is initialized. Main purpose is to declare game
    * assets to be loaded by the asset manager.
+   *
+   * @protected
    */
   preload() {
   }
@@ -33,6 +35,7 @@ export default class <%- name %> extends Phaser.Scene {
    * Called when a scene is initialized. Method responsible for setting up the
    * game objects on the screen.
    *
+   * @protected
    * @param {object} data Initialization parameters.
    */
   create(/* data = {} */) {
@@ -44,6 +47,7 @@ export default class <%- name %> extends Phaser.Scene {
    * Called when a scene is updated. Updates to logic, physics and game
    * objects are handled here.
    *
+   * @protected
    * @param {number} t Current internal clock time.
    * @param {number} dt Time elapsed since last update.
    */
@@ -62,6 +66,8 @@ export default class <%- name %> extends Phaser.Scene {
 
   /**
    * Called when a scene is about to shut down.
+   *
+   * @protected
    */
   shutdown() {
   }
@@ -71,6 +77,8 @@ export default class <%- name %> extends Phaser.Scene {
   /**
    * Called when a scene is about to be destroyed (i.e.: removed from scene
    * manager). All allocated resources should be freed up here.
+   *
+   * @protected
    */
   destroy() {
   }
