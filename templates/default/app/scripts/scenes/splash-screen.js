@@ -19,9 +19,7 @@ export default class SplashScreen extends Phaser.Scene {
 
     //  Prepare the loader scene to load remaining assets.
     this.prepareLoaderScene();
-    this.scene
-      .launch('Loader')
-      .bringToTop('Loader');
+    this.scene.launch('Loader');
   }
 
   // --------------------------------------------------------------------------
@@ -33,18 +31,17 @@ export default class SplashScreen extends Phaser.Scene {
   prepareLoaderScene() {
     //  Use a temporary scene to load remaining game assets.
     const scene = this.scene
-      .add(null, {key: 'Loader', files: files.gameAssets})
+      .add('Loader', {files: files.gameAssets})
       .get('Loader');
 
-    //  Change the scene viewport to simulate a shrunk progress bar.
+    //  Change the scene viewport to simulate the progress bar.
     const camera = scene.cameras.main;
     camera.setViewport(82, 282, 0, 28);
 
-    //  Add the progress bar.
+    //  Add the progress bar graphic.
     scene.add.image(0, 0, 'progress-bar').setOrigin(0);
 
-    //  Bind to the `progress` event to widen the viewport and reveal the
-    //  progress bar.
+    //  Stretch the viewport to fill the progress bar.
     scene.load.on('progress', n => {
       camera.setSize(Math.ceil(476 * n), camera.height);
     });
@@ -52,7 +49,7 @@ export default class SplashScreen extends Phaser.Scene {
     //  When the asset loader fulfills its job, start the Game scene.
     scene.load.on('complete', () => {
       this.scene
-        .stop('Loader')
+        .remove(scene)
         .start('Game');
     });
   }

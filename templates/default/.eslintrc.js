@@ -10,6 +10,11 @@
  *   <http://eslint.org/docs/user-guide/configuring>.
  */
 
+//  Make sure this is the root ESlint configuration of this project.
+//  This avoids ESLint from recursively search parent directories, looking for
+//  other configuration files that might conflict with this one.
+exports.root = true;
+
 exports.env = {
   // Enable ES2015+ features
   es6: true,
@@ -20,14 +25,13 @@ exports.env = {
 
 exports.parserOptions = {
   // Validate ECMAScript 2015+ syntax
-  ecmaVersion: 2017,
+  ecmaVersion: 2018,
 
   // Allow ECMAScript modules
   sourceType: 'module'
 };
 
 exports.globals = {
-  PIXI: false,
   Phaser: false
 };
 

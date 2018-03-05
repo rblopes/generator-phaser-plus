@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.40",
-    "phaser": "^3.0.0"
+    "phaser": "^3.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.40",
@@ -18,8 +18,8 @@
     "html-webpack-plugin": "^3.0.4",
     "plugin-error": "^1.0.1",
     "raw-loader": "^0.5.1",
-    "uglifyjs-webpack-plugin": "^1.1.8",
-    "webpack": "^4.0.1",
+    "uglifyjs-webpack-plugin": "^1.2.2",
+    "webpack": "^4.1.0",
     "webpack-dev-middleware": "^3.0.0"
   },
   "private": true
