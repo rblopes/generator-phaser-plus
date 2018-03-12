@@ -1,8 +1,8 @@
 export default class <%- name %> extends Phaser.Scene {
   /**
-   * My custom scene.
+   *  My custom scene.
    *
-   * @extends Phaser.Scene
+   *  @extends Phaser.Scene
    */
   constructor() {
     super({key: '<%- name %>'});
@@ -10,10 +10,10 @@ export default class <%- name %> extends Phaser.Scene {
 <% if (methods.includes('init')) { -%>
 
   /**
-   * Called when a scene is initialized.
+   *  Called when a scene is initialized.
    *
-   * @protected
-   * @param {object} data Initialization parameters.
+   *  @protected
+   *  @param {object} data Initialization parameters.
    */
   init(/* data = {} */) {
   }
@@ -21,10 +21,10 @@ export default class <%- name %> extends Phaser.Scene {
 <% if (methods.includes('preload')) { -%>
 
   /**
-   * Called when a scene is initialized. Main purpose is to declare game
-   * assets to be loaded by the asset manager.
+   *  Called when a scene is initialized. Main purpose is to declare game
+   *  assets to be loaded using the Asset Manager API.
    *
-   * @protected
+   *  @protected
    */
   preload() {
   }
@@ -32,11 +32,11 @@ export default class <%- name %> extends Phaser.Scene {
 <% if (methods.includes('create')) { -%>
 
   /**
-   * Called when a scene is initialized. Method responsible for setting up the
-   * game objects on the screen.
+   *  Called when a scene is initialized. Responsible for setting up game
+   *  objects on the screen.
    *
-   * @protected
-   * @param {object} data Initialization parameters.
+   *  @protected
+   *  @param {object} data Initialization parameters.
    */
   create(/* data = {} */) {
   }
@@ -44,12 +44,11 @@ export default class <%- name %> extends Phaser.Scene {
 <% if (methods.includes('update')) { -%>
 
   /**
-   * Called when a scene is updated. Updates to logic, physics and game
-   * objects are handled here.
+   *  Handles updates to game logic, physics and game objects.
    *
-   * @protected
-   * @param {number} t Current internal clock time.
-   * @param {number} dt Time elapsed since last update.
+   *  @protected
+   *  @param {number} t Current internal clock time.
+   *  @param {number} dt Time elapsed since last update.
    */
   update(/* t, dt */) {
   }
@@ -57,7 +56,9 @@ export default class <%- name %> extends Phaser.Scene {
 <% if (methods.includes('render')) { -%>
 
   /**
-   * Called after a scene is rendered. Handles rendenring post processing.
+   *  Called after a scene is rendered. Handles rendenring post processing.
+   *
+   *  @protected
    */
   render() {
   }
@@ -65,9 +66,9 @@ export default class <%- name %> extends Phaser.Scene {
 <% if (methods.includes('shutdown')) { -%>
 
   /**
-   * Called when a scene is about to shut down.
+   *  Called when a scene is about to shut down.
    *
-   * @protected
+   *  @protected
    */
   shutdown() {
   }
@@ -75,10 +76,11 @@ export default class <%- name %> extends Phaser.Scene {
 <% if (methods.includes('destroy')) { -%>
 
   /**
-   * Called when a scene is about to be destroyed (i.e.: removed from scene
-   * manager). All allocated resources should be freed up here.
+   *  Called when a scene is about to be destroyed (i.e.: removed from scene
+   *  manager). All allocated resources that need clean up should be freed up
+   *  here.
    *
-   * @protected
+   *  @protected
    */
   destroy() {
   }
