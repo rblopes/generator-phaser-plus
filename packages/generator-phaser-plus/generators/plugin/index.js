@@ -9,12 +9,10 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts)
       .argument('name', {
-        description: 'The plugin class name.',
-        type: name => utils.pascalCase(name)
+        description: 'The plugin class name.'
       })
       .argument('id', {
         description: `The internal plugin 'id'.`,
-        type: id => camelCase(id),
         required: false,
         default: null
       });
@@ -26,14 +24,14 @@ module.exports = class extends Generator {
   }
 
   configuring() {
-    //  Make a plugin 'id' based on the class 'name'.
     if (this.options.id === null || this.options.id === '') {
-      this.options.id = camelCase(this.options.name);
+      //  If omitted, assume 'id' to be based on the plugin 'name'.
+      this.options.id = this.options.name;
     }
 
     this.variables = {
-      id: this.options.id,
-      name: this.options.name
+      id: camelCase(this.options.id),
+      name: utils.pascalCase(this.options.name)
     };
   }
 

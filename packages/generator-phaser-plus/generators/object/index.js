@@ -9,8 +9,7 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts)
       .argument('name', {
-        description: 'The object class name.',
-        type: name => utils.pascalCase(name)
+        description: 'The object class name.'
       });
   }
 
@@ -41,7 +40,7 @@ module.exports = class extends Generator {
       .prompt(questions)
       .then(variables => {
         //  Assign user inputs to the variables hash.
-        variables.name = this.options.name;
+        variables.name = utils.pascalCase(this.options.name);
 
         //  Infer the object texture key by its class name.
         variables.texture = kebabCase(this.options.name);

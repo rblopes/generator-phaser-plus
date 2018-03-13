@@ -9,8 +9,7 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts)
       .argument('name', {
-        description: 'The scene class name.',
-        type: name => utils.pascalCase(name)
+        description: 'The scene class name.'
       })
       .option('customize', {
         alias: 'c',
@@ -51,7 +50,7 @@ module.exports = class extends Generator {
         }
 
         //  Assign user inputs to the variables hash.
-        variables.name = this.options.name;
+        variables.name = utils.pascalCase(this.options.name);
 
         return Object.assign(this, {variables});
       });
