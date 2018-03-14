@@ -26,6 +26,7 @@ describe(chalk.bold.cyan('generator-phaser-plus-template-default'), function () 
       .then(checkScripts));
 
   function checkReadme() {
+    assert.file('screenshot.png');
     assert.fileContent([
       ['README.md', `# [${title}]`],
       ['README.md', `>   ${description}`]
