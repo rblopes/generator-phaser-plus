@@ -1,8 +1,8 @@
 /*
- * `dist` task
- * ===========
+ *  `dist` task
+ *  ===========
  *
- * Bundle the application contents for distribution.
+ *  Bundle the application contents for distribution.
  */
 
 const gulp = require('gulp');

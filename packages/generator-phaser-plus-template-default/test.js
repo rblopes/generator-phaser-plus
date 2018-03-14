@@ -26,6 +26,7 @@ describe(chalk.bold.cyan('generator-phaser-plus-template-default'), function () 
       .then(checkScripts));
 
   function checkReadme() {
+    assert.file('screenshot.png');
     assert.fileContent([
       ['README.md', `# [${title}]`],
       ['README.md', `>   ${description}`]
@@ -34,22 +35,20 @@ describe(chalk.bold.cyan('generator-phaser-plus-template-default'), function () 
 
   function checkTasks() {
     assert.file([
-      'gulpfile.js/config/babel.js',
-      'gulpfile.js/config/webpack',
-      'gulpfile.js/config/webpack/uglify.js',
-      'gulpfile.js/config/webpack/plugins.js',
-      'gulpfile.js/config/webpack/index.js',
-      'gulpfile.js/config/paths.js',
       'gulpfile.js/config/browsersync.js',
+      'gulpfile.js/config/paths.js',
+      'gulpfile.js/config/webpack/index.js',
+      'gulpfile.js/config/webpack/plugins.js',
+      'gulpfile.js/config/webpack/rules.js',
       'gulpfile.js/index.js',
-      'gulpfile.js/tasks/copy-assets.js',
-      'gulpfile.js/tasks/serve.js',
-      'gulpfile.js/tasks/clean.js',
-      'gulpfile.js/tasks/dist.js',
-      'gulpfile.js/tasks/compile.js',
       'gulpfile.js/lib/server.js',
       'gulpfile.js/lib/webpack-middlewares.js',
-      'gulpfile.js/lib/webpack.js'
+      'gulpfile.js/lib/webpack.js',
+      'gulpfile.js/tasks/clean.js',
+      'gulpfile.js/tasks/compile.js',
+      'gulpfile.js/tasks/copy-assets.js',
+      'gulpfile.js/tasks/dist.js',
+      'gulpfile.js/tasks/serve.js'
     ]);
   }
 
@@ -58,8 +57,11 @@ describe(chalk.bold.cyan('generator-phaser-plus-template-default'), function () 
       '.editorconfig',
       '.eslintrc.js',
       '.gitattributes',
-      '.gitignore',
-      'package.json'
+      '.gitignore'
+    ]);
+    assert.fileContent([
+      ['package.json', `"title": ${JSON.stringify(title)}`],
+      ['package.json', `"description": ${JSON.stringify(description)}`]
     ]);
   }
 
@@ -67,7 +69,7 @@ describe(chalk.bold.cyan('generator-phaser-plus-template-default'), function () 
     assert.file([
       'app/index.html',
       'app/static/favicon.ico',
-      'app/static/assets/phaser.png',
+      'app/static/assets/logo.png',
       'app/static/assets/progress-bar.png',
       'app/static/assets/splash-screen.png'
     ]);
@@ -76,15 +78,12 @@ describe(chalk.bold.cyan('generator-phaser-plus-template-default'), function () 
   function checkScripts() {
     assert.file([
       'app/scripts/assets.js',
+      'app/scripts/config.js',
       'app/scripts/index.js',
       'app/scripts/objects/logo.js',
       'app/scripts/scenes/game.js',
       'app/scripts/scenes/index.js',
       'app/scripts/scenes/splash-screen.js'
     ]);
-    assert.fileContent(
-      'app/scripts/config.js',
-      `export const title = '${title}';`
-    );
   }
 });

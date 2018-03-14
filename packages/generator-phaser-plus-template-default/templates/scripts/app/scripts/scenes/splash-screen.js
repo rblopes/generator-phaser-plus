@@ -1,19 +1,22 @@
-/*
- * SplashScreen scene
- * ==================
- *
- * Takes care of loading the main scene assets, including graphics and sound
- * effects, while displaying a busy splash screen.
- */
-
-import * as files from '../assets';
+import * as files from '@/assets';
 
 export default class SplashScreen extends Phaser.Scene {
+  /**
+   *  Takes care of loading the main scene assets, including graphics and
+   *  sound effects, while displaying a busy splash screen.
+   *
+   *  @extends Phaser.Scene
+   */
   constructor() {
     super({key: 'SplashScreen', files: files.splashScreenAssets});
   }
 
-  preload() {
+  /**
+   *  Show the splash screen and prepare to load the remaining game assets.
+   *
+   *  @protected
+   */
+  create() {
     //  Display the splash screen graphic and its progress bar.
     this.showCover();
 
@@ -22,12 +25,23 @@ export default class SplashScreen extends Phaser.Scene {
     this.scene.launch('Loader');
   }
 
-  // --------------------------------------------------------------------------
+  //  ------------------------------------------------------------------------
 
+  /**
+   *  Display the splash screen graphic and its progress bar.
+   *
+   *  @private
+   */
   showCover() {
     this.add.image(0, 0, 'splash-screen').setOrigin(0);
   }
 
+  /**
+   *  Create a temporary 'Loader' scene to load remaining game assets and show
+   *  the progress bar effect.
+   *
+   *  @private
+   */
   prepareLoaderScene() {
     //  Use a temporary scene to load remaining game assets.
     const scene = this.scene

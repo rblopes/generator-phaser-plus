@@ -1,12 +1,14 @@
 /*
- * `assets` module
- * ===============
+ *  `assets` module
+ *  ===============
  *
- * Static assets to be loaded. Files are declared using 'Scene Asset Payload'
- * format. Assets are assumed to live in the `app/static/assets/` folder.
+ *  Static assets to be loaded. Files are declared using 'Scene Asset Payload'
+ *  format. Assets are assumed to live in the `app/static/assets/` folder.
  */
 
-//  -- Splash screen assets.
+/**
+ *  Splash screen assets.
+ */
 export const splashScreenAssets = [{
   key: 'splash-screen',
   type: 'image'
@@ -15,8 +17,10 @@ export const splashScreenAssets = [{
   type: 'image'
 }];
 
-//  -- General assets used throughout the game.
+/**
+ *  General assets used throughout the game.
+ */
 export const gameAssets = [{
-  key: 'phaser',
+  key: 'logo',
   type: 'image'
 }];

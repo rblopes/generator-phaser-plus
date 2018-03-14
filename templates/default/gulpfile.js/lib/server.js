@@ -1,5 +1,5 @@
 /*
- * A Browsersync instance.
+ *  A module containing a reusable Browsersync instance.
  */
 
 const browsersync = require('browser-sync');

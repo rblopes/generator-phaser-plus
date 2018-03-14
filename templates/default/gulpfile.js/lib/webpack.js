@@ -1,5 +1,5 @@
 /*
- * Returns a configured Webpack instance.
+ *  Creates a configured Webpack instance.
  */
 
 const webpack = require('webpack');

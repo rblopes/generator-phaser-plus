@@ -1,5 +1,8 @@
 /*
- * Webpack middlewares for Browsersync.
+ *  Webpack Middlewares
+ *  ===================
+ *
+ *  Configures Webpack Middlewares for use with Browsersync.
  */
 
 const devMiddleware = require('webpack-dev-middleware');

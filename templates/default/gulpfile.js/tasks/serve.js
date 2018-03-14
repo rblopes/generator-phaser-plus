@@ -1,9 +1,9 @@
 /*
- * `server` task
- * =============
+ *  `server` task
+ *  =============
  *
- * Creates a Browsersync Web server instance for live development. Makes use of
- * some Webpack middlewares to enable live reloading features.
+ *  Creates a Browsersync Web server instance for live development. Makes use
+ *  of some Webpack middlewares to enable live reloading features.
  */
 
 const config = require('../config/browsersync');
