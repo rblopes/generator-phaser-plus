@@ -1,8 +1,8 @@
 /*
- * `copy-assets` task
- * ==================
+ *  `copy-assets` task
+ *  ==================
  *
- * Copy static application assets for distribution.
+ *  Copy static application assets for distribution.
  */
 
 const gulp = require('gulp');

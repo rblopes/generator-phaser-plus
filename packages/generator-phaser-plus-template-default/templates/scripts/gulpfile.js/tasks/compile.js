@@ -1,8 +1,8 @@
 /*
- * `compile` task
- * ==============
+ *  `compile` task
+ *  ==============
  *
- * Compile scripts in production mode using Webpack.
+ *  Compile scripts in production mode using Webpack.
  */
 
 const log = require('fancy-log');

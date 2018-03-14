@@ -1,47 +1,62 @@
 /*
- * Webpack configuration.
+ *  Webpack Configuration
+ *  =====================
+ *
+ *  For reference, access the Webpack site:
+ *    <https://webpack.js.org/>
  */
 
-const {src, dest} = require('../paths');
-const babelConfig = require('../babel');
+const {src, dirs, dest} = require('../paths');
+const rules = require('./rules');
 const plugins = require('./plugins');
 
-module.exports = (mode = 'development') => ({
-  mode,
+module.exports = (env = 'development') => ({
+  //  Triggers a Webpack mode.
+  //
+  //  Can be either 'development' or 'production'.
+  mode: env,
 
+  //  The base path where to resolve entry points.
   context: src,
 
+  //  Application entry points.
+  //
+  //  Vendor libraries (e.g.: Phaser) are declared first to become available
+  //  globally.
   entry: {
     vendor: ['phaser'],
-    app: ['./scripts/']
+    app: [dirs.scripts]
   },
 
+  //  Options instructing Webpack how and where to output bundles.
   output: {
     filename:
-      mode === 'production' ?
+      env === 'production' ?
         '[name]-[chunkhash].bundle.js' :
         '[name].bundle.js',
     path: dest
   },
 
-  module: {
-    rules: [
-      {
-        test: /\.(frag|vert)$/,
-        use: 'raw-loader'
-      },
-      {
-        test: /\.js$/,
-        include: src,
-        use: {
-          loader: 'babel-loader',
-          options: babelConfig
-        }
-      }
-    ]
+  //  Controls module resolution.
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      //  Makes '@' an alias to the `app/scripts/` directory.
+      '@': dirs.scripts
+    }
   },
 
-  plugins: plugins(mode),
+  //  How source files are processed by Webpack. The rules configuration was
+  //  split into its own `rules.js` module.
+  module: {
+    rules
+  },
 
-  devtool: mode === 'development' ? 'eval-source-map' : 'source-map'
+  //  Plugins used during bundle processing. Check the `plugins.js` module to
+  //  see which and how plugins are configured.
+  plugins: plugins(env),
+
+  //  Basically, defines the type of source maps written in each compilation
+  //  mode.
+  devtool: env === 'development' ? 'eval-source-map' : 'source-map'
 });

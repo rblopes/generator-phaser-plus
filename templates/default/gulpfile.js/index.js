@@ -1,10 +1,10 @@
 /*
- * `gulpfile.js` index module
- * ==========================
+ *  `gulpfile.js` index module
+ *  ==========================
  *
- * Rather than managing one big file containing multiple Gulp tasks and helper
- * functions, the whole collection has been split and organized in this
- * directory. User tasks are exposed below.
+ *  Rather than managing one big file containing multiple Gulp tasks and
+ *  helper functions, the whole collection has been split and organized under
+ *  the `tasks/` directory. User tasks are exposed below.
  */
 
 const clean = require('./tasks/clean');
