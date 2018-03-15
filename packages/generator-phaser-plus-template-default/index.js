@@ -5,7 +5,7 @@ const Generator = require('yeoman-generator');
 module.exports = class extends Generator {
   writing() {
     //  Retrieve prompt values via generator composition.
-    const variables = this.options.variables;
+    const {variables} = this.options;
 
     //  Copy dotfiles.
     for (const file of ['editorconfig', 'gitattributes', 'gitignore']) {
