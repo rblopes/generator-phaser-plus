@@ -47,7 +47,7 @@
     "test": "xo && cross-env NODE_ENV=test mocha --reporter spec"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">= 6.12"
   },
   "dependencies": {
     "yeoman-generator": "^2.0.2"

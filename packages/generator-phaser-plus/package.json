@@ -47,7 +47,7 @@
   },
   "preferGlobal": true,
   "engines": {
-    "node": ">=4"
+    "node": ">= 6.12"
   },
   "dependencies": {
     "@rblopes/generator-phaser-plus-template-default": "^1.0.0-beta.1",
