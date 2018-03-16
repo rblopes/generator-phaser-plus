@@ -10,19 +10,18 @@ export default class <%- name %> extends Phaser.Scene {
 <% if (methods.includes('init')) { -%>
 
   /**
-   *  Called when a scene is initialized.
+   *  Called when this scene is initialized.
    *
    *  @protected
-   *  @param {object} data Initialization parameters.
+   *  @param {object} [data={}] - Initialization parameters.
    */
-  init(/* data = {} */) {
+  init(/* data */) {
   }
 <% } -%>
 <% if (methods.includes('preload')) { -%>
 
   /**
-   *  Called when a scene is initialized. Main purpose is to declare game
-   *  assets to be loaded using the Asset Manager API.
+   *  Used to declare game assets to be loaded using the loader plugin API.
    *
    *  @protected
    */
@@ -32,13 +31,12 @@ export default class <%- name %> extends Phaser.Scene {
 <% if (methods.includes('create')) { -%>
 
   /**
-   *  Called when a scene is initialized. Responsible for setting up game
-   *  objects on the screen.
+   *  Responsible for setting up game objects on the screen.
    *
    *  @protected
-   *  @param {object} data Initialization parameters.
+   *  @param {object} [data={}] - Initialization parameters.
    */
-  create(/* data = {} */) {
+  create(/* data */) {
   }
 <% } -%>
 <% if (methods.includes('update')) { -%>
@@ -47,8 +45,8 @@ export default class <%- name %> extends Phaser.Scene {
    *  Handles updates to game logic, physics and game objects.
    *
    *  @protected
-   *  @param {number} t Current internal clock time.
-   *  @param {number} dt Time elapsed since last update.
+   *  @param {number} t - Current internal clock time.
+   *  @param {number} dt - Time elapsed since last update.
    */
   update(/* t, dt */) {
   }
