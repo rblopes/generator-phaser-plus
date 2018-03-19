@@ -11,18 +11,14 @@ const rules = require('./rules');
 const plugins = require('./plugins');
 
 module.exports = (env = 'development') => ({
-  //  Triggers a Webpack mode.
-  //
-  //  Can be either 'development' or 'production'.
+  //  Enables Webpack optimizations for `development` or `production` modes.
   mode: env,
 
   //  The base path where to resolve entry points.
   context: src,
 
-  //  Application entry points.
-  //
-  //  Vendor libraries (e.g.: Phaser) are declared first to become available
-  //  globally.
+  //  Entry points of the application. Vendor libraries (e.g.: Phaser) are
+  //  declared first to become available globally.
   entry: {
     vendor: ['phaser'],
     app: [dirs.scripts]
@@ -41,7 +37,7 @@ module.exports = (env = 'development') => ({
   resolve: {
     extensions: ['.js'],
     alias: {
-      //  Makes '@' an alias to the `app/scripts/` directory.
+      //  Makes '@' an alias of the source directory.
       '@': dirs.scripts
     }
   },
@@ -58,5 +54,10 @@ module.exports = (env = 'development') => ({
 
   //  Basically, defines the type of source maps written in each compilation
   //  mode.
-  devtool: env === 'development' ? 'eval-source-map' : 'source-map'
+  devtool: env === 'development' ? 'eval-source-map' : 'source-map',
+
+  //  Turn off performance hints.
+  performance: {
+    hints: false
+  }
 });
