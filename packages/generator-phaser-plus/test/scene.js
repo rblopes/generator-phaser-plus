@@ -32,8 +32,8 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
     function checkCreatedModule() {
       assert.fileContent([
         [filename, `class ${name} extends Phaser.Scene {`],
-        [filename, `init(/* data = {} */) {`],
-        [filename, `create(/* data = {} */) {`],
+        [filename, `init(/* data */) {`],
+        [filename, `create(/* data */) {`],
         [filename, `shutdown() {`]
       ]);
       assert.noFileContent([
@@ -54,11 +54,11 @@ describe(chalk.bold.cyan('generator-phaser-plus:scene'), () => {
     function checkCreatedModule() {
       assert.fileContent([
         [filename, `class ${name} extends Phaser.Scene {`],
-        [filename, `create(/* data = {} */) {`],
+        [filename, `create(/* data */) {`],
         [filename, `update(/* t, dt */) {`]
       ]);
       assert.noFileContent([
-        [filename, `init(/* data = {} */) {`],
+        [filename, `init(/* data */) {`],
         [filename, `preload() {`],
         [filename, `render() {`],
         [filename, `shutdown() {`],
