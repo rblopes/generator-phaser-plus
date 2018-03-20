@@ -73,11 +73,13 @@ module.exports = class extends Generator {
   }
 
   install() {
-    //  Prefer Yarn, if available.
-    if (npmClient === 'yarn') {
-      this.yarnInstall();
-    } else {
-      this.npmInstall();
+    if (!this.options['skip-install']) {
+      //  Prefer Yarn, if available.
+      if (npmClient === 'yarn') {
+        this.yarnInstall();
+      } else {
+        this.npmInstall();
+      }
     }
   }
 
