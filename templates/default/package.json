@@ -24,7 +24,6 @@
     "plugin-error": "^1.0.1",
     "raw-loader": "^0.5.1",
     "read-pkg-up": "^3.0.0",
-    "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "^4.1.1",
     "webpack-dev-middleware": "^3.0.1"
   },

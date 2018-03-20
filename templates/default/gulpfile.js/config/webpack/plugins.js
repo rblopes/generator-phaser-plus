@@ -8,7 +8,6 @@
 const webpack = require('webpack');
 const {pkg} = require('read-pkg-up').sync();
 const HTML = require('html-webpack-plugin');
-const UglifyJS = require('uglifyjs-webpack-plugin');
 
 module.exports = (env = 'development') =>
   [
@@ -36,23 +35,5 @@ module.exports = (env = 'development') =>
       title: pkg.title,
       description: pkg.description,
       template: 'index.html'
-    }),
-
-    //  UglifyJS
-    //  --------
-    //
-    //  Production mode only: Minify bundled JavaScript for distribution.
-    //
-    //  Reference:
-    //  - <https://github.com/webpack-contrib/uglifyjs-webpack-plugin#readme>
-    env === 'production' && new UglifyJS({
-      //  Enable cache, so subsequent runs should be faster.
-      cache: true,
-
-      //  Up to 4 parallel jobs.
-      parallel: 4,
-
-      //  Create a source map after compression is finished.
-      sourceMap: true
     })
   ].filter(Boolean);
