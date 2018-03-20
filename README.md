@@ -146,9 +146,9 @@ The tutorial is written from an absolute beginners perspective, but assumes the 
 
 ### First steps
 
-When you fire up your game project for the first time, you should see a rotating Phaser logo on the screen.
+When you fire up your game project for the first time, you should see a rotating Phaser 3 logo on the screen.
 
-![Screenshot](media/tutorial/01.png)
+<div align='center'><img src='media/tutorial/01.png' alt='Screenshot'></div>
 
 Your game project is alive. We are ready to start producing some code and add the necessary parts to create a real game.
 
@@ -168,13 +168,13 @@ The scene we are creating here will be named `Title`, and will serve as our game
 
 Using the `--customize` flag, the generator will prompt which life-cycle methods to add in your scene. Passing this flag to the `phaser-plus scene` command is optional and usually the `create` and `update` methods are automatically chosen for us. We won't need the `update` method, though, so let's take this opportunity and pick only the one we need.
 
-![Screenshot](media/tutorial/02.png)
+<div align='center'><img src='media/tutorial/02.png' alt='Screenshot'></div>
 
 Move between the options using the keyboard up (<kbd>↑</kbd>) and down (<kbd>↓</kbd>) arrow keys. To check or uncheck an option, hit the <kbd>Space Bar</kbd> key. Confirm your selection typing <kbd>Enter</kbd>.
 
 Immediately after you hit <kbd>Enter</kbd>, the generator will halt for a moment. This is OK. The generator will try to update the scenes index (the `app/scritps/scenes/index.js` module), so you don't have to do that manually. Since it is modifying an already existing file, the generator will give you the opportunity to review and confirm these changes. You can type <kbd>D</kbd>, followed by <kbd>Enter</kbd>, to see which lines are being added to the file. Type <kbd>Y</kbd> and <kbd>Enter</kbd> to answer "Yes" and confirm the changes.
 
-![Screenshot](media/tutorial/03.png)
+<div align='center'><img src='media/tutorial/03.png' alt='Screenshot'></div>
 
 Now that we added a new scene to our game, let's start using it. Before that, we need to do a small update on the scene responsible for defining our game's splash screen.
 
@@ -210,7 +210,6 @@ To save time, `generator-phaser-plus` projects follow a simple pattern: You copy
 >
 >   -   [The starry sky (`space3.png`)](http://labs.phaser.io/assets/skies/space3.png)
 >   -   [A red flare (`red.png`)](http://labs.phaser.io/assets/particles/red.png)
->   -   [The Phaser 3 logo (`phaser3-logo.png`)](http://labs.phaser.io/assets/sprites/phaser3-logo.png)
 
 <!-- TODO: Hot-linking is bad! I need to prepare, or as a last resort, reuse, one archive containing all needed sample assets to go along this tutorial, before the final version is published. -->
 
@@ -219,16 +218,12 @@ After you copy the files to the assets directory, let's declare them in the asse
 ```diff
  //  -- General assets used throughout the game.
  export const gameAssets = [{
-   key: 'phaser',
+   key: 'logo',
    type: 'image'
 +}, {
 +  key: 'sky',
 +  type: 'image',
 +  url: 'space3.png'
-+}, {
-+  key: 'logo',
-+  type: 'image',
-+  url: 'phaser3-logo.png'
 +}, {
 +  key: 'red',
 +  type: 'image'
@@ -294,7 +289,7 @@ const logo = this.add.image(x, 100, 'logo');
 flame.startFollow(logo);
 ```
 
-![Screenshot](media/tutorial/04.png)
+<div align='center'><img src='media/tutorial/04.png' alt='Screenshot'></div>
 
 That will add the Phaser 3 logo near the top of the screen, with the flame effect attached behind it.
 
@@ -374,7 +369,7 @@ Here, we are subscribing to the `pointerup` event of the text label. When the te
 
 Now save the Title scene module. You should see a big white text label saying "START!!" on the lower part of the game screen. Click it ─ or, if using a mobile device, tap it ─ to be taken back to the "Game" scene, with the spinning Phaser logo, we saw earlier.
 
-![Screenshot](media/tutorial/05.png)
+<div align='center'><img src='media/tutorial/05.png' alt='Screenshot'></div>
 
 With that, we have created a fancy Title screen for our little game.
 
