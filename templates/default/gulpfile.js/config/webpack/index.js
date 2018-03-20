@@ -2,8 +2,11 @@
  *  Webpack Configuration
  *  =====================
  *
- *  For reference, access the Webpack site:
- *    <https://webpack.js.org/>
+ *  Defines the Webpack bundling configuration optimized for `development` or
+ *  `production` modes.
+ *
+ *  For reference on configuration options, see the Webpack at
+ *    <https://webpack.js.org/configuration/>
  */
 
 const {src, dirs, dest} = require('../paths');
@@ -24,7 +27,7 @@ module.exports = (env = 'development') => ({
     app: [dirs.scripts]
   },
 
-  //  Options instructing Webpack how and where to output bundles.
+  //  Options instructing Webpack how and where to write compiled bundles.
   output: {
     filename:
       env === 'production' ?
@@ -33,11 +36,14 @@ module.exports = (env = 'development') => ({
     path: dest
   },
 
-  //  Controls module resolution.
+  //  Controls how Webpack looks up for modules on the project.
   resolve: {
+    //  The file extensions Webpack will be looking up when using `import`
+    //  statements.
     extensions: ['.js'],
+
     alias: {
-      //  Makes '@' an alias of the source directory.
+      //  For convenience, makes '@' an alias of the source directory.
       '@': dirs.scripts
     }
   },
@@ -52,11 +58,10 @@ module.exports = (env = 'development') => ({
   //  see which and how plugins are configured.
   plugins: plugins(env),
 
-  //  Basically, defines the type of source maps written in each compilation
-  //  mode.
+  //  Defines the type of source maps written in each compilation mode.
   devtool: env === 'development' ? 'eval-source-map' : 'source-map',
 
-  //  Turn off performance hints.
+  //  Turn performance hints off.
   performance: {
     hints: false
   }
