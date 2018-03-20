@@ -9,9 +9,8 @@
 
 const clean = require('./tasks/clean');
 const compile = require('./tasks/compile');
-const copyAssets = require('./tasks/copy-assets');
 const dist = require('./tasks/dist');
 const serve = require('./tasks/serve');
 
 //  Expose user tasks and make `serve` the default task.
-module.exports = {clean, compile, copyAssets, dist, default: serve};
+module.exports = {clean, compile, dist, default: serve};

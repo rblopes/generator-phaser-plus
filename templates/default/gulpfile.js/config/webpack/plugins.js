@@ -8,6 +8,8 @@
 const webpack = require('webpack');
 const {pkg} = require('read-pkg-up').sync();
 const HTML = require('html-webpack-plugin');
+const Copy = require('copy-webpack-plugin');
+const {dirs, dest} = require('../paths');
 
 module.exports = (env = 'development') =>
   [
@@ -35,5 +37,17 @@ module.exports = (env = 'development') =>
       title: pkg.title,
       description: pkg.description,
       template: 'index.html'
-    })
+    }),
+
+    //  Copy Plugin
+    //  -----------
+    //
+    //  Copies application assets into the bundle.
+    //
+    //  Reference:
+    //    <https://github.com/webpack-contrib/copy-webpack-plugin#readme>
+    new Copy([{
+      from: dirs.static,
+      to: dest
+    }])
   ].filter(Boolean);

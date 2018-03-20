@@ -46,7 +46,6 @@ describe(chalk.bold.cyan('generator-phaser-plus-template-default'), function () 
       'gulpfile.js/lib/webpack.js',
       'gulpfile.js/tasks/clean.js',
       'gulpfile.js/tasks/compile.js',
-      'gulpfile.js/tasks/copy-assets.js',
       'gulpfile.js/tasks/dist.js',
       'gulpfile.js/tasks/serve.js'
     ]);
