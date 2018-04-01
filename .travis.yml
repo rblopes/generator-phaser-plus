@@ -10,6 +10,11 @@ node_js:
 git:
   depth: 1
 
+cache:
+  directories:
+    - $HOME/.cache/yarn
+    - ./node_modules
+
 branches:
   only:
     - master
