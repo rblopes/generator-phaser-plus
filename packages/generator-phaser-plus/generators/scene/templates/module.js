@@ -7,7 +7,6 @@ export default class <%- name %> extends Phaser.Scene {
   constructor() {
     super({key: '<%- name %>'});
   }
-<% if (methods.includes('init')) { -%>
 
   /**
    *  Called when this scene is initialized.
@@ -17,8 +16,6 @@ export default class <%- name %> extends Phaser.Scene {
    */
   init(/* data */) {
   }
-<% } -%>
-<% if (methods.includes('preload')) { -%>
 
   /**
    *  Used to declare game assets to be loaded using the loader plugin API.
@@ -27,8 +24,6 @@ export default class <%- name %> extends Phaser.Scene {
    */
   preload() {
   }
-<% } -%>
-<% if (methods.includes('create')) { -%>
 
   /**
    *  Responsible for setting up game objects on the screen.
@@ -38,8 +33,6 @@ export default class <%- name %> extends Phaser.Scene {
    */
   create(/* data */) {
   }
-<% } -%>
-<% if (methods.includes('update')) { -%>
 
   /**
    *  Handles updates to game logic, physics and game objects.
@@ -50,8 +43,6 @@ export default class <%- name %> extends Phaser.Scene {
    */
   update(/* t, dt */) {
   }
-<% } -%>
-<% if (methods.includes('render')) { -%>
 
   /**
    *  Called after a scene is rendered. Handles rendenring post processing.
@@ -60,8 +51,6 @@ export default class <%- name %> extends Phaser.Scene {
    */
   render() {
   }
-<% } -%>
-<% if (methods.includes('shutdown')) { -%>
 
   /**
    *  Called when a scene is about to shut down.
@@ -70,8 +59,6 @@ export default class <%- name %> extends Phaser.Scene {
    */
   shutdown() {
   }
-<% } -%>
-<% if (methods.includes('destroy')) { -%>
 
   /**
    *  Called when a scene is about to be destroyed (i.e.: removed from scene
@@ -82,5 +69,4 @@ export default class <%- name %> extends Phaser.Scene {
    */
   destroy() {
   }
-<% } -%>
 }

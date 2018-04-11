@@ -123,16 +123,14 @@ Creates custom plugin classes.
 #### `scene` generator.
 
 ```sh
-phaser-plus scene <name> [--customize]
+phaser-plus scene <names...>
 ```
 
-Creates scene classes. By default, scenes have the `create` and `update` methods included. To choose which life-cycle methods to include, use the `--customize` option. It also updates the `scenes/index.js` module with the new entry for you.
+Creates scene classes and updates the `scenes/index.js` module with the new entries.
 
 -   **Alias**: `s`.
 -   **Arguments**:
-    -   **`name`**. Required. The object class name.
--   **Options**:
-    -   **`--customize`**: Select life-cycle methods to include. **Alias**: **`-c`**.
+    -   **`names`**. Required. The name (or names) of the scene class.
 
 
 ## A Brief Tutorial

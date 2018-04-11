@@ -17,8 +17,8 @@ const generators = {
     options: []
   },
   scene: {
-    arguments: ['name'],
-    options: ['customize']
+    arguments: ['names'],
+    options: []
   }
 };
 
@@ -35,7 +35,7 @@ function getOptionsFor(name, argv) {
 
 function getHandler(name) {
   return argv => {
-    const cmd = [`phaser-plus:${name}`].concat(getArgumentsFor(name, argv));
+    const cmd = [`phaser-plus:${name}`].concat(...getArgumentsFor(name, argv));
     const options = getOptionsFor(name, argv);
     env.run(cmd, options);
   };
