@@ -48,19 +48,14 @@ exports.plugin = {
 };
 
 exports.scene = {
-  command: 'scene <name>',
+  command: 'scene <names...>',
   aliases: ['s'],
-  describe: 'Create a game scene class.',
+  describe: 'Create game scene classes.',
   builder(yargs) {
     yargs
-      .positional('name', {
+      .positional('names', {
         type: 'string',
-        describe: 'The scene class name.'
-      })
-      .option('customize', {
-        alias: 'c',
-        type: 'boolean',
-        describe: 'Select life-cycle methods to include.'
+        describe: 'Scene class names.'
       });
   }
 };
