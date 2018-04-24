@@ -157,18 +157,14 @@ We will start by creating a new "Title" scene, using the [`scene` generator](#sc
 To add that new game scene to your game project, run the following command:
 
 ```
-phaser-plus scene title --customize
+phaser-plus scene title
 ```
 
 That command will execute the `scene` generator to create a stub of a new Phaser Scene class. A scene is where all action in a Phaser game happens. For example, we use scenes to manipulate physics, update the game logic and process player input.
 
-The scene we are creating here will be named `Title`, and will serve as our game's title card, with an simple "Start Game" button. Its code will be contained in a file named `title.js`, under the `app/scripts/scenes/` directory.
-
-Using the `--customize` flag, the generator will prompt which life-cycle methods to add in your scene. Passing this flag to the `phaser-plus scene` command is optional and usually the `create` and `update` methods are automatically chosen for us. We won't need the `update` method, though, so let's take this opportunity and pick only the one we need.
+The scene we are creating here will be named `Title`, and will serve as our game's title screen, with a simple "Start Game" button. Its code will be contained in a file named `title.js`, under the `app/scripts/scenes/` directory.
 
 <div align='center'><img src='media/tutorial/02.png' alt='Screenshot'></div>
-
-Move between the options using the keyboard up (<kbd>↑</kbd>) and down (<kbd>↓</kbd>) arrow keys. To check or uncheck an option, hit the <kbd>Space Bar</kbd> key. Confirm your selection typing <kbd>Enter</kbd>.
 
 Immediately after you hit <kbd>Enter</kbd>, the generator will halt for a moment. This is OK. The generator will try to update the scenes index (the `app/scritps/scenes/index.js` module), so you don't have to do that manually. Since it is modifying an already existing file, the generator will give you the opportunity to review and confirm these changes. You can type <kbd>D</kbd>, followed by <kbd>Enter</kbd>, to see which lines are being added to the file. Type <kbd>Y</kbd> and <kbd>Enter</kbd> to answer "Yes" and confirm the changes.
 
