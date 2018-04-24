@@ -46,7 +46,6 @@
     -   [Configuration](#configuration)
 -   [Miscellaneous Topics](#miscellaneous-topics)
     -   [Managing Dependencies](#managing-dependencies)
-    -   [The `assets.js` Module Format](#the-assetsjs-module-format)
 -   [Contributing](#contributing)
 -   [Release Notes](#release-notes)
 -   [License](#license)
@@ -204,7 +203,7 @@ The preparation of a game requires not only code. In your project, to ambient yo
 
 In order to make use of these media assets in your game, however, you need to declare them in Phaser, so they can be recognized and committed into the browser's memory.
 
-To save time, `generator-phaser-plus` projects follow a simple pattern: You copy files to the `app/static/assets/` directory and, using the assets module (`app/scripts/assets.js`), we tell Phaser which and what kind of files to load.
+To save time, `generator-phaser-plus` projects follow a simple pattern: You copy files to the `app/static/assets/` directory and declare them on the splash screen scene `preload` method.
 
 >   For this part of the tutorial, we are going to use some files from the Phaser Labs.
 >
@@ -213,32 +212,16 @@ To save time, `generator-phaser-plus` projects follow a simple pattern: You copy
 
 <!-- TODO: Hot-linking is bad! I need to prepare, or as a last resort, reuse, one archive containing all needed sample assets to go along this tutorial, before the final version is published. -->
 
-After you copy the files to the assets directory, let's declare them in the assets module.
+After you copy the files to the assets directory, let's declare them. Find the `preload()` method of the scene class and modify the highlighted lines as follows:
 
 ```diff
- //  -- General assets used throughout the game.
- export const gameAssets = [{
-   key: 'logo',
-   type: 'image'
-+}, {
-+  key: 'sky',
-+  type: 'image',
-+  url: 'space3.png'
-+}, {
-+  key: 'red',
-+  type: 'image'
- }];
+ //  HINT: Declare all game assets to be loaded here.
+-this.load.image('logo');
++this.load
++  .image('logo')
++  .image('sky', 'space3.png')
++  .image('red');
 ```
-
-In general, to declare each game asset, you use a 'hash' object with a `key`, a `type` and, depending on the asset type, a few special parameters.
-
-The `key` will determine how your game asset will be referred internally by Phaser. It must be unique, that is, this key cannot be shared with another asset file.
-
-The `type` defines what kind of asset you are declaring. Phaser supports many kinds of game assets, but a few require some special processing before they can be effectively used.
-
-The `url` is used basically to determine by which name a file is stored on a Web server. Used in conjunction with the `key` property, you can alias that asset by a name other than the file name itself. However, passing an URL is optional, as you can see in the part where we declare the "red" image. In that case, Phaser will guess the file name, based on its key and type.
-
->   **HINT**: ~~You can read a more in-depth guide about the [scene asset payload format](#the-assetsjs-module-format) in a dedicated section of this page.~~ (TBD)
 
 <!--
 >   **NOTE**: Windows users should be a little careful relying on this convention because some graphics editors insist on using capitalized extensions (e.g.: `some-name.PNG`) when saving files, however Web browsers do distinguish capitalized and minuscule characters on file names.
@@ -409,7 +392,6 @@ app/
 │   ├── scenes/         # Game scenes
 │   │   ├── index.js    # Reference module for all game scenes
 │   │   └── ...
-│   ├── assets.js       # Declares media assets used by the game
 │   ├── config.js       # Contains certain Phaser configuration values
 │   └── index.js        # The game application entry point routine
 │
@@ -588,11 +570,6 @@ To conclude, note that this method is **not recommended** and should be complete
 -   Verify which license apply to that library and if that license is adequate to your project.
 
 -   If you think you found issues using someone's library, double-check your code to see what is wrong. If you are sure the problem is caused by the library itself, do not hesitate to report the authors so they can provide the necessary corrections.
-
-
-### The `assets.js` Module Format
-
-TBD.
 
 
 ## Contributing
