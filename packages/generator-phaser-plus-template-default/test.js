@@ -76,7 +76,6 @@ describe(chalk.bold.cyan('generator-phaser-plus-template-default'), function () 
 
   function checkScripts() {
     assert.file([
-      'app/scripts/assets.js',
       'app/scripts/config.js',
       'app/scripts/index.js',
       'app/scripts/objects/logo.js',

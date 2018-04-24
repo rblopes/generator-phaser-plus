@@ -1,34 +1,55 @@
-import * as files from '@/assets';
-
 export default class SplashScreen extends Phaser.Scene {
   /**
-   *  Takes care of loading the main scene assets, including graphics and
-   *  sound effects, while displaying a busy splash screen.
+   *  Takes care of loading the main game assets, including textures, tile
+   *  maps, sound effects and other binary files, while displaying a busy
+   *  splash screen.
    *
    *  @extends Phaser.Scene
    */
   constructor() {
-    super({key: 'SplashScreen', files: files.splashScreenAssets});
+    super({
+      key: 'SplashScreen',
+
+      //  Splash screen and progress bar textures.
+      files: [{
+        key: 'splash-screen',
+        type: 'image'
+      }, {
+        key: 'progress-bar',
+        type: 'image'
+      }]
+    });
   }
 
   /**
-   *  Show the splash screen and prepare to load the remaining game assets.
+   *  Show the splash screen and prepare to load game assets.
+   *
+   *  @protected
+   */
+  preload() {
+    //  Display cover and progress bar textures.
+    this.showCover();
+    this.showProgressBar();
+
+    //  HINT: Declare all game assets to be loaded here.
+    this.load.image('logo');
+  }
+
+  /**
+   *  Set up animations, plugins etc. that depend on the game assets we just
+   *  loaded.
    *
    *  @protected
    */
   create() {
-    //  Display the splash screen graphic and its progress bar.
-    this.showCover();
-
-    //  Prepare the loader scene to load remaining assets.
-    this.prepareLoaderScene();
-    this.scene.launch('Loader');
+    //  We have nothing left to do here. Start the next scene.
+    this.scene.start('Game');
   }
 
   //  ------------------------------------------------------------------------
 
   /**
-   *  Display the splash screen graphic and its progress bar.
+   *  Show the splash screen cover.
    *
    *  @private
    */
@@ -37,34 +58,28 @@ export default class SplashScreen extends Phaser.Scene {
   }
 
   /**
-   *  Create a temporary 'Loader' scene to load remaining game assets and show
-   *  the progress bar effect.
+   *  Show the progress bar and set up its animation effect.
    *
    *  @private
    */
-  prepareLoaderScene() {
-    //  Use a temporary scene to load remaining game assets.
-    const scene = this.scene
-      .add('Loader', {files: files.gameAssets})
-      .get('Loader');
+  showProgressBar() {
+    //  Get the progress bar filler texture dimensions.
+    const {width: w, height: h} = this.textures.get('progress-bar').get();
 
-    //  Change the scene viewport to simulate the progress bar.
-    const camera = scene.cameras.main;
-    camera.setViewport(82, 282, 0, 28);
+    //  Create a shape to use as a mask for our progress bar filler.
+    const mask = this.make.graphics();
 
-    //  Add the progress bar graphic.
-    scene.add.image(0, 0, 'progress-bar').setOrigin(0);
+    //  Place the filler texture on the progress bar "hole" of the splash
+    //  screen.
+    const img = this.add.sprite(82, 282, 'progress-bar').setOrigin(0);
 
-    //  Stretch the viewport to fill the progress bar.
-    scene.load.on('progress', n => {
-      camera.setSize(Math.ceil(476 * n), camera.height);
-    });
+    //  Apply the mask and move the shape at the same coordinates of the
+    //  filler texture.
+    img.mask = new Phaser.Display.Masks.GeometryMask(this, mask);
+    mask.setPosition(img.x, img.y);
 
-    //  When the asset loader fulfills its job, start the Game scene.
-    scene.load.on('complete', () => {
-      this.scene
-        .remove(scene)
-        .start('Game');
-    });
+    //  Given how many files have been loaded, paint the shape mask to reveal
+    //  more of the filler, giving the progress bar its animation effect.
+    this.load.on('progress', v => mask.fillRect(0, 0, Math.ceil(v * w), h));
   }
 }
