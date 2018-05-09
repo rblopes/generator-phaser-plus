@@ -73,7 +73,7 @@ npm install --global generator-phaser-plus
     cd my-awesome-game/
     ```
 
-2.  Run `phaser-plus` command and fill in the short questionnaire.
+2.  Run `phaser-plus` and fill in the short questionnaire.
 
     ```sh
     phaser-plus
@@ -81,16 +81,16 @@ npm install --global generator-phaser-plus
 
     ![Screenshot](media/screenshot.png)
 
-3.  When the installation of the development kit completes, fire up your project running:
+3.  After the installation of the development kit finishes, fire up your project running:
 
     ```sh
-    npm start
+    npm start                           # Or: `yarn start`
     ```
 
 
 ### Generators
 
-`generator-phaser-plus` comes with a few handy generators to solve some common Phaser game development tasks.
+`generator-phaser-plus` comes with a few handy generators to speed up some common Phaser game development tasks.
 
 >   **HINT**: You can read a short description of what a command does running it with the `--help` option.
 
@@ -100,7 +100,7 @@ npm install --global generator-phaser-plus
 phaser-plus object <name>
 ```
 
-Creates game object classes. This generator will ask which Phaser game object class a new game object class should extend from.
+Creates game object classes. This generator will ask which Phaser game object class your want your new game object class to extend from.
 
 -   **Alias**: `o`.
 -   **Arguments**:
@@ -136,18 +136,18 @@ Creates scene classes and updates the `scenes/index.js` module with the new entr
 
 This step-by-step tutorial takes the official [game example](https://github.com/photonstorm/phaser#create-your-first-phaser-3-example) as a starting point to guide you through `generator-phaser-plus` workflow.
 
-The tutorial is written from an absolute beginners perspective, but assumes the user already have a little understanding of JavaScript syntax. Also, some previous Node.js development experience and some reasoning around the terminal emulator and command-line tools is desirable but not a necessary requirement to complete this tutorial.
+The tutorial is written from an absolute beginners perspective, but assumes the user already have a little understanding of JavaScript syntax. Also, some previous Node.js development experience and some reasoning around the terminal emulator and command-line tools is desirable but not a necessary requirement to complete the tutorial.
 
 > **NOTE**: Some portions of sample code are formatted using a simplified ['diff' format](https://en.wikipedia.org/wiki/Diff_utility). If you are not familiar with that format, keep in mind that whenever you see a line beginning in a plus (+) sign, you should add that highlighted line to your code. Conversely, lines to be deleted begin with a minus (-) sign.
 
 
 ### First steps
 
-When you fire up your game project for the first time, you should see a rotating Phaser 3 logo on the screen.
+When you fire up your game project for the first time, you should see a floating Phaser 3 logo rotating on your browser.
 
 <div align='center'><img src='media/tutorial/01.png' alt='Screenshot'></div>
 
-Your game project is alive. We are ready to start producing some code and add the necessary parts to create a real game.
+Your new game project is alive. We are ready to start producing some code and add the necessary parts to create a real game ─ that is, one that is more than just a spinning logo. Open up your game project in your favorite code editor or IDE, if you did not do so already, to start editing it.
 
 #### Your first game scene
 
@@ -159,54 +159,52 @@ To add that new game scene to your game project, run the following command:
 phaser-plus scene title
 ```
 
-That command will execute the `scene` generator to create a stub of a new Phaser Scene class. A scene is where all action in a Phaser game happens. For example, we use scenes to manipulate physics, update the game logic and process player input.
+That command will execute the `scene` generator to create a stub of a new Phaser Scene class. A scene is where all action in a Phaser game happens. For example, we use scenes to manipulate physics, update the game logic, process player input, display the player's score and so on.
 
-The scene we are creating here will be named `Title`, and will serve as our game's title screen, with a simple "Start Game" button. Its code will be contained in a file named `title.js`, under the `app/scripts/scenes/` directory.
+The scene we are creating here will be named `Title`, and will serve as your game's title screen, with a simple "Start Game" button. Its code will be contained in a file named `title.js`, under the `app/scripts/scenes/` directory.
 
 <div align='center'><img src='media/tutorial/02.png' alt='Screenshot'></div>
 
-Immediately after you hit <kbd>Enter</kbd>, the generator will halt for a moment. This is OK. The generator will try to update the scenes index (the `app/scritps/scenes/index.js` module), so you don't have to do that manually. Since it is modifying an already existing file, the generator will give you the opportunity to review and confirm these changes. You can type <kbd>D</kbd>, followed by <kbd>Enter</kbd>, to see which lines are being added to the file. Type <kbd>Y</kbd> and <kbd>Enter</kbd> to answer "Yes" and confirm the changes.
+Immediately after you hit <kbd>Enter</kbd>, the generator will create your new scene file but will halt for a moment. This is OK. The generator is now trying to update the scenes index (the `app/scritps/scenes/index.js` file) so you don't have to do that manually. Because it is modifying an already existing file, the generator gives you the opportunity to review these changes. To see which lines are being added to that file, just type <kbd>D</kbd>, followed by <kbd>Enter</kbd>, to get a preview of the changes. When you finish reviewing, or just want to proceed anyway, type <kbd>Y</kbd> and <kbd>Enter</kbd> to answer "Yes" and confirm.
 
 <div align='center'><img src='media/tutorial/03.png' alt='Screenshot'></div>
 
-Now that we added a new scene to our game, let's start using it. Before that, we need to do a small update on the scene responsible for defining our game's splash screen.
+Now that you added a new scene it is time to start using it. For that, you need to do a small update on the scene responsible for defining the game's splash screen appearance.
 
-The `SplashScreen` class takes care of a few chores. First, it tells Phaser which media assets it must load for use in our game. Meanwhile, it displays the cover art of our game, and an progress indicator as a means to tell the player how much time remains for the asset loader to finish its job.
+The `SplashScreen` class takes care of a few chores. First, it tells Phaser which media assets it must load. Meanwhile, it displays the cover art of your game and a progress bar telling the player how much time for the game engine to finish performing its initialization tasks remain before it can actually start running the game itself.
 
-When all media assets finish loading, it starts the Game scene, with the rotating Phaser logo we saw earlier. We need to change this last part so we can jump to the Title scene instead. For that, open the file `app/scripts/scenes/splash-screen.js` and find the `prepareLoaderScene` method, near the end of the file. Modify it as in the highlighted code excerpt below and save it.
+When all media assets finish loading, it starts the Game scene, with the rotating Phaser logo we saw earlier. You want to change that so the game jumps to the Title scene instead. Open the `app/scripts/scenes/splash-screen.js` file and find the `create` method. Modify it as in the highlighted code excerpt below, so the `this.scene.start()` method argument reads `'Title'` instead of `'Game'`, and save it.
 
 ```diff
- //  When the asset loader fulfills its job, start the Game scene.
- scene.load.on('complete', () => {
-   this.scene
-     .stop('Loader')
--    .start('Game');
-+    .start('Title');
- });
+ create() {
+   //  We have nothing left to do here. Start the next scene.
+-  this.scene.start('Game');
++  this.scene.start('Title');
+ }
 ```
 
-Now you will be left with a boring, black screen. Don't worry, though, things are about to get interesting soon. Let's take a moment, though, and discuss one important aspect of your game project.
+Done. Now you will be left with a boring black screen. Don't worry, though, things are about to get interesting soon. Let's take a moment, though, and discuss one important aspect of your game project.
 
 #### Declaring game assets
 
-The preparation of a game requires not only code. In your project, to ambient your virtual world, you will need to use many kinds of media files, collectively known as game assets. Game assets come in a wide range of types, including:
+The crafting of a game requires not only code. In your project, to ambient your virtual world, you will need to use many kinds of media files, collectively known as game assets. Game assets come in a wide range of types, including:
 
--   Artwork, like graphical textures and models;
--   Audio files like sound effects and themes;
--   Miscellaneous files, like level definitions, board maps and many more.
+-   Artwork, like graphical textures and three dimensional models;
+-   Audio files for sound effects and background tunes;
+-   Many sorts of miscellaneous files defining raw data, like level definitions, board maps and many more.
 
-In order to make use of these media assets in your game, however, you need to declare them in Phaser, so they can be recognized and committed into the browser's memory.
+To use these media assets in your game, however, Phaser must know what kind of files it needs to load so they can be processed and committed into the browser's memory.
 
-To save time, `generator-phaser-plus` projects follow a simple pattern: You copy files to the `app/static/assets/` directory and declare them on the splash screen scene `preload` method.
+To save time, `generator-phaser-plus` projects follow a simple pattern: You copy files to the `app/static/assets/` directory and declare them in the splash screen scene `preload()` method body.
 
 >   For this part of the tutorial, we are going to use some files from the Phaser Labs.
 >
 >   -   [The starry sky (`space3.png`)](http://labs.phaser.io/assets/skies/space3.png)
 >   -   [A red flare (`red.png`)](http://labs.phaser.io/assets/particles/red.png)
 
-<!-- TODO: Hot-linking is bad! I need to prepare, or as a last resort, reuse, one archive containing all needed sample assets to go along this tutorial, before the final version is published. -->
+<!-- TODO: Hot-linking is BAD! I need to prepare, or as a last resort, reuse, one archive containing all needed sample assets to go along this tutorial, before the final version of the generator is published. -->
 
-After you copy the files to the assets directory, let's declare them. Find the `preload()` method of the scene class and modify the highlighted lines as follows:
+After you copy the files to the assets directory, let's declare them. Find the `preload()` method in the splash screen scene class and modify the highlighted lines as follows:
 
 ```diff
  //  HINT: Declare all game assets to be loaded here.
@@ -223,7 +221,7 @@ After you copy the files to the assets directory, let's declare them. Find the `
 
 #### Adding the background to the Title scene
 
-After adding our first media assets, we can start adding the elements of our Title scene. Let's start with the background. Inside the `create()` method body, type the following code block and save the module.
+After adding your first media assets, you can start adding the elements of our Title scene. Let's start with the background. Inside the `create()` method body, type the following code block and save the module.
 
 ```js
 //  Save the center point coordinates for later reference.
