@@ -11,13 +11,15 @@ export default class SplashScreen extends Phaser.Scene {
       key: 'SplashScreen',
 
       //  Splash screen and progress bar textures.
-      files: [{
-        key: 'splash-screen',
-        type: 'image'
-      }, {
-        key: 'progress-bar',
-        type: 'image'
-      }]
+      pack: {
+        files: [{
+          key: 'splash-screen',
+          type: 'image'
+        }, {
+          key: 'progress-bar',
+          type: 'image'
+        }]
+      }
     });
   }
 
@@ -67,7 +69,7 @@ export default class SplashScreen extends Phaser.Scene {
     const {width: w, height: h} = this.textures.get('progress-bar').get();
 
     //  Create a shape to use as a mask for our progress bar filler.
-    const mask = this.make.graphics();
+    const mask = this.add.graphics();
 
     //  Place the filler texture on the progress bar "hole" of the splash
     //  screen.

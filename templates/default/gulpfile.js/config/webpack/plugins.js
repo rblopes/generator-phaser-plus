@@ -22,8 +22,8 @@ module.exports = (env = 'development') =>
     //  - <https://webpack.js.org/plugins/define-plugin/>
     new webpack.DefinePlugin({
       //  Required by Phaser: Enable Canvas and WebGL renderers.
-      CANVAS_RENDERER: true,
-      WEBGL_RENDERER: true
+      'typeof CANVAS_RENDERER': true,
+      'typeof WEBGL_RENDERER': true
     }),
 
     //  HTML Plugin

@@ -8,15 +8,6 @@
 const {dirs} = require('../paths');
 
 module.exports = [
-  //  WebGL Fragment and Vertex Shaders (GLSL)
-  //  ----------------------------------------
-  //
-  //  Required by Phaser. Compile fragment and vertex shaders from Phaser.
-  {
-    test: /\.(frag|vert)$/,
-    loader: 'raw-loader'
-  },
-
   //  JavaScript Application Modules
   //  ------------------------------
   //
