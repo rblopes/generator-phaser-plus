@@ -8,6 +8,10 @@
 //  Import created game scenes.
 import * as scenes from '@/scenes';
 
+//  HINT: Import plugins, custom or trusted third-party ones, here.
+// import ExamplePlugin from 'example-plugin';
+// import ExampleScenePlugin from '@/plugins/example-scene-plugin';
+
 /**
  *  Game canvas width.
  */
@@ -106,6 +110,59 @@ export const physics = {
 export const loader = {
   //  HINT: Put all your game assets in the `app/static/assets/` directory.
   path: 'assets/'
+};
+
+/**
+ *  Declare custom Phaser plugins.
+ *
+ *  There are two kinds of plugins: Global Plugins and Scene Plugins.
+ *
+ *  Global plugins are instantiated once per game and persist throughout the
+ *  whole session.
+ *
+ *  Scene plugins are instantiated with each scene and are stored in the
+ *  `Systems` class, rather than the global plugin manager. Scene plugins are
+ *  tied to the scene life cycle.
+ */
+export const plugins = {
+  global: [
+    // {
+    //   //  An identifier to associate this plugin instance within Phaser's
+    //   //  plugin manager cache. It must be unique to avoid naming clashes
+    //   //  with other plugins.
+    //   key: 'ExamplePlugin',
+    //
+    //   //  The imported plugin class.
+    //   plugin: ExamplePlugin,
+    //
+    //   //  The property name your plugin will be aliased to. This plugin
+    //   //  will be exposed as a property of your scene context, for example,
+    //   //  `this.myPlugin`.
+    //   mapping: 'myPlugin',
+    //
+    //   //  Whether to start up or not this plugin on game's initialization.
+    //   //  If omitted or set to `false`, you must request the plugin manager
+    //   //  to start up the plugin on a game scene using the method
+    //   //  `this.plugins.start('<key>')`.
+    //   start: true
+    // },
+  ],
+
+  scene: [
+    // {
+    //   //  An identifier for reference in the scene `Systems` class. It must
+    //   //  be unique to avoid naming clashes with other plugins.
+    //   key: 'ExampleScenePlugin',
+    //
+    //   //  The imported plugin class.
+    //   plugin: ExampleScenePlugin,
+    //
+    //   //  The property name your plugin will be aliased to. This plugin
+    //   //  will be exposed as a property of your scene context, for example,
+    //   //  `this.myPlugin`.
+    //   mapping: 'myPlugin'
+    // }
+  ]
 };
 
 /**
