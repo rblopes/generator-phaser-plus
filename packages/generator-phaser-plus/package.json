@@ -51,25 +51,25 @@
   },
   "dependencies": {
     "@rblopes/generator-phaser-plus-template-default": "^1.0.0-beta.3",
-    "chalk": "^2.3.0",
+    "chalk": "^2.4.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.isempty": "^4.4.0",
     "lodash.kebabcase": "^4.1.1",
     "lodash.trim": "^4.5.0",
     "lodash.upperfirst": "^4.3.0",
     "superb": "^2.0.0",
-    "which": "^1.3.0",
+    "which": "^1.3.1",
     "yargs": "^11.0.0",
-    "yeoman-environment": "^2.0.6",
-    "yeoman-generator": "^2.0.1"
+    "yeoman-environment": "^2.1.1",
+    "yeoman-generator": "^2.0.5"
   },
   "devDependencies": {
-    "cross-env": "^5.1.3",
-    "fs-extra": "^5.0.0",
-    "mocha": "^5.0.5",
-    "xo": "^0.20.1",
+    "cross-env": "^5.1.6",
+    "fs-extra": "^6.0.1",
+    "mocha": "^5.2.0",
+    "xo": "^0.21.1",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^1.7.0"
+    "yeoman-test": "^1.7.2"
   },
   "xo": {
     "envs": [
