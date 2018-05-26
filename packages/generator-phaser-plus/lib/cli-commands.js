@@ -30,7 +30,7 @@ exports.object = {
 };
 
 exports.plugin = {
-  command: 'plugin <name> [id]',
+  command: 'plugin <name>',
   aliases: ['p'],
   describe: 'Create a custom plugin class.',
   builder(yargs) {
@@ -39,10 +39,11 @@ exports.plugin = {
         type: 'string',
         describe: 'The plugin class name.'
       })
-      .positional('id', {
-        type: 'string',
-        describe: `The internal plugin 'id'.`,
-        default: null
+      .option('type', {
+        alias: 't',
+        describe: 'The kind of plugin to generate',
+        choices: ['global', 'scene'],
+        default: 'global'
       });
   }
 };

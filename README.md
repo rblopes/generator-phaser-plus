@@ -108,16 +108,28 @@ Creates game object classes. This generator will ask which Phaser game object cl
 
 #### `plugin` generator
 
-```sh
-phaser-plus plugin <name> [id]
+Beginning with release 3.8.0, Phaser enhanced its plugin manager and added support for two kinds of custom plugins: Global Plugins and Scene Plugins.
+
+Global plugins are instantiated once and persist throughout the whole game session.
+
+Scene plugins are instantiated with each scene, and each instance is tied to its host scene life cycle.
+
+`generator-phaser-plus` can create the blueprint of a custom Phaser plugin to use with your games. If you need to add some extra functionality to your game, for example, integrating an external library into Phaser, you can achieve that using a custom plugin.
+
+To create a custom plugin, use the following command:
+
+```
+phaser-plus plugin <name> --type <global|scene>
 ```
 
-Creates custom plugin classes.
+-   **Command Alias**: `p`.
 
--   **Alias**: `p`.
 -   **Arguments**:
     -   **`name`**: The plugin class name. Required.
-    -   **`id`**: The internal plugin 'id'. Optional. When omitted, the generator will infer the 'id' from the class name.
+
+-   **Options**:
+    -   **`type`**: Alias: **`t`**. The kind of plugin to generate. Can be
+        either `global` (the default) or `scene`.
 
 #### `scene` generator.
 

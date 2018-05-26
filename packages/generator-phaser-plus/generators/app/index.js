@@ -84,20 +84,30 @@ module.exports = class extends Generator {
   }
 
   end() {
-    if (!this.options['skip-install']) {
-      this.log([
-        ``,
-        `Congratulations! Your new game project is ready!`,
-        ``,
+    const msg = [
+      `\n\n🎆 Congratulations! Your new game project is ready! 🎆\n`
+    ];
+
+    if (this.options['skip-install']) {
+      msg.push(
+        `Since you skipped the installation of dependencies, do not forget`,
+        `you will have to do that manually to complete your project setup.`
+      );
+    } else {
+      msg.push(
         `To start developing your game right away, run:`,
         `  ${chalk.green(`${npmClient} start`)}`,
         ``,
         `To create a distribution build:`,
-        `  ${chalk.green(`${npmClient} run dist`)}`,
-        ``,
-        `You will find more info on the project README.`,
-        `Good luck, and happy hacking :)`
-      ].join('\n'));
+        `  ${chalk.green(`${npmClient} run dist`)}`
+      );
     }
+
+    msg.push(
+      `\nYou will find more instructions on your project's README file.`,
+      `\nGood luck, and happy hacking :)`
+    );
+
+    this.log(msg.join('\n'));
   }
 };
