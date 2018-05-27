@@ -13,7 +13,7 @@ git:
 cache:
   directories:
     - $HOME/.cache/yarn
-    - ./node_modules
+    - node_modules
 
 branches:
   only:
