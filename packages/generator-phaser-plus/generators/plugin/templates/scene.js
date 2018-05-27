@@ -36,6 +36,11 @@ export default class <%- name %> extends Phaser.Plugins.ScenePlugin {
     // this.events.on('resume', this.resume, this);
     // this.events.on('sleep', this.sleep, this);
     // this.events.on('wake', this.wake, this);
+    // this.events.on('transitioninit', this.transitionInit, this);
+    // this.events.on('transitionstart', this.transitionStart, this);
+    // this.events.on('transitionwake', this.transitionWake, this);
+    // this.events.on('transitioncomplete', this.transitionComplete, this);
+    // this.events.on('transitionout', this.transitionOut, this);
     // this.events.on('shutdown', this.shutdown, this);
 
     //  NOTE: Provide at least a `destroy` callback to free up resources used
@@ -138,6 +143,57 @@ export default class <%- name %> extends Phaser.Plugins.ScenePlugin {
    *  @param {Phaser.Scenes.Systems} sys - The systems object of the host scene.
    */
   wake(/* sys */) {
+  }
+
+  /**
+   *  Called when a scene transition starts, when the `init` method of the
+   *  target scene is called.
+   *
+   *  @private
+   *  @param {Phaser.Scene} scene - The scene that requested the transition.
+   *  @param {number} duration - The duration of this transition.
+   */
+  transitionInit(/* scene, duration */) {
+  }
+
+  /**
+   *  Called when a scene transition starts, when the `create` method of the
+   *  target scene is called.
+   *
+   *  @private
+   *  @param {Phaser.Scene} scene - The scene that requested the transition.
+   *  @param {number} duration - The duration of this transition.
+   */
+  transitionStart(/* scene, duration */) {
+  }
+
+  /**
+   *  Called when a scene transition, when the target scene is 'sleeping'.
+   *
+   *  @private
+   *  @param {Phaser.Scene} scene - The scene that requested the transition.
+   *  @param {number} duration - The duration of this transition.
+   */
+  transitionWake(/* scene, duration */) {
+  }
+
+  /**
+   *  Called when a scene is transitioning starts.
+   *
+   *  @private
+   *  @param {Phaser.Scene} scene - The scene target of this transition.
+   *  @param {number} duration - The duration of this transition.
+   */
+  transitionOut(/* scene, duration */) {
+  }
+
+  /**
+   *  Called when a scene transition finishes.
+   *
+   *  @private
+   *  @param {Phaser.Scene} scene - The scene target of this transition.
+   */
+  transitionComplete(/* scene */) {
   }
 
   /**
