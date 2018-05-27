@@ -3,17 +3,18 @@ export default class <%- name %> extends Phaser.Plugins.ScenePlugin {
    *  My custom scene plugin.
    *
    *  @constructor
+   *  @param {Phaser.Scene} scene - The scene that hosts this plugin.
    *  @param {Phaser.Plugins.PluginManager} manager - Phaser plugin manager.
    */
-  constructor(manager) {
-    super(manager);
+  constructor(scene, manager) {
+    super(scene, manager);
 
     /**
-     *  The event emitter of the Phaser game instance this plugin is bound to.
+     *  The event emitter of the scene this plugin is bound to.
      *
      *  @type {Phaser.Events}
      */
-    this.events = this.game.events;
+    this.events = this.systems.events;
   }
 
   /**
