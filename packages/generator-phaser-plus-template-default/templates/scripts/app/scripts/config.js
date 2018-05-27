@@ -75,11 +75,6 @@ export const backgroundColor = '#000000';
  */
 export const physics = {
   /**
-   *  Enable a physics engine by default on all game scenes.
-   */
-  default: false,
-
-  /**
    *  Phaser Arcade Physics 2 parameters.
    *
    *  This engine becomes available under a `physics` property on game scenes.
@@ -101,7 +96,12 @@ export const physics = {
    *  This engine becomes available under a `impact` property on game scenes.
    */
   // impact: {
-  // }
+  // },
+
+  /**
+   *  Enable a physics engine by default on all game scenes.
+   */
+  default: false
 };
 
 /**
