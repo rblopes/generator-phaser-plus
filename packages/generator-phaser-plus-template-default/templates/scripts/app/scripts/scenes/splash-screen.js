@@ -68,20 +68,11 @@ export default class SplashScreen extends Phaser.Scene {
     //  Get the progress bar filler texture dimensions.
     const {width: w, height: h} = this.textures.get('progress-bar').get();
 
-    //  Create a shape to use as a mask for our progress bar filler.
-    const mask = this.add.graphics();
-
-    //  Place the filler texture on the progress bar "hole" of the splash
-    //  screen.
+    //  Place the filler over the progress bar of the splash screen.
     const img = this.add.sprite(82, 282, 'progress-bar').setOrigin(0);
 
-    //  Apply the mask and move the shape at the same coordinates of the
-    //  filler texture.
-    img.mask = new Phaser.Display.Masks.GeometryMask(this, mask);
-    mask.setPosition(img.x, img.y);
-
-    //  Given how many files have been loaded, paint the shape mask to reveal
-    //  more of the filler, giving the progress bar its animation effect.
-    this.load.on('progress', v => mask.fillRect(0, 0, Math.ceil(v * w), h));
+    //  Crop the filler along its width, proportional to the amount of files
+    //  loaded.
+    this.load.on('progress', v => img.setCrop(0, 0, Math.ceil(v * w), h));
   }
 }
