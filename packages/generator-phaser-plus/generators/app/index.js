@@ -1,7 +1,7 @@
 'use strict';
 
 const chalk = require('chalk');
-const superb = require('superb');
+const superb = require('superb').random;
 const Generator = require('yeoman-generator');
 const which = require('which');
 const trim = require('lodash.trim');
@@ -9,7 +9,7 @@ const isEmpty = require('lodash.isempty');
 const banner = require('../../lib/banner');
 const defaults = require('../../lib/defaults');
 
-//  Assume 'npm' as the default npm client.
+//  Assume 'npm' is the default npm client.
 let npmClient = 'npm';
 
 module.exports = class extends Generator {
