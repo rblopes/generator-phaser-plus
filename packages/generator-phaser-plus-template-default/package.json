@@ -1,7 +1,7 @@
 {
   "name": "@rblopes/generator-phaser-plus-template-default",
   "description": "Create Phaser Web games with ease.",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "homepage": "https://github.com/rblopes/generator-phaser-plus/tree/master/packages/generator-phaser-plus-template-default#readme",
   "author": "Rafael Barbosa Lopes (https://github.com/rblopes)",
   "contributors": [],
