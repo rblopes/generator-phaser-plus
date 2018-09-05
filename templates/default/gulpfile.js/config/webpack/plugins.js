@@ -6,7 +6,7 @@
  */
 
 const webpack = require('webpack');
-const {pkg} = require('read-pkg-up').sync();
+const {package: pkg} = require('read-pkg-up').sync();
 const HTML = require('html-webpack-plugin');
 const Copy = require('copy-webpack-plugin');
 const {dirs, dest} = require('../paths');
@@ -21,9 +21,12 @@ module.exports = (env = 'development') =>
     //  Reference:
     //  - <https://webpack.js.org/plugins/define-plugin/>
     new webpack.DefinePlugin({
-      //  Required by Phaser: Enable Canvas and WebGL renderers.
       'typeof CANVAS_RENDERER': true,
-      'typeof WEBGL_RENDERER': true
+      'typeof WEBGL_RENDERER': true,
+      'typeof EXPERIMENTAL': false,
+      'typeof FEATURE_SOUND': true,
+      'typeof PLUGIN_CAMERA3D': false,
+      'typeof PLUGIN_FBINSTANT': false
     }),
 
     //  HTML Plugin
