@@ -82,7 +82,14 @@
       "test/fixtures/**"
     ],
     "rules": {
-      "capitalized-comments": "off"
+      "capitalized-comments": "off",
+      "quotes": [
+        "error",
+        "single",
+        {
+          "allowTemplateLiterals": true
+        }
+      ]
     },
     "space": true
   },
