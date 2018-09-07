@@ -1,7 +1,7 @@
 {
   "name": "generator-phaser-plus",
   "description": "Create Phaser Web games with ease.",
-  "version": "3.0.0-beta.6",
+  "version": "3.0.0-beta.7",
   "homepage": "https://github.com/rblopes/generator-phaser-plus/tree/master/packages/generator-phaser-plus#readme",
   "author": "Rafael Barbosa Lopes (https://github.com/rblopes)",
   "contributors": [],
@@ -50,7 +50,7 @@
     "node": ">= 6.12"
   },
   "dependencies": {
-    "@rblopes/generator-phaser-plus-template-default": "^1.0.0-beta.5",
+    "@rblopes/generator-phaser-plus-template-default": "^1.0.0-beta.6",
     "chalk": "^2.4.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.isempty": "^4.4.0",
