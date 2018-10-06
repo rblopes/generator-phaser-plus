@@ -177,7 +177,7 @@ The scene we are creating here will be named `Title`, and will serve as your gam
 
 <div align='center'><img src='media/tutorial/02.png' alt='Screenshot'></div>
 
-Immediately after you hit <kbd>Enter</kbd>, the generator will create your new scene file but will halt for a moment. This is OK. The generator is now trying to update the scenes index (the `app/scritps/scenes/index.js` file) so you don't have to do that manually. Because it is modifying an already existing file, the generator gives you the opportunity to review these changes. To see which lines are being added to that file, just type <kbd>D</kbd>, followed by <kbd>Enter</kbd>, to get a preview of the changes. When you finish reviewing, or just want to proceed anyway, type <kbd>Y</kbd> and <kbd>Enter</kbd> to answer "Yes" and confirm.
+Immediately after you hit <kbd>Enter</kbd>, the generator will create your new scene file but will halt for a moment. This is OK. The generator is now trying to update the scenes index (the `app/scripts/scenes/index.js` file) so you don't have to do that manually. Because it is modifying an already existing file, the generator gives you the opportunity to review these changes. To see which lines are being added to that file, just type <kbd>D</kbd>, followed by <kbd>Enter</kbd>, to get a preview of the changes. When you finish reviewing, or just want to proceed anyway, type <kbd>Y</kbd> and <kbd>Enter</kbd> to answer "Yes" and confirm.
 
 <div align='center'><img src='media/tutorial/03.png' alt='Screenshot'></div>
 
