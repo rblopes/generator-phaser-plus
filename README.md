@@ -53,7 +53,7 @@
 
 ## Installation and Usage
 
->   **NOTE**: Assuming you have at least [Node.js](https://nodejs.org/) `v6.12` installed.
+>   **NOTE**: Assuming you have at least the latest [Node.js](https://nodejs.org/) release with [long-term support](https://nodejs.org/en/about/releases/) installed.
 
 Download and install `generator-phaser-plus` from npm, using either `npm` or [Yarn](https://yarnpkg.com/).
 
