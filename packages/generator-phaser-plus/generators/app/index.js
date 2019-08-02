@@ -32,8 +32,8 @@ module.exports = class extends Generator {
     ].join('\n'));
   }
 
-  prompting() {
-    const questions = [{
+  async prompting() {
+    this.variables = await this.prompt([{
       name: 'title',
       message: `What is the title of your new game project`,
       default: `My ${superb()} game`,
@@ -43,11 +43,7 @@ module.exports = class extends Generator {
       name: 'description',
       message: `How would you describe you game project (optional)`,
       filter: s => trim(s)
-    }];
-
-    return this
-      .prompt(questions)
-      .then(variables => Object.assign(this, {variables}));
+    }]);
   }
 
   configuring() {
