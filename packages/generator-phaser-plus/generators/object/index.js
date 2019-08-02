@@ -18,8 +18,8 @@ module.exports = class extends Generator {
     this.log('Game object class generator:\n');
   }
 
-  prompting() {
-    const questions = [{
+  async prompting() {
+    this.variables = await this.prompt([{
       name: 'baseClass',
       type: 'list',
       message: `From which 'GameObject' class to extend from?`,
@@ -34,19 +34,13 @@ module.exports = class extends Generator {
         {name: 'Graphics', value: 'graphics'},
         {name: 'None', value: 'plain'}
       ]
-    }];
+    }]);
 
-    return this
-      .prompt(questions)
-      .then(variables => {
-        //  Assign user inputs to the variables hash.
-        variables.name = utils.pascalCase(this.options.name);
+    //  Assign user inputs to the variables hash.
+    this.variables.name = utils.pascalCase(this.options.name);
 
-        //  Infer the object texture key by its class name.
-        variables.texture = kebabCase(this.options.name);
-
-        return Object.assign(this, {variables});
-      });
+    //  Infer the object texture key by its class name.
+    this.variables.texture = kebabCase(this.options.name);
   }
 
   writing() {
