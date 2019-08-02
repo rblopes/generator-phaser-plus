@@ -60,12 +60,11 @@ module.exports = class extends Generator {
 
   writing() {
     //  Set default configuration values.
-    this.config.defaults(Object.assign({
-      meta: {
-        createdWith: this.rootGeneratorVersion(),
-        creationDate: new Date().toISOString()
-      }
-    }, defaults));
+    this.config.defaults({
+      createdWith: this.rootGeneratorVersion(),
+      creationDate: new Date().toISOString(),
+      ...defaults
+    });
   }
 
   install() {

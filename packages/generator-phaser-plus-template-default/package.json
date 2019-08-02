@@ -69,6 +69,14 @@
     "ignores": [
       "templates/**"
     ],
+    "overrides": [
+      {
+        "files": "test.js",
+        "rules": {
+          "promise/prefer-await-to-then": "off"
+        }
+      }
+    ],
     "rules": {
       "capitalized-comments": "off",
       "quotes": [
