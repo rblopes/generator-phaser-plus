@@ -7,23 +7,21 @@ module.exports = class extends Generator {
     //  Retrieve prompt values via generator composition.
     const {variables} = this.options;
 
-    //  Copy dotfiles.
-    for (const file of ['gitattributes', 'gitignore']) {
-      this.fs.copy(
-        this.templatePath(`dotfiles/${file}`),
-        this.destinationPath(`.${file}`)
-      );
-    }
-
     //  Copy project files.
     this.fs.copyTpl(
-      this.templatePath('project/**'),
+      this.templatePath('**'),
       this.destinationPath(),
       variables, {}, {
         globOptions: {
           dot: true
         }
       }
+    );
+
+    // Just rename `.gitignore` after copying it to the project directory.
+    this.fs.move(
+      this.destinationPath('gitignore'),
+      this.destinationPath('.gitignore')
     );
   }
 };
