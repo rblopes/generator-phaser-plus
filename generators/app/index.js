@@ -3,7 +3,7 @@
 const chalk = require('chalk');
 const superb = require('superb').random;
 const Generator = require('yeoman-generator');
-const which = require('which');
+const {which} = require('shelljs');
 const trim = require('lodash.trim');
 const isEmpty = require('lodash.isempty');
 const banner = require('../../lib/banner');
@@ -48,7 +48,7 @@ module.exports = class extends Generator {
 
   configuring() {
     //  If available, prefer Yarn instead of npm.
-    if (this.options.yarn && which.sync('yarn', {nothrow: true})) {
+    if (this.options.yarn && which('yarn')) {
       npmClient = 'yarn';
     }
   }
