@@ -51,14 +51,31 @@ module.exports = class extends Generator {
     if (this.options.yarn && which.sync('yarn', {nothrow: true})) {
       npmClient = 'yarn';
     }
-
-    this.composeWith(
-      require.resolve('@rblopes/generator-phaser-plus-template-default'),
-      {variables: this.variables}
-    );
   }
 
   writing() {
+    //  Retrieve prompt values via generator composition.
+    const {variables} = this;
+
+    //  Copy project files.
+    this.fs.copyTpl(
+      this.templatePath('**'),
+      this.destinationPath(),
+      variables,
+      {},
+      {
+        globOptions: {
+          dot: true
+        }
+      }
+    );
+
+    // Just rename `.gitignore` after copying it to the project directory.
+    this.fs.move(
+      this.destinationPath('gitignore'),
+      this.destinationPath('.gitignore')
+    );
+
     //  Set default configuration values.
     this.config.defaults({
       createdWith: this.rootGeneratorVersion(),

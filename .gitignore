@@ -1,5 +1,6 @@
 *.tgz
 *.log*
+yarn.lock
 Session.vim
 
 dist/
