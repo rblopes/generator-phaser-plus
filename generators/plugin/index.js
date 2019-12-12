@@ -11,7 +11,7 @@ const TYPE_REGEXP = /^(?:global|scene)$/i;
 function getType(s) {
   try {
     return s.trim().match(TYPE_REGEXP)[0];
-  } catch (error) {
+  } catch (_) {
     throw new TypeError(`Wrong plugin type given: "${s}".`);
   }
 }
