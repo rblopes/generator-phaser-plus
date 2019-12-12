@@ -4,25 +4,25 @@
         <a href="https://www.npmjs.com/package/generator-phaser-plus">
             <img
                 alt="npm version"
-                src="https://img.shields.io/npm/v/generator-phaser-plus.svg?style=flat-square"
+                src="https://flat.badgen.net/npm/v/generator-phaser-plus"
             >
         </a>
-        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus/">
+        <a href="https://david-dm.org/rblopes/generator-phaser-plus">
             <img
                 alt="dependencies status badge"
-                src="https://david-dm.org/rblopes/generator-phaser-plus/status.svg?style=flat-square&path=packages/generator-phaser-plus"
+                src="https://flat.badgen.net/david/dep/rblopes/generator-phaser-plus"
             >
         </a>
-        <a href="https://david-dm.org/rblopes/generator-phaser-plus?path=packages/generator-phaser-plus/&type=dev">
+        <a href="https://david-dm.org/rblopes/generator-phaser-plus?type=dev">
             <img
                 alt="development dependencies status badge"
-                src="https://david-dm.org/rblopes/generator-phaser-plus/dev-status.svg?style=flat-square&path=packages/generator-phaser-plus"
+                src="https://flat.badgen.net/david/dev/rblopes/generator-phaser-plus"
             >
         </a>
         <a href="https://travis-ci.org/rblopes/generator-phaser-plus">
             <img
                 alt="Travis CI build status badge"
-                src="https://img.shields.io/travis/rblopes/generator-phaser-plus.svg?style=flat-square"
+                src="https://flat.badgen.net/travis/rblopes/generator-phaser-plus"
             >
         </a>
     </div>
