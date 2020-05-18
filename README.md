@@ -1,3 +1,9 @@
+# 🛑 DISCONTINUED 🛑
+
+It has been a long journey but development of `generator-phaser-plus` is now over. I recommend you have a look and fork [`yandeu/phaser-project-template`](https://github.com/yandeu/phaser-project-template) instead. This repository will be archived shortly.
+
+----
+
 <div align="center">
     <img src="media/logo.svg" alt="generator-phaser-plus logo" title="generator-phaser-plus">
     <div>
